@@ -1,0 +1,89 @@
+/* 
+
+  Default scss for all projects of this type
+  NOTE it's not possibe to extend awithin a media query, so have to use a mixin instead
+  Extends do not allow customization, but they produce very efficient CSS.
+  https://stackoverflow.com/questions/18008700/using-include-vs-extend-in-sass
+  See note on this:
+  @extend is perfectly ok for as long as you never use it with any browser spesific selectors. 
+  If you do, it will suddenly tear down the styles wherever you have used it. Try to rely on mixins instead!;
+*/
+
+@mixin fullScreen_aboveFold {
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+/**
+ * Consistent font weight rendering
+ * https://maximilianhoffmann.com/posts/better-font-rendering-on-osx
+ */
+@mixin font-smoothing($value: on) {
+    @if $value == on {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    @else {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: auto;
+    }
+}
+
+@mixin heading($fs, $align: left) {
+
+  $font-size: calc-rem($fs);
+  $leading: $font-size * $leading-title;
+
+  @if $align == center {
+    text-align: center;
+  }
+  @else {
+    text-align: left;
+  }
+
+  @include font-smoothing(on);
+  font-family: $font-title;
+  font-style: italic;
+  font-size: $font-size;
+  line-height: $leading;
+
+}
+
+body {
+  @extend %size-text;
+  font-family: $font-text;
+  color: $colour-black;
+}
+
+a {
+  color: $colour_blue;
+}
+
+h1 {
+  @include heading(45, center);
+}
+
+h2 {
+  @include heading(30);
+}
+
+h3 {
+	margin-top: 1rem;
+   @include heading(24);
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.sample-para {
+	margin-top: 3em;
+	margin-left: 35%;
+	margin-right: 35%;
+}

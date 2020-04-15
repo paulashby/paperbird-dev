@@ -1,0 +1,63 @@
+// Breakpoints
+$breakpoints: (
+  "phone":        400px,
+  "phone-wide":   480px,
+  "phablet":      550px,
+  "tablet-small": 640px,
+  "tablet":       750px,
+  "desktop":      1000px,
+  "desktop-wide": 1200px
+);
+
+$zindecies: ();
+
+// Colours
+$colour-black: #000;
+$colour-teal: #0ff;
+$colour-blue: #283583;
+
+// $colour-transition_duration: 2s;
+// $menu_slide_duration: 1s;
+$menu-transition_duration: 1s;
+$rotate-transition_duration: .5s;
+
+// Fonts
+$font-title: 'Lora', serif;
+$font-text: 'Lora', serif;
+$font-secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
+// $font-text: 'PT Serif', serif;
+
+// Base sizes in pixels
+$base__font-size: 15.999 !default;
+$base__line: 18 !default;
+
+// Leading as proportion of font size
+$leading-title: 1.2;
+
+%margin-padding-free {
+  margin: 0;
+  padding: 0;
+}
+
+%full-height-no-scroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/*
+
+  The % at the startof %size-text makes it a placeholder class - meaning it will only
+  'print' when it's extended - a bit like an abstract class in other languages, then
+  https://sass-lang.com/guide
+
+*/
+// Font-sizes
+%size-text {
+  font-size: calc-rem(15);
+  line-height: calc-rem(19);
+
+  @media (min-width: map_get($breakpoints, "tablet")) {
+    font-size: calc-rem(17);
+    line-height: calc-rem(21);
+  }
+}

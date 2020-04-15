@@ -1,0 +1,58 @@
+/* 
+
+	Style overrides specifically for this project 
+
+*/
+
+$colour-pb-neutral: #958b87;
+$colour-pb-neutral-dark: #645550;
+$colour-pb-purple: #6e5f77;
+$colour-pb-purple-dark: #52415c;
+$colour-pb-green: #b2cf96;
+$colour-pb-blue: #98c5d0;
+$colour-pb-peach: #f5a488;
+
+@mixin menu_transition {
+
+	@include transition(all $menu-transition_duration ease);
+
+}
+
+
+
+body {
+	color: $colour-pb-neutral-dark;
+}
+
+h2, h3, h4 {
+	color: $colour-pb-purple;
+}
+
+.menu__entries {
+
+	/* Colourise menu__entries when menu has menu--foo class */
+
+	background-color: $colour-pb-neutral;
+	@include menu_transition;
+		// include transition(background-color $colour-transition_duration ease);
+
+	.menu--collections & {
+		background-color: $colour-pb-green;
+		@include menu_transition;
+	}
+	.menu--occasions & {
+		background-color: $colour-pb-blue;
+		@include menu_transition;
+	}
+	.menu--giftwrap & {
+		background-color: $colour-pb-peach;
+		@include menu_transition;
+	}
+}
+
+.titleBlock {
+
+	background-image: url('../img/homebg.jpg');
+	background-repeat: no-repeat;
+
+}
