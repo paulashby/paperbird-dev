@@ -9,10 +9,9 @@ $out = "<div class='menu'>
 	<ul class='menu__entries'>";
 	
 $options = $value;
-
-foreach($options as $key => $value) {	
-	
-	$out .= "<li>" . $page->renderValue($value, $key) . "</li>";
+foreach($options as $field_type => $value) {	
+	TD::barDump($value, $field_type);
+	$out .= "<li>" . $page->renderValue($value, $field_type) . "</li>";
 
 }
 

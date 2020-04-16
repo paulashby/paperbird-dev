@@ -45,9 +45,9 @@
 
   @include font-smoothing(on);
   font-family: $font-title;
-  font-style: italic;
   font-size: $font-size;
   line-height: $leading;
+  font-weight: bold;
 
 }
 
@@ -60,7 +60,8 @@ body {
 a {
   color: $colour_blue;
 }
-
+/*
+THese should be BEM classes rather than html tags
 h1 {
   @include heading(45, center);
 }
@@ -73,7 +74,7 @@ h3 {
 	margin-top: 1rem;
    @include heading(24);
 }
-
+*/
 .nowrap {
   white-space: nowrap;
 }

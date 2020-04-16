@@ -20,21 +20,20 @@
             <h1><a href="/">Home</a></h1>
             <h2>Level two heading<br>Hows my leading?</h2>
             <h3>Level three heading<br>How bout mine?</h3>
-            
-
-<!--             <h1>Delightfully cute & quirky</h1>
-           <h3 class='specimen-1'>Simply beautiful contemporary greetings cards</h3> -->
-            <?php 
-                // Slider - selector excludes entries whose product shots are not yet set
-                echo $page->renderValue($pages->find("template=artist,biography_card.product_shot>0"), "slider");
-             ?>
-
-            <p class='sample-para'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis laboriosam, id cupiditate soluta est eaque saepe doloremque tempora animi maxime sapiente magnam, laudantium nam dolores quaerat amet dicta harum enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam iste, aut perspiciatis provident expedita nulla molestias tempore molestiae quam alias. Cum nobis consectetur laboriosam illo voluptatem, fuga. Sunt voluptatibus, quidem.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis laboriosam, id cupiditate soluta est eaque saepe doloremque tempora animi maxime sapiente magnam, laudantium nam dolores quaerat amet dicta harum enim. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam iste, aut perspiciatis provident expedita nulla molestias tempore molestiae quam alias. Cum nobis consectetur laboriosam illo voluptatem, fuga. Sunt voluptatibus, quidem.</p>
         </main>
-        <footer data-pw-id='footer'></footer>
+        <?php
+            echo $page->renderValue($page, 'footer');
+        ?>
         <region data-pw-id='scripts'>
-            <?php
+             <?php
+             /*
+                HTML region tags don't appear in final output
+                WHY AM I DOING THIS THOUGH - I DON"T SEEM TO BE MANIPULATING MARKUP REGIONS IN MY OTHER TEMPLATES - SUCH AS home.php
+
+                TRY MANIPULATING FOOTER OUTPUT IN home.php
+
+                https://processwire.com/docs/front-end/output/markup-regions/
+            */
             echo loadWebpackChunks('js', array(
                 'manifest', 'vendor', 'main'
             ));

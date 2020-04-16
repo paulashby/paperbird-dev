@@ -4,13 +4,6 @@
 
 */
 
-$colour-pb-neutral: #958b87;
-$colour-pb-neutral-dark: #645550;
-$colour-pb-purple: #6e5f77;
-$colour-pb-purple-dark: #52415c;
-$colour-pb-green: #b2cf96;
-$colour-pb-blue: #98c5d0;
-$colour-pb-peach: #f5a488;
 
 @mixin menu_transition {
 
@@ -24,9 +17,6 @@ body {
 	color: $colour-pb-neutral-dark;
 }
 
-h2, h3, h4 {
-	color: $colour-pb-purple;
-}
 
 .menu__entries {
 

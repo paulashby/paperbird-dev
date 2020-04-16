@@ -16,15 +16,27 @@ $colour-black: #000;
 $colour-teal: #0ff;
 $colour-blue: #283583;
 
+$colour-pb-neutral: #958b87;
+$colour-pb-neutral-dark: #645550;
+$colour-pb-purple: #6e5f77;
+$colour-pb-purple-dark: #52415c;
+$colour-pb-purple-mid: #a89fad;
+$colour-pb-purple-light: #ccc7d0;
+$colour-pb-green: #b2cf96;
+$colour-pb-blue: #98c5d0;
+$colour-pb-blue-mid: #cbe2e7;
+$colour-pb-blue-light: #dbebef;
+$colour-pb-peach: #f5a488;
+
 // $colour-transition_duration: 2s;
 // $menu_slide_duration: 1s;
 $menu-transition_duration: 1s;
 $rotate-transition_duration: .5s;
 
 // Fonts
-$font-title: 'Lora', serif;
+$font-title: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-text: 'Lora', serif;
-$font-secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;;
+$font-secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 // $font-text: 'PT Serif', serif;
 
 // Base sizes in pixels
@@ -60,4 +72,8 @@ $leading-title: 1.2;
     font-size: calc-rem(17);
     line-height: calc-rem(21);
   }
+}
+%footer-base-text {
+  color: $colour-pb-purple-light;
+  font-size: calc-rem(13);
 }
