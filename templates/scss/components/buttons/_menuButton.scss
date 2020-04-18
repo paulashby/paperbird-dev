@@ -1,0 +1,106 @@
+
+.menu__button {
+	cursor: pointer;
+	display: inline-block;
+	position: absolute;
+	right: 20px;
+	top: 31px;
+	// transition: 0.4s;
+
+	/* toggle */
+	
+
+	.menu__bar {
+		width: 25px;
+		height: 3px;
+		background-color: $colour-pb-purple-dark;
+		margin: 6px 0;
+
+		&.menu__bar--active {
+			
+		}
+	}
+}
+.menu__button--toggle {
+	@include menu_transition;
+	z-index: 2;
+
+	.menu__bar {
+		&.menu__bar--active {
+			background-color: #fff;
+			@include menu_transition;
+		}
+	}
+	.menu__bar--1 {
+		
+		/* Rotate first bar */
+		&.menu__bar--active {
+			@extend %menu-button-cross-bar-1;
+		}
+	}
+
+	.menu__bar--2 {
+		
+		/* Fade out the second bar */
+		&.menu__bar--active {
+			opacity: 0;
+		}
+	}
+
+	.menu__bar--3 {
+		
+		/* Rotate last bar */
+		&.menu__bar--active {
+			@extend %menu-button-cross-bar-3;
+		}
+	}
+}
+
+.menu__button--close {
+
+	@include transform(scale(7) scale(0.1) translate(19px, -40px) );
+
+	.menu__bar {
+
+		background-color: #fff;
+
+	}
+
+	.menu__bar--1 {
+		
+		/* Rotate first bar */
+		@extend %menu-button-cross-bar-1;
+		
+	}
+
+	.menu__bar--2 {
+		
+		/* Fade out the second bar */
+		opacity: 0;
+	}
+
+	.menu__bar--3 {
+		
+		/* Rotate last bar */
+		@extend %menu-button-cross-bar-3;
+	}
+
+}
+
+.menu__button--open {
+
+	.menu__bar {
+		opacity: 1;
+
+		
+		&.menu__bar--active {
+			opacity: 0;
+			// @include transition(opacity 5s ease);
+			// @include menu_transition(opacity, 3s);
+			@include menu_transition(opacity, 1s);
+
+
+		}
+	}
+
+}
