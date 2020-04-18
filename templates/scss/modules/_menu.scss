@@ -1,47 +1,41 @@
+
+@mixin menu_transition($property_name: all, $dur: $menu-transition_duration) {
+
+	@include transition(#{$property_name} $dur ease);
+
+}
+
+@import 'components/buttons/menuButton';
+
 body.menu__entries--active {
 	
 	@extend %full-height-no-scroll;	
 	
 }
 
-.menu {
+.menu__entries {
 
-	 .menu__toggle {
-		display: inline-block;
-		cursor: pointer;
+	/* Colourise menu__entries when menu has menu--foo class */
 
-		.menu__toggle-bar {
-			width: 25px;
-			height: 3px;
-			background-color: #333;
-			margin: 6px 0;
-			transition: 0.4s;
-		}
+	@extend %menu-element-full-screen;
 
-		.menu__toggle-bar--1 {
-			
-			/* Rotate first bar */
-			&.menu__toggle-bar--active {
-			  @include transform(rotate(-45deg) translate(-6.425px, 6px));
-			}
-		}
+	@include menu_transition;
 
-		.menu__toggle-bar--2 {
-			
-			/* Fade out the second bar */
-			&.menu__toggle-bar--active {
-				opacity: 0;
-			}
-		}
-
-		.menu__toggle-bar--3 {
-			
-			/* Rotate last bar */
-			&.menu__toggle-bar--active {
-				@include transform(rotate(45deg) translate(-6px, -7px));
-			}
-		}
+	.menu--collections & {
+		background-color: $colour-pb-green;
+		@include menu_transition;
 	}
+	.menu--occasions & {
+		background-color: $colour-pb-blue;
+		@include menu_transition;
+	}
+	.menu--giftwrap & {
+		background-color: $colour-pb-peach;
+		@include menu_transition;
+	}
+}
+
+.menu {
 
 	.menu__entries {
 		height: 100vh;
@@ -51,15 +45,14 @@ body.menu__entries--active {
 		left: -100%;
 		overflow: scroll;
 	}
-	.menu__toggle {
-		left: 0;
-		position: absolute;
-		z-index: 2;
-	}
 
 }
 
 body.menu__entries--active {
+
+	.menu__button--toggle {
+		@include transform(scale(7) scale(0.1) translate(-10px, -10px) );
+	}
 
 	.menu__entries {
 		left: 0;

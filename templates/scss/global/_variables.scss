@@ -30,8 +30,9 @@ $colour-pb-peach: #f5a488;
 
 // $colour-transition_duration: 2s;
 // $menu_slide_duration: 1s;
-$menu-transition_duration: 1s;
-$rotate-transition_duration: .5s;
+$menu-transition_duration: .5s;
+$menu-transition_duration_slow: 10s;
+$rotate-transition_duration: .25s;
 
 // Fonts
 $font-title: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -76,4 +77,25 @@ $leading-title: 1.2;
 %footer-base-text {
   color: $colour-pb-purple-light;
   font-size: calc-rem(13);
+}
+%menu-element-full-screen {
+    background-color: $colour-pb-blue;
+    border: 20px solid white;
+    font-family: $font-secondary;
+    font-size: calc-rem(15);
+    height: 100%;
+    line-height: 160%;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    @include prefix((
+      box-sizing: border-box
+    ), webkit moz);
+}
+%menu-button-cross-bar-1 {
+  @include transform(rotate(-45deg) translate(-6.425px, 6px));
+}
+%menu-button-cross-bar-3 {
+  @include transform(rotate(45deg) translate(-6px, -7px));
 }

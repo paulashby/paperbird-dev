@@ -4,41 +4,30 @@
 
 */
 
-
-@mixin menu_transition {
-
-	@include transition(all $menu-transition_duration ease);
-
-}
-
-
-
 body {
 	color: $colour-pb-neutral-dark;
 }
 
-
-.menu__entries {
-
-	/* Colourise menu__entries when menu has menu--foo class */
-
-	background-color: $colour-pb-neutral;
-	@include menu_transition;
-		// include transition(background-color $colour-transition_duration ease);
-
-	.menu--collections & {
-		background-color: $colour-pb-green;
-		@include menu_transition;
-	}
-	.menu--occasions & {
-		background-color: $colour-pb-blue;
-		@include menu_transition;
-	}
-	.menu--giftwrap & {
-		background-color: $colour-pb-peach;
-		@include menu_transition;
-	}
+/* sticky footer */
+html, body {
+	height: 100%;
 }
+body {
+	display: flex;
+	flex-direction: column;
+}
+main {
+	flex: 1 0 auto;
+}
+/* END sticky footer */
+
+.logo {
+	width: 120px;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
 
 .titleBlock {
 

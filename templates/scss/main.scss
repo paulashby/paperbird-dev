@@ -2,14 +2,13 @@
 'global/func',
 'global/fonts',
 'global/reset',
-'global/variables',
 'global/helpers',
+'global/variables',
 'global/defaults',
 'global/config';
 
 
 @import
-'modules/titleBlock',
 'modules/menu',
 'modules/navigation',
 'modules/footer';
@@ -17,6 +16,7 @@
 @import
 'components/component';
 */
+
 h1 {
 	color: $colour-black;
 }

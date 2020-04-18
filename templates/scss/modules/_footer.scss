@@ -3,6 +3,7 @@
 	color: $colour-pb-purple-mid;	
 	display: flex;
 	flex-direction: row;
+	flex-shrink: 0;
 	flex-wrap: wrap;
 	font-family: $font-secondary;
 	justify-content: space-between;
@@ -47,3 +48,7 @@
 		text-decoration: none;		
 	}
 }
+
+
+// WEBPACK FOOTER //
+// ./src/templates/scss/src/templates/scss/modules/_footer.scss

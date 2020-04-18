@@ -6,20 +6,31 @@
         <title data-pw-id='title'>Welcome to PaperBird</title>
 
         <?=loadWebpackChunk('css','main')?>
-
         <region data-pw-id='head'></region>
     </head>
 
     <body>
-        
         <?php
-            echo $page->renderValue($page, 'titleBlock');
+             echo   "<img class='logo' src='" . $page->logo->url . "' alt='Paperbird logo'>";
+            // Menu
+            $menu_options = array(
+                "components" => array(
+                    "navigation" => true,
+                    "search" => true,
+                    "login" => true,
+                    "basket" => true
+                ),
+                "animated" => true
+            );
+            echo $page->renderValue($menu_options, 'menu');
         ?>
-
         <main data-pw-id='main'>
-            <h1><a href="/">Home</a></h1>
-            <h2>Level two heading<br>Hows my leading?</h2>
-            <h3>Level three heading<br>How bout mine?</h3>
+            <!-- 
+                The <main> element is used to denote the content of a webpage that relates to the central topic of that page or application. It should include content that is unique to that page and should not include content that is duplicated across multiple webpages, such as headers, footers, and primary navigation elements.
+
+                Read more: https://html.com/tags/main/#ixzz6JrK1094f
+
+             -->
         </main>
         <?php
             echo $page->renderValue($page, 'footer');

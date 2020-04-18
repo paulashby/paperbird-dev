@@ -24,9 +24,11 @@ function init () {
 	let menu_settings = {
 
 		menu_class: 'menu',
-		top_level_class: 'menu__entries',	
-		toggle_switch_class: 'menu__toggle',
-		toggle_bar_class: 'menu__toggle-bar',
+		top_level_class: 'menu__entries',
+		button_class: 'menu__button',	
+		toggle_switch_class: 'menu__button--toggle',
+		close_class: 'menu__button--close',
+		toggle_bar_class: 'menu__bar',
 		resetNavDropdown: navigation.resetDropdown
 
 	}
