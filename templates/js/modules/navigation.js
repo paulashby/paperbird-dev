@@ -68,7 +68,7 @@ function resetDropdown () {
 
     });
 
-    $('nav').attr('class', '');
+    $('nav').attr('class', 'nav');
 
 }
 

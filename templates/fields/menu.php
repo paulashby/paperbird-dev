@@ -18,7 +18,7 @@ $out = "<div class='menu'>" . $open_menu_button .
 	
 foreach($components as $field_type => $value) {	
 	
-	$value = $field_type === "navigation" ? getNavigationOptions() : $value;
+	$value = $field_type === "navigation" ? getNavigationOptions(true) : $value;
 	$out .= "<li>" . $page->renderValue($value, $field_type) . "</li>";
 
 }
@@ -28,18 +28,21 @@ $out .= "	</ul>
 
 echo $out;
 
-function getNavigationOptions () {
+function getNavigationOptions ($include_button = false) {
 
     // template string for the items. || will contain entries, %s will replaced with class="..." string
 
     // 'list_field_class' => '{title}', // string (default '') add custom classes to each list_tpl using tags like {field} i.e. {template} p_{id}
 
 	return array(
-        "parent_class" => "parent",
-        "levels" => true,
-        "levels_prefix" => "nav__level-",
-        "max_levels" => 2,
-        "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
-        "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
+		"tree_options" =>array (
+	        "parent_class" => "parent",
+	        "levels" => true,
+	        "levels_prefix" => "nav__level-",
+	        "max_levels" => 2,
+	        "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
+	        "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
+	    ), 
+	    "include_button" => $include_button
     );
 }
