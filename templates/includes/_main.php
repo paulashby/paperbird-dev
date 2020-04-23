@@ -42,13 +42,7 @@
         ?>
         <region data-pw-id='scripts'>
              <?php
-             /*
-                HTML region tags don't appear in final output
-                I'm not actually making use of markup regions at all so far.
-
-                https://processwire.com/docs/front-end/output/markup-regions/
-            */
-            echo loadWebpackChunks('js', array(
+             echo loadWebpackChunks('js', array(
                 'manifest', 'vendor', 'main'
             ));
             ?>
