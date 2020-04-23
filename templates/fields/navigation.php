@@ -1,23 +1,19 @@
 <?php
-TD::barDump('navigation called');
-// $value = $field_type === "navigation" ? getNavigationOptions(true) : $value;
 
-	// If array use as options, else fall back on defaults
-	if( ! is_array($value)) {
-		// No options provided - use these defaults
-		$value = array(
-			"tree_options" =>array (
-		        "parent_class" => "parent",
-		        "levels" => true,
-		        "levels_prefix" => "nav__level-",
-		        "max_levels" => 2,
-		        "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
-		        "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
-		    ), 
-		    "include_button" => false
-	    );
-	}
-
+// Use defaults if no options provided
+if( ! is_array($value)) {
+	$value = array(
+		"tree_options" =>array (
+	        "parent_class" => "parent",
+	        "levels" => true,
+	        "levels_prefix" => "nav__level-",
+	        "max_levels" => 2,
+	        "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
+	        "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
+	    ), 
+	    "include_button" => false
+    );
+}
 
 $tree_menu = $modules->get("MarkupSimpleNavigation");
 $include_button = $value["include_button"];
