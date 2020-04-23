@@ -15,22 +15,27 @@
             // Menu
             $menu_options = array(
                 "components" => array(
-                    "navigation" => true,
-                    "search" => true,
-                    "login" => true,
-                    "basket" => true
+                    //  - use associative entries to include options
+                    "navigation" => array(
+                        "tree_options" => array (
+                            "parent_class" => "parent",
+                            "levels" => true,
+                            "levels_prefix" => "nav__level-",
+                            "max_levels" => 2,
+                            "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
+                            "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
+                        ), 
+                        "include_button" => false // Superscript + buttons on level 1 parent items
+                    ),
+                    "search",
+                    "login",
+                    "basket"
                 ),
                 "animated" => true
             );
             echo $page->renderValue($menu_options, 'menu');
         ?>
         <main data-pw-id='main'>
-            <!-- 
-                The <main> element is used to denote the content of a webpage that relates to the central topic of that page or application. It should include content that is unique to that page and should not include content that is duplicated across multiple webpages, such as headers, footers, and primary navigation elements.
-
-                Read more: https://html.com/tags/main/#ixzz6JrK1094f
-
-             -->
         </main>
         <?php
             echo $page->renderValue($page, 'footer');
@@ -39,9 +44,7 @@
              <?php
              /*
                 HTML region tags don't appear in final output
-                WHY AM I DOING THIS THOUGH - I DON"T SEEM TO BE MANIPULATING MARKUP REGIONS IN MY OTHER TEMPLATES - SUCH AS home.php
-
-                TRY MANIPULATING FOOTER OUTPUT IN home.php
+                I'm not actually making use of markup regions at all so far.
 
                 https://processwire.com/docs/front-end/output/markup-regions/
             */
