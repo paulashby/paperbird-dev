@@ -18,7 +18,7 @@ if( ! is_array($value)) {
 $tree_menu = $modules->get("MarkupSimpleNavigation");
 $include_button = $value["include_button"];
 $tree_options = $value["tree_options"];
-TD::barDump($value, 'value');
+
 // Hook for custom item string
 // http://modules.processwire.com/modules/markup-simple-navigation/
 // Used anonymous function so I could pass in $include_button var
