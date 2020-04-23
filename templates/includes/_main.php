@@ -11,7 +11,7 @@
 
     <body>
         <?php
-             echo   "<img class='logo' src='" . $page->logo->url . "' alt='Paperbird logo'>";
+             echo   "<img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'>";
             // Menu
             $menu_options = array(
                 "components" => array(
@@ -27,9 +27,9 @@
                         ), 
                         "include_button" => false // Superscript + buttons on level 1 parent items
                     ),
-                    "search",
                     "login",
-                    "basket"
+                    "basket",
+                    "search"
                 ),
                 "animated" => true
             );
