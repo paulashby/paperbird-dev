@@ -1,13 +1,14 @@
 %top-level-links {
-	$font-size: calc-rem(18);
+	$font-size: calc-rem(20);
 
 	color: #fff;
 	font-weight: bold;
 	font-family: $font-secondary;
 	font-size: $font-size;
-	letter-spacing: calc-rem(2);
+	letter-spacing: calc-rem(1.5);
 	line-height: $font-size * 1.8;
 	text-decoration: none;
+	text-transform: lowercase;
 }
 %nav-padding {
 	padding-top: calc-rem(8);
