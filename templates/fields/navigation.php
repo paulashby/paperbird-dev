@@ -39,14 +39,13 @@ $tree_menu->addHookAfter('getItemString', function($event) use($include_button) 
 return "<nav class='nav'>" . $tree_menu->render($tree_options) . "</nav>";
 
 function getLevel1 ($child, $include_button) {
-
 	$cat = $child->title;
 	$cat_lc = str_replace(' ', '', strtolower($cat));
-	
+	$link = $child->url();
 	$button_str = $include_button ? " nav__top-cat--buttoned" : "";
 
 	if($child->hasChildren()) {
-		return "<a href='#' class='nav__top-cat nav__top-cat--$cat_lc $button_str' data-cat='$cat_lc'>$cat</span></a>";
+		return "<a href='$link' class='nav__top-cat nav__top-cat--$cat_lc $button_str' data-cat='$cat_lc'>$cat</span></a>";
 	}
 
 	return "<a href='#' class='nav__top-link  nav__top-link--$cat_lc' data-cat='$cat_lc'>$cat</a>";
