@@ -27,6 +27,8 @@ function init (settings) {
                 }                   
             });
 
+        } else {
+            console.log($(e.target).attr("href"));
         } 
         // else if($(e.target).hasClass(settings.top_link_class)) {
 
@@ -37,6 +39,10 @@ function init (settings) {
 
         // Change menu bg colour
         colourise('menu' + '--' + e.target.dataset.cat); 
+
+
+
+        e.preventDefault();
     });
 }
 
