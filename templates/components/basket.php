@@ -1,5 +1,7 @@
 <?php
 
-$out = "basket now loaded from components directory";
+$out = "<div class='login'>
+			<h2 class='login__title'>Basket</h2>
+		</div>";
 
 return $out;

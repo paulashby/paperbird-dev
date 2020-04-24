@@ -24,9 +24,9 @@ $out = "<div class='menu'>" . $open_menu_button .
 		*/ 
 
 		if(is_int($key)) {
-			$out .= "<li>" . $files->render('components/' . $value) . "</li>";	
+			$out .= "<li class='menu__entry'>" . $files->render('components/' . $value) . "</li>";	
 		} else {
-			$out .= "<li>" . $page->renderValue($value, $key) . "</li>";	
+			$out .= "<li class='menu__entry'>" . $page->renderValue($value, $key) . "</li>";	
 		}
 	}
 

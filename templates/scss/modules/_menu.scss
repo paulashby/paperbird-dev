@@ -5,7 +5,11 @@
 
 }
 
-@import 'components/buttons/menuButton';
+@import
+'components/buttons/menuButton',
+'components/buttons/basketButton',
+'components/forms/login',
+'components/forms/search';
 
 body.menu__entries--active {
 	
@@ -15,29 +19,23 @@ body.menu__entries--active {
 
 .menu__entries {
 
-	/* Colourise menu__entries when menu has menu--foo class */
 
-	@extend %menu-element-full-screen;
 
-	@include menu_transition;
 
-	.menu--collections & {
-		background-color: $colour-pb-green;
-		@include menu_transition;
-	}
-	.menu--occasions & {
-		background-color: $colour-pb-blue;
-		@include menu_transition;
-	}
-	.menu--giftwrap & {
-		background-color: $colour-pb-peach;
-		@include menu_transition;
-	}
 }
 
 .menu {
 
 	.menu__entries {
+
+		/* Colourise menu__entries when menu has menu--foo class */
+
+		@extend %menu-element-full-screen;
+
+		@include menu_transition;
+
+		display: flex;
+		flex-wrap: wrap;
 		height: 100vh;
 		position: absolute;
 		padding: 2.5rem 1rem;
@@ -45,6 +43,29 @@ body.menu__entries--active {
 		width: 100%;
 		left: -100%;
 		overflow: scroll;
+
+		.menu--collections & {
+			background-color: $colour-pb-green;
+			@include menu_transition;
+		}
+		.menu--occasions & {
+			background-color: $colour-pb-blue;
+			@include menu_transition;
+		}
+		.menu--giftwrap & {
+			background-color: $colour-pb-peach;
+			@include menu_transition;
+		}
+
+		.menu__entry:first-child {
+		  flex: 1 1 100%;
+		  margin-bottom: 20px;
+		}
+
+		.menu__entry {
+			color: #fff;
+			flex: 1 1 33%;
+		}
 	}
 
 }
