@@ -8,8 +8,8 @@ function init (settings) {
     setup.top_cats = $('.' + settings.top_cat_class);
     setup.to_colourise = settings.colorise_class;
 
-    $('nav').on('click', function (e) {
-
+    $('.menu').on('click', function (e) {
+// debugger;
         if($(e.target).hasClass(settings.top_cat_class)){
 
             // Toggle dropdown menu and change nav bg colour for mobile

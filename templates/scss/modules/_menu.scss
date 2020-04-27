@@ -58,13 +58,33 @@ body.menu__entries--active {
 		}
 
 		.menu__entry:first-child {
-		  flex: 1 1 100%;
-		  margin-bottom: 20px;
+			align-self: flex-start;
+			flex: 1 1 100%;
+			margin-bottom: 20px;
 		}
 
 		.menu__entry {
+			align-self: flex-end;
 			color: #fff;
 			flex: 1 1 33%;
+		}
+		.menu__entrybutton {
+			background: url(../img/navbttns.svg) -12px 5px/700% no-repeat;
+			color: #fff;
+			font-size: calc-rem(14.5);
+			width: 60px;
+			padding-top: 60px;
+			margin: 0 auto;
+			text-decoration: none;
+			text-transform: lowercase;
+		}
+		.menu__entrybutton--basket {
+			background-position: -146px 0;
+			background-size: 620%;
+		}
+		.menu__entrybutton--search {
+			background-position: -225px -3px;
+			background-size: 650%;
 		}
 	}
 

@@ -1,7 +1,6 @@
 <?php
 
-$out = "<div class='login'>
-			<h2 class='login__title'>Basket</h2>
-		</div>";
+$out = "<h2><a href='#'  class='menu__entrybutton menu__entrybutton--basket'>Basket</a></h2>";
 
 return $out;
+

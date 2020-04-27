@@ -5,8 +5,7 @@
 
 $forgotten_pw_url = "#"; // Placeholder
 
-$out = "<div class='login'>
-			<h2 class='login__title'>Log in</h2>
+$out = "<h2><a href='#' class='menu__entrybutton menu__entrybutton--login'>Log in</a></h2>
 			<form class='login__form' action='' method='post'>
 				<ul class='login__inputs'>
 					<li><input type='email' class='login__input' name='email' placeholder='Email address'></li>
@@ -15,7 +14,6 @@ $out = "<div class='login'>
 				</ul>								
 			</form>
 			<p class='login__errors'></p>
-			<p class='login__forgotten-password'><a href='$forgotten_pw_url'>Forgot your password?</a></p>
-		</div>";
+			<p class='login__forgotten-password'><a href='$forgotten_pw_url'>Forgot your password?</a></p>";
 
 return $out;
