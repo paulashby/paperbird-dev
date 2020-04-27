@@ -34,7 +34,6 @@
 		// }
 		.nav__top-cat {
 			@extend %top-level-links;
-			@include font-smoothing(on);
 		}
 
 		.nav__top-cat--buttoned {
@@ -93,7 +92,6 @@
 	}
 	.nav__top-link {
 		@extend %top-level-links;
-		@include font-smoothing(on);
 	}
 
 }

@@ -28,10 +28,13 @@ main {
 	top: 20px;
 }
 
-
 .titleBlock {
 
 	background-image: url('../img/homebg.jpg');
 	background-repeat: no-repeat;
 
+}
+
+.menu {
+	@include font-smoothing(on);
 }
