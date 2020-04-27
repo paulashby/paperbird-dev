@@ -9,7 +9,7 @@ function init (settings) {
     setup.to_colourise = settings.colorise_class;
 
     $('.menu').on('click', function (e) {
-// debugger;
+
         if($(e.target).hasClass(settings.top_cat_class)){
 
             // Toggle dropdown menu and change nav bg colour for mobile
