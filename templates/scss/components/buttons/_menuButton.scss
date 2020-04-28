@@ -23,7 +23,7 @@
 }
 .menu__button--toggle {
 	@include menu_transition;
-	z-index: 2;
+	z-index: 3;
 
 	.menu__bar {
 		&.menu__bar--active {
