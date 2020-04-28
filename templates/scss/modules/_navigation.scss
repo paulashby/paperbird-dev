@@ -1,6 +1,5 @@
 %top-level-links {
 	$font-size: calc-rem(22);
-
 	color: #fff;
 	font-weight: bold;
 	font-family: $font-secondary;
@@ -15,83 +14,81 @@
 	padding-bottom: calc-rem(10);
 }
 
-.nav {
+		// .nav__top-cat--active .nav__dropdown {
+		// 	display: block;
+		// }
+.nav__top-level {
+	top: 0;
+	width: 100%;
+}
+.nav__top-cat {
+	@extend %top-level-links;
+}
+.nav__top-cat--buttoned {
+	/* Add this class to include  plus symbol as button to indicate entry has children*/
+	&:after {
+		content: "+";
+		display: inline-block;
+		width: calc-rem(11);
+		position: relative;
+		top: calc-rem(-2);
+		text-align: center;
+		margin: 0;
+		@include transform(rotate(0deg));
+		// transform-origin: 50% 50%;
+		@include transition(all $rotate-transition_duration ease);
+	}
+	/* Stand-alone state hook
+	 * https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
+	*/
+	&.nav__top-cat--active {
+
+		&:after {
+			@include transform(rotate(-225deg));
+			// top: 0;	
+		}
+	}
+}
+.nav__top-link--aboutus,
+.nav__top-cat--theartists,
+.nav__top-cat--welshcards {
+	font-size: calc-rem(18);
+	font-weight: normal;
+}
+.nav__dropdown {
+	@include font-smoothing(on);
+	@extend %nav-padding;
+	
+	display: none;
+	margin-bottom: calc-rem(20);
+}
+.nav__level-1.nav__top-cat--active {
+	@extend %full-screen-bordered;
+	border: none;
+	z-index: 2;
 
 	.nav__dropdown {
-		@include font-smoothing(on);
-		@extend %nav-padding;
-		
-		display: none;
-		margin-bottom: calc-rem(20);
+		display: block;
+	}
+}
+.nav__level-2 {
+	@extend %nav-padding;
+
+	border-bottom: 2px dotted rgba(255,255,255,0.4);
+	display: table;
+	width: auto;
+
+	a {
+		color: #fff;
+		font-size: calc-rem(20);
+		text-decoration: none;	
 	}
 
-	.nav__top-level {
-		top: 0;
-		width: 100%;
-
-		// .nav__top-level .nav__level-1:nth-child(n+3){
-		// 	color: red;
-		// }
-		.nav__top-cat {
-			@extend %top-level-links;
-		}
-
-		.nav__top-cat--buttoned {
-			/* Add this class to include  plus symbol as button to indicate entry has children*/
-			&:after {
-				content: "+";
-				display: inline-block;
-				width: calc-rem(11);
-				position: relative;
-				top: calc-rem(-2);
-				text-align: center;
-				margin: 0;
-				@include transform(rotate(0deg));
-				// transform-origin: 50% 50%;
-				@include transition(all $rotate-transition_duration ease);
-			}
-			/* Stand-alone state hook
-			 * https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
-			*/
-			&.nav__top-cat--active {
-
-				&:after {
-					@include transform(rotate(-225deg));
-					// top: 0;	
-				}
-			}
-		}
-		.nav__level-1:nth-child(n+4) .nav__top-link {
-			
-		}
-		.nav__top-link--aboutus,
-		.nav__top-cat--theartists,
-		.nav__top-cat--welshcards {
-			font-size: calc-rem(18);
-			font-weight: normal;
-		}
+	&.last-child {
+		border-width: 0;
 	}
 
-	.nav__level-2 {
-		@extend %nav-padding;
-
-		border-bottom: 2px dotted rgba(255,255,255,0.4);
-		display: table;
-		width: auto;
-
-		a {
-			color: #fff;
-			font-size: calc-rem(20);
-			text-decoration: none;	
-		}
-
-		&.last-child {
-			border-width: 0;
-		}
-
-	}
-	.nav__top-link {
-		@extend %top-level-links;
-	}
-
+}
+.nav__top-link {
+	@extend %top-level-links;
 }
