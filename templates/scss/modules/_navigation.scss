@@ -13,10 +13,11 @@
 	padding-top: calc-rem(8);
 	padding-bottom: calc-rem(10);
 }
+%collapsed {
+	height: 0;
+	overflow: hidden;
+}
 
-		// .nav__top-cat--active .nav__dropdown {
-		// 	display: block;
-		// }
 .nav__top-level {
 	top: 0;
 	width: 100%;
@@ -24,53 +25,71 @@
 .nav__top-cat {
 	@extend %top-level-links;
 }
-.nav__top-cat--buttoned {
-	/* Add this class to include  plus symbol as button to indicate entry has children*/
-	&:after {
-		content: "+";
-		display: inline-block;
-		width: calc-rem(11);
-		position: relative;
-		top: calc-rem(-2);
-		text-align: center;
-		margin: 0;
-		@include transform(rotate(0deg));
-		// transform-origin: 50% 50%;
-		@include transition(all $rotate-transition_duration ease);
-	}
-	/* Stand-alone state hook
-	 * https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
-	*/
-	&.nav__top-cat--active {
-
+.nav__dropdown {
+	@include font-smoothing(on);
+	display: none;
+}
+.nav--buttoned {
+	.nav__top-cat {
+		/* Add this class to include  plus symbol as button to indicate entry has children*/
 		&:after {
-			@include transform(rotate(-225deg));
-			// top: 0;	
+			content: "+";
+			display: inline-block;
+			width: calc-rem(11);
+			position: relative;
+			top: calc-rem(-2);
+			text-align: center;
+			margin: 0;
+			@include transform(rotate(0deg));
+			// transform-origin: 50% 50%;
+			@include transition(all $rotate-transition_duration ease);
+		}
+		/* Stand-alone state hook
+		 * https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
+		*/
+		&.nav__top-cat--active {
+
+			&:after {
+				@include transform(rotate(-225deg));
+			}
+		}
+	}
+	.nav__level-1.nav__level-1--active .nav__top-cat {
+		display: inline;
+	}	
+	.nav__dropdown {
+		// @extend %collapsed;
+		display: none;
+	}
+}
+.nav--simple {
+	.nav__level-1.nav__level-1--active {
+		@extend %full-screen-bordered;
+		border: none;
+		z-index: 2;
+		padding: 2.5rem 1rem;
+		@include transition(all $menu-transition_duration ease);
+
+		.nav__top-cat {
+			display: none;
+		}
+		.nav__dropdown {
+			@extend %nav-padding;		
+			margin-bottom: calc-rem(20);
+			display: none;
+
+			@include transition(all $menu-transition_duration ease);
 		}
 	}
 }
+
 .nav__top-link--aboutus,
 .nav__top-cat--theartists,
 .nav__top-cat--welshcards {
 	font-size: calc-rem(18);
 	font-weight: normal;
 }
-.nav__dropdown {
-	@include font-smoothing(on);
-	@extend %nav-padding;
-	
-	display: none;
-	margin-bottom: calc-rem(20);
-}
-.nav__level-1.nav__top-cat--active {
-	@extend %full-screen-bordered;
-	border: none;
-	z-index: 2;
 
-	.nav__dropdown {
-		display: block;
-	}
-}
 .nav__level-2 {
 	@extend %nav-padding;
 

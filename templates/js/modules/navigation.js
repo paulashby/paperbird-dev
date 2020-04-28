@@ -5,6 +5,7 @@ let setup = {
 function init (settings) {
 
     setup.top_cat_active = settings.top_cat_class + '--active';
+    setup.level_1_class_active = settings.level_1_class + '--active';
     setup.top_cats = $('.' + settings.top_cat_class);
     setup.to_colourise = settings.colorise_class;
 
@@ -16,31 +17,44 @@ function init (settings) {
             $(setup.top_cats).each(function(){
                 
                 if(this === e.target) {
-
+                
+                    // TODO: Only if buttoned
                     $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);
+                   
+
+                    $(this).parent().toggleClass(setup.level_1_class_active);
+
+                    // Rotate superscript plus button if required
+                    // $(this).toggleClass(setup.top_cat_active);
 
 
                 } else {
 
                     $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
+                    $(this).parent().removeClass(setup.level_1_class_active);
+
+                    // Rotate superscript plus button if required
+                    $(this).removeClass(setup.top_cat_active);
 
                 }                   
             });
 
-        } else {
-            console.log($(e.target).attr("href"));
         } 
-        // else if($(e.target).hasClass(settings.top_link_class)) {
+        // else {
+        //     console.log($(e.target).attr("href"));
+        // } 
+        else if($(e.target).hasClass(settings.top_link_class)) {
 
-        //     $(setup.top_cats).siblings().slideUp(setup.slide_duration);
+            // Only if buttoned
+            $(setup.top_cats).siblings().slideUp(setup.slide_duration);
 
-        // }
+        }
         
 
-        // Change menu bg colour
-        colourise('menu' + '--' + e.target.dataset.cat); 
-
-
+        // Hide siblings when top level category clicked
+        // if(e.target.dataset.cat) {
+        //     $('.nav').toggleClass(setup.top_cat_active); 
+        // }
 
         e.preventDefault();
     });
@@ -74,7 +88,7 @@ function resetDropdown () {
 
     });
 
-    $('nav').attr('class', 'nav');
+    $('nav').attr('class', $('nav').attr('class'));
 
 }
 
