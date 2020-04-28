@@ -1,0 +1,7 @@
+@import
+'components/buttons/menuEntryButton';
+
+.menu__entrybutton--search {
+	@extend %menu__entrybutton-base;
+	background: url(../img/navbttns.svg) -225px -3px/650%;
+}

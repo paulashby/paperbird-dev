@@ -1,0 +1,7 @@
+@import
+'components/buttons/menuEntryButton';
+
+.menu__entrybutton--basket {
+	@extend %menu__entrybutton-base;
+	background: url(../img/navbttns.svg) -146px 0/620%;
+}
