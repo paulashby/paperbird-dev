@@ -57,13 +57,6 @@ $leading-title: 1.2;
   overflow: hidden;
 }
 
-/*
-
-  The % at the startof %size-text makes it a placeholder class - meaning it will only
-  'print' when it's extended - a bit like an abstract class in other languages, then
-  https://sass-lang.com/guide
-
-*/
 // Font-sizes
 %size-text {
   font-size: calc-rem(15);
@@ -78,20 +71,25 @@ $leading-title: 1.2;
   color: $colour-pb-purple-light;
   font-size: calc-rem(13);
 }
+%full-screen-bordered {
+  background-color: $colour-pb-blue;
+  border: 20px solid white;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  @include prefix((
+    box-sizing: border-box
+  ), webkit moz);
+}
 %menu-element-full-screen {
-    background-color: $colour-pb-blue;
-    border: 20px solid white;
-    font-family: $font-secondary;
-    font-size: calc-rem(15);
-    height: 100%;
-    line-height: 160%;
-    list-style: none;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    @include prefix((
-      box-sizing: border-box
-    ), webkit moz);
+  @extend %full-screen-bordered;
+  font-family: $font-secondary;
+  font-size: calc-rem(15);
+  line-height: 160%;
+  list-style: none;
+  text-align: center;
 }
 %menu-button-cross-bar-1 {
   @include transform(rotate(-45deg) translate(-6.425px, 6px));
