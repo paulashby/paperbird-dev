@@ -13,17 +13,10 @@ $( document ).ready(function() {
 function init () {
 
 	let nav_settings = {
-	
-		top_cat_class: 'nav__top-cat',
-		// top_link_class: 'nav__top-link',
-		top_cat_class: 'nav__top-cat',
-		colorise_class: 'menu' // This requires sass classes for colours in config.scss
-		
 	}
 
 	let menu_settings = {
 
-		menu_class: 'menu',
 		top_level_class: 'menu__entries',
 		button_class: 'menu__button',	
 		toggle_switch_class: 'menu__button--toggle',
