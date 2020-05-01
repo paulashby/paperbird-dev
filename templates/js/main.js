@@ -12,17 +12,17 @@ $( document ).ready(function() {
 
 function init () {
 
+	let sliding = $('.nav').hasClass('nav--sliding');
+
 	let nav_settings = {
+		sliding: sliding
 	}
 
 	let menu_settings = {
 
-		top_level_class: 'menu__entries',
-		button_class: 'menu__button',	
-		toggle_switch_class: 'menu__button--toggle',
-		close_class: 'menu__button--close',
-		toggle_bar_class: 'menu__bar',
-		resetNavDropdown: navigation.resetDropdown
+		sliding: sliding,
+		resetNavDropdown: navigation.resetDropdown,
+		closeNavDropdown: navigation.closeDropdown
 
 	}
 

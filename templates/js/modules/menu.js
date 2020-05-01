@@ -1,24 +1,57 @@
+let setup = {
+    slide_duration: 300,
+    top_level_class: 'menu__entries',
+    button_class: 'menu__button',
+    toggle_bar_class: 'menu__bar'
+};
+
 function init (settings) {
 
-    $('.' + settings.button_class).on('click', function (e) {
+    $('.' + setup.button_class).on('click', function (e) {
 
-        if(settings.resetNavDropdown) {
+        if(settings.sliding) {
+                
+                toggleMenu(settings);
 
-            settings.resetNavDropdown();
+            } else {
 
-        }
-       
-        // animate button
-        $('.' + settings.toggle_bar_class).each(function(){
+                // closeNavDropdown will be available if menu dropdowns are not set to slide
+                if(settings.closeNavDropdown) {
 
-            $(this).toggleClass(settings.toggle_bar_class + '--active');
+                    // closeNavDropdown() will look after dropdowns.
+                    // We need to act only if false is returned, telling us
+                    // there are no expanded dropdowns and intention of click 
+                    // must have been to toggle the whole menu.
+                    if( ! settings.closeNavDropdown()) {
 
-        });
+                        toggleMenu(settings);
+                    }
 
-        // toggle menu - using body element for this so we can disable scrolling
-        $('body').toggleClass(settings.top_level_class + '--active');
+                } else {
+                    
+                    console.error('Expected closeNavDropdown function from main.js - none provided');
+                }
+            }
+    });
+}
+
+function toggleMenu (settings) {
+
+    if(settings.resetNavDropdown) {
+
+        settings.resetNavDropdown();
+
+    }
+   
+    // animate button
+    $('.' + setup.toggle_bar_class).each(function(){
+
+        $(this).toggleClass(setup.toggle_bar_class + '--active');
 
     });
+
+    // toggle menu - using body element for this so we can disable scrolling
+    $('body').toggleClass(setup.top_level_class + '--active');
 }
 
 const menu = {

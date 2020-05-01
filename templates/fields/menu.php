@@ -1,19 +1,23 @@
 <?php 
 
 $components = $value['components'];
-$animated = isset($value['animated']) && $value['animated'] !== false;
+$animated = isset($value['animate_menu_button']) && $value['animate_menu_button'] !== false;
 $open_menu_button = '';
 $close_menu_button = '';
 
 if($animated) {
 	$open_menu_button = $files->render('components/buttons/menuButton', ['button_class'=>'menu__button menu__button--toggle']);	
+
+	$out = "<div class='menu menu--anim-bttn'>" . $open_menu_button . 
+	"<ul class='menu__entries'>";
 } else {
 	$open_menu_button = $files->render('components/buttons/menuButton', ['button_class'=>'menu__button menu__button--open']);
 	$close_menu_button = "<li>" . $files->render('components/buttons/menuButton', ['button_class'=>'menu__button menu__button--close']) . "</li>";
-}
 
-$out = "<div class='menu'>" . $open_menu_button . 
+
+	$out = "<div class='menu menu--static-bttn'>" . $open_menu_button . 
 	"<ul class='menu__entries'>" . $close_menu_button;
+}
 	
 	foreach($components as $key => $value) {
 

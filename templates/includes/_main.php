@@ -8,7 +8,6 @@
         <?=loadWebpackChunk('css','main')?>
         <region data-pw-id='head'></region>
     </head>
-
     <body>
         <?php
              echo   "<img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'>";
@@ -25,15 +24,15 @@
                             "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
                             "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
                         ), 
-                        "include_button" => false // Superscript + buttons on level 1 parent items
+                        "sliding" => true // Sliding dropdowns
                     ),
                     "login",
                     "basket",
                     "search"
                 ),
-                "animated" => true
+                "animate_menu_button" => true
             );
-            echo $page->renderValue($menu_options, 'menu');
+           echo $page->renderValue($menu_options, 'menu');
         ?>
         <main data-pw-id='main'>
         </main>

@@ -7,7 +7,9 @@
 
 @import
 'components/buttons/menuButton',
-'components/buttons/basketButton',
+'components/buttons/menuEntryButtonLogin',
+'components/buttons/menuEntryButtonBasket',
+'components/buttons/menuEntryButtonSearch',
 'components/forms/login',
 'components/forms/search';
 
@@ -19,75 +21,58 @@ body.menu__entries--active {
 
 .menu__entries {
 
+	/* Colourise menu__entries when menu has menu--foo class */
 
+	@extend %menu-element-full-screen;
 
+	@include menu_transition;
 
-}
+	display: flex;
+	flex-wrap: wrap;
+	height: 100vh;
+	position: absolute;
+	padding: 2.5rem 1rem;
+	top: 0;
+	width: 100%;
+	left: -100%;
+	overflow: scroll;
 
-.menu {
-
-	.menu__entries {
-
-		/* Colourise menu__entries when menu has menu--foo class */
-
-		@extend %menu-element-full-screen;
-
+	.menu--collections & {
+		background-color: $colour-pb-green;
 		@include menu_transition;
-
-		display: flex;
-		flex-wrap: wrap;
-		height: 100vh;
+	}
+	.menu--occasions & {
+		background-color: $colour-pb-blue;
+		@include menu_transition;
+	}
+	.menu--giftwrap & {
+		background-color: $colour-pb-peach;
+		@include menu_transition;
+	}
+	.menu--static-bttn & > li:first-child {
 		position: absolute;
-		padding: 2.5rem 1rem;
+		height: 20px;
+		width: 20px;
 		top: 0;
-		width: 100%;
-		left: -100%;
-		overflow: scroll;
-
-		.menu--collections & {
-			background-color: $colour-pb-green;
-			@include menu_transition;
-		}
-		.menu--occasions & {
-			background-color: $colour-pb-blue;
-			@include menu_transition;
-		}
-		.menu--giftwrap & {
-			background-color: $colour-pb-peach;
-			@include menu_transition;
-		}
-
-		.menu__entry:first-child {
-			align-self: flex-start;
-			flex: 1 1 100%;
-			margin-bottom: 20px;
-		}
-
-		.menu__entry {
-			align-self: flex-end;
-			color: #fff;
-			flex: 1 1 33%;
-		}
-		.menu__entrybutton {
-			background: url(../img/navbttns.svg) -12px 5px/700% no-repeat;
-			color: #fff;
-			font-size: calc-rem(14.5);
-			width: 60px;
-			padding-top: 60px;
-			margin: 0 auto;
-			text-decoration: none;
-			text-transform: lowercase;
-		}
-		.menu__entrybutton--basket {
-			background-position: -146px 0;
-			background-size: 620%;
-		}
-		.menu__entrybutton--search {
-			background-position: -225px -3px;
-			background-size: 650%;
-		}
+		right: 0;
 	}
 
+}
+.menu--anim-bttn .menu__entry:first-child {
+	align-self: flex-start;
+	flex: 1 1 100%;
+	margin-bottom: 20px;
+}
+.menu--static-bttn .menu__entry:nth-child(2) {
+	align-self: flex-start;
+	flex: 1 1 100%;
+	margin-bottom: 20px;
+}
+
+.menu__entry {
+	align-self: flex-end;
+	color: #fff;
+	flex: 1 1 33%;
 }
 
 body.menu__entries--active {

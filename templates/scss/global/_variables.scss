@@ -31,7 +31,7 @@ $colour-pb-peach: #f5a488;
 // $colour-transition_duration: 2s;
 // $menu_slide_duration: 1s;
 $menu-transition_duration: .5s;
-$menu-transition_duration_slow: 10s;
+$menu-transition_duration_slow: 1.5s;
 $rotate-transition_duration: .25s;
 
 // Fonts
@@ -43,6 +43,8 @@ $font-secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 // Base sizes in pixels
 $base__font-size: 15.999 !default;
 $base__line: 18 !default;
+
+$letter-spacing-menu: calc-rem(1.5);
 
 // Leading as proportion of font size
 $leading-title: 1.2;
