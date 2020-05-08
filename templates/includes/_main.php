@@ -24,7 +24,7 @@
                             "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
                             "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
                         ), 
-                        "sliding" => true // Sliding dropdowns
+                        "sliding" => false // Sliding dropdowns
                     ),
                     "login",
                     "basket",

@@ -28,15 +28,19 @@ $tree_menu->addHookAfter('getItemString', function($event) use($sliding) {
     // any logic with $child possible here
    
     $is_level_1 = $child->parent->template->name == "home";
-
     if($is_level_1){
     	
         // set the return value of this hook to a custom string
         $event->return = getLevel1($child, $sliding);
+    } else if($child->parent->parent->template->name == "home"){
+    	TD::barDump("level 2");
+    	TD::barDump($child->title);
+    	$event->return = getLevel2($child);
     }
 });
+$nav_class = $sliding ? "nav--sliding" : "nav--simple ";
 
-return "<nav class='nav'>" . $tree_menu->render($tree_options) . "</nav>";
+return "<nav class='nav $nav_class'>" . $tree_menu->render($tree_options) . "</nav>";
 
 function getLevel1 ($child, $sliding) {
 	$cat = $child->title;
@@ -50,4 +54,10 @@ function getLevel1 ($child, $sliding) {
 
 	return "<a href='$link' class='nav__top-link  nav__top-link--$cat_lc' data-cat='$cat_lc'>$cat</a>";
 
+}
+function getLevel2 ($child) {
+	$link = $child->url();
+	$cat = $child->title;
+
+	return "<a href='$link' class='nav__level-2-link'>$cat</a>";
 }
