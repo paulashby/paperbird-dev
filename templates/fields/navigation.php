@@ -33,8 +33,6 @@ $tree_menu->addHookAfter('getItemString', function($event) use($sliding) {
         // set the return value of this hook to a custom string
         $event->return = getLevel1($child, $sliding);
     } else if($child->parent->parent->template->name == "home"){
-    	TD::barDump("level 2");
-    	TD::barDump($child->title);
     	$event->return = getLevel2($child);
     }
 });
