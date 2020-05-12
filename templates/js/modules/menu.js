@@ -1,37 +1,35 @@
 let setup = {
-    slide_duration: 300,
     top_level_class: 'menu__entries',
-    button_class: 'menu__button',
-    toggle_bar_class: 'menu__bar'
+    toggle_bar_class: 'menu__bar',
+    search_class: 'menu__entrybutton--search'
 };
 
 function init (settings) {
 
-    $('.' + setup.button_class).on('click', function (e) {
+    $('.menu__button').on('click', function (e) {
 
-        if(settings.sliding) {
-                
-                toggleMenu(settings);
+        console.log('open menu button clicked');
+        openMenu(settings);
 
-            } else {
+    });
 
-                // closeNavDropdown will be available if menu dropdowns are not set to slide
-                if(settings.closeNavDropdown) {
+    $('.menu__entries').on('click', function (e) {
 
-                    // closeNavDropdown() will look after dropdowns.
-                    // We need to act only if false is returned, telling us
-                    // there are no expanded dropdowns and intention of click 
-                    // must have been to toggle the whole menu.
-                    if( ! settings.closeNavDropdown()) {
+        if( ! settings.isNavigationEvent(e)){
 
-                        toggleMenu(settings);
-                    }
+            // Menu event
+            switch ($(e.target).attr('class')) {
 
-                } else {
-                    
-                    console.error('Expected closeNavDropdown function from main.js - none provided');
-                }
+                case setup.search_class:
+                console.log('search clicked');
+                break;
+
+                default:
+                console.log('.' + $(e.target).attr('class') + ' clicked')
             }
+
+        } 
+        e.preventDefault();
     });
 }
 
@@ -52,6 +50,32 @@ function toggleMenu (settings) {
 
     // toggle menu - using body element for this so we can disable scrolling
     $('body').toggleClass(setup.top_level_class + '--active');
+}
+
+function openMenu (settings) {
+    if(settings.sliding) {
+        
+        toggleMenu(settings);
+
+    } else {
+
+        // closeNavDropdown will be available if menu dropdowns are not set to slide
+        if(settings.closeNavDropdown) {
+
+            // closeNavDropdown() will look after dropdowns.
+            // We need to act only if false is returned, telling us
+            // there are no expanded dropdowns and intention of click 
+            // must have been to toggle the whole menu.
+            if( ! settings.closeNavDropdown()) {
+
+                toggleMenu(settings);
+            }
+
+        } else {
+            
+            console.error('Expected closeNavDropdown function from main.js - none provided');
+        }
+    }
 }
 
 const menu = {

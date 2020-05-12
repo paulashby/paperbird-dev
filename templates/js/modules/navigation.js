@@ -8,41 +8,53 @@ let setup = {
 
 function init (settings) {
 
-    $('.menu').on('click', function (e) {
+    // Add listener if navigation is not part of greater menu system
+    if( ! settings.menu ) {
 
-        if($(e.target).hasClass('nav__top-cat')){
+         $('.nav').on('click', function (e) {
 
-            // Toggle dropdown menu
-            $(setup.top_cats).each(function(){
-                
-                if(this === e.target) {
-               
-                    if(setup.sliding) {
-                        $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
-                    }
+            if($(e.target).hasClass('nav__top-cat')){
 
-                    $(this).parent().toggleClass(setup.level_1_class_active);
+                toggleDropdown(e);
 
-                } else {
+            } 
+            e.preventDefault();
+        });
 
-                    if(setup.sliding) {
-                        $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
-                    }
-                    $(this).parent().removeClass(setup.level_1_class_active);
+    }
 
-                }                   
-            });
-        } 
-        e.preventDefault();
-    });
+}
+
+function toggleDropdown (e) {
+    
+    // Toggle dropdown menu
+    $(setup.top_cats).each(function(){
+        
+        if(this === e.target) {
+       
+            if(setup.sliding) {
+                $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
+            }
+
+            $(this).parent().toggleClass(setup.level_1_class_active);
+
+        } else {
+
+            if(setup.sliding) {
+                $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
+            }
+            $(this).parent().removeClass(setup.level_1_class_active);
+
+        }                   
+    });   
 }
 
 function resetDropdown () {
 
     let reset_func = setup.sliding ? 
         function(){
-        $(this).parent().removeClass(setup.level_1_class_active);
-        $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
+            $(this).parent().removeClass(setup.level_1_class_active);
+            $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
         }
         : function(){
             $(this).removeClass(setup.top_cat_active);
@@ -74,11 +86,24 @@ function closeDropdown () {
     // No expanded dropdowns - must be closing menu
     return false;
 }
+function handleNavEvent (e) {
+
+    if ($(e.target).hasClass('nav__top-cat')) {
+
+        toggleDropdown(e);
+        return true;
+    }
+
+    return false;
+
+}
 
 const navigation = {
     init: init,
+    toggleDropdown: toggleDropdown,
     resetDropdown: resetDropdown,
-    closeDropdown: closeDropdown
+    closeDropdown: closeDropdown,
+    navigationEvent: handleNavEvent
 };    
 
 export default navigation;
