@@ -57,7 +57,7 @@
 	.nav__dropdown {
 		display: none;
 	}
-	.nav__top-cat--sliding:after {
+	.nav__top-cat:after {
 		content: "+";
 		display: inline-block;
 		width: calc-rem(11);
@@ -72,7 +72,7 @@
 	/* Stand-alone state hook
 	 * https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
 	*/
-	.nav__level-1--active .nav__top-cat--sliding {
+	.nav__level-1--active .nav__top-cat {
 
 		&:after {
 			@include transform(rotate(-225deg));
@@ -83,6 +83,10 @@
 	display: inline;
 }	
 .nav--simple {
+	.nav__level-1 {
+		background-color: $colour-pb-blue;
+		@include transition(all $menu-transition_duration ease);
+	}
 	.nav__dropdown {
 		transform: scale(0);
 		visibility: hidden;
@@ -102,18 +106,10 @@
 			padding-top: calc-rem(6);
 			padding-bottom: calc-rem(10);		
 			margin-bottom: calc-rem(20);
-
 			transform: scale(1);
 			visibility: visible;
 			pointer-events: auto;
 			height: auto;
 		}
-	}
-	.nav__level-2-link {
-		opacity: 0;
-		@include transition(opacity $menu-transition_duration ease);
-	}
-	.nav__level-1--active .nav__level-2-link {
-		opacity: 1;
 	}
 }
