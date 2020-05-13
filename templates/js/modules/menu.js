@@ -1,17 +1,18 @@
 let setup = {
     top_level_class: 'menu__entries',
     toggle_bar_class: 'menu__bar',
-    search_class: 'menu__entrybutton--search',
     button_prefix: 'button--'
 };
 
-setup.button_prefix_len = setup.button_prefix.length;
 
 function init (settings) {
 
+    setup.button_prefix_len = setup.button_prefix.length;
+    setup.base_menu_class = $('.menu').attr('class');
+
     $('.menu__button').on('click', function (e) {
 
-        console.log('open menu button clicked');
+        console.log('toggle menu button clicked');
         openMenu(settings);
 
     });
@@ -20,23 +21,21 @@ function init (settings) {
 
         if( ! settings.toggleSubmenu(e)){
 
-            // Menu event
-            // Switch isn't cutting it - we need .hasClass, as class list also contains 'menu__entrybutton'
-            switch ($(e.target).attr('class')) {
+            let button_type = $(e.target).data('buttontype');
+            
+            if(button_type) {
 
-                case setup.search_class:
-                console.log('search clicked');
-                break;
+                // add class to change state of target element
+                $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--' + button_type);
 
-                default:
-                console.log('.' + $(e.target).attr('class') + ' clicked')
+            } else {
+                console.log('Standard link - load page');
             }
 
         } 
         e.preventDefault();
     });
 }
-
 function toggleMenu (settings) {
 
     if(settings.resetNavDropdown) {
@@ -54,6 +53,11 @@ function toggleMenu (settings) {
 
     // toggle menu - using body element for this so we can disable scrolling
     $('body').toggleClass(setup.top_level_class + '--active');
+
+    // reset menu class - this removes classes associated with 
+    // state of any active menu elements  such as login, basket, search
+    $('.menu').removeClass().addClass(setup.base_menu_class);
+
 }
 
 function openMenu (settings) {
