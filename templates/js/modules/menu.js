@@ -1,8 +1,11 @@
 let setup = {
     top_level_class: 'menu__entries',
     toggle_bar_class: 'menu__bar',
-    search_class: 'menu__entrybutton--search'
+    search_class: 'menu__entrybutton--search',
+    button_prefix: 'button--'
 };
+
+setup.button_prefix_len = setup.button_prefix.length;
 
 function init (settings) {
 
@@ -15,7 +18,7 @@ function init (settings) {
 
     $('.menu__entries').on('click', function (e) {
 
-        if( ! settings.isNavigationEvent(e)){
+        if( ! settings.toggleSubmenu(e)){
 
             // Menu event
             // Switch isn't cutting it - we need .hasClass, as class list also contains 'menu__entrybutton'

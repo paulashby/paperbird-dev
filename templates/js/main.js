@@ -23,7 +23,7 @@ function init () {
 	let menu_settings = {
 
 		sliding: sliding,
-		isNavigationEvent: navigation.navigationEvent,
+		toggleSubmenu: navigation.toggleSubmenu,
 		resetNavDropdown: navigation.resetDropdown,
 		closeNavDropdown: navigation.closeDropdown
 

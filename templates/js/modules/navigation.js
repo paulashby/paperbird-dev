@@ -97,7 +97,7 @@ function closeDropdown () {
     // No expanded dropdowns - must be closing menu
     return false;
 }
-function handleNavEvent (e) {
+function toggleSubmenu (e) {
 
     if ($(e.target).hasClass('nav__top-cat')) {
 
@@ -113,7 +113,7 @@ const navigation = {
     init: init,
     resetDropdown: resetDropdown,
     closeDropdown: closeDropdown,
-    navigationEvent: handleNavEvent
+    toggleSubmenu: toggleSubmenu
 };    
 
 export default navigation;
