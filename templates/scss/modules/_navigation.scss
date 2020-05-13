@@ -53,7 +53,7 @@
 }
 
 .nav--sliding {
-	/* Add this class to include  plus symbol as button to indicate entry has children*/
+	/* Add this class to include  plus symbol as button to indicate entry has children */
 	.nav__dropdown {
 		display: none;
 	}
@@ -66,7 +66,6 @@
 		text-align: center;
 		margin: 0;
 		@include transform(rotate(0deg));
-		// transform-origin: 50% 50%;
 		@include transition(all $rotate-transition_duration ease);
 	}
 	/* Stand-alone state hook
@@ -83,9 +82,18 @@
 	display: inline;
 }	
 .nav--simple {
+	@keyframes dropdown_anim {
+		0%   {bottom: 100vh; padding-top: 2.5rem; scale: 0.5;}
+		50%  {bottom: 0; padding-top: 30%; scale: 1.2;}
+		100% {bottom: 0; padding-top: 2.5rem; scale: 1;}
+	}
+	@keyframes dropdown_anim_rev {
+		0%   {padding-top: 2.5rem; scale: 0.5;}
+		50%  {padding-top: 0; scale: 1.2;}
+		100% {padding-top: 0; scale: 1;}
+	}
 	.nav__level-1 {
 		background-color: $colour-pb-blue;
-		@include transition(all $menu-transition_duration ease);
 	}
 	.nav__dropdown {
 		transform: scale(0);
@@ -98,6 +106,7 @@
 		border: none;
 		z-index: 2;
 		padding: 2.5rem 1rem;
+		animation: dropdown_anim $menu-transition_duration_medium;
 
 		.nav__top-cat {
 			display: none;
@@ -112,4 +121,7 @@
 			height: auto;
 		}
 	}
+	.nav__level-1:not(.nav__level-1--active) {
+		animation: dropdown_anim_rev $menu-transition_duration_medium;
+	} 
 }

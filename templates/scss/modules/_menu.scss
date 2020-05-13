@@ -18,7 +18,9 @@ body.menu__entries--active {
 	@extend %full-height-no-scroll;	
 	
 }
-
+.hide-scrollbars .menu__entries {
+	overflow: hidden;
+}
 .menu__entries {
 
 	/* Colourise menu__entries when menu has menu--foo class */
@@ -37,6 +39,7 @@ body.menu__entries--active {
 	left: -100%;
 	overflow: scroll;
 
+	
 	.menu--collections & {
 		background-color: $colour-pb-green;
 		@include menu_transition;

@@ -18,6 +18,7 @@ function init (settings) {
         if( ! settings.isNavigationEvent(e)){
 
             // Menu event
+            // Switch isn't cutting it - we need .hasClass, as class list also contains 'menu__entrybutton'
             switch ($(e.target).attr('class')) {
 
                 case setup.search_class:

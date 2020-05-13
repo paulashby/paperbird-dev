@@ -3,6 +3,7 @@ let setup = {
     top_cats: $('.nav__top-cat'),
     top_cat_active: 'nav__top-cat--active',
     level_1_class_active: 'nav__level-1--active',
+    hide_scrollbars: 'hide-scrollbars',
     sliding: $('.nav').hasClass('nav--sliding')
 };
 
@@ -34,6 +35,16 @@ function toggleDropdown (e) {
        
             if(setup.sliding) {
                 $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
+            } 
+            else {
+                // Hide scrollbars during animation
+                $('body').toggleClass(setup.hide_scrollbars);
+                $(this).parent().one('animationend', function () {
+                    $('body').removeClass(setup.hide_scrollbars);
+                    // Remove listener
+                    $(this).off();
+               });
+
             }
 
             $(this).parent().toggleClass(setup.level_1_class_active);
@@ -100,7 +111,6 @@ function handleNavEvent (e) {
 
 const navigation = {
     init: init,
-    toggleDropdown: toggleDropdown,
     resetDropdown: resetDropdown,
     closeDropdown: closeDropdown,
     navigationEvent: handleNavEvent
