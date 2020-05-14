@@ -74,7 +74,7 @@ function openMenu (settings) {
 
         // leave modifier class in place until end of animation - this allows us to listen for changes to menu--[modifier]
         // and avoid triggering the collapse animations for other menu tool elements
-            $('.' + menu_modifier).one('animationend', function () {
+        $('.' + menu_modifier).one('animationend', function () {
             $('.menu').removeClass('menu--' + menu_modifier);
             // Remove listener
             $(e.target).off();
