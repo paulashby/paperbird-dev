@@ -3,7 +3,9 @@ let setup = {
     toggle_bar_class: 'menu__bar',
     button_prefix: 'button--'
 };
+let menu_modifier = '';
 
+//TODO: When logging in, need to add login__errors--show class to login__errors to display
 
 function init (settings) {
 
@@ -25,8 +27,11 @@ function init (settings) {
             
             if(button_type) {
 
+                // store button type so we can manipulate menu class post-animation
+                menu_modifier = button_type;
+
                 // add class to change state of target element
-                $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + button_type);
+                $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
 
             } else {
                 console.log('Standard link - load page');
@@ -61,10 +66,19 @@ function toggleMenu (settings) {
 }
 
 function openMenu (settings) {
-    
+
     if($('.menu').hasClass('menu--modal-active')) {
 
-        $('.menu').removeClass().addClass(setup.base_menu_class);
+        // $('.menu').removeClass().addClass(setup.base_menu_class);
+        $('.menu').removeClass('menu--modal-active');
+
+        // leave modifier class in place until end of animation - this allows us to listen for changes to menu--[modifier]
+        // and avoid triggering the collapse animations for other menu tool elements
+            $('.' + menu_modifier).one('animationend', function () {
+            $('.menu').removeClass('menu--' + menu_modifier);
+            // Remove listener
+            $(e.target).off();
+       });
 
     } else if(settings.sliding) {
         

@@ -9,13 +9,14 @@ $out = "<h2><a href='#' class='menu__entrybutton menu__entrybutton--login' data-
 		<div class='login'>
 			<form class='login__form' action='' method='post'>
 				<ul class='login__inputs'>
-					<li><input type='email' class='login__input' name='email' placeholder='Email address'></li>
-					<li><input type='password' class='login__input' name='pass' placeholder='Password'></li>
-					<li><input type='submit' class='login__submit' value='Submit'></li>
+					<li class='login__input-item login__input-item--email'><input type='email' class='login__input' name='email' placeholder='Email address'></li>
+					<li class='login__input-item login__input-item--password'><input type='password' class='login__input' name='pass' placeholder='Password'></li>
+					<li class='login__input-item login__input-item--submit'><input type='submit' class='form__button form__button--submit' value='Submit'></li>
+					<li class='login__input-item login__input-item--cancel'><input type='button' class='form__button form__button--cancel' value='Cancel'></li>
 				</ul>								
 			</form>
+			<p class='login__forgotten-password'><a class='login__forgotten-password-link' href='$forgotten_pw_url'>Forgot password?</a></p>
 			<p class='login__errors'></p>
-			<p class='login__forgotten-password'><a href='$forgotten_pw_url'>Forgot your password?</a></p>
 		</div>";
 
 return $out;

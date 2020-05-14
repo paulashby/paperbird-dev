@@ -1,6 +1,66 @@
-.login,
-.login__forgotten-password {
-	// visibility: hidden;
-	// opacity: 0;
-	// position: absolute;
+@import
+'components/buttons/formButton';
+
+%form-field {
+	align-self: flex-start;
+	width: 100%;
+	margin-bottom: 0.2rem;	
+}
+
+.login {
+	@extend %menu-button-base;
+}
+.login__inputs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: left;
+}
+.login__input-item--email {
+	@extend %form-field;
+}
+.login__input-item--password {
+	@extend %form-field;
+}
+.login__input-item--submit {
+	margin-right: 5px;
+}
+.login__input-item--cancel {
+	margin-right: 5px;
+}
+.login__input {		
+	box-sizing: border-box;
+	width: 100%;
+	height: 2rem;
+}
+.login__forgotten-password,
+.login__errors {
+	text-align: left;
+	font-weight: bold;
+}
+.login__forgotten-password-link {
+	font-size: 0.7rem;
+	color: $colour-pb-blue;
+}
+.login__errors {
+	font-size: 0.75rem;
+	background-color: $colour-pb-purple-dark;
+	color: #fff;
+}
+.login__errors--show {
+	padding: 0.15rem 0.5rem;
+}
+.login--fullscreen {
+
+	@extend %full-screen-bordered;
+
+	// %full-screen-bordered overrides
+	height: 15vh;
+	top: auto;
+	bottom: 0;
+	padding-top: 4.5rem;
+	border: 0;
+
+	display: block;		
+	visibility: hidden;
+	opacity: 0;
 }
