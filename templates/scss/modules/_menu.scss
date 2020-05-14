@@ -13,6 +13,28 @@
 'components/forms/login',
 'components/forms/search';
 
+%expanded-menu-element {
+	@extend %full-screen-bordered;
+	border: none;
+	z-index: 2;
+	padding: 2.5rem 1rem;
+	@keyframes dropdown_anim {
+		0%   {bottom: 100vh; padding-top: 2.5rem; scale: 0.5;}
+		50%  {bottom: 0; padding-top: 30%; scale: 1.2;}
+		100% {bottom: 0; padding-top: 2.5rem; scale: 1;}
+	}
+	animation: dropdown_anim $menu-transition_duration_medium;
+}
+%collapsed-menu-element {
+
+	@keyframes dropdown_anim_rev {
+		0%   {padding-top: 2.5rem; scale: 0.5;}
+		50%  {padding-top: 0; scale: 1.2;}
+		100% {padding-top: 0; scale: 1;}
+	}
+	animation: dropdown_anim_rev $menu-transition_duration_medium;
+}
+
 body.menu__entries--active {
 	
 	@extend %full-height-no-scroll;	
@@ -58,8 +80,47 @@ body.menu__entries--active {
 		width: 20px;
 		top: 0;
 		right: 0;
-	}
+	}	
+	%menu-button-base {
 
+		@extend %full-screen-bordered;
+
+		// %full-screen-bordered overrides
+		height: 15vh;
+		top: auto;
+		bottom: 0;
+		padding-top: 4.5rem;
+		border: 0;
+
+		display: block;		
+		visibility: hidden;
+		opacity: 0;
+	}
+	.login {
+		@extend %menu-button-base;
+	}
+	.menu--modal-active & .login {
+		
+		@keyframes menu_element_anim {
+			0%   {height: 15vh}
+			100% {height: 100vh}
+		}
+		animation: menu_element_anim $menu-transition_duration_medium;
+		height: 100vh;
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.menu:not(.menu--modal-active) .menu__entries .login {
+		
+	//TODO: Might be better to make height 100% immediately, then animate padding if possible to slide the form up ther screen
+	@keyframes menu_element_anim_rev {
+		0%   {opacity: 1; visibility: visible; height: 100vh;}
+		100% {opacity: 0; visibility: hidden; height: 20vh; adding-top: 0;}
+	}
+	animation: menu_element_anim_rev $menu-transition_duration_medium;
+	
 }
 .menu--anim-bttn .menu__entry:first-child {
 	align-self: flex-start;

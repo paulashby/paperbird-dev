@@ -26,7 +26,7 @@ function init (settings) {
             if(button_type) {
 
                 // add class to change state of target element
-                $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--' + button_type);
+                $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + button_type);
 
             } else {
                 console.log('Standard link - load page');
@@ -61,7 +61,12 @@ function toggleMenu (settings) {
 }
 
 function openMenu (settings) {
-    if(settings.sliding) {
+    
+    if($('.menu').hasClass('menu--modal-active')) {
+
+        $('.menu').removeClass().addClass(setup.base_menu_class);
+
+    } else if(settings.sliding) {
         
         toggleMenu(settings);
 

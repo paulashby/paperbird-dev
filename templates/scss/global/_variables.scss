@@ -100,3 +100,15 @@ $leading-title: 1.2;
 %menu-button-cross-bar-3 {
   @include transform(rotate(45deg) translate(-6px, -7px));
 }
+%hidden {
+  transform: scale(0);
+  visibility: hidden;
+  pointer-events: none;
+  height: 0;
+}
+%unhidden {
+  transform: scale(1);
+  visibility: visible;
+  pointer-events: auto;
+  height: auto;
+}
