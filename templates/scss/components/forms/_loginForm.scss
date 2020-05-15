@@ -1,11 +1,6 @@
 @import
-'components/buttons/formButton';
-
-%form-field {
-	align-self: flex-start;
-	width: 100%;
-	margin-bottom: 0.2rem;	
-}
+'components/buttons/formButton',
+'components/forms/formField';
 
 .login {
 	@extend %menu-button-base;
@@ -15,22 +10,8 @@
 	flex-wrap: wrap;
 	justify-content: left;
 }
-.login__input-item--email {
-	@extend %form-field;
-}
-.login__input-item--password {
-	@extend %form-field;
-}
-.login__input-item--submit {
-	margin-right: 5px;
-}
-.login__input-item--cancel {
-	margin-right: 5px;
-}
 .login__input {		
-	box-sizing: border-box;
-	width: 100%;
-	height: 2rem;
+	@extend %form-field;
 }
 .login__forgotten-password,
 .login__errors {

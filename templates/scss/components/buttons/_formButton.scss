@@ -1,15 +1,16 @@
 .form__button {
-	height: 1.5rem;
 	background-color: $colour-pb-purple;
-	border: 0;
 	border-radius: 4px;
+	border: 0;
+	border: 1px solid $colour-pb-purple;
 	color: #fff;
-	border: 1px solid $colour-pb-purple;	
+	height: 1.5rem;
+	margin-right: 5px;	
 }
 .form__button--submit {
 }
 .form__button--cancel {
 	background-color: #fff;
-	color: #6e5f77;
 	border-color: $colour-pb-purple-light;
+	color: #6e5f77;
 }
