@@ -34,9 +34,24 @@ function init (settings) {
                 $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
 
             } else {
-                console.log('Standard link - load page');
+                
+                if($('.menu').hasClass('menu--modal-active')) {
+
+                    //TODO: Respond appropriately to menu tool click
+                    console.log('menu tool clicked');
+                    closeModalMenu(e);
+
+                } else {
+
+                    console.log('Standard link - load page');
+
+                }
             }
 
+        } else {
+
+            // Submenu is being toggled - close modal menu if it's open
+            $('.menu').removeClass('menu--modal-active');
         } 
         e.preventDefault();
     });
@@ -67,26 +82,22 @@ function toggleMenu (settings) {
 
 function openMenu (settings) {
 
-    if($('.menu').hasClass('menu--modal-active')) {
+    if($('.menu').hasClass('menu--modal-active')){
 
-        // $('.menu').removeClass().addClass(setup.base_menu_class);
-        $('.menu').removeClass('menu--modal-active');
-
-        // leave modifier class in place until end of animation - this allows us to listen for changes to menu--[modifier]
-        // and avoid triggering the collapse animations for other menu tool elements
-        $('.' + menu_modifier).one('animationend', function () {
-            $('.menu').removeClass('menu--' + menu_modifier);
-            // Remove listener
-            $(e.target).off();
-       });
+        // Simple menu toggle
+        console.log('poss problem here');
+        toggleMenu(settings);
 
     } else if(settings.sliding) {
-        
+
+        // Simple menu toggle
         toggleMenu(settings);
 
     } else {
 
-        // closeNavDropdown will be available if menu dropdowns are not set to slide
+        // Intention may be to close a dropdown
+
+        // closeNavDropdown function should be available if menu dropdowns are not set to slide
         if(settings.closeNavDropdown) {
 
             // closeNavDropdown() will look after dropdowns.
@@ -103,6 +114,19 @@ function openMenu (settings) {
             console.error('Expected closeNavDropdown function from main.js - none provided');
         }
     }
+}
+
+function closeModalMenu (e) {
+
+    $('.menu').removeClass('menu--modal-active');
+
+    // leave modifier class in place until end of animation - this allows us to listen for changes to menu--[modifier]
+    // and avoid triggering the collapse animations for other menu tool elements
+    $('.' + menu_modifier).one('animationend', function () {
+        $('.menu').removeClass('menu--' + menu_modifier);
+        // Remove listener
+        $(e.target).off();
+   });
 }
 
 const menu = {
