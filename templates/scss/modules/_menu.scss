@@ -10,8 +10,8 @@
 'components/buttons/menuEntryButtonLogin',
 'components/buttons/menuEntryButtonBasket',
 'components/buttons/menuEntryButtonSearch',
-'components/forms/login',
-'components/forms/search',
+'components/forms/loginForm',
+'modules/search',
 'modules/basket';
 
 //TODO: Working on basket. styles currently in 'modules/' - does that make sense?
@@ -158,6 +158,9 @@ body.menu__entries--active {
 	.menu--modal-active.menu--basket & .basket {
 		@extend %expanded-menu-tool;
 	}
+	.menu--modal-active.menu--search & .search {
+		@extend %expanded-menu-tool;
+	}
 }
 
 .menu--login:not(.menu--modal-active) .menu__entries .login--fullscreen {
@@ -167,6 +170,9 @@ body.menu__entries--active {
 	@extend %collapsed-menu-tool;
 }
 .menu--basket:not(.menu--modal-active) .menu__entries .basket {
+	@extend %collapsed-menu-tool;
+}
+.menu--search:not(.menu--modal-active) .menu__entries .search {
 	@extend %collapsed-menu-tool;
 }
 .menu--anim-bttn .menu__entry:first-child {
