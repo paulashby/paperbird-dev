@@ -1,0 +1,35 @@
+@import
+
+'components/buttons/formButton',
+'components/forms/formField';
+//TODO: Style error message so not full width. Problem is that if it's set to display inline-block, it occupies space when hidden, but if it's block, it occupies the full width . Might need to contain it within a dv - see
+// https://stackoverflow.com/questions/14310154/how-do-i-set-a-background-color-for-the-width-of-text-not-the-width-of-the-enti
+.form {
+	text-align: left;
+}
+// Including label tag in selector as validate.js adds form__error classes to both the label AND the offending field and we want to exclude the field. I'm including the labels in all form error styles for consistency
+p.form__error, label.form__error {
+
+	width: 100%;
+	visibility: hidden; 
+	opacity: 0; 
+	scale: 0;	
+	font-size: 0.75rem;
+	background-color: $colour-pb-purple-dark;
+	color: #fff;
+	padding: 0 0.5rem;
+	margin-bottom:0;
+
+	margin-bottom: 0.75rem;
+	visibility: visible; 
+	opacity: 1; 
+	scale: 1;
+}
+p.form__error--show, label.form__error--show {
+	
+
+
+}
+p.form__error--submission {
+	margin-bottom: 0;
+}

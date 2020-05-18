@@ -1,3 +1,5 @@
+import form from '../components/form';
+
 let setup = {
     top_level_class: 'menu__entries',
     toggle_bar_class: 'menu__bar',
@@ -23,12 +25,12 @@ function init (settings) {
 
         if( ! settings.toggleSubmenu(e)){
 
-            let button_type = $(e.target).data('buttontype');
+            let tool_toggle = $(e.target).data('buttontype');
             
-            if(button_type) {
+            if(tool_toggle) {
 
-                // store button type so we can manipulate menu class post-animation
-                menu_modifier = button_type;
+                // Toggling a menu tool - store button type so we can manipulate menu class post-animation
+                menu_modifier = tool_toggle;
 
                 // add class to change state of target element
                 $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
@@ -37,9 +39,7 @@ function init (settings) {
                 
                 if($('.menu').hasClass('menu--modal-active')) {
 
-                    //TODO: Respond appropriately to menu tool click
-                    console.log('menu tool clicked');
-                    closeModalMenu(e);
+                    processForm(e);
 
                 } else {
 
@@ -54,6 +54,11 @@ function init (settings) {
             $('.menu').removeClass('menu--modal-active');
         } 
         e.preventDefault();
+    });
+
+    form.init({
+        error_class: 'form__error',
+        form_classes: 'form--login' // Array if multiple forms in menu
     });
 }
 function toggleMenu (settings) {
@@ -85,7 +90,6 @@ function openMenu (settings) {
     if($('.menu').hasClass('menu--modal-active')){
 
         // Simple menu toggle
-        console.log('poss problem here');
         toggleMenu(settings);
 
     } else if(settings.sliding) {
@@ -127,6 +131,39 @@ function closeModalMenu (e) {
         // Remove listener
         $(e.target).off();
    });
+}
+function processForm(e) {
+
+    switch ($(e.target).attr('value').toLowerCase()) {
+        case 'cancel':
+        closeModalMenu(e);
+        break;
+
+        case 'submit':
+        /*
+            might be useful
+            $(e.target).closest('form').attr('method')
+            $(e.target).closest('form').attr('action')
+            action attribute gives the url - if I provide it in the form html:
+            <form action="/action_page.php">
+
+            maybe something like
+            $.ajax({
+                type: 'POST', 
+                url: your url,
+                data: $('#'+form_id).serialize(), 
+                success: function(data) {
+                    $('#debug').html(data);
+              }
+            });
+        */
+        console.log($(e.target).closest('form').serialize());
+        // https://stackoverflow.com/questions/1792603/how-do-i-php-unserialize-a-jquery-serialized-form
+        break;
+
+        default:
+    }
+
 }
 
 const menu = {
