@@ -25,8 +25,16 @@ function init (settings) {
  * String or Array of Strings: form_classes (the classes of all forms on page requiring validation)
 */
 function applyValidation(error_class, form_class) {
-	$('.' + form_class).validate(
-        {errorClass: error_class}
+	$('.' + form_class).validate({
+			errorClass: error_class,
+			highlight: function (element, required) {
+				$(element).addClass('form__input--highlight');
+		    },
+		    unhighlight: function (element, errorClass, validClass) {
+		        // $(element).css('border', '1px solid #CCC');
+		        $(element).removeClass('form__input--highlight');
+		    }
+		}
     );
 }
 

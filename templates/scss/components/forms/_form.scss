@@ -7,6 +7,52 @@
 .form {
 	text-align: left;
 }
+
+.form, .test__class {
+
+	text-align: left;
+}
+.form__inputs {
+	display: flex;
+	flex-wrap: wrap;
+}
+.form__input {		
+	@extend %form-field;
+	color: #000;
+	@include transition(color $menu-transition_duration ease);
+}
+.form__input--highlight {
+	color: $colour-pb-highlight;
+}
+.form__forgotten-password,
+.form__error {
+	text-align: left;
+	font-weight: bold;
+}
+.form__input--email,
+.form__input--password {
+	font-weight: normal;
+}
+
+.form__forgotten-password-link {
+	font-size: 0.7rem;
+	color: $colour-pb-blue;
+}
+.form--fullscreen {
+
+	@extend %full-screen-bordered;
+
+	// %full-screen-bordered overrides
+	height: 15vh;
+	top: auto;
+	bottom: 0;
+	padding-top: 4.5rem;
+	border: 0;
+
+	display: block;		
+	visibility: hidden;
+	opacity: 0;
+}
 // Including label tag in selector as validate.js adds form__error classes to both the label AND the offending field and we want to exclude the field. I'm including the labels in all form error styles for consistency
 p.form__error, label.form__error {
 
@@ -24,11 +70,6 @@ p.form__error, label.form__error {
 	visibility: visible; 
 	opacity: 1; 
 	scale: 1;
-}
-p.form__error--show, label.form__error--show {
-	
-
-
 }
 p.form__error--submission {
 	margin-bottom: 0;
