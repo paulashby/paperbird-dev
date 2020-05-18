@@ -10,9 +10,10 @@
 'components/buttons/menuEntryButtonLogin',
 'components/buttons/menuEntryButtonBasket',
 'components/buttons/menuEntryButtonSearch',
-'components/forms/loginForm',
 'modules/search',
 'modules/basket';
+
+// login form styles imported at end of file
 
 //TODO: Working on basket. styles currently in 'modules/' - does that make sense?
 
@@ -119,7 +120,7 @@ body.menu__entries--active {
 	@extend %menu-element-full-screen;
 	@extend %menu-element-hidden;
 	@include menu_transition;
-
+	
 	.menu--collections & {
 		background-color: $colour-pb-green;
 		@include menu_transition;
@@ -211,3 +212,6 @@ body.menu__entries--active {
 	}
 
 }
+
+@import
+'components/forms/loginForm';

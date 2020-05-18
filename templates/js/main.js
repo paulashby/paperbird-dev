@@ -1,8 +1,8 @@
 // import { customEventPolyfill } from './helpers';
 import $ from 'jquery';
-
 import menu from './modules/menu';
 import navigation from './modules/navigation';
+//TODO: May need to move form.js import and initialisation out of menu.js if other elements of the page include forms
 
 window.jQuery = $;
 window.$ = $;
