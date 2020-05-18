@@ -39,8 +39,12 @@ function init (settings) {
                 
                 if($('.menu').hasClass('menu--modal-active')) {
 
-                    processForm(e);
+                    // Ignore if click is on field
+                    if( ! $(e.target).hasClass('form__input')) {
 
+                        processForm(e);
+
+                    }
                 } else {
 
                     console.log('Standard link - load page');
@@ -157,6 +161,7 @@ function processForm(e) {
               }
             });
         */
+        $('.login').append("<p class='form__error form__error--submission'>Something horrible happened.</p>");
         console.log($(e.target).closest('form').serialize());
         // https://stackoverflow.com/questions/1792603/how-do-i-php-unserialize-a-jquery-serialized-form
         break;

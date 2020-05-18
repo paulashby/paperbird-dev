@@ -16,7 +16,7 @@ $out = "<h2><a href='#' class='menu__entrybutton menu__entrybutton--login' data-
 				</div>								
 			</form>
 			<p class='form__forgotten-password'><a class='form__forgotten-password-link' href='$forgotten_pw_url'>Forgot password?</a></p>
-			<p class='form__error form__error--submission'>Something horrible happened.</p>
+			
 		</div>";
 
 return $out;

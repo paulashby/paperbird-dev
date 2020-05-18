@@ -54,23 +54,36 @@
 	opacity: 0;
 }
 // Including label tag in selector as validate.js adds form__error classes to both the label AND the offending field and we want to exclude the field. I'm including the labels in all form error styles for consistency
+//TODO: We should add the p.form__error element when an error is returned by the form - this way it's consitent with the validate.js label being added
 p.form__error, label.form__error {
-
-	width: 100%;
-	visibility: hidden; 
-	opacity: 0; 
+	// width: 100%;
+	// visibility: hidden; 
+	// opacity: 0; 
 	scale: 0;	
 	font-size: 0.75rem;
 	background-color: $colour-pb-purple-dark;
 	color: #fff;
 	padding: 0 0.5rem;
-	margin-bottom:0;
-
+	// margin-bottom:0;
+	
 	margin-bottom: 0.75rem;
 	visibility: visible; 
 	opacity: 1; 
 	scale: 1;
+
+	@include transition(all $menu-transition_duration ease);
 }
+p.form__error--show, label.form__error--show {
+	
+}
+// p.form__error:not(.form__error--show), label.form__error:not(.form__error--show) {
+// 	margin-bottom: 0;
+// 	visibility: hidden; 
+// 	opacity: 0; 
+// 	scale: 0;	
+
+// 	@include transition(all $menu-transition_duration ease);
+// }
 p.form__error--submission {
 	margin-bottom: 0;
 }
