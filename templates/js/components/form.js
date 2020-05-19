@@ -4,7 +4,7 @@ import validate from '../utilities/simpleValidation.js';
 function init (settings) {
 
 	validate({
-		field_class: settings.field_class,
+		field_class: settings.validate,
 		error_class: settings.error_class
 	});
 

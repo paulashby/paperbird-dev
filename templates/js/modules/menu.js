@@ -61,7 +61,7 @@ function init (settings) {
     });
 
     form.init({
-        field_class: 'form__input--validate',
+        validate: 'form__input--validate',
         error_class: 'form__error'
     });
 }
