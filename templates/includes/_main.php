@@ -1,3 +1,6 @@
+<?php
+if($config->ajax) return;
+?>
 <!DOCTYPE html>
 <html>
     <head>
