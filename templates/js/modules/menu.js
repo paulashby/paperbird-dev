@@ -61,8 +61,8 @@ function init (settings) {
     });
 
     form.init({
-        error_class: 'form__error',
-        form_classes: 'form--login' // Array if multiple forms in menu
+        field_class: 'form__input--validate',
+        error_class: 'form__error'
     });
 }
 function toggleMenu (settings) {
