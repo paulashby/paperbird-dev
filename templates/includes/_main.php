@@ -7,8 +7,17 @@ if($config->ajax) return;
         <meta http-equiv='content-type' content='text/html; charset=utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title data-pw-id='title'>Welcome to PaperBird</title>
-
-        <?=loadWebpackChunk('css','main')?>
+        <?=
+        // Data for javascript
+        $jsconfig = array(
+            "root" => $config->urls->root,
+            "domain" => $config->httpHost,
+            "errorHandlerURL" => $pages->get(1084)->url
+        );
+        echo "<script>var config = " . json_encode($jsconfig) . ";</script>";?>
+        <?=
+        loadWebpackChunk('css','main');
+        ?>
         <region data-pw-id='head'></region>
     </head>
     <body>
