@@ -2,8 +2,7 @@
 
 'components/buttons/formButton',
 'components/forms/formField';
-//TODO: Style error message so not full width. Problem is that if it's set to display inline-block, it occupies space when hidden, but if it's block, it occupies the full width . Might need to contain it within a dv - see
-// https://stackoverflow.com/questions/14310154/how-do-i-set-a-background-color-for-the-width-of-text-not-the-width-of-the-enti
+
 .form {
 	text-align: left;
 }
