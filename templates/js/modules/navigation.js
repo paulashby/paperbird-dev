@@ -109,11 +109,35 @@ function toggleSubmenu (e) {
 
 }
 
+function navigationClick (e) {
+
+    let event_type = {
+        page_link: false,
+        toggle_dropdown: false
+    };
+
+    // if($(e.target).parent().hasClass('nav__level-1')&&(!$(e.target).parent().hasClass('hasChildren')))
+    if($(e.target).hasClass('nav__top-link')) {
+
+        event_type.page_link =  true;
+        return event_type;
+
+    } else if ($(e.target).hasClass('nav__top-cat')) {
+
+        toggleDropdown(e);
+        event_type.toggle_dropdown =  true;
+        return event_type;
+    }
+
+    return false;
+
+}
+//TODO: navigationClick to a different key to test what happens when it's not available - preventDefault() doesn't seem to get caled.
 const navigation = {
     init: init,
     resetDropdown: resetDropdown,
     closeDropdown: closeDropdown,
-    toggleSubmenu: toggleSubmenu
+    NOTnavigationClick: navigationClick
 };    
 
 export default navigation;

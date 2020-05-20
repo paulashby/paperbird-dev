@@ -20,41 +20,23 @@ function init (settings) {
     });
 
     $('.menu__entries').on('click', function (e) {
+        //TODO: users with js disabled won't see the dropdown menus. Could make the parent pages viewable so that when preventDefault isn't called, the parent page loads with links to to the children.
 
-        if( ! settings.toggleSubmenu(e)){
+        let navigation_click = (settings.navigationClick(e));
 
-            let tool_toggle = $(e.target).data('buttontype');
-            
-            if(tool_toggle) {
-
-                // Toggling a menu tool - store button type so we can manipulate menu class post-animation
-                menu_modifier = tool_toggle;
-
-                // add class to change state of target element
-                $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
-
-            } else {
-                
-                if($('.menu').hasClass('menu--modal-active')) {
-                    //TODO: refactor so this is first in function?
-                    // Ignore if click is on field
-                    if( ! $(e.target).hasClass('form__input')) {
-
-                        processForm(e);
-
-                    }
-                } else {
-
-                    console.log('Standard link - load page');
-
-                }
+        if(navigation_click) {
+            if(navigation_click.page_link) {
+                return;
             }
-
+            if( navigation_click.toggle_dropdown) {
+                // Hide any modal menus which might be open in front of nav dropdown. Unnecessary when nav is not nested in a menu
+                 $('.menu').removeClass('menu--modal-active');
+            } else {
+                updateMenu(e);
+            } 
         } else {
-
-            // Submenu is being toggled - close modal menu if it's open
-            $('.menu').removeClass('menu--modal-active');
-        } 
+            updateMenu(e);
+        }  
         e.preventDefault();
     });
 
@@ -63,6 +45,33 @@ function init (settings) {
         error_class: 'form__error'
     });
 }
+
+function updateMenu (e) {
+
+    let tool_toggle = $(e.target).data('buttontype');
+            
+    if(tool_toggle) {
+
+        // Toggling a menu tool - store button type so we can manipulate menu class post-animation
+        menu_modifier = tool_toggle;
+
+        // add class to change state of target element
+        $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
+
+    } else {
+        
+        if($('.menu').hasClass('menu--modal-active')) {
+            //TODO: refactor so this is first in function?
+            // Ignore if click is on field
+            if( ! $(e.target).hasClass('form__input')) {
+
+                processForm(e);
+
+            }
+        }
+    }
+}
+
 function toggleMenu (settings) {
 
     if(settings.resetNavDropdown) {

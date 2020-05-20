@@ -46,7 +46,7 @@ function submit (e)	{
         	}
        },
         error: function(jqXHR, textStatus, errorThrown) {
-        	console.log(textStatus, errorThrown);
+        	throw new Error(errorThrown);
         } 
     });
 
