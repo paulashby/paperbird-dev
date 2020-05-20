@@ -7,8 +7,6 @@ let setup = {
 };
 let menu_modifier = '';
 
-//TODO: When logging in, need to add login__errors--show class to login__errors to display
-
 function init (settings) {
 
     setup.button_prefix_len = setup.button_prefix.length;
@@ -38,7 +36,7 @@ function init (settings) {
             } else {
                 
                 if($('.menu').hasClass('menu--modal-active')) {
-
+                    //TODO: refactor so this is first in function?
                     // Ignore if click is on field
                     if( ! $(e.target).hasClass('form__input')) {
 
@@ -141,29 +139,13 @@ function processForm(e) {
     switch ($(e.target).attr('value').toLowerCase()) {
         case 'cancel':
         closeModalMenu(e);
+        form.reset(e);
         break;
 
         case 'submit':
-        /*
-            might be useful
-            $(e.target).closest('form').attr('method')
-            $(e.target).closest('form').attr('action')
-            action attribute gives the url - if I provide it in the form html:
-            <form action="/action_page.php">
+        //TODO: Check for validation errors first
+        form.submit(e);
 
-            maybe something like
-            $.ajax({
-                type: 'POST', 
-                url: your url,
-                data: $('#'+form_id).serialize(), 
-                success: function(data) {
-                    $('#debug').html(data);
-              }
-            });
-        */
-        $('.login').append("<p class='form__error form__error--submission'>Something horrible happened.</p>");
-        console.log($(e.target).closest('form').serialize());
-        // https://stackoverflow.com/questions/1792603/how-do-i-php-unserialize-a-jquery-serialized-form
         break;
 
         default:
