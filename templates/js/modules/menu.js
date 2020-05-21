@@ -21,10 +21,11 @@ function init (settings) {
 
     $('.menu__entries').on('click', function (e) {
         //TODO: users with js disabled won't see the dropdown menus. Could make the parent pages viewable so that when preventDefault isn't called, the parent page loads with links to to the children.
+            
+        if(typeof settings.navigationClick === 'function') {
 
-        let navigation_click = (settings.navigationClick(e));
+            let navigation_click = (settings.navigationClick(e));
 
-        if(navigation_click) {
             if(navigation_click.page_link) {
                 return;
             }
@@ -33,7 +34,7 @@ function init (settings) {
                  $('.menu').removeClass('menu--modal-active');
             } else {
                 updateMenu(e);
-            } 
+            }
         } else {
             updateMenu(e);
         }  
@@ -125,7 +126,7 @@ function openMenu (settings) {
             }
 
         } else {
-            
+            //TODO: This message is redundant if we trigger a custom event - we also need navigation.js to trigger its own event to tell menu to toggle
             console.error('Expected closeNavDropdown function from main.js - none provided');
         }
     }
@@ -143,23 +144,31 @@ function closeModalMenu (e) {
         $(e.target).off();
    });
 }
+
 function processForm(e) {
 
-    switch ($(e.target).attr('value').toLowerCase()) {
-        case 'cancel':
-        closeModalMenu(e);
-        form.reset(e);
-        break;
+    let attr_val = $(e.target).attr('value');
 
-        case 'submit':
-        //TODO: Check for validation errors first
-        form.submit(e);
+    if(attr_val) {
 
-        break;
+        switch ($(e.target).attr('value').toLowerCase()) {
+            case 'cancel':
+            closeModalMenu(e);
+            form.reset(e);
+            break;
 
-        default:
+            case 'submit':
+            //TODO: Check for validation errors first
+            form.submit(e);
+            break;
+
+            default:
+            // throw new Error('Unexpected value');
+            e.preventDefault();
+            throw new Error('Unexpected value');
+
+        }
     }
-
 }
 
 const menu = {
