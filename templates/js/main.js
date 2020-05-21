@@ -26,8 +26,8 @@ function init () {
 	}
 
 	let menu_settings = {
-
 		sliding: sliding,
+		//TODO: broadcast events for these three navigation functions and have navigation listen for them - then we don't need them here and we don't need to check for their existence in menu. 
 		navigationClick: navigation.navigationClick,
 		resetNavDropdown: navigation.resetDropdown,
 		closeNavDropdown: navigation.closeDropdown
