@@ -1,5 +1,5 @@
 <?php
-
+wire("log")->save("debug", print_r($input->post, true));
 $err_error = $input->post('error');
 $err_stack = $input->post('stack');
 $log_string = "";
@@ -10,12 +10,12 @@ if($err_error) {
 
 	$log_string .= $err_error . ": ";
 	$success_status = true;
-	$return_message .= "The error was logged";
+	$return_message = "The error was logged";
 }
 if($err_stack) {
 	$log_string .= $err_stack;
 	$success_status = true;
-	$return_message .= "The error was logged with a stack trace";
+	$return_message = "The error was logged with a stack trace";
 } 
 if(strlen($log_string)) {
 	wire("log")->save("errors", $log_string);
