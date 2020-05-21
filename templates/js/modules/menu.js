@@ -68,8 +68,7 @@ function updateMenu (e) {
     } else {
         
         if($('.menu').hasClass('menu--modal-active')) {
-            //TODO: refactor so this is first in function?
-            // Ignore if click is on field
+            
             if( ! $(e.target).hasClass('form__input')) {
 
                 processForm(e);
@@ -93,8 +92,7 @@ function toggleMenu (settings, e) {
     // toggle menu - using body element for this so we can disable scrolling
     $('body').toggleClass(setup.top_level_class + '--active');
 
-    // reset menu class - this removes classes associated with 
-    // state of any active menu elements  such as login, basket, search
+    // reset menu class - this removes classes associated with state of any active menu elements  such as login, basket, search
     $('.menu').removeClass().addClass(setup.base_menu_class);
 
 }
@@ -117,8 +115,7 @@ function closeModalMenu (e) {
 
     $('.menu').removeClass('menu--modal-active');
 
-    // leave modifier class in place until end of animation - this allows us to listen for changes to menu--[modifier]
-    // and avoid triggering the collapse animations for other menu tool elements
+    // leave modifier class in place until end of animation - this allows us to listen for changes to menu--[modifier] and avoid triggering the collapse animations for other menu tool elements
     $('.' + menu_modifier).one('animationend', function () {
         $('.menu').removeClass('menu--' + menu_modifier);
         // Remove listener
@@ -144,7 +141,6 @@ function processForm(e) {
             break;
 
             default:
-            // throw new Error('Unexpected value');
             e.preventDefault();
             throw new Error('Unexpected value');
 
