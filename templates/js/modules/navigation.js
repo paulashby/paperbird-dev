@@ -26,7 +26,7 @@ function init (settings) {
         // Listen for custom events
         $(document).on('menuClickEvent', function(e, source_event) {
 
-            if($(e.target).hasClass('nav__top-link')) {
+            if($(e.target).hasClass('nav__top-link') || $(e.target).hasClass('nav__level-2-link')) {
 
                 return;
                 
