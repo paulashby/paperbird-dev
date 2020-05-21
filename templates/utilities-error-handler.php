@@ -1,5 +1,5 @@
 <?php
-wire("log")->save("debug", print_r($input->post, true));
+
 $err_error = $input->post('error');
 $err_stack = $input->post('stack');
 $log_string = "";
