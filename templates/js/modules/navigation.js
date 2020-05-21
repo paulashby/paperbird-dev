@@ -116,7 +116,6 @@ function navigationClick (e) {
         toggle_dropdown: false
     };
 
-    // if($(e.target).parent().hasClass('nav__level-1')&&(!$(e.target).parent().hasClass('hasChildren')))
     if($(e.target).hasClass('nav__top-link')) {
 
         event_type.page_link =  true;
@@ -132,12 +131,12 @@ function navigationClick (e) {
     return false;
 
 }
-//TODO: navigationClick to a different key to test what happens when it's not available - preventDefault() doesn't seem to get caled.
+
 const navigation = {
     init: init,
     resetDropdown: resetDropdown,
     closeDropdown: closeDropdown,
-    NOTnavigationClick: navigationClick
+    navigationClick: navigationClick
 };    
 
 export default navigation;
