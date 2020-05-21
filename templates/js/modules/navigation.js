@@ -21,8 +21,41 @@ function init (settings) {
             } 
             e.preventDefault();
         });
+     } else {
+        
+        // Listen for custom events
+        $(document).on('menuClickEvent', function(e, source_event) {
 
-    }
+            if($(e.target).hasClass('nav__top-link')) {
+
+                return;
+                
+            } 
+            if ($(e.target).hasClass('nav__top-cat')) {
+
+                // Make event for this
+                // Hide any modal menus which might be open in front of nav dropdown
+                toggleDropdown(e);
+                $('.menu').removeClass('menu--modal-active');
+
+            } else {
+                $(e.target).trigger('menuUpdateEvent');
+            }
+            source_event.preventDefault();
+        });
+
+        $(document).on('dropdownToggleEvent', function(e) {
+            toggleDropdown(e);
+        });
+
+        $(document).on('dropdownCloseEvent', function(e) {
+            closeDropdown(e);
+        });
+
+        $(document).on('dropdownResetEvent', function(e) {
+            resetDropdown(e);
+        });
+     }
 
 }
 
@@ -81,7 +114,7 @@ function resetDropdown () {
 
 }
 
-function closeDropdown () {
+function closeDropdown (e) {
 
     let expanded = $('li.nav__level-1--active');
 
@@ -92,10 +125,10 @@ function closeDropdown () {
             $(this).removeClass('nav__level-1--active');
 
         });
-        return true;
+    } else {
+        // No expanded dropdowns - must be closing menu
+        $(e.target).trigger('menuToggleEvent', [e]);
     }
-    // No expanded dropdowns - must be closing menu
-    return false;
 }
 function toggleSubmenu (e) {
 
@@ -108,35 +141,8 @@ function toggleSubmenu (e) {
     return false;
 
 }
-
-function navigationClick (e) {
-
-    let event_type = {
-        page_link: false,
-        toggle_dropdown: false
-    };
-
-    if($(e.target).hasClass('nav__top-link')) {
-
-        event_type.page_link =  true;
-        return event_type;
-
-    } else if ($(e.target).hasClass('nav__top-cat')) {
-
-        toggleDropdown(e);
-        event_type.toggle_dropdown =  true;
-        return event_type;
-    }
-
-    return false;
-
-}
-
 const navigation = {
-    init: init,
-    resetDropdown: resetDropdown,
-    closeDropdown: closeDropdown,
-    navigationClick: navigationClick
+    init: init
 };    
 
 export default navigation;

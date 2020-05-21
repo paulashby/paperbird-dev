@@ -15,30 +15,36 @@ function init (settings) {
     $('.menu__button').on('click', function (e) {
 
         console.log('toggle menu button clicked');
-        openMenu(settings);
+        openMenu(settings, e);
 
     });
 
     $('.menu__entries').on('click', function (e) {
+
         //TODO: users with js disabled won't see the dropdown menus. Could make the parent pages viewable so that when preventDefault isn't called, the parent page loads with links to to the children.
-            
-        if(typeof settings.navigationClick === 'function') {
-
-            let navigation_click = (settings.navigationClick(e));
-
-            if(navigation_click.page_link) {
-                return;
-            }
-            if( navigation_click.toggle_dropdown) {
-                // Hide any modal menus which might be open in front of nav dropdown. Unnecessary when nav is not nested in a menu
-                 $('.menu').removeClass('menu--modal-active');
-            } else {
-                updateMenu(e);
-            }
+         
+        if(settings.hasNav) {
+            // Trigger event for navigation
+            $(e.target).trigger('menuClickEvent', [e]);
         } else {
             updateMenu(e);
-        }  
-        e.preventDefault();
+
+            if ($(e.target).hasClass('nav__top-cat')) {
+
+                $(e.target).trigger('dropdownToggleEvent');
+
+            }
+            e.preventDefault();
+        }
+    });
+
+    // Listen for custom events
+    $(document).on('menuUpdateEvent', function(e) {
+        updateMenu(e);
+    });
+
+    $(document).on('menuToggleEvent', function(settings, source_event) {
+        toggleMenu(settings, source_event);
     });
 
     form.init({
@@ -73,13 +79,9 @@ function updateMenu (e) {
     }
 }
 
-function toggleMenu (settings) {
+function toggleMenu (settings, e) {
 
-    if(settings.resetNavDropdown) {
-
-        settings.resetNavDropdown();
-
-    }
+    $(e.target).trigger('dropdownResetEvent');
    
     // animate button
     $('.' + setup.toggle_bar_class).each(function(){
@@ -97,39 +99,18 @@ function toggleMenu (settings) {
 
 }
 
-function openMenu (settings) {
+function openMenu (settings, e) {
 
-    if($('.menu').hasClass('menu--modal-active')){
-
-        // Simple menu toggle
-        toggleMenu(settings);
-
-    } else if(settings.sliding) {
+    if($('.menu').hasClass('menu--modal-active') || settings.sliding) {
 
         // Simple menu toggle
-        toggleMenu(settings);
+        toggleMenu(settings, e);
 
     } else {
 
         // Intention may be to close a dropdown
-
-        // closeNavDropdown function should be available if menu dropdowns are not set to slide
-        if(settings.closeNavDropdown) {
-
-            // closeNavDropdown() will look after dropdowns.
-            // We need to act only if false is returned, telling us
-            // there are no expanded dropdowns and intention of click 
-            // must have been to toggle the whole menu.
-            if( ! settings.closeNavDropdown()) {
-
-                toggleMenu(settings);
-            }
-
-        } else {
-            //TODO: This message is redundant if we trigger a custom event - we also need navigation.js to trigger its own event to tell menu to toggle
-            console.error('Expected closeNavDropdown function from main.js - none provided');
-        }
-    }
+         $(e.target).trigger('dropdownCloseEvent');
+     }
 }
 
 function closeModalMenu (e) {
