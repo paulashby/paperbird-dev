@@ -1,20 +1,21 @@
 <?php
 if($config->ajax) return;
-?>
-<!DOCTYPE html>
+//TODO: Make logo link to home page
+echo "<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv='content-type' content='text/html; charset=utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title data-pw-id='title'>Welcome to PaperBird</title>
-        <?=
+        <title data-pw-id='title'>Welcome to PaperBird</title>";
         // Data for javascript
         $jsconfig = array(
             "root" => $config->urls->root,
             "domain" => $config->httpHost,
             "errorHandlerURL" => $pages->get(1084)->url
         );
-        echo "<script>var config = " . json_encode($jsconfig) . ";</script>";?>
+        echo "<script>var config = " . json_encode($jsconfig) . ";</script>";
+        ?>
+
         <?=
         loadWebpackChunk('css','main');
         ?>
@@ -22,7 +23,7 @@ if($config->ajax) return;
     </head>
     <body>
         <?php
-             echo   "<img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'>";
+             echo   "<a href=" . $config->urls->root . "><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>";
             // Menu
             $menu_options = array(
                 "components" => array(
