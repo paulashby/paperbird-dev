@@ -1,3 +1,5 @@
+// SUPERSEDED BY USE OF :INVALID CLASS AND FIELD PATTERNS/MIN/MAX LENGTH PROPERTIES ON HTML INPUT FIELDS
+
 /**
  * @param {Object} options
  * @param {string} options.field_class class of inputs to validate
