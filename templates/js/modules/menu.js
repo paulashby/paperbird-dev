@@ -47,8 +47,7 @@ function init (settings) {
     });
 
     form.init({
-        validate: 'form__input--validate',
-        error_class: 'form__error'
+        validate: 'form__input'
     });
 }
 
@@ -135,7 +134,7 @@ function processForm(e) {
             break;
 
             case 'submit':
-            //TODO: Check for validation errors first
+            //TODO: Check for validation errors first - should simply be able to check for :invalid pseudo class on input fields
             form.submit(e);
             break;
 

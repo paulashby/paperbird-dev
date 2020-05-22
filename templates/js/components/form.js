@@ -1,23 +1,21 @@
-import validate from '../utilities/simpleValidation.js';
-
 let setup = {
 };
 
 function init (settings) {
 
 	// Store for validateForm() which is also called by reset() 
-	setup.validate = settings.validate;
-	setup.error_class = settings.error_class;
-
-	validateForm();
-
+	setup.form_selector = '.' + settings.validate;
+    validateOnBlur(setup.form_selector);
+ 
 }
 
-function validateForm () {
-	validate({
-		field_class: setup.validate,
-		error_class: setup.error_class
-	});
+function validateOnBlur (form_selector) {
+
+    $(form_selector).focus(function(e) {
+        $(this).blur(function() { 
+           $(this).addClass('activated'); 
+        });
+    });   
 }
 
 function submit (e)	{
@@ -59,16 +57,14 @@ function reset (e) {
 	// Hide error messages then reset fields
 	let submitting_form = $(e.target).closest('form');
 
-	// Hide visible highlighting
+	// Hide previous submission message
 	submitting_form.parent().find('.form__error--submission').removeClass('form__error--show');
-	submitting_form.find('.form__error--show').removeClass('form__error--show');
 
 	// No error highlighting on first visit to fields
-	// submitting_form.find('.form__input').removeClass('activated').off('blur', '**').off('input', '**');
 	submitting_form.find('.form__input').removeClass('activated').off();
 
 	// Reactivate validation
-	validateForm();
+	 validateOnBlur(setup.form_selector);
 
 	// Reset form fields
 	submitting_form.trigger( "reset" );

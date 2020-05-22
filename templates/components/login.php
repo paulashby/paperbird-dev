@@ -9,9 +9,10 @@ $out = "<h2><a href='#' class='menu__entrybutton menu__entrybutton--login' data-
 		<div class='login'>
 			<form class='form form--login' action='{$form_processor}' method='post'>
 				<div class='form__inputs'>
-					<input type='email' class='form__input form__input--validate form__input--email' name='email' placeholder='Email address'>
+					<input type='email' class='form__input form__input--validate form__input--email' name='email' placeholder='Email address' pattern='^([\w\-\.]+)@((\[([0-9]{1,3}\.){3}[0-9]{1,3}\])|(([\w\-]+\.)+)([a-zA-Z]{2,4}))$'>
 					<label class='form__error'>Please enter a valid email address</label>
-					<input type='password' class='form__input form__input--password' name='password' placeholder='Password'>
+					<input type='password' class='form__input form__input--password' name='password' placeholder='Password' minlength='8' maxlength='64'>
+					<label class='form__error'>Password must be 8 - 64 characters</label>
 					<input type='submit' class='form__button form__button--submit' value='Submit'>
 					<input type='button' class='form__button form__button--cancel' value='Cancel'>
 				</div>								

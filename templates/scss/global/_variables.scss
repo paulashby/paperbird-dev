@@ -114,3 +114,24 @@ $leading-title: 1.2;
   pointer-events: auto;
   height: auto;
 }
+%message {
+  background-color: $colour-pb-purple-dark;
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  margin-bottom: 0.75rem;
+  padding:0.35rem 0.5rem;
+  opacity: 1; 
+  scale: 1;
+  visibility: visible; 
+}
+%message-hidden {
+  line-height: 0;
+  margin-bottom: 0;
+  opacity: 0; 
+  padding: 0 0.5rem;
+  scale: 0;
+  visibility: hidden; 
+  width: 100%;
+  @include transition(all $menu-transition_duration ease);
+}

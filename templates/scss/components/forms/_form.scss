@@ -6,7 +6,6 @@
 .form {
 	text-align: left;
 }
-
 .form, .test__class {
 
 	text-align: left;
@@ -20,19 +19,11 @@
 	color: #000;
 	@include transition(color $menu-transition_duration ease);
 }
-.form__input--highlight {
-	color: $colour-pb-highlight;
-}
 .form__forgotten-password,
 .form__error {
 	text-align: left;
 	font-weight: bold;
 }
-.form__input--email,
-.form__input--password {
-	font-weight: normal;
-}
-
 .form__forgotten-password-link {
 	font-size: 0.7rem;
 	color: $colour-pb-blue;
@@ -52,28 +43,11 @@
 	visibility: hidden;
 	opacity: 0;
 }
-.form__error {
-	font-size: 0.75rem;
-	width: 100%;
-	background-color: $colour-pb-purple-dark;
-	color: #fff;
-	padding: 0 0.5rem;
-
-	line-height: 0;
-	margin-bottom: 0;
-	visibility: hidden; 
-	opacity: 0; 
-	scale: 0;
-
-	@include transition(all $menu-transition_duration ease);
+.form__error--submission {
+	@extend %message-hidden;
 }
-.form__error--show {
-	line-height: inherit;
-	margin-bottom: 0.75rem;
-	visibility: visible; 
-	opacity: 1; 
-	scale: 1;
-}
-p.form__error--submission {
+.form__error--submission.form__error--show {
+	@extend %message;
 	margin-bottom: 0;
 }
+
