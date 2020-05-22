@@ -9,7 +9,6 @@ let menu_modifier = '';
 
 function init (settings) {
 
-    setup.button_prefix_len = setup.button_prefix.length;
     setup.base_menu_class = $('.menu').attr('class');
 
     $('.menu__button').on('click', function (e) {
