@@ -1,6 +1,5 @@
 <?php
 if($config->ajax) return;
-//TODO: Make logo link to home page
 echo "<!DOCTYPE html>
 <html>
     <head>
