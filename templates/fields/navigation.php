@@ -47,7 +47,7 @@ function getLevel1 ($child, $sliding) {
 	$button_str = $sliding ? " nav__top-cat--buttoned" : "";
 
 	if($child->hasChildren()) {
-		return "<a href='$link' class='nav__top-cat nav__top-cat--$cat_lc $button_str' data-cat='$cat_lc'>$cat</span></a>";
+		return "<a href='$link' class='nav__top-cat nav__top-cat--$cat_lc $button_str' data-cat='$cat_lc' data-action='toggleDropdown'>$cat</span></a>";
 	}
 
 	return "<a href='$link' class='nav__top-link  nav__top-link--$cat_lc' data-cat='$cat_lc'>$cat</a>";

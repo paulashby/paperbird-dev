@@ -1,3 +1,4 @@
+import {dataAttrClickHandler} from '../helpers';
 let setup = {
     slide_duration: 300,
     top_cats: $('.nav__top-cat'),
@@ -6,91 +7,69 @@ let setup = {
     hide_scrollbars: 'hide-scrollbars',
     sliding: $('.nav').hasClass('nav--sliding')
 };
+let actions = {
+};
 
 function init (settings) {
 
-    // Add listener if navigation is not part of greater menu system
-    if( ! settings.menu ) {
+    // Use event handlers in actions object
+    $('.nav').on('click', function (e) {
+        dataAttrClickHandler(e, actions);
+    });
 
-         $('.nav').on('click', function (e) {
+    actions.toggleDropdown = function (e) {
 
-            if($(e.target).hasClass('nav__top-cat')){
+        $(setup.top_cats).each(function(){
+            
+            if(this === e.target) {
+           
+                if(setup.sliding) {
+                    $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
+                } 
+                else {
+                    // Hide scrollbars during animation
+                    $('body').toggleClass(setup.hide_scrollbars);
+                    $(this).parent().one('animationend', function () {
+                        $('body').removeClass(setup.hide_scrollbars);
+                        // Remove listener
+                        $(this).off();
+                   });
 
-                toggleDropdown(e);
+                }
 
-            } 
-            e.preventDefault();
-        });
-     } else {
-        
-        // Listen for custom events
-        $(document).on('menuClickEvent', function(e, source_event) {
-
-            if($(e.target).hasClass('nav__top-link') || $(e.target).hasClass('nav__level-2-link')) {
-
-                return;
-                
-            } 
-            if ($(e.target).hasClass('nav__top-cat')) {
-
-                // Make event for this
-                // Hide any modal menus which might be open in front of nav dropdown
-                toggleDropdown(e);
-                $('.menu').removeClass('menu--modal-active');
+                $(this).parent().toggleClass(setup.level_1_class_active);
 
             } else {
-                $(e.target).trigger('menuUpdateEvent');
-            }
-            source_event.preventDefault();
-        });
 
-        $(document).on('dropdownToggleEvent', function(e) {
-            toggleDropdown(e);
-        });
+                if(setup.sliding) {
+                    $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
+                }
+                $(this).parent().removeClass(setup.level_1_class_active);
 
-        $(document).on('dropdownCloseEvent', function(e) {
-            closeDropdown(e);
-        });
+            }                   
+        }); 
 
-        $(document).on('dropdownResetEvent', function(e) {
-            resetDropdown(e);
-        });
-     }
+        if(settings.menu){
+            $('.menu').removeClass('menu--modal-active');
+        }
 
+        e.preventDefault();
+    };
+
+    // Menu triggers this event only when nav exists and we need to check for open dropdowns before toggling menu
+    $(document).on('dropdownCloseEvent', function(e) {
+        closeDropdown(e);
+    });
+
+    // Triggered when menu is toggled
+    $(document).on('dropdownResetEvent', function(e) {
+        resetDropdown(e);
+    });
 }
 
 function toggleDropdown (e) {
     
-    // Toggle dropdown menu
-    $(setup.top_cats).each(function(){
-        
-        if(this === e.target) {
-       
-            if(setup.sliding) {
-                $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
-            } 
-            else {
-                // Hide scrollbars during animation
-                $('body').toggleClass(setup.hide_scrollbars);
-                $(this).parent().one('animationend', function () {
-                    $('body').removeClass(setup.hide_scrollbars);
-                    // Remove listener
-                    $(this).off();
-               });
-
-            }
-
-            $(this).parent().toggleClass(setup.level_1_class_active);
-
-        } else {
-
-            if(setup.sliding) {
-                $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
-            }
-            $(this).parent().removeClass(setup.level_1_class_active);
-
-        }                   
-    });   
+ console.warn('now actions.toggleDropdown')  
 }
 
 function resetDropdown () {

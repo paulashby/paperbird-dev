@@ -4,8 +4,11 @@
 //  The classes have been adjusted to be more BEM compliant
 $form_processor = $pages->get(1017)->url;
 $forgotten_pw_url = "#"; // Placeholder
+$login_button = $files->render('components/buttons/menuToolButton', ['button_text'=>'Log in', 'button_class'=>'menu__entrybutton menu__entrybutton--login', 'button_type'=>'login']);
+$submit_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--submit', 'button_type'=>'submit', 'action'=>'submit']);
+$cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'action'=>'cancel']);
 
-$out = "<h2><a href='#' class='menu__entrybutton menu__entrybutton--login' data-buttontype='login'>Log in</a></h2>
+$out = "<h2>{$login_button}</h2>
 		<div class='login'>
 			<form class='form form--login' action='{$form_processor}' method='post'>
 				<div class='form__inputs'>
@@ -13,8 +16,8 @@ $out = "<h2><a href='#' class='menu__entrybutton menu__entrybutton--login' data-
 					<label class='form__error'>Please enter a valid email address</label>
 					<input type='password' class='form__input form__input--password' name='password' placeholder='Password' minlength='8' maxlength='64'>
 					<label class='form__error'>Password must be 8 - 64 characters</label>
-					<input type='submit' class='form__button form__button--submit' value='Submit'>
-					<input type='button' class='form__button form__button--cancel' value='Cancel'>
+					{$submit_button}
+					{$cancel_button}
 				</div>								
 			</form>
 			<p class='form__forgotten-password'><a class='form__forgotten-password-link' href='$forgotten_pw_url'>Forgot password?</a></p>

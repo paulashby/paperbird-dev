@@ -42,7 +42,7 @@ echo "<!DOCTYPE html>
                     "basket",
                     "search"
                 ),
-                "animate_menu_button" => true
+                "animate_menu_button" => false
             );
            echo $page->renderValue($menu_options, 'menu');
         ?>

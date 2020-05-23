@@ -15,4 +15,14 @@ function customEventPolyfill () {
 
 }
 
- export { customEventPolyfill };
+function dataAttrClickHandler(e, actions) {
+
+    let action = $(e.target).data('action');
+
+    if(actions[action]) {
+        actions[action](e);
+    }
+
+}
+
+ export { customEventPolyfill, dataAttrClickHandler };
