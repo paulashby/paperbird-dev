@@ -32,6 +32,7 @@ $colour-pb-highlight: #f00;
 
 // $colour-transition_duration: 2s;
 // $menu_slide_duration: 1s;
+$field-transition-duration: .25s;
 $menu-transition_duration: .5s;
 $menu-transition_duration_medium: 1s;
 $menu-transition_duration_slow: 1.5s;
@@ -133,5 +134,5 @@ $leading-title: 1.2;
   scale: 0;
   visibility: hidden; 
   width: 100%;
-  @include transition(all $menu-transition_duration ease);
+  @include transition(line-height $field-transition-duration ease, padding $field-transition-duration ease);
 }
