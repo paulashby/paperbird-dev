@@ -105,6 +105,7 @@ function closeDropdown (e) {
 
         });
     } else {
+
         // No expanded dropdowns - must be closing menu
         $(e.target).trigger('menuToggleEvent', [e]);
     }

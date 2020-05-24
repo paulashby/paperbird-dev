@@ -1,6 +1,12 @@
 import {dataAttrClickHandler} from '../helpers';
 
 let setup = {
+    success_callbacks : {
+        'login': function (e, submitting_form) {
+            submitting_form.trigger('menuToggleEvent', [e]);
+            $('body').addClass('logged-in');
+        }
+    }
 };
 let actions = {
     validateOnBlur: function (form_selector) {
@@ -17,7 +23,7 @@ let actions = {
 
 function init (settings) {
 
-	// Store for validateForm() which is also called by actions.cancel() 
+	// Store for validateOnBlur() which is also called by actions.cancel() 
 	setup.form_selector = '.' + settings.validate;
     actions.validateOnBlur(setup.form_selector);
 
@@ -26,9 +32,9 @@ function init (settings) {
         dataAttrClickHandler(e, actions);
     });
 
-    actions.cancel = function (e) {
+    actions.cancel = function (e, form) {
         // Hide error messages then reset fields
-        let submitting_form = $(e.target).closest('form');
+        let submitting_form = form || $(e.target).closest('form');
 
         // Hide previous submission message
         submitting_form.parent().find('.form__error--submission').removeClass('form__error--show');
@@ -46,12 +52,14 @@ function init (settings) {
     actions.submit = function (e) {
 
         let submitting_form = $(e.target).closest('form');
-        let error_report = submitting_form.parent().find('.form__error--submission');
-        let method = submitting_form.attr('method');
-        let action = submitting_form.attr('action');
         let validation = isValid(submitting_form);
+        let error_report = submitting_form.parent().find('.form__error--submission');
 
         if(validation.success) {
+
+            let method = submitting_form.attr('method');
+            let action = submitting_form.attr('action');
+            let role = submitting_form.data('role');
 
             $.ajax({
                 type: method, 
@@ -61,13 +69,11 @@ function init (settings) {
                 success: function(data) {
                     
                     if(data.success === true) {
-                        console.log(data.message);
                         error_report.removeClass('form__error--show');
                         submitting_form.trigger( "reset" );
-                        //TODO: Change view to reflect logged in status
-                        // switch login icon
-                        // change text to logout
-                        // close form - maybe close menu
+                        // Different callbacks will probably require different arguments
+                        setup.success_callbacks[role](e, submitting_form);
+
                     } else {
                         error_report.html(data.errors.join('<br>')).addClass('form__error--show');
                     }
@@ -77,8 +83,9 @@ function init (settings) {
                 } 
             });
         } else {
-            //TODO: Display invalid form message
+
             error_report.html(validation.errors).addClass('form__error--show');
+
         }
 
         // Let jQuery submit the form

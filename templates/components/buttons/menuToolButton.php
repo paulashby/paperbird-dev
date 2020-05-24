@@ -1,3 +1,5 @@
 <?php
 
-return "<a href='#' class='{$button_class}' data-action='toggleTool' data-buttontype='{$button_type}'>{$button_text}</a>";
+$action_attr = isset($action) ? $action : 'toggleTool';
+
+return "<a href='#' class='{$button_class}' data-action='{$action_attr}' data-buttontype='{$button_type}'>{$button_text}</a>";

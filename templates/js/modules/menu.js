@@ -64,6 +64,9 @@ function init (settings) {
 
         }
     };
+    actions.logOut = function (e) {
+        //TODO: Process logout
+    };
     actions.cancel = function (e) {
 
         $('.menu').removeClass('menu--modal-active');

@@ -3,5 +3,17 @@
 
 .menu__entrybutton--login {
 	@extend %menu__entrybutton-base;
-	background: url(../img/navbttns.svg) -12px 5px/700%;
+	background: url(../img/navbttns.svg) -16px -2px/273px;
+
+	body.logged-in & {
+		@extend %menu__entrybutton-base-hidden;	
+	}
+}
+.menu__entrybutton--logout {
+	@extend %menu__entrybutton-base;
+	background: url(../img/navbttns.svg) -79px -2px/273px;
+
+	body:not(.logged-in) & {
+		@extend %menu__entrybutton-base-hidden;	
+	}
 }
