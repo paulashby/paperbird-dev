@@ -6,6 +6,8 @@ let actions = {
     validateOnBlur: function (form_selector) {
 
         $(form_selector).focus(function(e) {
+            // Remove previous submission errors
+            $(this).closest('.form').parent().find('.form__error--submission.form__error--show').removeClass('form__error--show');
             $(this).blur(function() { 
                $(this).addClass('activated'); 
             });
@@ -47,9 +49,9 @@ function init (settings) {
         let error_report = submitting_form.parent().find('.form__error--submission');
         let method = submitting_form.attr('method');
         let action = submitting_form.attr('action');
-        let validated = isValid(submitting_form);
+        let validation = isValid(submitting_form);
 
-        if(validated ) {
+        if(validation.success) {
 
             $.ajax({
                 type: method, 
@@ -62,6 +64,7 @@ function init (settings) {
                         console.log(data.message);
                         error_report.removeClass('form__error--show');
                         submitting_form.trigger( "reset" );
+                        //TODO: Change view to reflect logged in status
                         // switch login icon
                         // change text to logout
                         // close form - maybe close menu
@@ -75,7 +78,7 @@ function init (settings) {
             });
         } else {
             //TODO: Display invalid form message
-            console.warn('form data is invalid');
+            error_report.html(validation.errors).addClass('form__error--show');
         }
 
         // Let jQuery submit the form
@@ -92,13 +95,13 @@ function isValid (form) {
         // Can exit for of loop with return
         for (let input_field of toValidate) {
 
-          if ( ! $(input_field).val() || ! $(input_field).is(":valid")) {
+          if ( ! $(input_field).val() || ! $(input_field).is(':valid')) {
 
-                return false;
+                return {success: false, errors: 'Please enter a valid ' + $(input_field).attr('type')};
 
             }
         }
-        return true;
+        return {success: true};
     }
 } 
 
