@@ -118,7 +118,8 @@ function logOut (e) {
                     setup.success_callbacks[role](e);
 
                 } else {
-                    error_report.html(data.errors.join('<br>')).addClass('form__error--show');
+                    //TODO: Need to handle errors - error_report not available as this is part of hidden form
+                    // error_report.html(data.errors.join('<br>')).addClass('form__error--show');
                 }
            },
             error: function(jqXHR, textStatus, errorThrown) {
