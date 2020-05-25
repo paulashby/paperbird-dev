@@ -6,9 +6,18 @@ if( ! $config->ajax) {
     $session->redirect($pages->get(27)->url);
 
 } else {
-	
-	$errors = Array();
-	$user_data = Array();
+
+	if($input->post('logout')){
+
+		if($user->isLoggedin()) {
+
+			$session->logout();
+			return json_encode(array('success'=>true));
+
+		}
+	}
+	$errors = array();
+	$user_data = array();
 
 	if($input->post('email')) {
 		$user_data['email'] = $sanitizer->email($input->post('email'));

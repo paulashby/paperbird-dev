@@ -1,5 +1,8 @@
 <?php
 if($config->ajax) return;
+
+$body_tag = $user->isLoggedin() ? "<body class='logged-in'>" : "<body>";
+
 echo "<!DOCTYPE html>
 <html>
     <head>
@@ -7,11 +10,8 @@ echo "<!DOCTYPE html>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title data-pw-id='title'>Welcome to PaperBird</title>";
         // Data for javascript
-        $jsconfig = array(
-            "root" => $config->urls->root,
-            "domain" => $config->httpHost,
-            "errorHandlerURL" => $pages->get(1084)->url
-        );
+        $jsconfig = include $config->paths->templates . "utilities-urls.php";
+
         echo "<script>var config = " . json_encode($jsconfig) . ";</script>";
         ?>
 
@@ -20,9 +20,10 @@ echo "<!DOCTYPE html>
         ?>
         <region data-pw-id='head'></region>
     </head>
-    <body>
+    <?= $body_tag ?>
         <?php
              echo   "<a href=" . $config->urls->root . "><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>";
+             
             // Menu
             $menu_options = array(
                 "components" => array(

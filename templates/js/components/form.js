@@ -5,6 +5,12 @@ let setup = {
         'login': function (e, submitting_form) {
             submitting_form.trigger('menuToggleEvent', [e]);
             $('body').addClass('logged-in');
+            $('.menu__entrybutton--login').html('Log out');
+        },
+        'logout': function (e) {
+            $('body').trigger('menuToggleEvent', [e]);
+            $('body').removeClass('logged-in');
+            $('.menu__entrybutton--login').html('Log in');
         }
     }
 };
@@ -87,12 +93,40 @@ function init (settings) {
             error_report.html(validation.errors).addClass('form__error--show');
 
         }
-
         // Let jQuery submit the form
         e.preventDefault();
     };
+
+    $(document).on('logOutEvent', function(e) {
+        logOut(e);
+    });
 }
 
+function logOut (e) {
+
+    let role = 'logout';
+
+        $.ajax({
+            type:'post', 
+            url: config.logInOutURL,
+            data: {logout: true},
+            dataType: 'json',
+            success: function(data) {
+                
+                if(data.success === true) {
+                    // Do we need a call back?
+                    setup.success_callbacks[role](e);
+
+                } else {
+                    error_report.html(data.errors.join('<br>')).addClass('form__error--show');
+                }
+           },
+            error: function(jqXHR, textStatus, errorThrown) {
+                throw new Error(errorThrown);
+            } 
+        });
+    
+}
 function isValid (form) {
 
     let toValidate = $(form).find('.form__input');   

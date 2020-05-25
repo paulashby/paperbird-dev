@@ -64,8 +64,16 @@ function init (settings) {
 
         }
     };
-    actions.logOut = function (e) {
-        //TODO: Process logout
+    actions.logInOut = function (e) {
+
+        if($('body').hasClass('logged-in')) {
+
+            $(e.target).trigger('logOutEvent', [e]);
+
+        } else {
+
+            this.toggleTool(e);
+        }
     };
     actions.cancel = function (e) {
 
