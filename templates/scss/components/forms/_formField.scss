@@ -9,8 +9,6 @@
 	width: 100%;
 	width: 100%;
 
-	//TODO: Looks like we could replace most of simpleValidation.js with this more performant css - still need js for the password, but class can be changed in ajax callback
-
 	&.activated:invalid {
 		color: #f00;
 	}
