@@ -4,9 +4,9 @@
 //  The classes have been adjusted to be more BEM compliant
 $urls = include $config->paths->templates . "utilities-urls.php";
 $form_processor = $urls["logInOutURL"];
+$forgotten_pw_url = $urls["forgotPassword"];
 $role = "login"; // This is used by form.js to select appropriate callback
 $button_text = $user->isLoggedin() ? "Log out" : "Log in";
-$forgotten_pw_url = "#"; // Placeholder
 
 $login_button = $files->render('components/buttons/menuToolButton', ['button_text'=>$button_text, 'button_class'=>'menu__entrybutton menu__entrybutton--login', 'button_type'=>'login', 'action'=>'logInOut']);
 
