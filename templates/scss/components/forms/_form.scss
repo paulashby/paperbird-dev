@@ -6,6 +6,45 @@
 .form {
 	text-align: left;
 }
+/* Processwire field in Forgotten Password form */
+.Inputfield, #ProcessForgotPassword {
+	font-family: $font-secondary;
+}
+#ProcessForgotPassword {
+
+	& p {
+	margin-bottom: 0.3rem;
+	}
+
+	& .detail {
+		font-size: 0.75rem;
+		line-height: 0.8rem;
+		margin-top: 1rem;
+	}
+}
+.InputfieldHeader {
+	font-weight: bold;
+	display: block;
+	margin-bottom: 0.2rem;
+}
+.Inputfields .InputfieldHeader, .Inputfields .description, #ProcessForgotPassword {
+	font-size: 0.85rem;
+	line-height: 1,1rem;
+}
+.form__error {
+	
+	font-weight: normal;
+
+	.InputfieldContent & {
+		display: block;
+		width: 70%;
+	}
+}
+.form__input.InputfieldMaxWidth {
+	
+	margin-top: 1rem;
+}
+/* End Processwire field in Forgotten Password form */
 .form, .test__class {
 
 	text-align: left;

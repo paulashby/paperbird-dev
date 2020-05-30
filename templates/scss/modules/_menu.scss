@@ -113,6 +113,9 @@ body.menu__entries--active {
 .hide-scrollbars .menu__entries {
 	overflow: hidden;
 }
+.menu {
+	z-index: 1;
+}
 .menu__entries {
 
 	/* Colourise menu__entries when menu has menu--foo class */
