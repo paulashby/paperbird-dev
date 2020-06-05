@@ -42,8 +42,7 @@ if( ! $config->ajax) {
 
 		if($user) {
 			$data['success'] = true;
-			//TODO: Could check if this is first login and adjust message accordingly - mind you, might involve greater GDPR overhead
-            $data['message'] = 'Welcome back'; 
+			$data['message'] = 'Welcome back'; 
 		} else {
 			$data['success'] = false;
             $data['message'] = 'Login failed!';

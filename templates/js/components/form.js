@@ -3,9 +3,14 @@ import {dataAttrClickHandler} from '../helpers';
 let setup = {
     success_callbacks : {
         'login': function (e, submitting_form) {
-            submitting_form.trigger('menuToggleEvent', [e]);
-            $('body').addClass('logged-in');
-            $('.menu__entrybutton--login').html('Log out');
+            if(window.location.pathname === config.forgotPassword) {
+                // Go to homepage if this is forgotten password page as we clearly no longer need to reset password.
+                window.location.replace(config.root); 
+            } else {
+                submitting_form.trigger('menuToggleEvent', [e]);
+                $('body').addClass('logged-in');
+                $('.menu__entrybutton--login').html('Log out');
+            }
         },
         'logout': function (e) {
             $('body').trigger('menuToggleEvent', [e]);
