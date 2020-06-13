@@ -75,7 +75,7 @@ function init (settings) {
             $.ajax({
                 type: method, 
                 url: action,
-                data: $(e.target).closest('form').serialize(),
+                data: submitting_form.serialize(),
                 dataType: 'json',
                 success: function(data) {
                     
