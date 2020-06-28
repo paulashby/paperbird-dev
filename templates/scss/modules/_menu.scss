@@ -168,7 +168,7 @@ body.menu__entries--active {
 	.menu--modal-active.menu--login & .login {
 		@extend %expanded-menu-tool;
 	}
-	.menu--modal-active.menu--basket & .basket {
+	.menu--modal-active.menu--cart & .cart {
 		@extend %expanded-menu-tool;
 	}
 	.menu--modal-active.menu--search & .search {
