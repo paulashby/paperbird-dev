@@ -1,4 +1,4 @@
-<?php
+<?php namespace ProcessWire;
 
 $action_attr = isset($action) ? $action : 'toggleTool';
 

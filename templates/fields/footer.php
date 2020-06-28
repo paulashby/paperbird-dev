@@ -1,4 +1,4 @@
-<?php
+<?php namespace ProcessWire;
 
 return "<footer class='footer'>
 	<section class='footer__entry'>

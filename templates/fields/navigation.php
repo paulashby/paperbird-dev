@@ -1,4 +1,5 @@
-<?php
+<?php namespace ProcessWire;
+
 // Use defaults if no options provided
 if( ! is_array($value)) {
 	$value = array(

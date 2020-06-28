@@ -1,7 +1,7 @@
-<?php
+<?php namespace ProcessWire;
+
 // https://processwire.com/talk/topic/1716-integrating-a-member-visitor-login-form/
-// This form is from DAM system - Sites/r.io/templates/interface-body.inc.php
-//  The classes have been adjusted to be more BEM compliant
+
 $urls = include $config->paths->templates . "utilities-urls.php";
 $form_processor = $urls["logInOutURL"];
 $forgotten_pw_url = $urls["forgotPassword"];

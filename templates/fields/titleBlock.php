@@ -1,4 +1,5 @@
-<?php
+<?php namespace ProcessWire;
+
 $page = $value;
 
 echo "<div class='titleBlock'>

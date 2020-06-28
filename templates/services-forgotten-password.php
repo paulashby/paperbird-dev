@@ -1,4 +1,4 @@
-<?php
+<?php namespace ProcessWire;
 
 $process = $this->modules->get("ProcessForgotPassword");
 /** @var ProcessForgotPassword $process */

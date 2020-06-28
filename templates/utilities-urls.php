@@ -1,4 +1,4 @@
-<?php
+<?php namespace ProcessWire;
 
 return array(	
     "root" => $config->urls->root,

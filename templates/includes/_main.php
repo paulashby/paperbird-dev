@@ -1,5 +1,10 @@
-<?php
+<?php namespace ProcessWire;
+
 if($config->ajax) return;
+if($config->version('3.0.149')) {
+  // ProcessWire version is 3.0.100 or newer
+    bd("hello");
+}
 
 $body_tag = $user->isLoggedin() ? "<body class='logged-in'>" : "<body>";
 

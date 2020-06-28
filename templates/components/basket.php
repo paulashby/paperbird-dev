@@ -1,4 +1,4 @@
-<?php
+<?php namespace ProcessWire;
 
 $basket_button = $files->render('components/buttons/menuToolButton', ['button_text'=>'Basket', 'button_class'=>'menu__entrybutton menu__entrybutton--basket', 'button_type'=>'basket']);
 

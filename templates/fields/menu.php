@@ -1,4 +1,4 @@
-<?php 
+<?php namespace ProcessWire;
 
 $components = $value['components'];
 $animated = isset($value['animate_menu_button']) && $value['animate_menu_button'] !== false;

@@ -1,4 +1,4 @@
-<?php 
+<?php namespace ProcessWire;
 
 /*
 Render using $page->renderValue($value, 'nameOfThisTemplate') 

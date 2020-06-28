@@ -1,4 +1,4 @@
-<?php
+<?php namespace ProcessWire;
 
 $err_error = $input->post('error');
 $err_stack = $input->post('stack');
