@@ -3,7 +3,7 @@
 // https://processwire.com/talk/topic/1716-integrating-a-member-visitor-login-form/
 
 $urls = include $config->paths->templates . "utilities-urls.php";
-$form_processor = $urls["logInOutURL"];
+// $form_processor = $urls["logInOutURL"];
 $forgotten_pw_url = $urls["forgotPassword"];
 $role = "login"; // This is used by form.js to select appropriate callback
 $button_text = $user->isLoggedin() ? "Log out" : "Log in";
@@ -15,7 +15,7 @@ $cancel_button = $files->render('components/buttons/formButton', ['button_class'
 
 $out = "<h2>{$login_button}</h2>
 		<div class='login'>
-			<form class='form form--login' action='{$form_processor}' method='post' data-role='{$role}'>
+			<form class='form form--login' action='{}' method='post' data-role='{$role}'>
 				<div class='form__inputs'>
 					<input type='email' class='form__input form__input--validate form__input--email' name='email' placeholder='Email address' pattern='^([\w\-\.]+)@((\[([0-9]{1,3}\.){3}[0-9]{1,3}\])|(([\w\-]+\.)+)([a-zA-Z]{2,4}))$'>
 					<label class='form__error'>Please enter a valid email address</label>
