@@ -1,10 +1,6 @@
 <?php namespace ProcessWire;
 
 if($config->ajax) return;
-if($config->version('3.0.149')) {
-  // ProcessWire version is 3.0.100 or newer
-    bd("hello");
-}
 
 $body_tag = $user->isLoggedin() ? "<body class='logged-in'>" : "<body>";
 
@@ -39,13 +35,14 @@ echo "<!DOCTYPE html>
                             "levels" => true,
                             "levels_prefix" => "nav__level-",
                             "max_levels" => 2,
+                            "selector" => "template!=section",
                             "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
                             "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
                         ), 
                         "sliding" => false // Sliding dropdowns
                     ),
                     "login",
-                    "basket",
+                    "cart",
                     "search"
                 ),
                 "animate_menu_button" => false
