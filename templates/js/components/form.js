@@ -74,7 +74,7 @@ function init (settings) {
 
             $.ajax({
                 type: method, 
-                url: action,
+                url: config.logInOutURL,
                 data: submitting_form.serialize(),
                 dataType: 'json',
                 success: function(data) {
