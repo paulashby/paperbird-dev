@@ -15,7 +15,7 @@
 
 // login form styles imported at end of file
 
-//TODO: Working on basket. styles currently in 'modules/' - does that make sense?
+//TODO: Working on cart. styles currently in 'modules/' - does that make sense?
 
 $menu-tool-z-index: 2;
 
@@ -53,7 +53,7 @@ $menu-tool-z-index: 2;
 	animation: dropdown_anim_rev $menu-transition_duration_medium;
 }
 
-/* Menu tools are items such as login, basket and search */
+/* Menu tools are items such as login, cart and search */
 
 
 %expanded-menu-tool {
@@ -182,7 +182,7 @@ body.menu__entries--active {
 .menu--login:not(.menu--modal-active) .menu__entries .login {
 	@extend %collapsed-menu-tool;
 }
-.menu--basket:not(.menu--modal-active) .menu__entries .basket {
+.menu--cart:not(.menu--modal-active) .menu__entries .cart {
 	@extend %collapsed-menu-tool;
 }
 .menu--search:not(.menu--modal-active) .menu__entries .search {
