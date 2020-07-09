@@ -84,6 +84,11 @@ function init (settings) {
             $('.menu').removeClass('menu--' + menu_modifier);
             // Remove listener
             $(e.target).off();
+
+            if($(e.target).parent().attr('class') === 'cart') {
+                
+                actions.toggleMenu(e);
+            }
        });
     };
 
