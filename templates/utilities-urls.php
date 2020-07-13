@@ -6,5 +6,5 @@ return array(
     "logInOutURL" => $pages->get(1017)->url,
     "errorHandlerURL" => $pages->get(1084)->url,
     "forgotPassword" => $pages->get(1089)->url,
-    "search" => $pages->get(1274)->url
+    "searchURL" => $pages->get(1274)->url
 );
