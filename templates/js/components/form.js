@@ -16,6 +16,9 @@ let setup = {
             $('body').trigger('menuToggleEvent', [e]);
             $('body').removeClass('logged-in');
             $('.menu__entrybutton--login').html('Log in');
+        },
+        'search': function (e) {
+            debugger;
         }
     }
 };
@@ -69,7 +72,6 @@ function init (settings) {
         if(validation.success) {
 
             let method = submitting_form.attr('method');
-            let action = submitting_form.attr('action');
             let role = submitting_form.data('role');
 
             $.ajax({
@@ -98,6 +100,40 @@ function init (settings) {
             error_report.html(validation.errors).addClass('form__error--show');
 
         }
+        // Let jQuery submit the form
+        e.preventDefault();
+    };
+
+    actions.search = function (e) {
+
+        let submitting_form = $(e.target).closest('form');
+        let error_report = submitting_form.parent().find('.form__error--submission');
+        let role = 'search';
+
+        $.ajax({
+            type: 'get', 
+            url: config.searchURL,
+            data: submitting_form.serialize(),
+            dataType: 'json',
+            success: function(data) {
+                
+                if(data.success === true) {
+                    error_report.removeClass('form__error--show');
+
+                    // Show the results within the menu?
+                    // submitting_form.trigger( "reset" );
+
+                    // Different callbacks will probably require different arguments
+                    setup.success_callbacks[role](e, submitting_form);
+
+                } else {
+                    error_report.html(data.errors.join('<br>')).addClass('form__error--show');
+                }
+           },
+            error: function(jqXHR, textStatus, errorThrown) {
+                throw new Error(errorThrown);
+            } 
+        });
         // Let jQuery submit the form
         e.preventDefault();
     };
