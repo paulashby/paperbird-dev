@@ -17,8 +17,8 @@ let setup = {
             $('body').removeClass('logged-in');
             $('.menu__entrybutton--login').html('Log in');
         },
-        'search': function (e) {
-            debugger;
+        'search': function (data) {
+            $('.search__results').html(data.results);
         }
     }
 };
@@ -46,7 +46,48 @@ function init (settings) {
         dataAttrClickHandler(e, actions);
     });
 
-    actions.cancel = function (e, form) {
+    actions.submit = function (e) {
+
+    let submitting_form = $(e.target).closest('form');
+    let validation = isValid(submitting_form);
+    let error_report = submitting_form.parent().find('.form__error--submission');
+
+    if(validation.success) {
+
+        let method = submitting_form.attr('method');
+        let role = submitting_form.data('role');
+
+        $.ajax({
+            type: method, 
+            url: config.logInOutURL,
+            data: submitting_form.serialize(),
+            dataType: 'json',
+            success: function(data) {
+                
+                if(data.success === true) {
+                    error_report.removeClass('form__error--show');
+                    submitting_form.trigger( "reset" );
+                    // Different callbacks will probably require different arguments
+                    setup.success_callbacks[role](e, submitting_form);
+
+                } else {
+                    error_report.html(data.errors.join('<br>')).addClass('form__error--show');
+                }
+           },
+            error: function(jqXHR, textStatus, errorThrown) {
+                throw new Error(errorThrown);
+            } 
+        });
+    } else {
+
+        error_report.html(validation.errors).addClass('form__error--show');
+
+    }
+    // Let jQuery submit the form
+    e.preventDefault();
+};
+
+actions.cancel = function (e, form) {
         // Hide error messages then reset fields
         let submitting_form = form || $(e.target).closest('form');
 
@@ -63,81 +104,6 @@ function init (settings) {
         submitting_form.trigger( "reset" );
     };
 
-    actions.submit = function (e) {
-
-        let submitting_form = $(e.target).closest('form');
-        let validation = isValid(submitting_form);
-        let error_report = submitting_form.parent().find('.form__error--submission');
-
-        if(validation.success) {
-
-            let method = submitting_form.attr('method');
-            let role = submitting_form.data('role');
-
-            $.ajax({
-                type: method, 
-                url: config.logInOutURL,
-                data: submitting_form.serialize(),
-                dataType: 'json',
-                success: function(data) {
-                    
-                    if(data.success === true) {
-                        error_report.removeClass('form__error--show');
-                        submitting_form.trigger( "reset" );
-                        // Different callbacks will probably require different arguments
-                        setup.success_callbacks[role](e, submitting_form);
-
-                    } else {
-                        error_report.html(data.errors.join('<br>')).addClass('form__error--show');
-                    }
-               },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    throw new Error(errorThrown);
-                } 
-            });
-        } else {
-
-            error_report.html(validation.errors).addClass('form__error--show');
-
-        }
-        // Let jQuery submit the form
-        e.preventDefault();
-    };
-
-    actions.search = function (e) {
-
-        let submitting_form = $(e.target).closest('form');
-        let error_report = submitting_form.parent().find('.form__error--submission');
-        let role = 'search';
-
-        $.ajax({
-            type: 'get', 
-            url: config.searchURL,
-            data: submitting_form.serialize(),
-            dataType: 'json',
-            success: function(data) {
-                
-                if(data.success === true) {
-                    error_report.removeClass('form__error--show');
-
-                    // Show the results within the menu?
-                    // submitting_form.trigger( "reset" );
-
-                    // Different callbacks will probably require different arguments
-                    setup.success_callbacks[role](e, submitting_form);
-
-                } else {
-                    error_report.html(data.errors.join('<br>')).addClass('form__error--show');
-                }
-           },
-            error: function(jqXHR, textStatus, errorThrown) {
-                throw new Error(errorThrown);
-            } 
-        });
-        // Let jQuery submit the form
-        e.preventDefault();
-    };
-
     $(document).on('logOutEvent', function(e) {
         logOut(e);
     });
@@ -147,27 +113,26 @@ function logOut (e) {
 
     let role = 'logout';
 
-        $.ajax({
-            type:'post', 
-            url: config.logInOutURL,
-            data: {logout: true},
-            dataType: 'json',
-            success: function(data) {
-                
-                if(data.success === true) {
-                    // Do we need a call back?
-                    setup.success_callbacks[role](e);
+    $.ajax({
+        type:'post', 
+        url: config.logInOutURL,
+        data: {logout: true},
+        dataType: 'json',
+        success: function(data) {
+            
+            if(data.success === true) {
+                // Do we need a call back?
+                setup.success_callbacks[role](e);
 
-                } else {
-                    //TODO: Need to handle errors - error_report not available as this is part of hidden form
-                    // error_report.html(data.errors.join('<br>')).addClass('form__error--show');
-                }
-           },
-            error: function(jqXHR, textStatus, errorThrown) {
-                throw new Error(errorThrown);
-            } 
-        });
-    
+            } else {
+                //TODO: Need to handle errors - error_report not available as this is part of hidden form
+                // error_report.html(data.errors.join('<br>')).addClass('form__error--show');
+            }
+       },
+        error: function(jqXHR, textStatus, errorThrown) {
+            throw new Error(errorThrown);
+        } 
+    });
 }
 function isValid (form) {
 
