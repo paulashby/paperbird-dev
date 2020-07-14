@@ -37,9 +37,9 @@ $menu-tool-z-index: 2;
 	z-index: 2;
 	padding: 2.5rem 1rem;
 	@keyframes dropdown_anim {
-		0%   {bottom: 100vh; padding-top: 2.5rem; scale: 0.85}
-		50%  {bottom: 0; scale: 1.01}
-		100% {bottom: 0; padding-top: 2.5rem; scale: 1}
+		0%   {scale: 0.5}
+		50%  {scale: 1.01}
+		100% {scale: 1}
 	}
 	animation: dropdown_anim $menu-transition_duration_medium;
 }
