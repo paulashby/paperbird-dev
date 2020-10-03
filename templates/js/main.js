@@ -3,6 +3,7 @@ import $ from 'jquery';
 import errorHandler from './utilities/errorHandler';
 import menu from './modules/menu';
 import navigation from './modules/navigation';
+import lightbox from './modules/lightbox';
 //TODO: May need to move form.js import and initialisation out of menu.js if other elements of the page include forms
 
 window.jQuery = $;
@@ -33,5 +34,6 @@ function init () {
 	errorHandler.init(error_handler_settings);
 	menu.init(menu_settings);
 	navigation.init(nav_settings);	
+	lightbox.init();
 	
 }
