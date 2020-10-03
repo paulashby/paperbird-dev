@@ -25,4 +25,24 @@ function dataAttrClickHandler(e, actions) {
 
 }
 
- export { customEventPolyfill, dataAttrClickHandler };
+function doAction (settings) {
+  $.ajax({
+    type        : 'get',
+    url         : settings.action_url,
+    data        : settings.ajaxdata,
+    dataType    : 'json',
+    encode      : true,
+    cache       : true
+  })        
+  .done(function(response) {
+
+    if(response.error) {
+      //TODO: Handle this
+      console.warn('Ajax call returned an error');
+    } else {
+      settings.callback(response.data);
+    }
+  });
+}
+
+export { customEventPolyfill, dataAttrClickHandler, doAction };
