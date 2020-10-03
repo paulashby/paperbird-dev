@@ -6,8 +6,10 @@ $dsc = $page->product_shot->description;
 $alt_text = $dsc ? $dsc : $page->title;
 $sku = $page->sku;
 
-$out .= "<img src='" . $page->product_shot->size(200,0)->url . "' alt='" . $alt_text . "'>
+$out .= "<main data-pw-id='main'>
+<img src='" . $page->product_shot->first()->size(200,0)->url . "' alt='" . $alt_text . "'>
 	<p>$sku</p>
-	</div>";
+	</div>
+	</main>";
 	
-return $out;
+echo $out;
