@@ -6,7 +6,7 @@
 }
 
 @import
-'components/buttons/menuButton',
+'components/buttons/toggleButton',
 'components/buttons/menuEntryButtonLogin',
 'components/buttons/menuEntryButtonCart',
 'components/buttons/menuEntryButtonSearch',
@@ -206,7 +206,7 @@ body.menu__entries--active {
 
 body.menu__entries--active {
 
-	.menu__button--toggle {
+	.toggle__button--toggle {
 		@include transform(scale(7) scale(0.1) translate(-10px, -10px) );
 	}
 

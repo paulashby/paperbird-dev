@@ -6,13 +6,13 @@ $open_menu_button = '';
 $close_menu_button = '';
 
 if($animated) {
-	$open_menu_button = $files->render('components/buttons/menuButton', ['button_class'=>'menu__button menu__button--toggle', 'action'=>'toggleMenuDisplay']);	
+	$open_menu_button = $files->render('components/buttons/toggleButton', ['button_class'=>'toggle__button toggle__button--toggle', 'action'=>'toggleMenuDisplay']);	
 
 	$out = "<div class='menu menu--anim-bttn'>" . $open_menu_button . 
 	"<ul class='menu__entries'>";
 } else {
-	$open_menu_button = $files->render('components/buttons/menuButton', ['button_class'=>'menu__button menu__button--open', 'action'=>'toggleMenuDisplay']);
-	$close_menu_button = "<li>" . $files->render('components/buttons/menuButton', ['button_class'=>'menu__button menu__button--close', 'action'=>'toggleMenuDisplay']) . "</li>";
+	$open_menu_button = $files->render('components/buttons/toggleButton', ['button_class'=>'toggle__button toggle__button--open', 'action'=>'toggleMenuDisplay']);
+	$close_menu_button = "<li>" . $files->render('components/buttons/toggleButton', ['button_class'=>'toggle__button toggle__button--close', 'action'=>'toggleMenuDisplay']) . "</li>";
 
 
 	$out = "<div class='menu menu--static-bttn'>" . $open_menu_button . 
