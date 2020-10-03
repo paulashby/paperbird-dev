@@ -26,7 +26,6 @@ $tree_options = $value["tree_options"];
 $tree_menu->addHookAfter('getItemString', function($event) use($sliding) {
 	
      $child = $event->arguments('page'); // current rendered child page
-    // any logic with $child possible here
    
     $is_level_1 = $child->parent->template->name == "home";
     if($is_level_1){
