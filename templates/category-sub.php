@@ -1,9 +1,5 @@
 <?php namespace ProcessWire;
 
-
-
-// We actually want to render the image, sku and title then load the lightbox via an ajax call when a card is clicked
-
 $cart = $this->modules->get("OrderCart");
 
 if( $config->ajax) {
@@ -43,6 +39,6 @@ foreach ($products as $product) {
 }
 echo "<main data-pw-id='main'>
 	<h1>$category $title</h1>
-	$products_out
 	<div class='card-viewer'></div>
+	$products_out
 	</main>";
