@@ -38,3 +38,7 @@ main {
 .menu {
 	@include font-smoothing(on);
 }
+
+.page-title {
+	color: red;
+}
