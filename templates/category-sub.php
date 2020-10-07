@@ -35,10 +35,13 @@ foreach ($products as $product) {
 	$alt_text = $dsc ? $dsc : $product->title;
 	$sku = $product->sku;
 	$product_title = $product->title;
-	$products_out .= "<div class='product' data-action='toggleLightbox' data-sku='$sku'><img src='$product_shot_url' alt='$alt_text'><p>$sku</p><h2>$product_title</h2></div>";
+	$data_attr_String = "data-action='openLightbox' data-sku='$sku'";
+	$products_out .= "<div class='product' $data_attr_String><img src='$product_shot_url' alt='$alt_text' $data_attr_String><p $data_attr_String>$sku</p><h2 $data_attr_String>$product_title</h2></div>";
 }
 echo "<main data-pw-id='main'>
-	<h1>$category $title</h1>
-	<div class='card-viewer'></div>
-	$products_out
+		<h1 class='page-title'><span class='page-title__category'>$category</span> $title</h1>
+		<section class='products'>
+			<div class='card-viewer'></div>
+			$products_out
+		</section>
 	</main>";
