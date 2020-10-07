@@ -1,3 +1,5 @@
+.card-viewer {
+}
 .lightbox {
 	background-color: #fff;
 	height: 100vh;
@@ -5,4 +7,19 @@
 	position: fixed;
 	top: 0;
 	z-index: 1;
+}
+.lightbox--has-variations {
+	background-color: $colour-pb-purple-light;
+}
+.active-card {
+	background-color: #fff;
+	padding-bottom: 1rem;
+}
+.lightbox__variations {
+	list-style: none;
+	width: 100%;
+}
+.lightbox__variation {
+	display: inline-block;
+	padding-top: 1rem;
 }
