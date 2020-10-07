@@ -1,8 +1,8 @@
-import {doAction} from '../helpers';
+import {doAction, dataAttrClickHandler} from '../helpers';
 
 let setup = {
     success_callbacks : {
-        toggleLightbox: function (data) {
+        populateLightbox: function (data) {
             $('.card-viewer').html(data);
         }
     }
@@ -12,31 +12,42 @@ let actions = {
 
 function init (settings) {
 
-    // Use event handlers in actions object
-    $('.product').on('click', function (e) {
+    $('.products').on('click', function (e) {
         
-        // Not using helpers dataAttrClickHandler as it uses e.target rather than e.currentTarget
-        let action = $(e.currentTarget).data('action');
+        dataAttrClickHandler(e, actions);
 
-        if(actions[action]) {
-            actions[action](e);
-        }
     });
 
-    actions.toggleLightbox = function (e) {
+    actions.openLightbox = function (e) {
 
-        //TODO: This isn't toggling at the moment, just loading - probably need to split this into toggle and load content
-
-        let settings = {
-            ajaxdata: {
-                sku: e.currentTarget.dataset.sku
-            },
-            callback: setup.success_callbacks.toggleLightbox,
-            action_url: window.location.href
-        };
-        // This might as well directly call make request (maybe rename that as doAction or might this lead to confusion as it differs from the orderCart doAction - nah, just comment it to this effect)... in fact, looking at it, seems maybe the two functions in cart.js could be streamlined into a single one.
-        doAction(settings);
+        populateLightbox(e.target.dataset.sku);
     };
+    actions.showProduct = function (e) {
+
+        populateLightbox(e.target.dataset.sku);
+    };
+    actions.closeLightbox = function (e) {
+
+        $('.card-viewer').empty();
+    };
+}
+function populateLightbox(sku) {
+
+    let settings = {
+        ajaxdata: {
+            sku: sku
+        },
+        callback: setup.success_callbacks.populateLightbox,
+        action_url: window.location.href
+    };
+
+    doAction(settings);
+}
+
+function respond (e, action) {
+    if(actions[action]) {
+        actions[action](e);
+    }
 }
 
 const lightbox = {
