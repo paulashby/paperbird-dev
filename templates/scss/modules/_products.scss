@@ -1,0 +1,23 @@
+.products {
+	display: flex;
+	flex-wrap: wrap;
+	font-family: $font-secondary;
+	justify-content: space-between;
+}
+.products__product {
+	width: 43%;
+	margin: 0 3.5%;
+}
+.products__product-shot {
+	width: 100%;
+}
+.products__sku {
+	color: $colour-pb-blue;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.products__title {
+	font-size: 0.75rem;
+	line-height: 1rem;
+	margin-bottom: 1.3rem;
+}
