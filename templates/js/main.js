@@ -4,7 +4,14 @@ import errorHandler from './utilities/errorHandler';
 import menu from './modules/menu';
 import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
+import LazyLoad from './vendor/lazyload.esm';
 //TODO: May need to move form.js import and initialisation out of menu.js if other elements of the page include forms
+
+//TODO: This doesn't seem to be working!
+let lazyLoad = new LazyLoad({
+  elements_selector: ".lazy",
+  cancel_on_exit: true
+});
 
 window.jQuery = $;
 window.$ = $;
