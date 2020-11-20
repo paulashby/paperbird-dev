@@ -3,6 +3,13 @@
 	Style overrides specifically for this project 
 
 */
+html {
+	/* Normalise font weight */
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	font-weight: 400;
+}
 
 body {
 	color: $colour-pb-neutral-dark;
@@ -29,10 +36,8 @@ main {
 }
 
 .titleBlock {
-
 	background-image: url('../img/homebg.jpg');
 	background-repeat: no-repeat;
-
 }
 
 .menu {
@@ -40,5 +45,14 @@ main {
 }
 
 .page-title {
-	color: red;
+	color: $colour-pb-purple;
+	font-family: $font-title;
+	font-size: 1.55rem;
+	letter-spacing: $letter-spacing-title;
+	margin-bottom: 2rem;
+	text-align: center;
+	text-transform: lowercase;
+}
+.page-title__category {
+	color: $colour-pb-purple-light;
 }
