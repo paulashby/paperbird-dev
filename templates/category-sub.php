@@ -8,7 +8,7 @@ if( $config->ajax) {
 
 	$sku = $input->get("sku", "text");
 
-	if($sku && $user->isLoggedin()) {
+	if($sku) {
 
 		// Get lightbox markup
 		$lightbox = $files->render('components/lightbox', ['sku'=>$sku, 'cart'=>$cart, 'action'=>'toggleMenuDisplay']);	
@@ -25,23 +25,43 @@ if( $config->ajax) {
 $category = $page->parent->title;
 $title = $page->title;
 $products = $page->children();
-$products_out = "";
-$size = $cart->getProductShotSize(true);
+$product_list = "";
+
+// Cart image sizes not included in LazyResponsiveImages config - just listings and lightbox.
+
+$lazyImages = $modules->get("LazyResponsiveImages");
+$max_eager = (int) $lazyImages->getMaxEager("subcat");
+$eager_count = 0;
 
 foreach ($products as $product) {
-	$product_shot = $product->product_shot->first();
-	$product_shot_url = $product_shot->size($size, $size)->url;
-	$dsc = $product_shot->description;
-	$alt_text = $dsc ? $dsc : $product->title;
-	$sku = $product->sku;
-	$product_title = $product->title;
-	$data_attr_String = "data-action='openLightbox' data-sku='$sku'";
-	$products_out .= "<div class='product' $data_attr_String><img src='$product_shot_url' alt='$alt_text' $data_attr_String><p $data_attr_String>$sku</p><h2 $data_attr_String>$product_title</h2></div>";
+
+	$listing_options = [
+		"sub_cat"=>true,
+		"lazyImages"=>$lazyImages,
+		"product"=>$product,
+		"field_name"=>"product_shot",
+		"context"=>"listing",
+		"desktop_hdpi"=>"200",
+		"sizes"=>"(max-width: 1000px) 150px, 100px",
+		"class"=>"products__product-shot"
+	];
+
+	if($eager_count < $max_eager) {
+
+		$listing_options["lazy_load"] = false;
+	} else {
+
+		$listing_options["lazy_load"] = true;
+	}
+
+	$product_list .= $files->render('components/productListingEntry', $listing_options);
+
+	$eager_count++;
 }
 echo "<main data-pw-id='main'>
 		<h1 class='page-title'><span class='page-title__category'>$category</span> $title</h1>
 		<section class='products'>
 			<div class='card-viewer'></div>
-			$products_out
+			$product_list
 		</section>
 	</main>";
