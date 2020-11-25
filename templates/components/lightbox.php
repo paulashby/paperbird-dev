@@ -4,12 +4,19 @@ $lightbox_inner = $files->render('components/buttons/toggleButton', ['button_cla
 $lightbox_inner .= "<div class='active-card'>";
 
 $product_page = $pages->get("sku=$sku");
+$settings = $this->modules->get("ProcessOrderPages");
+
+$product_details = $product_page->price_category;
+$price = $cart->renderPrice($product_details->price);
+$size = $product_details->size;
+$paper_spec = $product_details->paper->paper_spec;
+
 $lightbox_inner.= $cart->renderItem($product_page);
 
-$lightbox_inner .= "<p class='lightbox__size'>XXX x XXXmm";
-$lightbox_inner .= "<p class='lightbox__paperspec'>XXXgsm uncoated</p>";
-$lightbox_inner .= "<p>Do we want fields for size and paper stock? Or do we base the former on the price category and the latter just a site-wide setting?</p>
-</div><!-- End active-card -->";
+$lightbox_inner .= "<p class='lightbox__price'>$price</p>";
+$lightbox_inner .= "<p class='lightbox__size'>{$size}mm</p>";
+$lightbox_inner .= "<p class='lightbox__paperspec'>$paper_spec</p>";
+$lightbox_inner .= "</div><!-- End active-card -->";
 
 $lightbox_class = "lightbox";
 
