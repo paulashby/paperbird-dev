@@ -42,13 +42,3 @@ if( $config->ajax) {
 			return json_encode(array("success"=>false, "error"=>"Unknown AJAX action: '$action'"));
 	}
 }
-
-function populateLightbox($sku) {
-
-}
-function populateCart($sku) {
-
-}
-function actionError($action) {
-	
-}
