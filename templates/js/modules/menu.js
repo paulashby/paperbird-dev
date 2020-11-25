@@ -1,7 +1,12 @@
-import {dataAttrClickHandler} from '../helpers';
+import {doAction, dataAttrClickHandler} from '../helpers';
 import form from '../components/form';
 
 let setup = {
+    success_callbacks : {
+        populateCart: function (data) {
+            $('.cart-items').html(data);
+        }
+    },
     top_level_class: 'menu__entries',
     toggle_bar_class: 'menu__bar',
     button_prefix: 'button--'
@@ -61,6 +66,20 @@ function init (settings) {
 
             // add class to change state of target element
             $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
+
+            if($(e.target).data('buttontype') === 'cart') {
+
+                let settings = {
+                    ajaxdata: {
+                        action: 'populateCart'
+                    },
+                    callback: setup.success_callbacks.populateCart,
+                    action_url: config.ajaxURL
+                };
+
+                doAction(settings);
+                
+            }
 
         }
     };
