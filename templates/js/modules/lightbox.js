@@ -35,10 +35,11 @@ function populateLightbox(sku) {
 
     let settings = {
         ajaxdata: {
+            action: 'populateLightbox',
             sku: sku
         },
         callback: setup.success_callbacks.populateLightbox,
-        action_url: window.location.href
+        action_url: config.ajaxURL
     };
 
     doAction(settings);
