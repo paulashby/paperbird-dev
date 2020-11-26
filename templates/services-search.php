@@ -2,6 +2,7 @@
 // Don't need csrf protection as search doesn't change anything
 // https://stackoverflow.com/questions/6128940/when-its-necessary-to-protect-forms-with-token-csrf-attacks
 
+//TODO: Would this be better as an ajax call populating an element in the menu search div? That way we wouldn't close the menu, which jars a bit and makes the search bar inaccessible for subsequent searches.
 $out = "<main data-pw-id='main'>";
 
 $q = $input->get('q'); 
@@ -16,7 +17,7 @@ if($q) {
 	}
 
 	$search_term_string = implode("|", $q);
-	$selector = "template=product, title|tags|artist*=" . $search_term_string;
+	$selector = "template=product, title|tags|artist~=" . $search_term_string . ", limit=30";
 	$matches = $pages->find($selector);
 	$result_count = count($matches);
 
