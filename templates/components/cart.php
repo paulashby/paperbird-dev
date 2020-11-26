@@ -4,8 +4,6 @@ $cart = $this->modules->get("OrderCart");
 $cart_button = $files->render('components/buttons/menuToolButton', ['button_text'=>'Cart', 'button_class'=>'menu__entrybutton menu__entrybutton--cart', 'button_type'=>'cart']);
 $cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'label'=>'Continue shopping', 'action'=>'cancel']);
 
-// Pass in customCartImages function for responsive images with lazy loading
-// $cart_out = $cart->renderCart(false, $customCartImages);
 $cart_out = $cart->renderEmptyCart();
 
 $out = "<h2>$cart_button</h2>
