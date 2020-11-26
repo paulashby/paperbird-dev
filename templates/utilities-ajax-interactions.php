@@ -20,9 +20,10 @@ if( $config->ajax) {
 
 		case "populateCart":
 			$customCartImages = function($product) {
+				
 				//TODO: Check sizes of these cart images- they're sizes for listings
 			    $listing_options = [
-			        "sub_cat"=>true, // Just so it's defined
+			    	"sub_cat"=>true, // Just so it's defined
 			        "lazyImages"=>$this->modules->get("LazyResponsiveImages"),
 			        "product"=>$product,
 			        "field_name"=>"product_shot",
@@ -37,6 +38,44 @@ if( $config->ajax) {
 			$cart = $this->modules->get("OrderCart");
 			$cart_content = $cart->populateCart($customCartImages);
 			return json_encode(array("success"=>true, "data"=>$cart_content));
+
+		case "search":
+			$q = $input->get('q'); 
+			$out = $page->renderValue(array("results" => true), "search");
+			$no_results = "<h3>Your search returned no results</h3>";
+
+			if($q) {
+
+				$q = explode(" ", $sanitizer->text($q));
+
+				foreach($q as $key => $value){
+					$reqs[$key] = $sanitizer->selectorValue($value);
+				}
+
+				$search_term_string = implode("|", $q);
+				$selector = "template=product, title|tags|artist~=" . $search_term_string . ", limit=30";
+				$matches = $pages->find($selector);
+				$result_count = count($matches);
+
+				if($result_count) {
+
+					$cart = $this->modules->get("OrderCart");
+					$matches->sort("title");
+					$match_string = $result_count > 1 ? "$result_count matches" : "$result_count match";
+					$out .= "<h3>Search returned $match_string</h3>";
+
+					foreach ($matches as $match) {
+						//TODO: we want everything a lightbox entry gets - then these are all the customer needs to place an order!
+						$out .= $cart->renderItem($match);
+					}
+
+				} else {
+					$out .= $no_results;
+				}
+			} else {
+				$out .= $no_results;
+			}
+			return json_encode(array("success"=>true, "data"=>$out));
 		
 		default:
 			return json_encode(array("success"=>false, "error"=>"Unknown AJAX action: '$action'"));
