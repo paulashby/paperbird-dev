@@ -43,7 +43,9 @@ echo "<!DOCTYPE html>
                     ),
                     "login",
                     "cart",
-                    "search"
+                    "search" => array (
+                        "results" => false
+                    )
                 ),
                 "animate_menu_button" => false
             );
