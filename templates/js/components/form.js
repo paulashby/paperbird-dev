@@ -1,4 +1,4 @@
-import {dataAttrClickHandler} from '../helpers';
+import {doAction, dataAttrClickHandler} from '../helpers';
 
 let setup = {
     success_callbacks : {
@@ -18,7 +18,7 @@ let setup = {
             $('.menu__entrybutton--login').html('Log in');
         },
         'search': function (data) {
-            $('.search__results').html(data.results);
+            $('.search').html(data);
         }
     }
 };
@@ -48,46 +48,64 @@ function init (settings) {
 
     actions.submit = function (e) {
 
-    let submitting_form = $(e.target).closest('form');
-    let validation = isValid(submitting_form);
-    let error_report = submitting_form.parent().find('.form__error--submission');
+        //TODO: Should just be able to use doAction for this
+        let submitting_form = $(e.target).closest('form');
+        let validation = isValid(submitting_form);
+        let error_report = submitting_form.parent().find('.form__error--submission');
 
-    if(validation.success) {
+        if(validation.success) {
 
-        let method = submitting_form.attr('method');
-        let role = submitting_form.data('role');
+            let method = submitting_form.attr('method');
+            let role = submitting_form.data('role');
 
-        $.ajax({
-            type: method, 
-            url: config.logInOutURL,
-            data: submitting_form.serialize(),
-            dataType: 'json',
-            success: function(data) {
-                
-                if(data.success === true) {
-                    error_report.removeClass('form__error--show');
-                    submitting_form.trigger( "reset" );
-                    // Different callbacks will probably require different arguments
-                    setup.success_callbacks[role](e, submitting_form);
+            $.ajax({
+                type: method, 
+                url: config.logInOutURL,
+                data: submitting_form.serialize(),
+                dataType: 'json',
+                success: function(data) {
+                    
+                    if(data.success === true) {
+                        error_report.removeClass('form__error--show');
+                        submitting_form.trigger( "reset" );
+                        // Different callbacks will probably require different arguments
+                        setup.success_callbacks[role](e, submitting_form);
 
-                } else {
-                    error_report.html(data.errors.join('<br>')).addClass('form__error--show');
-                }
-           },
-            error: function(jqXHR, textStatus, errorThrown) {
-                throw new Error(errorThrown);
-            } 
-        });
-    } else {
+                    } else {
+                        error_report.html(data.errors.join('<br>')).addClass('form__error--show');
+                    }
+               },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    throw new Error(errorThrown);
+                } 
+            });
+        } else {
 
-        error_report.html(validation.errors).addClass('form__error--show');
+            error_report.html(validation.errors).addClass('form__error--show');
 
-    }
-    // Let jQuery submit the form
-    e.preventDefault();
-};
+        }
+        // Let jQuery submit the form
+        e.preventDefault();
+    };
 
-actions.cancel = function (e, form) {
+    actions.search = function (e) {
+
+        let settings = {
+            ajaxdata: {
+                action: 'search',
+                q: $('#search_query').val()
+            },
+            callback: setup.success_callbacks.search,
+            action_url: config.ajaxURL
+        };
+
+        doAction(settings);
+
+        // Let jQuery submit the form
+        e.preventDefault();
+    };
+
+    actions.cancel = function (e, form) {
         // Hide error messages then reset fields
         let submitting_form = form || $(e.target).closest('form');
 
