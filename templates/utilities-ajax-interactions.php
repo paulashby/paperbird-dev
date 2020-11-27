@@ -26,7 +26,6 @@ if( $config->ajax) {
 				$max_eager = (int) $lazyImages->getMaxEager("cart");
 				$lazy_load = $img_count > $max_eager;
 
-				bd("img_count: $img_count, max_eager: $max_eager");
 				//TODO: Check sizes of these cart images- they're sizes for listings
 			    $listing_options = [
 			    	"sub_cat"=>true, // Just so it's defined
