@@ -41,7 +41,7 @@ if( $config->ajax) {
 
 		case "search":
 			$q = $input->get('q'); 
-			$out = $files->render("search", array("container" => false));
+			$out = $files->render("components/search", array("value"=>array("container" => false)));
 			$no_results = "<h3>Your search returned no results</h3>";
 
 			if($q) {
