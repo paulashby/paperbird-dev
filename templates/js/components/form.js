@@ -42,7 +42,7 @@ function init (settings) {
     actions.validateOnBlur(setup.form_selector);
 
     // Use event handlers in actions object
-    $('.form').on('click', function (e) {
+    $('body').on('click', function (e) {
         dataAttrClickHandler(e, actions);
     });
 
