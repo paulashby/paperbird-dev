@@ -11,6 +11,9 @@
 }
 .products__product-shot {
 	width: 100%;
+	&.lazy{
+		@extend %lazy-fade;
+	}
 }
 .products__sku {
 	color: $colour-pb-blue;
