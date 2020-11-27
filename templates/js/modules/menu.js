@@ -5,6 +5,7 @@ let setup = {
     success_callbacks : {
         populateCart: function (data) {
             $('.cart-items').html(data);
+            setup.lazyLoad.update();
         }
     },
     top_level_class: 'menu__entries',
@@ -18,6 +19,7 @@ let actions = {
 function init (settings) {
 
     setup.base_menu_class = $('.menu').attr('class');
+    setup.lazyLoad = settings.lazyLoad;
 
     // Use event handlers in actions object
     $('.menu').on('click', function (e) {
