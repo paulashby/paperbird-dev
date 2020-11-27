@@ -7,7 +7,6 @@ import lightbox from './modules/lightbox';
 import LazyLoad from './vendor/lazyload.esm';
 //TODO: May need to move form.js import and initialisation out of menu.js if other elements of the page include forms
 
-//TODO: This doesn't seem to be working!
 let lazyLoad = new LazyLoad({
   elements_selector: ".lazy",
   cancel_on_exit: true
@@ -34,9 +33,9 @@ function init () {
 	}
 
 	let menu_settings = {
+		lazyLoad: lazyLoad,
 		sliding: sliding,
 		hasNav: true
-
 	}
 	errorHandler.init(error_handler_settings);
 	menu.init(menu_settings);
