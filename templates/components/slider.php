@@ -1,8 +1,9 @@
 <?php namespace ProcessWire;
 
 /*
-Render using $page->renderValue($value, 'nameOfThisTemplate') 
-See https://processwire.com/api/ref/page/render-value/
+Render using $files->render("components/nameOfThisTemplate", array($value=>$menu_options))
+See https://processwire.com/api/ref/wire-file-tools/render/
+Passing options in an array called $value allows us to use foreach to traverse and echoes the syntax of $page->renderValue()
 
 Need to make sure we add the right number of dots under the slider images - and work out how to implement their links.
 

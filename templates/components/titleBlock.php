@@ -1,6 +1,10 @@
 <?php namespace ProcessWire;
-
-$page = $value;
+/*
+Render using $files->render("components/nameOfThisTemplate", $page=>$menu)
+See https://processwire.com/api/ref/wire-file-tools/render/
+Passing options in an array called $value allows us to use foreach to traverse and echoes the syntax of $page->renderValue()
+*/
+// $page = $value;
 
 echo "<div class='titleBlock'>
     <img class='titleBlock__logo' src='" . $page->logo->url . "' alt='Paperbird logo'>
@@ -12,6 +16,6 @@ echo "<div class='titleBlock'>
         "login" => true,
         "basket" => true
     );
-    echo $page->renderValue($menu_options, 'menu');
+    $files->include('components/menu', $menu_options);
                 
 echo "</div>";

@@ -1,7 +1,6 @@
 <?php namespace ProcessWire;
 
-$components = $value['components'];
-$animated = isset($value['animate_menu_button']) && $value['animate_menu_button'] !== false;
+$animated = isset($animate_menu_button) && $animate_menu_button !== false;
 $open_menu_button = '';
 $close_menu_button = '';
 
@@ -18,6 +17,8 @@ if($animated) {
 	$out = "<div class='menu menu--static-bttn'>" . $open_menu_button . 
 	"<ul class='menu__entries'>" . $close_menu_button;
 }
+
+if(isset($components)){
 	
 	foreach($components as $key => $value) {
 
@@ -30,9 +31,10 @@ if($animated) {
 		if(is_int($key)) {
 			$out .= "<li class='menu__entry'>" . $files->render('components/' . $value) . "</li>";
 		} else {
-			$out .= "<li class='menu__entry'>" . $page->renderValue($value, $key) . "</li>";	
+			$out .= "<li class='menu__entry'>" . $files->render('components/' . $key, array("value"=>$value)) . "</li>";
 		}
 	}
+}
 
 $out .= "	</ul>
 </div>";
