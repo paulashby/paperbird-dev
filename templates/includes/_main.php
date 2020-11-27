@@ -44,17 +44,17 @@ echo "<!DOCTYPE html>
                     "login",
                     "cart",
                     "search" => array (
-                        "results" => false
+                        "container" => true
                     )
                 ),
-                "animate_menu_button" => false
+                "animate_menu_button" => true
             );
-           echo $page->renderValue($menu_options, 'menu');
+           echo $files->render("components/menu", $menu_options);
         ?>
         <main data-pw-id='main'>
         </main>
         <?php
-            echo $page->renderValue($page, 'footer');
+            echo $files->render("components/footer");
         ?>
         <region data-pw-id='scripts'>
              <?php
