@@ -137,3 +137,34 @@ $leading-title: 1.2;
   width: 100%;
   @include transition(line-height $field-transition-duration ease, padding $field-transition-duration ease);
 }
+/* For lazy loading */
+%lazy-fade {
+  opacity: 0;
+  &:not(.initial) {
+    transition: opacity 1s;
+  }
+  &.initial,
+  &.loaded,
+  &.error {
+    opacity: 1;
+  }
+  &:not([src]) {
+    visibility: hidden;
+  }
+}
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .products__product-shot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
