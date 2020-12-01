@@ -2,18 +2,29 @@ import {doAction, dataAttrClickHandler} from '../helpers';
 
 let setup = {
     success_callbacks : {
-        'login': function (e, submitting_form) {
+        'login': function (e, submitting_form, count) {
             if(window.location.pathname === config.forgotPassword) {
                 // Go to homepage if this is forgotten password page as we clearly no longer need to reset password.
                 window.location.replace(config.root); 
             } else {
                 submitting_form.trigger('menuToggleEvent', [e]);
+                $.event.trigger({
+                    type: "updateCart",
+                    action: "login",
+                    count: count
+                });
                 $('body').addClass('logged-in');
                 $('.menu__entrybutton--login').html('Log out');
             }
         },
         'logout': function (e) {
             $('body').trigger('menuToggleEvent', [e]);
+            $('body').trigger('logoutEvent');
+            $.event.trigger({
+                type: "updateCart",
+                action: "logout",
+                count: 0
+            });
             $('body').removeClass('logged-in');
             $('.menu__entrybutton--login').html('Log in');
         },
@@ -64,12 +75,11 @@ function init (settings) {
                 data: submitting_form.serialize(),
                 dataType: 'json',
                 success: function(data) {
-                    
                     if(data.success === true) {
                         error_report.removeClass('form__error--show');
                         submitting_form.trigger( "reset" );
                         // Different callbacks will probably require different arguments
-                        setup.success_callbacks[role](e, submitting_form);
+                        setup.success_callbacks[role](e, submitting_form, data["num_cart_items"]);
 
                     } else {
                         error_report.html(data.errors.join('<br>')).addClass('form__error--show');
