@@ -36,9 +36,9 @@ function init (settings) {
     with action property of 'add', 'remove', 'update' or 'order'
     */
     $(document).on('updateCart', function(e) {
-        // We actually want to display a message at this point
+        
         if(e.action === 'add') {
-            actions.closeLightbox(e);
+            $('.lightbox_message').fadeIn().delay(1500).fadeOut(200);
         }
     });
 }
