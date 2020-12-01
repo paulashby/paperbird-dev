@@ -23,3 +23,22 @@
 	display: inline-block;
 	padding-top: 1rem;
 }
+.lightbox_message {
+	display: none;
+	position: absolute;
+    top: 170px;
+    /* Width should match image size */
+    width: 200px;
+}
+.lightbox_message-text {
+	text-align: center;
+}
+.lightbox_message-content {
+	@extend %message;
+	margin: 0 auto;
+}
+/*
+.lightbox_message-content--show {
+	display: inline-block;
+}
+*/
