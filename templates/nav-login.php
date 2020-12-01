@@ -29,7 +29,7 @@ if( ! $config->ajax) {
         if( ! $input->post('password')) {
         	$errors[] = 'Password required';
         } else {
-        	//TODO: Create a set of rules for password validation (not santization)length, required characters etc - same reuleset should be used on front end validation in form.js. Then validate this before storing.
+        	//TODO: Create a set of rules for password validation (not santization)length, required characters etc - same ruleset should be used on front end validation in form.js. Then validate this before storing.
         	$user_data['password'] = $input->post('password');
         	//TODO: Add password to errors if it failed validation
         }
@@ -41,6 +41,9 @@ if( ! $config->ajax) {
 		$user = wire('session')->login($user_data['user'], $input->post('password'));
 
 		if($user) {
+			$cart = $this->modules->get("OrderCart");
+			$num_cart_items = $cart->getNumCartItems($user->id);
+			$data['num_cart_items'] = $num_cart_items;
 			$data['success'] = true;
 			$data['message'] = 'Welcome back'; 
 		} else {
