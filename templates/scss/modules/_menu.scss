@@ -175,6 +175,13 @@ body.menu__entries--active {
 	.menu--modal-active.menu--search & .search {
 		@extend %expanded-menu-tool;
 	}
+	.menu--modal-active.menu--search & .search--results {
+		@extend %expanded-menu-tool;
+		top: -20px;
+		bottom: auto;
+		left: 0;
+		width: 100%;
+	}
 }
 
 .menu--login:not(.menu--modal-active) .menu__entries .login--fullscreen {
