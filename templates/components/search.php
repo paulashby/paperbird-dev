@@ -7,7 +7,7 @@ $close = "";
 
 if($value["container"]){
 	$search_button = $files->render('components/buttons/menuToolButton', ['button_text'=>'Search', 'button_class'=>'menu__entrybutton menu__entrybutton--search', 'button_type'=>'search']);
-	$out .= "<h2>{$search_button}</h2>
+	$out .= "<div>{$search_button}</div>
 	<div class='search'>";
 	$close = "</div>";
 }

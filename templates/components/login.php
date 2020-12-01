@@ -13,7 +13,7 @@ $login_button = $files->render('components/buttons/menuToolButton', ['button_tex
 $submit_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--submit', 'button_type'=>'submit', 'action'=>'submit']);
 $cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'action'=>'cancel']);
 
-$out = "<h2>{$login_button}</h2>
+$out = "<div>{$login_button}</div>
 		<div class='login'>
 			<form class='form form--login' action='/' method='post' data-role='{$role}'>
 				<div class='form__inputs'>
