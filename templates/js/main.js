@@ -4,6 +4,7 @@ import errorHandler from './utilities/errorHandler';
 import menu from './modules/menu';
 import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
+import cart from './modules/cart'; 
 import LazyLoad from './vendor/lazyload.esm';
 //TODO: May need to move form.js import and initialisation out of menu.js if other elements of the page include forms
 
@@ -37,9 +38,11 @@ function init () {
 		sliding: sliding,
 		hasNav: true
 	}
+
 	errorHandler.init(error_handler_settings);
 	menu.init(menu_settings);
 	navigation.init(nav_settings);	
 	lightbox.init();
+	cart.init();
 	
 }
