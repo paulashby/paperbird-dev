@@ -1,6 +1,7 @@
 <?php namespace ProcessWire;
 
 $lightbox_inner = $files->render('components/buttons/toggleButton', ['button_class'=>'toggle__button toggle__button--close toggle__button--lightbg', 'action'=>'closeLightbox']);
+$lightbox_inner .= "<div class='lightbox_message'><p class='lightbox_message-text'><span class='lightbox_message-content'>Added to cart</span></p></div>";
 $lightbox_inner .= "<div class='active-card'>";
 
 $product_page = $pages->get("sku=$sku");
