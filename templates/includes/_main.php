@@ -12,6 +12,7 @@ echo "<!DOCTYPE html>
         <title data-pw-id='title'>Welcome to PaperBird</title>";
         // Data for javascript
         $jsconfig = include $config->paths->templates . "utilities-urls.php";
+        $settings = $pages->get("/tools/settings/");
 
         echo "<script>var config = " . json_encode($jsconfig) . ";</script>";
         ?>
@@ -30,7 +31,7 @@ echo "<!DOCTYPE html>
                 "components" => array(
                     //  - use associative entries to include options
                     "navigation" => array(
-                        "tree_options" => array (
+                        "tree_options" => array(
                             "parent_class" => "parent",
                             "levels" => true,
                             "levels_prefix" => "nav__level-",
@@ -42,14 +43,15 @@ echo "<!DOCTYPE html>
                         "sliding" => false // Sliding dropdowns
                     ),
                     "login",
-                    "cart",
-                    "search" => array (
+                    "cart" => array(
+                        "counter" => true),
+                    "search" => array(
                         "container" => true
                     )
                 ),
                 "animate_menu_button" => true
             );
-           echo $files->render("components/menu", $menu_options);
+           $files->include("components/menu", $menu_options);
         ?>
         <main data-pw-id='main'>
         </main>
