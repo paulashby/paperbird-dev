@@ -30,6 +30,17 @@ function init (settings) {
 
         $('.card-viewer').empty();
     };
+
+    /*
+    'updateCart' event is dispatched by ordercart.js
+    with action property of 'add', 'remove', 'update' or 'order'
+    */
+    $(document).on('updateCart', function(e) {
+        // We actually want to display a message at this point
+        if(e.action === 'add') {
+            actions.closeLightbox(e);
+        }
+    });
 }
 function populateLightbox(sku) {
 
