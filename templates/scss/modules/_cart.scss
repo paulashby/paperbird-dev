@@ -3,3 +3,20 @@
 	color: #000;
 	max-height: calc(100vh - 100px);
 }
+.cart__counter {
+	left: 22px;
+	pointer-events: none;
+	position: relative;
+	top: 42px;
+}
+.cart__counter-count {
+	background-color: #fff;
+	border-radius: 1rem;
+	color: $colour-pb-blue;
+	display: none;
+	font-weight: bold;
+	padding: 0.2rem 0.5rem;
+}
+.cart__counter-count--show {
+	display: inline;
+}
