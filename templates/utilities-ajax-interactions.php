@@ -19,29 +19,8 @@ if( $config->ajax) {
 			return json_encode(array("success"=>false, "error"=>"Users must be logged in to use the cart"));
 
 		case "populateCart":
-
-			$customCartImages = function($product, $img_count) {
-
-				$lazyImages = $this->modules->get("LazyResponsiveImages");
-				$max_eager = (int) $lazyImages->getMaxEager("cart");
-				$lazy_load = $img_count > $max_eager;
-
-				//TODO: Check sizes of these cart images- they're sizes for listings
-			    $listing_options = [
-			    	"sub_cat"=>true, // Just so it's defined
-			        "lazyImages"=>$lazyImages,
-			        "product"=>$product,
-			        "field_name"=>"product_shot",
-			        "context"=>"listing", // Just so it's defined
-			        "desktop_hdpi"=>"200",
-			        "sizes"=>"(max-width: 1000px) 150px, 100px",
-			        "class"=>"products__product-shot",
-			        "lazy_load"=>$lazy_load
-			    ];
-				return $this->files->render('components/productListingEntry', $listing_options);
-			};
 			$cart = $this->modules->get("OrderCart");
-			$cart_content = $cart->populateCart($customCartImages);
+			$cart_content = $cart->populateCart("components/customCartImages");
 			return json_encode(array("success"=>true, "data"=>$cart_content));
 
 		case "search":
