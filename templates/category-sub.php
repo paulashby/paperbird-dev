@@ -19,7 +19,6 @@ foreach ($products as $product) {
 		"product"=>$product,
 		"field_name"=>"product_shot",
 		"context"=>"listing",
-		"desktop_hdpi"=>"200",
 		"sizes"=>"(max-width: 1000px) 150px, 100px",
 		"class"=>"products__product-shot"
 	];
