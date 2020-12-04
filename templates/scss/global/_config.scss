@@ -3,36 +3,17 @@
 	Style overrides specifically for this project 
 
 */
-html {
-	/* Normalise font weight */
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
-	font-weight: 400;
-}
 
-body {
-	color: $colour-pb-neutral-dark;
-}
+// Custom fonts
+$font-lora: 'Lora', serif;
 
-/* sticky footer */
-html, body {
-	height: 100%;
+%lora-roman {
+  font-family: $font-lora;
+  font-style: normal;
 }
-body {
-	display: flex;
-	flex-direction: column;
-}
-main {
-	flex: 1 0 auto;
-}
-/* END sticky footer */
-
-.logo {
-	width: 120px;
-	position: absolute;
-	left: 20px;
-	top: 20px;
+%lora-italic {
+  font-family: $font-lora;
+  font-style: italic;
 }
 
 .titleBlock {
@@ -44,6 +25,23 @@ main {
 	@include font-smoothing(on);
 }
 
+body {
+	color: $colour-pb-neutral-dark;
+}
+
+.logo {
+	width: 120px;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+}
+
+.nav__level-2-link {
+	@extend %lora-italic;
+}
+.nav__level-2:nth-child(even) .nav__level-2-link {
+	@extend %lora-roman;
+}
 .page-title {
 	color: $colour-pb-purple;
 	font-family: $font-title;
