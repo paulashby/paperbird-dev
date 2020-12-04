@@ -4,8 +4,7 @@
 'global/reset',
 'global/helpers',
 'global/variables',
-'global/defaults',
-'global/config';
+'global/defaults';
 
 
 @import
@@ -13,7 +12,8 @@
 'modules/navigation',
 'modules/lightbox',
 'modules/products',
-'modules/footer';
+'modules/footer',
+'global/config';
 /*
 @import
 'components/component';
