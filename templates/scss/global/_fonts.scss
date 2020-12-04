@@ -1,1 +1,27 @@
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i&display=swap');
+/* lora-regular - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+   src: url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin/lora-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/site/templates/fonts/lora-v16-latin//lora-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-regular.svg#Lora') format('svg'); /* Legacy iOS */
+}
+
+/* lora-italic - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-italic.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-italic.woff') format('woff'), /* Modern Browsers */
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('/site/templates/fonts/lora-v16-latin/lora-v16-latin-italic.svg#Lora') format('svg'); /* Legacy iOS */
+}
