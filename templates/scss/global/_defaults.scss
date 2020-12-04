@@ -55,6 +55,21 @@ body {
   @extend %size-text;
   font-family: $font-text;
   color: $colour-black;
+
+  /* Sticky footer */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+html {
+  /* Normalise font weight */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  font-weight: 400;
+
+  /* Sticky footer */
+  height: 100%;
 }
 
 a {
@@ -64,6 +79,8 @@ a {
 main {
   margin: 6rem 10% 4rem 10%;
 
+  /* Sticky footer */
+  flex: 1 0 auto;
 }
 
 .nowrap {
