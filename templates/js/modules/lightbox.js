@@ -56,12 +56,6 @@ function populateLightbox(sku) {
     doAction(settings);
 }
 
-function respond (e, action) {
-    if(actions[action]) {
-        actions[action](e);
-    }
-}
-
 const lightbox = {
     init: init
 };    
