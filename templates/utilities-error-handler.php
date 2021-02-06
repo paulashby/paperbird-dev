@@ -1,5 +1,9 @@
 <?php namespace ProcessWire;
 
+if( ! $config->ajax) {
+	// We shouldn't be here...
+	throw new Wire404Exception();
+}
 $err_error = $input->post('error');
 $err_stack = $input->post('stack');
 $log_string = "";
@@ -22,3 +26,4 @@ if(strlen($log_string)) {
 }
 
 return json_encode(Array("success"=>$success_status, "message"=>$return_message));
+
