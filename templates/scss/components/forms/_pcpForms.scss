@@ -1,0 +1,54 @@
+.pcp_forms {
+	margin: 0 3.5%;
+}
+.pcp_form {
+	margin-bottom: 3rem;
+
+	.form__label {
+		display: none;
+		margin-bottom: 0.5rem;
+	}
+	.form__input--textarea {
+		font-family: $font-text;
+		font-size: 1.1rem;
+		min-height: 8rem;
+		padding-bottom: 2rem;
+		padding-top: 0.5rem;
+		resize: vertical;
+	}
+	.form__input--address {
+		min-height: 4rem;
+	}
+	.form__consent {
+		display: flex;
+		align-items: flex-start;
+	}
+	.form__consent-checkbox {
+		margin-right: 0.5rem;
+		margin-top: 0rem;
+	}
+	.form__note, .description {
+		font-size: 1.1rem;
+		line-height: 1.3rem;
+		margin-bottom: 1rem;
+
+		&.form__note--consent {
+			display: block;
+		}
+	}
+	.description {
+		margin-bottom: 0.5rem;
+	}
+	.form__input--web {
+		opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 0;
+        z-index: -1;
+	}
+	.form__button--cancel {
+		display: none;
+	}
+}
