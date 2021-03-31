@@ -5,13 +5,11 @@ return "<footer class='footer'>
 		<h3 class='footer__heading'>legal</h3>
 		<a class='footer__link' href='/'>Terms &amp; Conditions</a>
 		<a class='footer__link' href='/'>Cookies &amp; Privacy</a>
-		<a class='footer__link' href='/'>Returns Policy</a>
 	</section>
 	<section class='footer__entry'>
 		<h3 class='footer__heading'>get in touch</h3>
 		<a class='footer__link' href='/'>Contact form</a>
 		<a class='footer__link' href='/'>Request a catalogue</a>
-		<a class='footer__link' href='/'>See us on Red Letter Greetings</a>
 	</section>
 	<section class='footer__entry'>
 		<h3 class='footer__heading'>social</h3>
