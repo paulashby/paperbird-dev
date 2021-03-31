@@ -86,6 +86,7 @@ function init (settings) {
                     }
                },
                 error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR.responseText);
                     throw new Error(errorThrown);
                 } 
             });
@@ -155,6 +156,7 @@ function logOut (e) {
             } else {
                 //TODO: Need to handle errors - error_report not available as this is part of hidden form
                 // error_report.html(data.errors.join('<br>')).addClass('form__error--show');
+                console.log(data);
             }
        },
         error: function(jqXHR, textStatus, errorThrown) {
