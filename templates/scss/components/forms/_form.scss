@@ -6,9 +6,19 @@
 .form {
 	text-align: left;
 }
+.form__title {
+	color: $colour-pb-purple;
+	font-size: 2rem;
+	line-height: 2.4rem;
+	margin-bottom: 0.75rem;
+}
 /* Processwire field in Forgotten Password form */
 .Inputfield, #ProcessForgotPassword {
 	font-family: $font-secondary;
+}
+/* Processwire password fields in Registration form */
+.form__inputfields {
+	width: 100%;
 }
 #ProcessForgotPassword {
 
@@ -29,7 +39,7 @@
 }
 .Inputfields .InputfieldHeader, .Inputfields .description, #ProcessForgotPassword {
 	font-size: 0.85rem;
-	line-height: 1,1rem;
+	line-height: 1.1rem;
 }
 .form__error {
 	
@@ -60,11 +70,14 @@
 }
 .form__forgotten-password,
 .form__error {
+	font-size: 1.1rem;
 	text-align: left;
 	font-weight: bold;
 }
+.form__forgotten-password {
+	margin-top: 0.5rem;
+}
 .form__forgotten-password-link {
-	font-size: 0.7rem;
 	color: $colour-pb-blue;
 }
 .form--fullscreen {
@@ -90,3 +103,4 @@
 	margin-bottom: 0;
 }
 
+@import 'components/forms/pcpForms';

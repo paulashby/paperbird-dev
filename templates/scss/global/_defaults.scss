@@ -31,10 +31,7 @@
     }
 }
 
-@mixin heading($fs, $align: left) {
-
-  $font-size: calc-rem($fs);
-  $leading: $font-size * $leading-title;
+@mixin heading($align: left) {
 
   @if $align == center {
     text-align: center;
@@ -45,24 +42,20 @@
 
   @include font-smoothing(on);
   font-family: $font-title;
-  font-size: $font-size;
-  line-height: $leading;
   font-weight: bold;
 
 }
 
-body {
-  @extend %size-text;
-  font-family: $font-text;
-  color: $colour-black;
-
-  /* Sticky footer */
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-}
 html {
-  /* Normalise font weight */
+  //Using this approach: https://www.sitepoint.com/understanding-and-using-rem-units-in-css/ 
+  font-size: 62.5%;
+
+  // Now html font size is 10px and 1 rem = 10px
+  // 1.4rem is 14px
+  // 2.4rem is 24px
+  // and I guess we could do away with calc-rem
+
+  //Normalise font weight
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
@@ -72,12 +65,25 @@ html {
   height: 100%;
 }
 
+body {
+  // @extend %size-text;
+  font-size: 1.3rem;
+  list-height: 1.9rem;
+  font-family: $font-text;
+  color: $colour-black;
+
+  /* Sticky footer */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
 a {
   color: $colour_blue;
 }
 
 main {
-  margin: 6rem 10% 4rem 10%;
+  margin: 10rem 10% 4rem 10%;
 
   /* Sticky footer */
   flex: 1 0 auto;

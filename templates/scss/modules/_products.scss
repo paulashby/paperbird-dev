@@ -17,11 +17,13 @@
 }
 .products__sku {
 	color: $colour-pb-blue;
+	font-size: 1.5rem;
 	font-weight: bold;
 	text-transform: uppercase;
+	line-height: 2.4rem;
+	margin-top: 0.25rem;
 }
 .products__title {
-	font-size: 0.75rem;
-	line-height: 1rem;
-	margin-bottom: 1.3rem;
+	line-height: 1.6rem;
+	margin-bottom: 2rem;
 }

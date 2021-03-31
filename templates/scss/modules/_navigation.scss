@@ -1,5 +1,5 @@
 %top-level-links {
-	$font-size: calc-rem(22);
+	$font-size: 2.2rem;
 	color: #fff;
 	font-weight: bold;
 	font-family: $font-secondary;
@@ -36,19 +36,21 @@
 }
 .nav__level-2 {
 	font-size: calc-rem(26);
+	line-height: 3rem;
 	padding-bottom: calc-rem(14);
 }
 .nav__level-2-link {
 	color: $colour-pb-blue-light;
 	text-decoration: none;
 	font-family: $font-text;
+	font-size: 2.6rem;
 	font-style: italic;
 }
 .nav__level-2:nth-child(even) .nav__level-2-link {
 	color: #fff;
 	text-transform: uppercase;
 	font-style: normal;
-	font-size: calc-rem(22);
+	font-size: 2.2rem;
 	letter-spacing: $letter-spacing-menu;
 }
 

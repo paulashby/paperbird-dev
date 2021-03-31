@@ -6,23 +6,24 @@
 	flex-shrink: 0;
 	flex-wrap: wrap;
 	font-family: $font-secondary;
+	font-size: 1.2rem;
 	justify-content: space-between;
-	line-height: 1.25;
+	line-height: 1.5;
 	padding: 3rem 0;
 	width: 100%;
 
 	.footer__entry {
-		width: 35%;
+		width: 34%;
 		margin-left: 0;
-		margin-right: 10%;
+		margin-right: 12.5%;
 		margin-bottom: 1.5rem;
 	}
 	.footer__entry:nth-child(odd) {
-		margin-left: 10%;
+		margin-left: 12.5%;
 		margin-right: 0;
 	}
 	.footer__heading {
-		@include heading(14);
+		@include heading();
 		color: $colour-pb-purple-light;
 		margin-bottom: calc-rem(10);
 	}
@@ -38,7 +39,7 @@
 		color: $colour-pb-purple-mid;
 		width: 78%;
 		margin-bottom: calc-rem(14);
-		margin-left: 10%;
+		margin-left: 12.5%;
 	}
 	.footer__text--copyright {
 		color: $colour-pb-purple-light;	

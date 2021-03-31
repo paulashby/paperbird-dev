@@ -4,6 +4,7 @@ if( ! $config->ajax) {
 	// We shouldn't be here...
 	throw new Wire404Exception();
 }
+
 $err_error = $input->post('error');
 $err_stack = $input->post('stack');
 $log_string = "";
