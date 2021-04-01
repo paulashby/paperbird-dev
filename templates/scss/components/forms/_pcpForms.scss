@@ -35,6 +35,9 @@
 		&.form__note--consent {
 			display: block;
 		}
+		&.form__note--privacy {
+			width: 100%;
+		}
 	}
 	.description {
 		margin-bottom: 0.5rem;
