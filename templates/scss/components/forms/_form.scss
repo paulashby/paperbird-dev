@@ -102,5 +102,8 @@
 	@extend %message;
 	margin-bottom: 0;
 }
+.form__price--unit {
+	font-size: 0.7rem;
+}
 
 @import 'components/forms/pcpForms';
