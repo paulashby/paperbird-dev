@@ -14,7 +14,6 @@ $eager_count = 0;
 foreach ($products as $product) {
 
 	$listing_options = [
-		"sub_cat"=>true,
 		"lazyImages"=>$lazyImages,
 		"product"=>$product,
 		"field_name"=>"product_shot",
