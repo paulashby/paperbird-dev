@@ -15,4 +15,4 @@ $listing_options = [
     "lazy_load"=>$lazy_load
 ];
 
-return $this->files->render("components/productListingEntry", $listing_options);
+return $this->files->render("components/productImage", $listing_options);
