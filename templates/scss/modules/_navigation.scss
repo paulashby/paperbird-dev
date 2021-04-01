@@ -4,7 +4,7 @@
 	font-weight: bold;
 	font-family: $font-secondary;
 	font-size: $font-size;
-	letter-spacing: calc-rem(1.5);
+	letter-spacing: 0.15rem;
 	line-height: $font-size * 1.8;
 	text-decoration: none;
 	text-transform: lowercase;
@@ -28,16 +28,16 @@
 .nav__top-link--aboutus,
 .nav__top-cat--theartists,
 .nav__top-cat--welshcards {
-	font-size: calc-rem(18);
+	font-size: 1.8rem;
 	font-weight: normal;
 }
 .nav__top-link {
 	@extend %top-level-links;
 }
 .nav__level-2 {
-	font-size: calc-rem(26);
+	font-size: 2.6rem;
 	line-height: 3rem;
-	padding-bottom: calc-rem(14);
+	padding-bottom: 1.4rem;
 }
 .nav__level-2-link {
 	color: $colour-pb-blue-light;
@@ -62,9 +62,9 @@
 	.nav__top-cat:after {
 		content: "+";
 		display: inline-block;
-		width: calc-rem(11);
+		width: 1.1rem;
 		position: relative;
-		top: calc-rem(-2);
+		top: -0.2rem;
 		text-align: center;
 		margin: 0;
 		@include transform(rotate(0deg));
@@ -100,9 +100,9 @@
 		}
 		.nav__dropdown {
 			@extend %unhidden;
-			padding-top: calc-rem(6);
-			padding-bottom: calc-rem(10);		
-			margin-bottom: calc-rem(20);
+			padding-top: 0.6rem;
+			padding-bottom: 1rem;		
+			margin-bottom: 2rem;
 		}
 	}
 	.nav__level-1:not(.nav__level-1--active) {

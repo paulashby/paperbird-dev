@@ -44,11 +44,11 @@ $font-text: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-secondary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 // Base sizes in pixels
-$base__font-size: 15.999 !default;
-$base__line: 18 !default;
+// $base__font-size: 15.999 !default;
+// $base__line: 18 !default;
 
-$letter-spacing-menu: calc-rem(1.5);
-$letter-spacing-title: calc-rem(1);
+$letter-spacing-menu: 0.15rem;
+$letter-spacing-title: 0.1rem;
 
 // Leading as proportion of font size
 $leading-title: 1.25;
@@ -65,12 +65,12 @@ $leading-title: 1.25;
 
 // Font-sizes - currently unused
 %size-text {
-  font-size: calc-rem(13);
-  line-height: calc-rem(19);
+  font-size: 1.3rem;
+  line-height: 1.9rem;
 
   @media (min-width: map_get($breakpoints, "tablet")) {
-    font-size: calc-rem(17);
-    line-height: calc-rem(21);
+    font-size: 1.7rem;
+    line-height: 2.1rem;
   }
 }
 %footer-base-text {
@@ -91,7 +91,7 @@ $leading-title: 1.25;
 %menu-element-full-screen {
   @extend %full-screen-bordered;
   font-family: $font-secondary;
-  font-size: calc-rem(15);
+  font-size: 1.5rem;
   line-height: 160%;
   list-style: none;
   text-align: center;

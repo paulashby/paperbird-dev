@@ -25,20 +25,20 @@
 	.footer__heading {
 		@include heading();
 		color: $colour-pb-purple-light;
-		margin-bottom: calc-rem(10);
+		margin-bottom: 1rem;
 	}
 	.footer__link {
 		@extend %footer-base-text;
 		color: $colour-pb-purple-mid;
 		display: block;
-		margin-bottom: calc-rem(10);
+		margin-bottom: 1rem;
 		text-decoration: none;	
 	}
 	.footer__text {
 		@extend %footer-base-text;
 		color: $colour-pb-purple-mid;
 		width: 78%;
-		margin-bottom: calc-rem(14);
+		margin-bottom: 1.4rem;
 		margin-left: 12.5%;
 	}
 	.footer__text--copyright {
