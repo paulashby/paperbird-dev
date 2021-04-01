@@ -1,32 +1,29 @@
 <?php namespace ProcessWire;
 
-if( ! isset($sub_cat)) $sub_cat = true;
-if( ! isset($context)) $context = "listing";
+if( ! isset($context)){ $context = "listing";}
 
-
-$product_shot = $product->product_shot->first();
 $sku = $product->sku;
-$product_title = $product->title;
-$dsc = $product_shot->description;
-$alt_str = $dsc ? $dsc : $product_title;
 $data_attr_String = "data-action='openLightbox' data-sku='$sku'";
 
 $entry_out = "<div class='products__product' $data_attr_String>";
 
 $product_shot_options = [
-	"image"=>$product_shot,
-	"field_name"=>$field_name,
-	"context"=>$context,
-	"product_data_attributes"=>$data_attr_String,
-	"sizes"=>$sizes,
-	"alt_str"=>$alt_str,
 	"class"=>$class,
-	"lazy_load"=>$lazy_load
+	"context"=>$context,
+	"data_attr_String"=>$data_attr_String,
+	"field_name"=>$field_name,
+	"product"=>$product,
+	"lazy_load"=>$lazy_load,
+	"lazyImages"=>$lazyImages,
+	"sizes"=>$sizes
 ];
-$product_shot_markup = $lazyImages->renderImage($product_shot_options);
-
+$product_shot_markup = $this->files->render("components/productImage", $product_shot_options);
 $entry_out .= $product_shot_markup;
-$entry_out .= "<p class='products__sku' $data_attr_String>$sku</p>
-	<h2 class='products__title' $data_attr_String>$product_title</h2>
-</div>";
+
+$product_title_sku_options = [
+	"product"=>$product,
+	"data_attr_String"=>$data_attr_String
+];
+$entry_out .= $this->files->render("components/productTitleSku", $product_title_sku_options);
+
 return $entry_out;
