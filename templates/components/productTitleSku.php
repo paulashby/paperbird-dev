@@ -7,5 +7,4 @@ $product_title = $product->title;
 if( ! isset($data_attr_String)){ $data_attr_String = ""; }
 
 return "<p class='products__sku' $data_attr_String>$sku</p>
-	<h2 class='products__title' $data_attr_String>$product_title</h2>
-</div>";
+	<h2 class='products__title' $data_attr_String>$product_title</h2>";
