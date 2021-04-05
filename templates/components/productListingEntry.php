@@ -25,5 +25,6 @@ $product_title_sku_options = [
 	"data_attr_String"=>$data_attr_String
 ];
 $entry_out .= $this->files->render("components/productTitleSku", $product_title_sku_options);
+$entry_out .= "</div><!-- End Products__product -->";
 
 return $entry_out;

@@ -28,11 +28,11 @@ $cart-col-width: 47.5%;
 	display: flex;
 	margin-bottom: 2.4rem;
 
-	.products__product-shot {
+	.cart__product-shot {
 		flex-basis: $cart-col-width;
 		margin-right: 5%;
 	}
-	.products__sku {
+	.cart__sku {
 		line-height: 1rem;
 		margin-top: 0rem;
 	}
@@ -58,7 +58,7 @@ $cart-col-width: 47.5%;
 		padding: 0!important;
 		text-decoration: underline;
 	}
-	.products__title {
+	.cart__item-title {
 		margin: 0.35rem 0 0.75rem 0;
 	}
 	.cart__price {
