@@ -1,5 +1,3 @@
-$cart-col-width: 47.5%;
-
 .cart {
 	@extend %menu-button-base;
 	color: #000;
@@ -29,37 +27,29 @@ $cart-col-width: 47.5%;
 	margin-bottom: 2.4rem;
 
 	.cart__product-shot {
-		flex-basis: $cart-col-width;
-		margin-right: 5%;
+		@extend %product-shot;
 	}
 	.cart__sku {
-		line-height: 1rem;
-		margin-top: 0rem;
+		@extend %product__sku;
 	}
 }
 .cart__info {
 	font-size: 1.3rem;
 	text-align: left;
-	width: $cart-col-width;
+	margin-left: 5%;
+	width: 47.5%;
 
-	.form__quantity {
-		width: 2.5rem;
+	.cart__quantity {
+		@extend %form__quantity;
 	}
-	.form__label--cart-qty {
-		margin-left: 0.5rem;
+	.cart__quantity-label {
+		@extend %form__quantity-label;
 	}
-	.form__link {
-		background: none!important;
-		border: none;
-		color: $colour-pb-blue;
-		cursor: pointer;
-		font-size: 1.2rem;
-		font-weight: bold;
-		padding: 0!important;
-		text-decoration: underline;
+	.cart__link {
+		@extend %form__link;
 	}
 	.cart__item-title {
-		margin: 0.35rem 0 0.75rem 0;
+		margin-top: 0.35rem;
 	}
 	.cart__price {
 		margin-top: 0.75rem;
