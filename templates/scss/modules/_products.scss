@@ -1,3 +1,21 @@
+
+%product-shot {
+  flex-basis: 47.5%;
+  margin-right: 5%;
+  width: 100%;
+  &.lazy{
+    @extend %lazy-fade;
+  }
+}
+%product__sku {
+  color: $colour-pb-blue;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1rem;
+  margin: 0;
+}
+
 .products {
 	display: flex;
 	flex-wrap: wrap;
@@ -10,18 +28,13 @@
 	margin: 0 3.5%;
 }
 .products__product-shot {
-	width: 100%;
-	&.lazy{
-		@extend %lazy-fade;
-	}
+	@extend %product-shot;
+	margin: 0;
 }
 .products__sku {
-	color: $colour-pb-blue;
-	font-size: 1.5rem;
-	font-weight: bold;
-	text-transform: uppercase;
+	@extend %product__sku;
 	line-height: 2.4rem;
-	margin-top: 0.25rem;
+	margin:0.25rem 0 0 0;
 }
 .products__title {
 	line-height: 1.6rem;
