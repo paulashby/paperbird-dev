@@ -2,6 +2,14 @@
 	@extend %menu-button-base;
 	color: #000;
 	max-height: calc(100vh - 95px);
+
+	.form__button--cancel {
+		margin: 0;
+		display: block;
+		position: absolute;
+		bottom: 0;
+		right: 55%;
+	}
 }
 .cart__counter {
 	left: 22px;
