@@ -5,6 +5,7 @@ include_once("./_func.php");
 if($page->template->name === 'services-forgotten-password') {
 
 	$wire->addHookBefore('Inputfield::render', function($event) {
+		
 		$inputfield = $event->object;
 
 		if($inputfield instanceof InputfieldText) {
