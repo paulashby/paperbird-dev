@@ -11,12 +11,18 @@ $product_details = $product_page->price_category;
 $price = $cart->renderPrice($product_details->price);
 $size = $product_details->size;
 $paper_spec = $product_details->paper->paper_spec;
+$lightbox_extras = array();
 
-$lightbox_inner.= $cart->renderItem($product_page);
+if($user->isLoggedin()) {
+	$lightbox_extras["price"] = $cart->renderPrice($product_details->price);
+}
 
-$lightbox_inner .= "<p class='lightbox__price'>$price</p>";
-$lightbox_inner .= "<p class='lightbox__size'>{$size}mm</p>";
-$lightbox_inner .= "<p class='lightbox__paperspec'>$paper_spec</p>";
+// Include any fields specific to this project
+$lightbox_extras["size"] = $product_details->size . "mm";
+$lightbox_extras["paperspec"] = $product_details->paper->paper_spec;
+
+$lightbox_inner.= $cart->renderItem($product_page, $lightbox_extras);
+
 $lightbox_inner .= "</div><!-- End active-card -->";
 
 $lightbox_class = "lightbox";
@@ -24,8 +30,8 @@ $lightbox_class = "lightbox";
 if(count($product_page->variations)){
 
 	$lightbox_class .= " lightbox--has-variations";
-
-	$lightbox_inner .= "<ul class='lightbox__variations'>";
+	$lightbox_inner .= "<h2 class='lightbox__variations-title'>Variations</h2>
+	<ul class='lightbox__variations'>";
 
 	foreach ($product_page->variations as $product) {
 		$p_sku = $product->sku;
