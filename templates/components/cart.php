@@ -8,7 +8,7 @@ if($value["counter"]){
 	$counter .= "<p class='cart__counter'><span id='counter' class='cart__counter-count$class_suffix'>$count</span></p>";
 }
 $cart_button = $files->render('components/buttons/menuToolButton', ['button_text'=>'Cart', 'button_class'=>'menu__entrybutton menu__entrybutton--cart', 'button_type'=>'cart']);
-$cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'label'=>'Continue shopping', 'action'=>'cancel']);
+$cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'label'=>'Close', 'action'=>'cancel']);
 
 $cart_out = $cart->renderEmptyCart();
 
