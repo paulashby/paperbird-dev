@@ -6,7 +6,32 @@
 	left: 0;
 	position: fixed;
 	top: 0;
+	width: 100%;
 	z-index: 1;
+
+
+	.product-shot {
+		width: 70%;
+		margin: 15% 15% 2rem 15%;
+	}
+	.products__title {
+		margin-bottom: 1rem;
+	}
+	.form__button--submit {
+		margin-top: 1rem;
+	}
+	.form__item-body {
+		display: flex;
+		width: 70%;
+		margin: 0 15% 1rem 15%;
+	}
+	.form__item-buttons {
+		width: 40%;
+		margin-left: 10%;
+	}
+	.form__item-info {
+		width: 50%;
+	}
 }
 .lightbox--has-variations {
 	background-color: $colour-pb-purple-light;
@@ -15,13 +40,33 @@
 	background-color: #fff;
 	padding-bottom: 1rem;
 }
+.lightbox__info-entry {
+	font-size: 1.1rem;
+	line-height: 1.3rem;
+	margin-bottom: 0.3rem;
+}
+.lightbox__price {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-bottom: 0.4rem;
+}
 .lightbox__variations {
 	list-style: none;
-	width: 100%;
+	margin: 1rem 15% 0 15%;
+	width: 70%;
+}
+.lightbox__variations-title {
+	color: #fff;
+	font-size: 1.5rem;
+	margin: 2rem 15% -1rem 15%;
+	font-weight: bold;
 }
 .lightbox__variation {
 	display: inline-block;
 	padding-top: 1rem;
+}
+.lightbox__variation-img {
+	width: 95%;
 }
 .lightbox_message {
 	display: none;
