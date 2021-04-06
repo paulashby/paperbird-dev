@@ -20,6 +20,7 @@ function init (settings) {
 
     setup.base_menu_class = $('.menu').attr('class');
     setup.lazyLoad = settings.lazyLoad;
+    setup.cartClosesMenu = settings.cartClosesMenu;
 
     // Use event handlers in actions object
     $('.menu').on('click', function (e) {
@@ -106,11 +107,10 @@ function init (settings) {
             // Remove listener
             $(e.target).off();
 
-            if($(e.target).parent().attr('class') === 'cart') {
-                
+            if(setup.cartClosesMenu  && $(e.target).parent().attr('class') === 'cart'){
                 actions.toggleMenu(e);
             }
-       });
+        });
     };
 
     $(document).on('menuToggleEvent', function(settings, source_event) {

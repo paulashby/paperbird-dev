@@ -34,6 +34,7 @@ function init () {
 	}
 
 	let menu_settings = {
+		cartClosesMenu: false,
 		lazyLoad: lazyLoad,
 		sliding: sliding,
 		hasNav: true
