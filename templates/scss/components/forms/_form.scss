@@ -3,7 +3,7 @@
 'components/buttons/formButton',
 'components/forms/formField';
 
-%form__link {
+.form__link {
 	background: none!important;
 	border: none;
 	color: $colour-pb-blue;
@@ -13,10 +13,10 @@
 	padding: 0!important;
 	text-decoration: underline;
 }
-%form__quantity {
-		width: 2.5rem;
+.form__quantity {
+	width: 2.5rem;
 }
-%form__quantity-label {
+.form__quantity-label {
 	font-size: 1.1rem;
 	margin-left: 0.5rem;
 }

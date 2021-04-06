@@ -26,11 +26,11 @@
 	display: flex;
 	margin-bottom: 2.4rem;
 
-	.cart__product-shot {
-		@extend %product-shot;
+	.products__product-shot {
+		margin-right: 5%;
 	}
-	.cart__sku {
-		@extend %product__sku;
+	.products__sku {
+		margin: -0.6rem 0 -0.9rem 0;
 	}
 }
 .cart__info {
@@ -39,22 +39,12 @@
 	margin-left: 5%;
 	width: 47.5%;
 
-	.cart__quantity {
-		@extend %form__quantity;
-	}
-	.cart__quantity-label {
-		@extend %form__quantity-label;
-	}
-	.cart__link {
-		@extend %form__link;
-	}
 	.cart__item-title {
 		margin-top: 0.35rem;
 	}
 	.cart__price {
 		margin-top: 0.75rem;
 		font-size: 1.5rem;
-		font-weight: bold;
 		line-height: 1rem;
 
 		.cart__price--unit {
@@ -66,9 +56,21 @@
 }
 
 .cart__price {
+	font-weight: bold;
 	text-align: left;
 	font-size: 1.3rem;
 	line-height: 1.9rem;
+
+	&.cart__price--total {
+		margin-left: 52.5%;
+		margin-top: -1rem;
+	}
+}
+.form__button--cart {
+	display: block;
+	margin-left: 52.5%;
+	margin-right: 0;
+	margin-top: 1rem;
 }
 .cart__price--unit {
 	font-size: 1.2rem;
