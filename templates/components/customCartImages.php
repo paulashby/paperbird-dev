@@ -11,7 +11,7 @@ $listing_options = [
     "product"=>$product,
     "field_name"=>"product_shot",
     "sizes"=>"(max-width: 1000px) 150px, 100px",
-    "class"=>"products__product-shot",
+    "class"=>"cart__product-shot",
     "lazy_load"=>$lazy_load
 ];
 
