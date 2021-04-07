@@ -4,8 +4,10 @@
 .menu__entrybutton--login {
 	@extend %menu__entrybutton-base;
 	background: url(../img/navbttns.svg) -4px 2px/465%;
+	margin: 0 auto 0 45%;
 
 	body.logged-in & {
 		background-position-x: -74px;	
+		margin: 0 auto;
 	}
 }

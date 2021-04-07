@@ -4,6 +4,7 @@
 .menu__entrybutton--cart {
 	@extend %menu__entrybutton-base;
 	background: url(../img/navbttns.svg) -139px 4px/450%;
+	margin: 0 auto;
 	display: none;
 }
 .logged-in {
