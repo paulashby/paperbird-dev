@@ -9,6 +9,12 @@
 		position: absolute;
 		bottom: 0;
 		right: 55%;
+	}	
+	.form__button--cart {
+		display: block;
+		margin-left: 52.5%;
+		margin-right: 0;
+		margin-top: 1rem;
 	}
 }
 .cart__counter {
@@ -34,7 +40,8 @@
 	display: flex;
 	margin-bottom: 2.4rem;
 
-	.products__product-shot {
+	.cart__product-shot {
+		@extend %product-shot;
 		margin-right: 5%;
 	}
 	.products__sku {
@@ -73,12 +80,6 @@
 		margin-left: 52.5%;
 		margin-top: -1rem;
 	}
-}
-.form__button--cart {
-	display: block;
-	margin-left: 52.5%;
-	margin-right: 0;
-	margin-top: 1rem;
 }
 .cart__price--unit {
 	font-size: 1.2rem;
