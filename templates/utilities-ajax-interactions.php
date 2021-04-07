@@ -29,7 +29,7 @@ switch ($action) {
 	case "search":
 		$q = $input->get('q'); 
 		$out = $files->render("components/search", array("value"=>array("container" => false)));
-		$no_results = "<h3>Your search returned no results</h3>";
+		$no_results = "<h3 class='search__title search__title--unfound'>Your search returned no results</h3>";
 
 		if($q) {
 
@@ -49,12 +49,14 @@ switch ($action) {
 				$cart = $this->modules->get("OrderCart");
 				$matches->sort("title");
 				$match_string = $result_count > 1 ? "$result_count matches" : "$result_count match";
-				$out .= "<h3>Search returned $match_string</h3>";
+				$out .= "<h3 class='search__title'>Search returned $match_string</h3>
+				<div class='search_message'><p class='search_message-text'><span class='search_message-content'>Added to cart</span></p></div>
+				<div class='search__results'>";
 
 				foreach ($matches as $match) {
-					//TODO: we want everything a lightbox entry gets - then these are all the customer needs to place an order!
 					$out .= $cart->renderItem($match);
 				}
+				$out .= "</div><!-- End search__results -->";
 
 			} else {
 				$out .= $no_results;
