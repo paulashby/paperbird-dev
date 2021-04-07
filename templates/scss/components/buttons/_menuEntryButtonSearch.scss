@@ -4,4 +4,9 @@
 .menu__entrybutton--search {
 	@extend %menu__entrybutton-base;
 	background: url(../img/navbttns.svg) -230px -2px/495%;
+	margin: 0 45% 0 auto;
+
+	body.logged-in & {
+		margin: 0 auto;
+	}
 }
