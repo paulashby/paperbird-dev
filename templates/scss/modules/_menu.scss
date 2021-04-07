@@ -9,11 +9,11 @@
 'components/buttons/toggleButton',
 'components/buttons/menuEntryButtonLogin',
 'components/buttons/menuEntryButtonSearch',
-'components/buttons/menuEntryButtonCart',
-'modules/search',
-'modules/cart';
+'components/buttons/menuEntryButtonCart';
 
 // login form styles imported at end of file
+// search styles imported at end of file
+// cartstyles imported at end of file
 
 //TODO: Working on cart. styles currently in 'modules/' - does that make sense?
 
@@ -211,6 +211,14 @@ body.menu__entries--active {
 	color: #fff;
 	flex: 1 1 33%;
 }
+.menu__entry--cart {
+
+	display: none;
+	
+	body.logged-in & {
+		display: inline-block;
+	}
+}
 
 body.menu__entries--active {
 
@@ -225,4 +233,6 @@ body.menu__entries--active {
 }
 
 @import
-'components/forms/loginForm';
+'components/forms/loginForm',
+'modules/search',
+'modules/cart';
