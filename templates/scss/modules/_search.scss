@@ -1,8 +1,59 @@
 @import
 'components/forms/searchForm';
 
-.search {
+.menu__entries .search {
 	@extend %menu-button-base;
 	color: #000;
-	max-height: calc(100vh - 100px);
+	max-height: calc(100vh - 95px);
+	min-height: 0;
+	overflow-y: scroll;
 }
+.search__title {
+	margin: 2rem 0;
+	text-align: left;
+}
+.search__title--unfound {
+	margin-bottom: 0;
+}
+.search__results {
+
+	text-align: left;
+
+	.product-shot {
+		width: 100%;
+		margin: 0;
+	}
+	.products__title {
+		font-size: 1.3rem;
+		margin-bottom: 1rem;
+	}
+	.form__button--submit {
+		margin-top: 1rem;
+	}
+	.form__item-body {
+		display: flex;
+		margin: 0 0 3rem 0;
+	}
+	.form__item-buttons {
+		width: 40%;
+		margin-left: 10%;
+	}
+	.form__item-info {
+		width: 50%;
+	}
+}
+.search_message {
+	display: none;
+	position: absolute;
+    top: 170px;
+    /* Width should match image size */
+    width: 200px;
+}
+.search_message-text {
+	text-align: center;
+}
+.search_message-content {
+	@extend %message;
+	margin: 0 auto;
+}
+
