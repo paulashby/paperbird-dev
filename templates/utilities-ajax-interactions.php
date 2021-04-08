@@ -50,11 +50,10 @@ switch ($action) {
 				$matches->sort("title");
 				$match_string = $result_count > 1 ? "$result_count matches" : "$result_count match";
 				$out .= "<h3 class='search__title'>Search returned $match_string</h3>
-				<div class='search_message'><p class='search_message-text'><span class='search_message-content'>Added to cart</span></p></div>
 				<div class='search__results'>";
 
 				foreach ($matches as $match) {
-					$out .= $cart->renderItem($match);
+					$out .= $cart->renderItem($match, "search");
 				}
 				$out .= "</div><!-- End search__results -->";
 
