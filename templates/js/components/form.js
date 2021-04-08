@@ -56,14 +56,15 @@ function init (settings) {
     $('body').on('click', function (e) {
         dataAttrClickHandler(e, actions);
     });
-        /*
+    /*
     'updateCart' event is dispatched by ordercart.js
     with action property of 'add', 'remove', 'update' or 'order'
     */
     $(document).on('updateCart', function(e) {
-        
+
         if(e.action === 'add') {
-            $('.search_message').fadeIn().delay(1500).fadeOut(200);
+            let initiator = e.initiator;
+            $(initiator).closest('form').find('.search_message').fadeIn().delay(1500).fadeOut(200);
         }
     });
 
