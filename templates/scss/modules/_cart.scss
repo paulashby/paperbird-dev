@@ -10,6 +10,11 @@
 		bottom: 0;
 		right: 55%;
 	}	
+	.cart-items--empty ~ .form__button--cancel {
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+	}
 	.form__button--cart {
 		display: block;
 		margin-left: 52.5%;
@@ -84,4 +89,11 @@
 .cart__price--unit {
 	font-size: 1.2rem;
 	display: block;
+}
+.cart__empty-mssg {
+	margin-bottom: 4rem;
+}
+.cart__order-mssg {
+	margin-bottom: 4rem;
+	line-height: 2rem;
 }
