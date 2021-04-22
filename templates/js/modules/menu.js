@@ -4,7 +4,15 @@ import form from '../components/form';
 let setup = {
     success_callbacks : {
         populateCart: function (data) {
-            $('.cart-items').html(data);
+
+            let cart_items_elmt = $('.cart-items');
+            cart_items_elmt.removeClass('cart-items--empty');
+
+            if( ! data.count){
+                cart_items_elmt.addClass('cart-items--empty');
+            }
+
+            cart_items_elmt.html(data.markup);
             setup.lazyLoad.update();
         }
     },
