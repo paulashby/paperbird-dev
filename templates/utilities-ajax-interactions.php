@@ -23,8 +23,8 @@ switch ($action) {
 
 	case "populateCart":
 		$cart = $this->modules->get("OrderCart");
-		$cart_content = $cart->populateCart("components/customCartImages");
-		return json_encode(array("success"=>true, "data"=>$cart_content));
+		$cart_data = $cart->populateCart("components/customCartImages");
+		return json_encode(array("success"=>true, "data"=>$cart_data));
 
 	case "search":
 		$q = $input->get('q'); 
