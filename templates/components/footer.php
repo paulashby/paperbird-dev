@@ -1,10 +1,12 @@
 <?php namespace ProcessWire;
+// bd($pages->get("privacy-policy"));
+// $privacy_policy_url = $pages->get("privacy-policy")->url;
 
 return "<footer class='footer'>
 	<section class='footer__entry'>
 		<h3 class='footer__heading'>legal</h3>
 		<a class='footer__link' href='/'>Terms &amp; Conditions</a>
-		<a class='footer__link' href='/'>Cookies &amp; Privacy</a>
+		<a class='footer__link' href='/documents/privacy-policy'>Privacy Policy</a>
 	</section>
 	<section class='footer__entry'>
 		<h3 class='footer__heading'>get in touch</h3>
