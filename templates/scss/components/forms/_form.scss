@@ -25,10 +25,7 @@
 	text-align: left;
 }
 .form__title {
-	color: $colour-pb-purple;
-	font-size: 2rem;
-	line-height: 2.4rem;
-	margin-bottom: 0.75rem;
+	@extend %title;
 }
 /* Processwire field in Forgotten Password form */
 .Inputfield, #ProcessForgotPassword {
