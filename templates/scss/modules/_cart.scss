@@ -46,8 +46,11 @@
 	margin-bottom: 2.4rem;
 
 	.cart__product-shot {
-		@extend %product-shot;
+		width: 47.5%;
 		margin-right: 5%;
+		&.lazy{
+			@extend %lazy-fade;
+		}
 	}
 	.products__sku {
 		margin: -0.6rem 0 -0.9rem 0;
@@ -60,7 +63,8 @@
 	width: 47.5%;
 
 	.cart__item-title {
-		margin-top: 0.35rem;
+		@extend %product-title;
+		margin-top: 0.8rem;
 	}
 	.cart__price {
 		margin-top: 0.75rem;
