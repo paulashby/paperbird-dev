@@ -1,0 +1,7 @@
+ .artist__name {
+ 	@extend %text-subhead;
+ 	text-transform: none;
+ }
+ .artist__image {
+ 	@extend %text-image;
+ }
