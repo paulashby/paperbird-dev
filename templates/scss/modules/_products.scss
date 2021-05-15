@@ -29,6 +29,5 @@
 	margin:0.25rem 0 -0.2rem 0;
 }
 .products__title {
-	line-height: 1.6rem;
-	margin-bottom: 2rem;
+	@extend %product-title;
 }
