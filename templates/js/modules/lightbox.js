@@ -4,6 +4,7 @@ let setup = {
     success_callbacks : {
         populateLightbox: function (data) {
             $('.card-viewer').html(data);
+            $('.lightbox').removeClass('lightbox--collapsed').addClass('lightbox--expanded');
         }
     }
 };
@@ -28,7 +29,7 @@ function init (settings) {
     };
     actions.closeLightbox = function (e) {
 
-        $('.card-viewer').empty();
+        $('.lightbox').removeClass('lightbox--expanded').addClass('lightbox--collapsed');
     };
 
     /*
