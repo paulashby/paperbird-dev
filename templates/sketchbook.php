@@ -4,7 +4,7 @@ $entries = $page->children;
 $random_entry = $entries->getRandom();
 $title = $page->title;
 $sketch_title = $random_entry->title;
-$sketch_url = $random_entry->image->size(400)->url;
+$sketch_url = $random_entry->image->first()->size(400)->url;
 $caption = $random_entry->sketchbook_caption;
 
 echo "<main data-pw-id='main'>
