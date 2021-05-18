@@ -28,6 +28,7 @@ foreach ($artists as $entry => $artist) {
 			"image"=>$product_shot,
 			"product_data_attributes"=>"",
 			"sizes"=>"(max-width: 1000px) 300px, 200px",
+			"webp"=>true
 			// if viewport width = 1000 or less use 300px, else use 300px - seems backwards?
 		];
 		if($eager_count < $max_eager) {
@@ -44,8 +45,8 @@ foreach ($artists as $entry => $artist) {
 
 		$eager_count++;
 	}
+	$artists_out .= $img;
  	$artists_out .= "<h2 class='artist__name'>$artist_name</h2>";
- 	$artists_out .= $img;
  	$artists_out .= "<p class='artist__biography'>" . $sanitizer->entities($artist->biography) . "</p>";
  }
  $artists_out  .= "</div><!-- END artists -->";

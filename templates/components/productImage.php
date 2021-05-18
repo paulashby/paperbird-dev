@@ -17,7 +17,8 @@ $product_shot_options = [
 	"image"=>$product_shot,
 	"lazy_load"=>$lazy_load,
 	"product_data_attributes"=>$data_attr_String,
-	"sizes"=>$sizes
+	"sizes"=>$sizes,
+	"webp"=>true
 ];
 
 return $lazyImages->renderImage($product_shot_options);
