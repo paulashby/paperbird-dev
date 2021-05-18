@@ -2,7 +2,6 @@
 
 $cart = $this->modules->get("OrderCart");
 
-$category = $page->parent->title;
 $title = $page->title;
 $products = $page->children();
 $product_list = "";
@@ -33,11 +32,10 @@ foreach ($products as $product) {
 	}
 
 	$product_list .= $files->render('components/productListingEntry', $listing_options);
-
 	$eager_count++;
 }
 echo "<main data-pw-id='main'>
-		<h1 class='page-title'><span class='page-title__category'>$category</span> $title</h1>
+		<h1 class='page-title'>$title</h1>
 		<section class='products'>
 			<div class='card-viewer'></div>
 			$product_list
