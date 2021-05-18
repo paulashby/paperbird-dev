@@ -2,7 +2,11 @@
 
 if($config->ajax) return;
 
-$body_tag = $user->isLoggedin() ? "<body class='logged-in'>" : "<body>";
+// Determine current page tag for nav highlighting
+$template_name = $page->template->name;
+$body_nav_class = $template_name == "category-sub" ? $page->parent->name : $page->name;
+
+$body_tag = $user->isLoggedin() ? "<body class='$body_nav_class logged-in'>" : "<body class='$body_nav_class'>";
 
 echo "<!DOCTYPE html>
 <html>
