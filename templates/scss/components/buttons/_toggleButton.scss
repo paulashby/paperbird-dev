@@ -1,14 +1,15 @@
 
 .toggle__button {
+
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+	  display: none;
+	}
 	cursor: pointer;
 	display: inline-block;
 	position: absolute;
 	right: 20px;
 	top: 31px;
-	// transition: 0.4s;
-
-	/* toggle */
-	
 
 	.menu__bar {
 		width: 25px;
