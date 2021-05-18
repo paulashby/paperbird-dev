@@ -99,16 +99,18 @@
 
 	@extend %full-screen-bordered;
 
-	// %full-screen-bordered overrides
-	height: 15vh;
-	top: auto;
-	bottom: 0;
-	padding-top: 4.5rem;
-	border: 0;
+	@media only screen and (max-width: map_get($breakpoints, 'medium')) {
+		// full-screen-bordered() overrides
+		height: 15vh;
+		top: auto;
+		bottom: 0;
+		padding-top: 4.5rem;
+		border: 0;
 
-	display: block;		
-	visibility: hidden;
-	opacity: 0;
+		display: block;		
+		visibility: hidden;
+		opacity: 0;
+	}
 }
 .form__error--submission {
 	@extend %message-hidden;
