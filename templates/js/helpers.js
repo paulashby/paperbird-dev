@@ -44,5 +44,11 @@ function doAction (settings) {
     }
   });
 }
+/*
+ * This function depends on css styles being set on body:before for each breakpoint - see variables.scss
+*/
+function getBreakpoint () {
+  return window.getComputedStyle(document.body, ':before').content.replace(/\"/g, '');
+}
 
-export { customEventPolyfill, dataAttrClickHandler, doAction };
+export { customEventPolyfill, dataAttrClickHandler, doAction, getBreakpoint };
