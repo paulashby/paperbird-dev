@@ -1,4 +1,6 @@
 import {dataAttrClickHandler} from '../helpers';
+import {getBreakpoint} from '../helpers';
+
 let setup = {
     slide_duration: 300,
     top_cats: $('.nav__top-cat'),
@@ -17,6 +19,7 @@ function init (settings) {
         dataAttrClickHandler(e, actions);
     });
 
+    console.log('Navigation: ' + getBreakpoint());
     actions.toggleDropdown = function (e) {
 
         $(setup.top_cats).each(function(){
