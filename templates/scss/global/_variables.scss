@@ -1,13 +1,26 @@
 // Breakpoints
 $breakpoints: (
-  "phone":        400px,
-  "phone-wide":   480px,
-  "phablet":      550px,
-  "tablet-small": 640px,
-  "tablet":       750px,
-  "desktop":      1000px,
-  "desktop-wide": 1200px
+  "small":      650px,
+  "small-1":     750px,// As an eg - not currently used
+  "medium":      1070px 
+  // NOTE: Assign any new sizes to body:before as below
 );
+// Apply breakpoints to body:before for js
+body:before {
+  content: "small";
+  display: none;
+  visibility: hidden;
+}
+@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+  body:before {
+    content: "medium";
+  }
+}
+@media only screen and (min-width: map_get($breakpoints, 'medium-1')) {
+  body:before {
+    content: "medium-1";
+  }
+}
 
 $zindecies: ();
 
@@ -25,6 +38,7 @@ $colour-pb-purple-mid: #a89fad;
 $colour-pb-purple-light: #ccc7d0;
 $colour-pb-green: #b2cf96;
 $colour-pb-blue: #98c5d0;
+$colour-pb-dark: #789da6;
 $colour-pb-blue-mid: #cbe2e7;
 $colour-pb-blue-light: #dbebef;
 $colour-pb-peach: #f5a488;
@@ -68,7 +82,7 @@ $leading-title: 1.25;
   font-size: 1.3rem;
   line-height: 1.9rem;
 
-  @media (min-width: map_get($breakpoints, "tablet")) {
+  @media (min-width: map_get($breakpoints, 'medium')) {
     font-size: 1.7rem;
     line-height: 2.1rem;
   }
@@ -82,6 +96,7 @@ $leading-title: 1.25;
 }
 %product-title {
   font-size: 1.3rem;
+  font-weight: normal;
   letter-spacing: 0;
   line-height: 1.7rem;
   margin-bottom: 2rem;
@@ -92,24 +107,28 @@ $leading-title: 1.25;
   color: $colour-pb-purple-light;
 }
 %full-screen-bordered {
-  background-color: $colour-pb-blue;
-  border: 20px solid white;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left:0;
-  width: 100%;
-  @include prefix((
-    box-sizing: border-box
-  ), webkit moz);
+  @media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
+    background-color: $colour-pb-blue;
+    border: 20px solid white;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    @include prefix((
+      box-sizing: border-box
+    ), webkit moz);
+  }
 }
 %menu-element-full-screen {
   @extend %full-screen-bordered;
-  font-family: $font-secondary;
-  font-size: 1.5rem;
-  line-height: 160%;
-  list-style: none;
-  text-align: center;
+  // @media only screen and (max-width: map_get($breakpoints, 'medium') -1) {
+    font-family: $font-secondary;
+    font-size: 1.5rem;
+    line-height: 160%;
+    list-style: none;
+    text-align: center;
+  // }
 }
 %menu-button-cross-bar-1 {
   @include transform(rotate(-45deg) translate(-6.425px, 6px));

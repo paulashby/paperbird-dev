@@ -19,11 +19,17 @@ $font-lora: 'Lora', serif;
 	color: $colour-pb-purple;
 	font-family: $font-title;
 	font-size: 2.48rem;
+	font-weight: bold;
 	letter-spacing: $letter-spacing-title;
 	line-height: 1.6rem;
 	margin-bottom: 3rem;
 	text-align: center;
 	text-transform: lowercase;
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		font-size: 4rem;
+		line-height: 4.5rem;
+	}
 }
 
 .titleBlock {
@@ -34,9 +40,18 @@ $font-lora: 'Lora', serif;
 .menu {
 	@include font-smoothing(on);
 }
+.content {
+	max-width: 1200px;
+	margin: 0 auto;
+}
 
 body {
-	color: $colour-pb-neutral-dark;
+	// color: $colour-pb-neutral-dark;
+	color: #000;
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		margin-top: 4rem;
+	}
 }
 
 .logo {
@@ -54,6 +69,9 @@ body {
 }
 .page-title {
 	@extend %title;
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		margin: 1rem 0 7rem 0;
+	}
 }
 .page-title--home {
 	background-image: url('/site/templates/img/title_narrow.svg');
@@ -64,7 +82,7 @@ body {
 	text-indent: -9999px;
 	width: 22rem;
 
-	@media only screen and (min-width: map_get($breakpoints,  'tablet-small')) {
+	@media only screen and (min-width: map_get($breakpoints,  'small')) {
 		background-image: url('/site/templates/img/title_wide.svg');
 		max-width: 500px;
 		width: 80%;	

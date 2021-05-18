@@ -116,17 +116,18 @@ body.menu__entries--active {
 .menu {
 	z-index: 1;
 }
+
 .menu__entries {
 
 	/* Colourise menu__entries when menu has menu--foo class */
-
 	@extend %menu-element-full-screen;
 	@extend %menu-element-hidden;
 	@include menu_transition;
-	
+
 	.menu--collections & {
-		background-color: $colour-pb-green;
-		@include menu_transition;
+	background-color: $colour-pb-green;
+	@include menu_transition;
+
 	}
 	.menu--occasions & {
 		background-color: $colour-pb-blue;
@@ -182,6 +183,13 @@ body.menu__entries--active {
 		left: 0;
 		width: 100%;
 	}
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		height: auto;
+		justify-content: space-between;
+		left: 0;
+		width: 95%;
+		transition: none;
+	}
 }
 
 .menu--login:not(.menu--modal-active) .menu__entries .login--fullscreen {
@@ -200,6 +208,12 @@ body.menu__entries--active {
 	align-self: flex-start;
 	flex: 1 1 100%;
 	margin-bottom: 20px;
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		flex: 0 1 80%;
+		margin-bottom: 0;
+		position: static;
+	}
 }
 .menu--static-bttn .menu__entry:nth-child(2) {
 	align-self: flex-start;
@@ -210,6 +224,11 @@ body.menu__entries--active {
 	align-self: flex-end;
 	color: #fff;
 	flex: 1 1 33%;
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		flex: 0 1 0;
+		position: relative;
+		top: -4rem;
+	}
 }
 .menu__entry--cart {
 

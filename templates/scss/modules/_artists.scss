@@ -1,7 +1,13 @@
  .artist__name {
- 	@extend %text-subhead;
+ 	text-align: left;
+ 	margin: 0 0 0.8rem 0;
+ 	font-size: 1.7rem;
+ 	font-weight: bold;
  	text-transform: none;
  }
  .artist__image {
  	@extend %text-image;
+ }
+ .artist__biography {
+ 	margin-bottom: 4rem;
  }

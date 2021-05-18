@@ -1,13 +1,15 @@
 %top-level-links {
-	$font-size: 2.2rem;
-	color: #fff;
-	font-weight: bold;
 	font-family: $font-secondary;
-	font-size: $font-size;
+	font-size: 1.8rem;
 	letter-spacing: 0.15rem;
-	line-height: $font-size * 1.8;
 	text-decoration: none;
 	text-transform: lowercase;
+	$font-size: 2.2rem;
+	font-size: $font-size;
+	line-height: $font-size * 1.8;
+	color: #fff;
+	font-weight: bold;
+
 }
 %collapsed {
 	height: 0;
@@ -17,20 +19,34 @@
 .nav__top-level {
 	top: 0;
 	width: 100%;
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		display: flex;
+		justify-content: center;
+		margin-left: 10%;
+	}
 }
 .nav__top-cat {
 	@extend %top-level-links;
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		font-size: 1.6rem;
+		color: $colour-pb-blue;	
+	}
 }
 .nav__dropdown {
 	@include font-smoothing(on);
 }
 
 .nav__top-link--aboutus,
-.nav__top-link--artists,
+.nav__top-link--theartists,
 .nav__top-cat--welshcards,
 .nav__top-link--madewithlove {
 	font-size: 1.8rem;
 	font-weight: normal;
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		font-size: 1.6rem;
+		color: $colour-pb-blue;	
+	}
 }
 .nav__top-link {
 	@extend %top-level-links;
@@ -88,9 +104,17 @@
 
 	.nav__level-1 {
 		background-color: $colour-pb-blue;
+		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+			background-color: transparent;
+			margin: 0 1.5rem;
+		}
 	}
 	.nav__dropdown {
 		@extend %hidden;
+
+		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+			position: absolute;
+		}
 	}
 	.nav__level-1.nav__level-1--active {
 		
@@ -117,3 +141,16 @@
 		opacity: 0.2;
 	}
 }
+
+@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+	.collections .nav__top-cat--collections,
+	.occasions .nav__top-cat--occasions {
+		color: $colour-pb-dark;
+	}
+	.about-us .nav__top-link--aboutus,
+	.the-artists .nav__top-link--theartists,
+	.made-with-love .nav__top-link--madewithlove {
+		display: none;
+	}
+}
+
