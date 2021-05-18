@@ -9,8 +9,7 @@ $max_eager = (int) $lazyImages->getMaxEager("subcat");
 $eager_count = 0;
 
 foreach ($artists as $entry => $artist) {
-	bd($artist);
- 	$artist_name = $artist->title;
+	$artist_name = $artist->title;
 
  	$product = $artist->biography_card;
  	$img = "";
