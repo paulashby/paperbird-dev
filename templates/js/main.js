@@ -10,6 +10,7 @@ import LazyLoad from './vendor/lazyload.esm';
 
 let lazyLoad = new LazyLoad({
   elements_selector: ".lazy",
+  threshold: 150,
   cancel_on_exit: true
 });
 
