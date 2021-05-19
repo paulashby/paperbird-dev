@@ -1,16 +1,21 @@
 .footer {
 	background-color: $colour-pb-purple-dark;
-	color: $colour-pb-purple-mid;	
-	display: flex;
-	flex-direction: row;
-	flex-shrink: 0;
-	flex-wrap: wrap;
-	font-family: $font-secondary;
-	font-size: 1.2rem;
-	justify-content: space-between;
-	line-height: 1.5;
 	padding: 3rem 0;
 	width: 100%;
+
+	.footer__content {
+		color: $colour-pb-purple-mid;	
+		display: flex;
+		flex-direction: row;
+		flex-shrink: 0;
+		flex-wrap: wrap;
+		font-family: $font-secondary;
+		font-size: 1.2rem;
+		justify-content: space-between;
+		line-height: 1.5;
+		margin: 0 auto;
+		max-width: 1200px;
+	}
 
 	.footer__entry {
 		width: 34%;
