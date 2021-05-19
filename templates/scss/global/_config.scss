@@ -40,10 +40,6 @@ $font-lora: 'Lora', serif;
 .menu {
 	@include font-smoothing(on);
 }
-.content {
-	max-width: 1200px;
-	margin: 0 auto;
-}
 
 body {
 	// color: $colour-pb-neutral-dark;
@@ -52,6 +48,13 @@ body {
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		margin-top: 4rem;
 	}
+}
+
+.content {
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 100%;
+	position: relative;
 }
 
 .logo {
