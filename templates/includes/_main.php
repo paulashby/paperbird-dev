@@ -28,7 +28,8 @@ echo "<!DOCTYPE html>
     </head>
     <?= $body_tag ?>
         <?php
-             echo   "<a href=" . $config->urls->root . "><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>";
+             echo   "<div class='content'>
+             <a href=" . $config->urls->root . "><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>";
              
             // Menu
             $menu_options = array(
@@ -59,6 +60,7 @@ echo "<!DOCTYPE html>
         ?>
         <main data-pw-id='main'>
         </main>
+    </div><!-- END content -->
         <?php
             echo $files->render("components/footer");
         ?>
