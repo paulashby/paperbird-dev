@@ -7,6 +7,13 @@
 	padding-top: 60px;
 	text-decoration: none;
 	text-transform: lowercase;
+
+	@media only screen and (min-width: map_get($breakpoints,  'small')) {
+		&:hover {
+			color: $colour-pb-blue;
+		}
+		transition: color $menu-transition_duration;
+	}
 }
 
 %menu__entrybutton-base-hidden {

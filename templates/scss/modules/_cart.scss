@@ -36,6 +36,11 @@
 	font-size: 1.25rem;
 	font-weight: bold;
 	padding: 0.2rem 0.6rem;
+
+	@media only screen and (min-width: map_get($breakpoints,  'small')) {
+		background-color: $colour-pb-blue;
+		color: #fff;
+	}
 }
 .cart__counter-count--show {
 	display: inline;
