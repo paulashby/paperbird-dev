@@ -71,6 +71,7 @@ body {
   font-family: $font-text;
   color: $colour-black;
   min-width: 320px;
+  position: relative;
 
   /* Sticky footer */
   display: flex;
