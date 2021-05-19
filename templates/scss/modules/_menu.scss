@@ -189,6 +189,8 @@ body.menu__entries--active {
 		left: 0;
 		width: 95%;
 		transition: none;
+
+		overflow: hidden;
 	}
 }
 
