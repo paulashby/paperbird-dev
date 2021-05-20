@@ -9,11 +9,21 @@
 	display: flex;
 	flex-wrap: wrap;
 	font-family: $font-secondary;
-	justify-content: space-between;
+	// justify-content: space-between;
+	justify-content: flex-start;
 }
 .products__product {
 	width: 43%;
 	margin: 0 3.5%;
+
+	@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+		flex-basis: 28.3%;
+		margin: 0 2.5%;
+	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-3')) {
+		flex-basis: 21%;
+		margin: 0 2%;
+	}
 }
 .products__product-shot {
 	@extend %product-shot;

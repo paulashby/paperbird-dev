@@ -15,7 +15,14 @@
 	height: 0;
 	overflow: hidden;
 }
-
+.nav {
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		margin-left: 10.4rem;
+		.logged-in & {
+			margin-left: 3rem;
+		}
+	}
+}
 .nav__top-level {
 	top: 0;
 	width: 100%;

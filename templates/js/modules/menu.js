@@ -1,4 +1,5 @@
 import {doAction, dataAttrClickHandler} from '../helpers';
+import {getBreakpoint} from '../helpers';
 import form from '../components/form';
 
 let setup = {
@@ -49,6 +50,23 @@ function init (settings) {
         // toggle menu - using body element for this so we can disable scrolling
         $('body').toggleClass(setup.top_level_class + '--active');
 
+        let current_breakpoint = getBreakpoint();
+
+        if(current_breakpoint.indexOf('small') >= 0) {
+            // Now using jquery to position menu as using a class triggers the ccs animation when crossing breakpoints
+            let main_menu = $('.' + setup.top_level_class);
+            // let new_position = main_menu.position().left < 0 ? 0 : - $(window).width();
+            let new_position = main_menu.position().left < 0 ? 0 : - $(window).width();
+
+
+            main_menu.animate({left: new_position}, 500, function() {
+                if(new_position < 0) {
+                    // Remove style as css style is now positioning to vw - else menu is visible when screen is resized
+                    main_menu.removeAttr('style');
+                }
+            });
+
+        }
         // reset menu class - this removes classes associated with state of any active menu elements  such as login, basket, search
         $('.menu').removeClass().addClass(setup.base_menu_class);
     };

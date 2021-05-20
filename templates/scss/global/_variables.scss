@@ -1,8 +1,10 @@
 // Breakpoints
 $breakpoints: (
   "small":      650px,
-  "small-1":     480px,
-  "medium":      1070px 
+  "small-1":    480px,
+  "small-2":    550px,
+  "small-3":    815px,
+  "medium":     1070px 
   // NOTE: Assign any new sizes to body:before as below
 );
 // Apply breakpoints to body:before for js
@@ -14,6 +16,16 @@ body:before {
 @media only screen and (min-width: map_get($breakpoints, 'small-1')) {
   body:before {
     content: "small-1";
+  }
+}
+@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+  body:before {
+    content: "small-2";
+  }
+}
+@media only screen and (min-width: map_get($breakpoints, 'small-3')) {
+  body:before {
+    content: "small-3";
   }
 }
 @media only screen and (min-width: map_get($breakpoints, 'medium')) {
@@ -122,13 +134,11 @@ $leading-title: 1.25;
 }
 %menu-element-full-screen {
   @extend %full-screen-bordered;
-  // @media only screen and (max-width: map_get($breakpoints, 'medium') -1) {
-    font-family: $font-secondary;
-    font-size: 1.5rem;
-    line-height: 160%;
-    list-style: none;
-    text-align: center;
-  // }
+  font-family: $font-secondary;
+  font-size: 1.5rem;
+  line-height: 160%;
+  list-style: none;
+  text-align: center;
 }
 %menu-button-cross-bar-1 {
   @include transform(rotate(-45deg) translate(-6.425px, 6px));

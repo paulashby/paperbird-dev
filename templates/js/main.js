@@ -40,7 +40,6 @@ function init () {
 		sliding: sliding,
 		hasNav: true
 	}
-
 	errorHandler.init(error_handler_settings);
 	menu.init(menu_settings);
 	navigation.init(nav_settings);	

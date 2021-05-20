@@ -68,6 +68,10 @@ body {
 	position: absolute;
 	left: 20px;
 	top: 20px;
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		left: 55px;
+	}
 }
 
 .nav__level-2-link {
