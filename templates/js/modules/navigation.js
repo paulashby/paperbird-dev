@@ -27,15 +27,16 @@ function init (settings) {
                 if(setup.sliding) {
                     $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
                 } 
+                
                 else {
                     // Hide scrollbars during animation
                     $('body').toggleClass(setup.hide_scrollbars);
+                    // Attach event handler to run once only
                     $(this).parent().one('animationend', function () {
                         $('body').removeClass(setup.hide_scrollbars);
-                        // Remove listener
+                        // Remove handler
                         $(this).off();
                    });
-
                 }
 
                 $(this).parent().toggleClass(setup.level_1_class_active);
