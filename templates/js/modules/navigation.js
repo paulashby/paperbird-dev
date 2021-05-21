@@ -1,9 +1,12 @@
 import {dataAttrClickHandler} from '../helpers';
+import {getBreakpoint} from '../helpers';
 
 let setup = {
     slide_duration: 300,
     top_cats: $('.nav__top-cat'),
+    top_cat: 'nav__top-cat',
     top_cat_active: 'nav__top-cat--active',
+    dropdown: 'nav__dropdown',
     level_1_class_active: 'nav__level-1--active',
     hide_scrollbars: 'hide-scrollbars',
     sliding: $('.nav').hasClass('nav--sliding')
@@ -16,6 +19,17 @@ function init (settings) {
     // Use event handlers in actions object
     $('.nav').on('click', function (e) {
         dataAttrClickHandler(e, actions);
+    });
+
+    
+    // Need to use event delegation for this else the listener isn't attached to the hidden element
+    $('.' + setup.top_cat).on({
+        mouseenter: onMouseenter,
+        mouseleave: onMouseleave
+    });
+    $('.' + setup.dropdown).on({
+        mouseenter: onMouseenter,
+        mouseleave: onMouseleave
     });
 
     actions.toggleDropdown = function (e) {
@@ -67,6 +81,33 @@ function init (settings) {
     $(document).on('dropdownResetEvent', function(e) {
         resetDropdown(e);
     });
+}
+
+function onMouseenter (e) {
+    
+    let current_breakpoint = getBreakpoint();
+
+    if(current_breakpoint.indexOf('small') < 0) {
+
+        let dropdown_classes = ['show-dropdown'];
+        let cat = $(e.target).data('cat');
+        dropdown_classes.push('show-' + cat);
+
+        $('body').addClass(dropdown_classes);
+    }
+}
+
+function onMouseleave (e) {
+
+    let current_breakpoint = getBreakpoint();
+
+    if(current_breakpoint.indexOf('small') < 0) {
+
+        let dropdown_classes = ['show-dropdown'];
+        dropdown_classes.push('show-' + $(e.target).data('cat'));
+
+        $('body').removeClass(dropdown_classes);
+    }
 }
 
 function toggleDropdown (e) {
