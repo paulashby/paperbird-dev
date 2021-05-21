@@ -76,6 +76,7 @@
 	font-style: normal;
 	font-size: 2.2rem;
 	letter-spacing: $letter-spacing-menu;
+	white-space: nowrap;
 }
 
 .nav--sliding {
@@ -114,17 +115,48 @@
 		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 			background-color: transparent;
 			margin: 0 1.5rem;
+			position: relative;
+
+			& > a {
+				padding-bottom: 2.5rem;
+			}
 		}
 	}
 	.nav__dropdown {
-		@extend %hidden;
+		@extend %hidden; // Want this for small screens
+		
+		body.show-collections &.nav__dropdown--collections,
+	    body.show-occasions &.nav__dropdown--occasions {
 
+	    	@extend %expanded-menu-element;
+
+	    	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		    	visibility: visible;
+		    	pointer-events: auto;
+		    	transform: scale(1);
+		    }
+		}
 		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 			position: absolute;
+			height: auto;
+		    background-color: #98c5d0;
+		    
+		    top: 8rem;
+		    padding: 3rem 6rem;
+		    left: -87%;
+			top: 5.5rem;
+			// transform: scale(0);
+
+			visibility: hidden;
+
+	body.show-occasions &.nav__dropdown--occasions {
+		    	left: -120%;
+		    }
 		}
 	}
 	.nav__level-1.nav__level-1--active {
 		
+		@extend %full-screen-bordered;
 		@extend %expanded-menu-element;
 
 		.nav__top-cat {
@@ -160,4 +192,9 @@
 		display: none;
 	}
 }
-
+// .add-listeners .nav__dropdown,
+// .nav .nav__dropdown {
+// 	display: block;
+// 	visibility: visible;
+// 	transform: scale(1);
+// }
