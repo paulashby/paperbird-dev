@@ -29,7 +29,7 @@ echo "<!DOCTYPE html>
     <?= $body_tag ?>
         <?php
              echo   "<div class='content'>
-             <a href=" . $config->urls->root . "><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>";
+             <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>";
              
             // Menu
             $menu_options = array(
@@ -43,7 +43,7 @@ echo "<!DOCTYPE html>
                             "max_levels" => 2,
                             "selector" => "template!=section",
                             "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
-                            "inner_tpl" => "<ul class='nav__dropdown'>||</ul>",
+                            "inner_tpl" => "<ul class='nav__dropdown nav__dropdown--{name}' data-cat='{name}'>||</ul>",
                         ), 
                         "sliding" => false // Sliding dropdowns
                     ),
