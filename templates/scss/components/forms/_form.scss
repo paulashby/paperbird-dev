@@ -99,7 +99,7 @@
 
 	@extend %full-screen-bordered;
 
-	@media only screen and (max-width: map_get($breakpoints, 'medium')) {
+	@media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
 		// full-screen-bordered() overrides
 		height: 15vh;
 		top: auto;
