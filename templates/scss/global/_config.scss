@@ -73,9 +73,10 @@ body {
 	width: 120px;
 	position: absolute;
 	left: 20px;
-	top: 20px;
+	top: 33px;
 
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		top: 27px;
 		left: 55px;
 	}
 }
