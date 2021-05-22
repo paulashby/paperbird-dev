@@ -26,7 +26,7 @@ $tree_options = $value["tree_options"];
 $tree_menu->addHookAfter('getItemString', function($event) use($sliding) {
 	
      $child = $event->arguments('page'); // current rendered child page
-   
+
     $is_level_1 = $child->parent->template->name == "home";
     if($is_level_1){
     	
@@ -34,7 +34,7 @@ $tree_menu->addHookAfter('getItemString', function($event) use($sliding) {
         $event->return = getLevel1($child, $sliding);
     } else if($child->parent->parent->template->name == "home"){
     	$event->return = getLevel2($child);
-    }
+    } 
 });
 $nav_class = $sliding ? "nav--sliding" : "nav--simple ";
 

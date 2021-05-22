@@ -193,6 +193,9 @@ body.menu__entries--active {
 		transition: none;
 		height: auto;
 
+		.show-lightbox & {
+			z-index: auto;
+		}
 		.show-dropdown & {
 			height: 100vh;
 		}

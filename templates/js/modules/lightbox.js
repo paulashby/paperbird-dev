@@ -20,7 +20,7 @@ function init (settings) {
     });
 
     actions.openLightbox = function (e) {
-
+        $('body').addClass('show-lightbox');
         populateLightbox(e.target.dataset.sku);
     };
     actions.showProduct = function (e) {
@@ -28,7 +28,7 @@ function init (settings) {
         populateLightbox(e.target.dataset.sku);
     };
     actions.closeLightbox = function (e) {
-
+        $('body').removeClass('show-lightbox');
         $('.lightbox').removeClass('lightbox--expanded').addClass('lightbox--collapsed');
     };
 
