@@ -29,6 +29,14 @@ $menu-tool-z-index: 2;
 	width: 100%;
 	left: -100%;
 	overflow: scroll;
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		height: auto;
+
+		.show-dropdown & {
+			height: 100vh;
+		}
+	}
 }
 
 %expanded-menu-element {
@@ -191,6 +199,16 @@ body.menu__entries--active {
 		left: 0;
 		width: 95%;
 		transition: none;
+
+		.login, .cart, .search {
+			border: 1px solid #98c5d0;
+			height: 16.5rem;
+			left: -230%;
+			opacity: 0.3;
+			padding: 2rem;
+			top: 1rem;
+			width: 30rem;
+		}
 	}
 }
 
@@ -226,11 +244,16 @@ body.menu__entries--active {
 	align-self: flex-end;
 	color: #fff;
 	flex: 1 1 33%;
+	
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		flex: 0 1 0;
 		position: relative;
 		top: -1.65rem;
 		align-self: flex-start;
+
+		.menu--login & {
+			height: 21.5rem;
+		}
 	}
 }
 .menu__entry--cart {
