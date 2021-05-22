@@ -138,7 +138,7 @@ function init (settings) {
         submitting_form.find('.form__input').removeClass('activated').off();
 
         // Reactivate validation
-         this.validateOnBlur(setup.form_selector);
+        this.validateOnBlur(setup.form_selector);
 
         // Reset form fields
         submitting_form.trigger( "reset" );
@@ -167,7 +167,8 @@ function logOut (e) {
             } else {
                 //TODO: Need to handle errors - error_report not available as this is part of hidden form
                 // error_report.html(data.errors.join('<br>')).addClass('form__error--show');
-                console.log(data);
+                // console.log(data);
+                alert(data.errors[0]);
             }
        },
         error: function(jqXHR, textStatus, errorThrown) {

@@ -140,8 +140,14 @@ function init (settings) {
     };
 
     $(document).on('menuToggleEvent', function(settings, source_event) {
-        
-        actions.toggleMenu(source_event);
+
+        let current_breakpoint = getBreakpoint();
+console.log(current_breakpoint);
+        if(current_breakpoint.indexOf('medium') >= 0) {
+            $('.menu').removeClass('menu--modal-active');
+        } else {
+            actions.toggleMenu(source_event);
+        }
     });
 
     form.init({

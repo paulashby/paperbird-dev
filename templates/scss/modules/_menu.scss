@@ -201,12 +201,18 @@ body.menu__entries--active {
 		}
 		.login, .cart, .search {
 			border: 1px solid #98c5d0;
-			height: 16.5rem;
-			left: -230%;
 			opacity: 0.3;
 			padding: 2rem;
 			top: 1rem;
 			width: 30rem;
+		}
+		.login {
+			height: 16.5rem;
+			left: -230%;
+		}
+		.search {
+			height: 10.5rem;
+			left: -420%;
 		}
 	}
 }
