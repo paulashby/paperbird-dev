@@ -4,22 +4,40 @@
 	max-height: calc(100vh - 95px);
 
 	.form__button--cancel {
-		margin: 0;
-		display: block;
-		position: absolute;
-		bottom: 0;
-		right: 55%;
-	}	
+		margin-left: 0;
+		position: relative;
+		top: auto;
+		left: auto;right: 3.5rem;
+	}
+	.cart-items {
+		margin-bottom: -2.5rem;
+	}
 	.cart-items--empty ~ .form__button--cancel {
 		margin: 0 auto;
 		left: 0;
-		right: 0;
+		right: 3.5rem;
+		bottom: auto;
 	}
 	.form__button--cart {
 		display: block;
 		margin-left: 52.5%;
 		margin-right: 0;
 		margin-top: 1rem;
+	}
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		.form__button--cancel {
+			position: relative;
+			top: auto;
+			left: auto;
+		}
+		.cart-items--empty ~ .form__button--cancel {
+			position: relative;
+			top: auto;
+			bottom: auto;
+			left: 0;
+			right: 3.5rem;
+		}
 	}
 }
 .cart__counter {
@@ -56,9 +74,13 @@
 	display: flex;
 	margin-bottom: 2.4rem;
 
-	.cart__product-shot {
+	& picture {
 		width: 47.5%;
 		margin-right: 5%;
+	}
+
+	.cart__product-shot {
+		width: 100%;
 		&.lazy{
 			@extend %lazy-fade;
 		}
@@ -106,9 +128,15 @@
 	display: block;
 }
 .cart__empty-mssg {
-	margin-bottom: 4rem;
+	margin-bottom: 3.5rem;
 }
 .cart__order-mssg {
-	margin-bottom: 4rem;
+	margin-bottom: 3.5rem;
 	line-height: 2rem;
+}
+@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+	.cart__empty-mssg,
+	.cart__order-mssg {
+		margin-bottom: 3.5rem;
+	}
 }

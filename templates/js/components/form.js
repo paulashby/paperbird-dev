@@ -168,7 +168,7 @@ function logOut (e) {
                 //TODO: Need to handle errors - error_report not available as this is part of hidden form
                 // error_report.html(data.errors.join('<br>')).addClass('form__error--show');
                 // console.log(data);
-                alert(data.errors[0]);
+                console.log(data.errors.join('<br>'));
             }
        },
         error: function(jqXHR, textStatus, errorThrown) {
