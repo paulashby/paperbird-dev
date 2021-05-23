@@ -1,10 +1,19 @@
 <?php namespace ProcessWire;
 
-// Expects $product and $img_count vars
+/**
+* Generate custom image markup for OrderCart module
+*
+* @param Processwire Page $product
+* @param Int $img_count
+* @param Boolean $eager - override lazy loading
+* 
+* @return String HTML markup
+*/
 
 $lazyImages = $this->modules->get("LazyResponsiveImages");
 $max_eager = (int) $lazyImages->getMaxEager("cart");
-$lazy_load = $img_count > $max_eager;
+// lazy loading not required if $eager is true
+$lazy_load = !$eager && $img_count > $max_eager;
 
 $listing_options = [
 	"lazyImages"=>$lazyImages,
