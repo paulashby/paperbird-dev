@@ -10,7 +10,10 @@ if($value["counter"]){
 $cart_button = $files->render('components/buttons/menuToolButton', ['button_text'=>'Cart', 'button_class'=>'menu__entrybutton menu__entrybutton--cart', 'button_type'=>'cart']);
 $cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'label'=>'close', 'action'=>'cancel']);
 
-$cart_out = $cart->renderEmptyCart();
+$cart_out = $cart->renderEmptyCart("<div class='spinner'>
+  <div class='cube1'></div>
+  <div class='cube2'></div>
+</div>");
 
 $out = "<div>
 	$counter
