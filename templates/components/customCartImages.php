@@ -21,7 +21,8 @@ $listing_options = [
     "field_name"=>"product_shot",
     "sizes"=>"(max-width: 1000px) 150px, 100px",
     "class"=>"cart__product-shot",
-    "lazy_load"=>$lazy_load
+    "lazy_load"=>$lazy_load,
+    "context"=>"cart"
 ];
 
-return $this->files->render("components/productImage", $listing_options);
+return $this->files->render("components/productImage", Array("product_shot_options"=>$listing_options));
