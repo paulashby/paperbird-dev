@@ -6,5 +6,6 @@ return array(
     "logInOutURL" => $pages->get("template=nav-login")->url,
     "errorHandlerURL" => $pages->get("template=utilities-error-handler")->url,
     "forgotPassword" => $pages->get("template=services-forgotten-password")->url,
+    "search" => $pages->get("template=search-results")->url,
     "ajaxURL" => $pages->get("template=utilities-ajax-interactions")->url
 );
