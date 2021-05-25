@@ -51,6 +51,7 @@ function init (settings) {
 	// Store for validateOnBlur() which is also called by actions.cancel() 
 	setup.form_selector = '.' + settings.validate;
     actions.validateOnBlur(setup.form_selector);
+    setup.ajax_search = false;
 
     // Use event handlers in actions object
     $('body').on('click', function (e) {
@@ -112,19 +113,22 @@ function init (settings) {
 
     actions.search = function (e) {
 
-        let settings = {
-            ajaxdata: {
-                action: 'search',
-                q: $('#search_query').val()
-            },
-            callback: setup.success_callbacks.search,
-            action_url: config.ajaxURL
-        };
+        if(setup.ajax_search) {
+            
+            let settings = {
+                ajaxdata: {
+                    action: 'search',
+                    q: $('#search_query').val()
+                },
+                callback: setup.success_callbacks.search,
+                action_url: config.ajaxURL
+            };
 
-        doAction(settings);
+            doAction(settings);
 
-        // Let jQuery submit the form
-        e.preventDefault();
+            // Let jQuery submit the form
+            e.preventDefault();
+        }
     };
 
     actions.cancel = function (e, form) {
