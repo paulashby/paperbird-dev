@@ -34,42 +34,47 @@ function init (settings) {
 
     actions.toggleDropdown = function (e) {
 
-        $(setup.top_cats).each(function(){
-            
-            if(this === e.target) {
-           
-                if(setup.sliding) {
-                    $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
-                } 
+        let current_breakpoint = getBreakpoint();
+
+        if(current_breakpoint.indexOf('small') >= 0){
+
+            $(setup.top_cats).each(function(){
                 
-                else {
-                    // Hide scrollbars during animation
-                    $('body').toggleClass(setup.hide_scrollbars);
-                    // Attach event handler to run once only
-                    $(this).parent().one('animationend', function () {
-                        $('body').removeClass(setup.hide_scrollbars);
-                        // Remove handler
-                        $(this).off();
-                   });
-                }
+                if(this === e.target) {
+               
+                    if(setup.sliding) {
+                        $(this).toggleClass(setup.top_cat_active).siblings().slideToggle(setup.slide_duration);    
+                    } 
+                    
+                    else {
+                        // Hide scrollbars during animation
+                        $('body').toggleClass(setup.hide_scrollbars);
+                        // Attach event handler to run once only
+                        $(this).parent().one('animationend', function () {
+                            $('body').removeClass(setup.hide_scrollbars);
+                            // Remove handler
+                            $(this).off();
+                       });
+                    }
 
-                $(this).parent().toggleClass(setup.level_1_class_active);
+                    $(this).parent().toggleClass(setup.level_1_class_active);
 
-            } else {
+                } else {
 
-                if(setup.sliding) {
-                    $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
-                }
-                $(this).parent().removeClass(setup.level_1_class_active);
+                    if(setup.sliding) {
+                        $(this).removeClass(setup.top_cat_active).siblings().slideUp(setup.slide_duration);
+                    }
+                    $(this).parent().removeClass(setup.level_1_class_active);
 
-            }                   
-        }); 
+                }                   
+            }); 
 
-        if(settings.menu){
-            $('.menu').removeClass('menu--modal-active');
-        }
+            if(settings.menu){
+                $('.menu').removeClass('menu--modal-active');
+            }
 
-        e.preventDefault();
+            e.preventDefault();
+        }        
     };
 
     // Menu triggers this event only when nav exists and we need to check for open dropdowns before toggling menu
