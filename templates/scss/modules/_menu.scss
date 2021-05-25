@@ -15,8 +15,6 @@
 // search styles imported at end of file
 // cartstyles imported at end of file
 
-//TODO: Working on cart. styles currently in 'modules/' - does that make sense?
-
 $menu-tool-z-index: 2;
 
 %menu-element-hidden {
@@ -54,8 +52,6 @@ $menu-tool-z-index: 2;
 }
 
 /* Menu tools are items such as login, cart and search */
-
-
 %expanded-menu-tool {
 
 	@keyframes menu_element_anim {
@@ -123,6 +119,8 @@ body.menu__entries--active {
 	@extend %menu-element-hidden;
 	z-index:2;
 	overflow: hidden;
+	position: fixed;
+
 	// @include menu_transition; // This animates the slide - we're now using jquery to avoid triggering breakpoints
 
 	.menu--collections & {
@@ -191,6 +189,7 @@ body.menu__entries--active {
 		transition: none;
 		height: auto;
 		overflow: visible;
+		position: absolute;
 
 		.show-lightbox & {
 			z-index: auto;
