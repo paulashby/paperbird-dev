@@ -15,6 +15,10 @@
 	right: 20px;
 	top: 31px;
 
+	.menu__entries--active & {
+		position: fixed;
+	}
+
 	.menu__bar {
 		width: 25px;
 		height: 3px;
