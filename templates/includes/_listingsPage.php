@@ -46,7 +46,7 @@ echo "<main data-pw-id='main'>
 		<h1 class='page-title'>$title</h1>
 		<h2 class='status-message'>$status_message</h2>
 		<section class='products'>
-			<div class='card-viewer'></div>
+			<div class='card-viewer' data-action='closeLightbox'></div>
 			$product_list
 		</section>
 	</main>";
