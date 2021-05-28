@@ -116,8 +116,7 @@ function onMouseleave (e) {
 }
 
 function toggleDropdown (e) {
-    
- console.warn('now actions.toggleDropdown')  
+    console.warn('now actions.toggleDropdown')  
 }
 
 function resetDropdown () {

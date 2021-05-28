@@ -29,6 +29,7 @@ function init (settings) {
 
     setup.base_menu_class = $('.menu').attr('class');
     setup.lazyLoad = settings.lazyLoad;
+    setup.loginClosesMenu = settings.loginClosesMenu;
     setup.cartClosesMenu = settings.cartClosesMenu;
 
     // Use event handlers in actions object
@@ -151,7 +152,8 @@ function init (settings) {
     });
 
     form.init({
-        validate: 'form__input'
+        validate: 'form__input',
+        loginClosesMenu: setup.loginClosesMenu
     });
 }
 

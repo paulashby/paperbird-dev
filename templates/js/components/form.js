@@ -1,4 +1,5 @@
 import {doAction, dataAttrClickHandler} from '../helpers';
+import {getBreakpoint} from '../helpers';
 
 let setup = {
     success_callbacks : {
@@ -7,12 +8,20 @@ let setup = {
                 // Go to homepage if this is forgotten password page as we clearly no longer need to reset password.
                 window.location.replace(config.root); 
             } else {
-                submitting_form.trigger('menuToggleEvent', [e]);
-                $.event.trigger({
-                    type: "updateCart",
-                    action: "login",
-                    count: count
-                });
+
+                let current_breakpoint = getBreakpoint();
+
+                if(setup.loginClosesMenu && current_breakpoint.indexOf('small' < 0)) {
+                    submitting_form.trigger('menuToggleEvent', [e]);
+                    $.event.trigger({
+                        type: "updateCart",
+                        action: "login",
+                        count: count
+                    });
+                } else {
+                    // This is login at small screen size - menu remains open, login tool closes
+                    $('.form--login').find('.form__button--cancel').first().trigger('click');
+                }
                 $('body').addClass('logged-in');
                 $('.menu__entrybutton--login').html('Log out');
             }
@@ -51,6 +60,7 @@ function init (settings) {
 	// Store for validateOnBlur() which is also called by actions.cancel() 
 	setup.form_selector = '.' + settings.validate;
     actions.validateOnBlur(setup.form_selector);
+    setup.loginClosesMenu = settings.loginClosesMenu;
     setup.ajax_search = false;
 
     // Use event handlers in actions object
@@ -165,7 +175,6 @@ function logOut (e) {
         success: function(data) {
             
             if(data.success === true) {
-                // Do we need a call back?
                 setup.success_callbacks[role](e);
 
             } else {
