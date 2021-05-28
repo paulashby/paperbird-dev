@@ -40,10 +40,15 @@ function init () {
 		sliding: sliding,
 		hasNav: true
 	}
+
+	let lightbox_settings = {
+		cartAddClosesLightbox: true
+	}
+
 	errorHandler.init(error_handler_settings);
 	menu.init(menu_settings);
 	navigation.init(nav_settings);	
-	lightbox.init();
+	lightbox.init(lightbox_settings);
 	cart.init();
 	
 }

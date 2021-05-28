@@ -13,10 +13,10 @@ let actions = {
 
 function init (settings) {
 
-    $('.products').on('click', function (e) {
-        
-        dataAttrClickHandler(e, actions);
+    setup.cartAddClosesLightbox = settings.cartAddClosesLightbox;
 
+    $('.products').on('click', function (e) {
+        dataAttrClickHandler(e, actions);
     });
 
     actions.openLightbox = function (e) {
@@ -39,7 +39,11 @@ function init (settings) {
     $(document).on('updateCart', function(e) {
         
         if(e.action === 'add') {
-            $('.lightbox_message').fadeIn().delay(1500).fadeOut(200);
+            if(setup.cartAddClosesLightbox) {
+                actions.closeLightbox(e);
+            } else {
+                $('.lightbox_message').fadeIn().delay(1500).fadeOut(200);
+            }
         }
     });
 }
