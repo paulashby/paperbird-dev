@@ -101,12 +101,19 @@
 		opacity: 0;
 		scale: 0;
 	}
-
-
-
 	.product-shot {
 		width: 70%;
 		margin: 15% 15% 2rem 15%;
+	}
+	.product-shot--extra {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+
+		&:hover {
+			opacity: 1;
+		}
 	}
 	.products__title {
 		margin-bottom: 1rem;
