@@ -61,7 +61,7 @@
 	font-weight: bold;
 	padding: 0.2rem 0.6rem;
 
-	@media only screen and (min-width: map_get($breakpoints,  'small')) {
+	@media only screen and (min-width: map_get($breakpoints,  'small-2')) {
 		background-color: $colour-pb-blue;
 		color: #fff;
 	}
