@@ -3,6 +3,7 @@ $breakpoints: (
   "small": 480px,
   "small-i": 500px,
   "small-1": 550px,
+  "small-1i": 615px,
   "small-2": 650px,
   "small-2i": 780px,
   "small-3": 815px,
@@ -23,6 +24,11 @@ body:before {
 @media only screen and (min-width: map_get($breakpoints, 'small-1')) {
   body:before {
     content: "small-1";
+  }
+}
+@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+  body:before {
+    content: "small-1i";
   }
 }
 @media only screen and (min-width: map_get($breakpoints, 'small-2')) {

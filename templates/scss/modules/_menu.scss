@@ -182,6 +182,13 @@ body.menu__entries--active {
 		left: 0;
 		width: 100%;
 	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-1i')) and (max-width: map_get($breakpoints, 'medium') - 1){
+		width: 50%;
+		box-shadow: -15px 0 15px 10px #555;
+	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-3')){
+		width: 40%;
+	}
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		justify-content: space-between;
 		left: 0;
