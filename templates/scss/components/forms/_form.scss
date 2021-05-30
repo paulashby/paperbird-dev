@@ -122,5 +122,34 @@
 .form__price--unit {
 	font-size: 0.7rem;
 }
+.forgotten-password {
+	#ProcessForgotPassword {
+		max-width: 35rem;
+		margin: 0 auto 3rem auto;
+		
+		.InputfieldHeader {
+			display: none;
+		}
+		.description {
+			font-size: 1.3rem;
+			line-height: 1.65rem;
+
+			&:before {
+				content: "Please enter your email address. ";
+			}
+		}
+		p {
+			font-size: 1.3rem;
+			line-height: 1.65rem;
+
+			& .detail {
+				font-size: 1.1rem;
+				line-hight: 1.3rem;
+			}
+		}
+	}
+
+}
+
 
 @import 'components/forms/pcpForms';
