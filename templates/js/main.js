@@ -1,4 +1,3 @@
-// import { customEventPolyfill } from './helpers';
 import $ from 'jquery';
 import errorHandler from './utilities/errorHandler';
 import menu from './modules/menu';
@@ -6,7 +5,6 @@ import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
 import cart from './modules/cart'; 
 import LazyLoad from './vendor/lazyload.esm';
-//TODO: May need to move form.js import and initialisation out of menu.js if other elements of the page include forms
 
 let lazyLoad = new LazyLoad({
   elements_selector: ".lazy",

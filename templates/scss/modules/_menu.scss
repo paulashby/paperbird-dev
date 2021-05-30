@@ -91,8 +91,6 @@ $menu-tool-z-index: 2;
 %collapsed-menu-tool--fs {
 
 	// full screen menu tool
-	//TODO: Might be better to make height 100% immediately, then animate padding if possible to slide the form up ther screen
-
 	@keyframes menu_element_anim_rev--fs {
 		0%   {visibility: visible; opacity: 1; height: 100vh;}
 		100% {visibility: hidden; opacity: 0; height: 20vh; padding-top: 0;}
