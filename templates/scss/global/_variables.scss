@@ -7,7 +7,9 @@ $breakpoints: (
   "small-2": 650px,
   "small-2i": 780px,
   "small-3": 815px,
-  "medium": 1070px 
+  "medium": 1070px,
+  "medium-1": 1200px 
+
   // NOTE: Assign any new sizes to body:before as below
 );
 // Apply breakpoints to body:before for js
@@ -49,6 +51,11 @@ body:before {
 @media only screen and (min-width: map_get($breakpoints, 'medium')) {
   body:before {
     content: "medium";
+  }
+}
+@media only screen and (min-width: map_get($breakpoints, 'medium-1')) {
+  body:before {
+    content: "medium-1";
   }
 }
 

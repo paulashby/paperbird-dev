@@ -3,7 +3,18 @@
 	flex-direction: row;
 	flex-shrink: 0;
 	flex-wrap: wrap;
-	margin: 0 12%;
+}
+%footer_item {
+	width: 43%;
+	margin: 0 3.5%;
+
+	@media only screen and (min-width: map_get($breakpoints, 'small-1')) {
+		width: 18%;
+	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-3')) {
+		width: 21%;
+		margin: 0 2%;
+	}
 }
 .footer {
 	background-color: $colour-pb-purple-dark;
@@ -17,8 +28,13 @@
 		font-size: 1.2rem;
 		justify-content: space-between;
 		line-height: 1.5;
-		margin: 0 auto;
+		margin: 0 10%;
 		max-width: 1200px;
+
+		@media only screen and (min-width: map_get($breakpoints, 'medium-1')) {
+			max-width: 960px;
+			margin: 0 auto;
+		}
 	}
 	.footer__sections {
 		@extend %footer_internal_wrapper;
@@ -29,8 +45,7 @@
 	}
 
 	.footer__entry {
-		width: 45%;
-		margin-right: 5%;
+		@extend %footer_item;
 		margin-bottom: 1.5rem;
 	}
 	.footer__heading {
@@ -47,10 +62,30 @@
 	}
 	.footer__text {
 		@extend %footer-base-text;
+		@extend %footer_item;
 		color: $colour-pb-purple-mid;
 		font-size: 1rem;
 		margin-bottom: 1.4rem;
-		width: 100%;
+		white-space: nowrap;
+
+		@media only screen and (max-width: map_get($breakpoints, 'small') - 1) {
+			width: 100%;
+		}
+		@media only screen and (min-width: map_get($breakpoints, 'small-1')) {
+			width: 43%;
+		}
+		@media only screen and (min-width: map_get($breakpoints, 'small-3')) {
+			width: 21%;
+
+			&:nth-child(odd) {
+				margin-left: 27%;
+				margin-right: 2%;
+			}
+			&:nth-child(even) {
+				margin-left: 2%;
+				margin-right: 27%;
+			}
+		}
 	}
 	.footer__text--copyright {
 		color: $colour-pb-purple-light;	
@@ -58,71 +93,6 @@
 	.footer__text-link {
 		color: $colour-pb-purple-light;
 		text-decoration: none;		
-	}
-	@media only screen and (min-width: map_get($breakpoints, 'small')) {
-		.footer__entry {
-			width: 20%;
-			margin-right: 7%;
-
-			&:last-child {
-				margin-right: 0;
-			}
-		}
-		.footer__text {
-			&:after {
-				content: " ";				
-				white-space: pre;
-			}
-			width: auto;
-		}
-	}
-	@media only screen and (min-width: map_get($breakpoints, 'small')) and (max-width: map_get($breakpoints, 'small-2') - 1){
-		.footer__entry {
-			&:nth-child(1) {
-				width: 14%;
-			}
-			&:nth-child(2) {
-				margin-right: 9%;
-			}
-		}
-	}
-	@media only screen and (min-width: map_get($breakpoints, 'small-i')) and (max-width: map_get($breakpoints, 'small-2') - 1) {
-		.footer__entry {
-			&:nth-child(2) {
-				margin-right: 7%;
-			}
-		}
-	}
-	@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
-		.footer__entry {
-			width: 20%;
-			margin-right: 5%;
-
-			&:nth-child(1) {
-				width: 20%;
-			}
-		}
-		.footer__text:nth-child(1) {
-			margin-left: 25%;
-		}
-	}
-	@media only screen and (min-width: map_get($breakpoints, 'small-2i')) {
-		.footer__text:after {
-			content: "";
-			white-space: normal;
-		}
-		.footer__text {
-			width: 25%;
-		}
-		.footer__text:nth-child(1) {
-			margin-left: 25%;
-		}
-	}
-
-	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-		.show-lightbox & {
-			z-index: auto;
-		}
 	}
 }
 
