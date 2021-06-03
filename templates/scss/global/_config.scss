@@ -47,7 +47,6 @@ $font-lora: 'Lora', serif;
 }
 
 body {
-	// color: $colour-pb-neutral-dark;
 	color: #000;
 
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
@@ -133,4 +132,7 @@ h2 {
 .title--subcat {
 	margin-top: 1rem;
 	color: $colour-pb-blue;
+}
+.pw-reset-confirmation {
+	text-align: center;
 }

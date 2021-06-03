@@ -118,6 +118,10 @@
 .form__error--submission.form__error--show {
 	@extend %message;
 	margin-bottom: 0;
+
+	.login & {
+		width: auto;
+	}
 }
 .form__price--unit {
 	font-size: 0.7rem;
@@ -126,21 +130,36 @@
 	#ProcessForgotPassword {
 		max-width: 35rem;
 		margin: 0 auto 3rem auto;
-		
+
+		.form__input {
+			margin-bottom: 0;
+
+			&#username {
+				margin-bottom: 0.75rem;
+			}
+		}
 		.InputfieldHeader {
-			display: none;
+			font-size: 1.5rem;
+			margin: 2.5rem 0 1rem 0;
 		}
 		.description {
 			font-size: 1.3rem;
 			line-height: 1.65rem;
-
-			&:before {
-				content: "Please enter your email address. ";
-			}
+		}
+		#wrap_Inputfield_verify .description {
+			margin-bottom: 0;
+		}
+		.InputfieldPasswordRow > label {
+			display: none;
 		}
 		p {
 			font-size: 1.3rem;
 			line-height: 1.65rem;
+			margin-bottom: 1rem;
+
+			&:first-child {
+				font-weight: bold;
+			}
 
 			& .detail {
 				font-size: 1.1rem;

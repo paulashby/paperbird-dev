@@ -57,6 +57,11 @@ let actions = {
 
 function init (settings) {
 
+    if($('body').hasClass('forgotten-password')) { 
+        // Leave it to Processwire's standard complexify.js validation
+        return; 
+    }
+
 	// Store for validateOnBlur() which is also called by actions.cancel() 
 	setup.form_selector = '.' + settings.validate;
     actions.validateOnBlur(setup.form_selector);
