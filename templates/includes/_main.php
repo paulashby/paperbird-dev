@@ -7,13 +7,14 @@ $template_name = $page->template->name;
 $body_nav_class = $template_name == "category-sub" ? $page->parent->name : $page->name;
 
 $body_tag = $user->isLoggedin() ? "<body class='$body_nav_class logged-in'>" : "<body class='$body_nav_class'>";
+$title = $page->title === "Home" ? "Welcome to Paper Bird" : $page->title;
 
 echo "<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv='content-type' content='text/html; charset=utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title data-pw-id='title'>Welcome to PaperBird</title>";
+        <title data-pw-id='title'>$title</title>";
         // Data for javascript
         $jsconfig = include $config->paths->templates . "utilities-urls.php";
         $settings = $pages->get("/tools/settings/");
