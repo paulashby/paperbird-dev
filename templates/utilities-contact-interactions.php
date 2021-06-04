@@ -167,10 +167,6 @@ function sanitizeSubmission($data, $submission_type, $sanitizer) {
 	    	case 'email':
 	    		$sanitized[$field] = $sanitizer->email($value);
 	    		// $sanitizer returns blank string if invalid
-	    		if($submission_type === "registration"){
-	    			$exists = wire("users")->get("email=" . $sanitizer->selectorValue($sanitized[$field]))->id;
-	    			if($exists) $errors[] = "An account already exists for this email address";
-	    		}
 	    		if( ! preg_match("/^([\w\-\.]+)@((\[([0-9]{1,3}\.){3}[0-9]{1,3}\])|(([\w\-]+\.)+)([a-zA-Z]{2,4}))$/", $sanitized[$field])){
 	    			$errors[] = "Please enter a valid email";
 	    		}
