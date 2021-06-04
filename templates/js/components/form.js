@@ -13,15 +13,15 @@ let setup = {
 
                 if(setup.loginClosesMenu && current_breakpoint.indexOf('small' < 0)) {
                     submitting_form.trigger('menuToggleEvent', [e]);
-                    $.event.trigger({
-                        type: "updateCart",
-                        action: "login",
-                        count: count
-                    });
                 } else {
                     // This is login at small screen size - menu remains open, login tool closes
                     $('.form--login').find('.form__button--cancel').first().trigger('click');
                 }
+                $.event.trigger({
+                    type: "updateCart",
+                    action: "login",
+                    count: count
+                });
                 $('body').addClass('logged-in');
                 $('.menu__entrybutton--login').html('Log out');
             }
