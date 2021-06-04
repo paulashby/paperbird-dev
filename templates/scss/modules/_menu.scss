@@ -165,6 +165,10 @@ body.menu__entries--active {
 	}
 	.menu--modal-active.menu--login & .login {
 		@extend %expanded-menu-tool;
+
+		@media only screen and (min-width: map_get($breakpoints, 'medium')){
+			bottom: auto;
+		}
 	}
 	.menu--modal-active.menu--cart & .cart {
 		@extend %expanded-menu-tool;
@@ -210,8 +214,6 @@ body.menu__entries--active {
 			width: 30rem;
 		}
 		.login {
-			height: 16.5rem;
-			// min-height: 16.5rem;
 			left: -230%;
 		}
 		.search {
