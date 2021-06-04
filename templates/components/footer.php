@@ -20,7 +20,7 @@ return "<footer class='footer'>
 				<h3 class='footer__heading'>get in touch</h3>
 				<a class='footer__link' href='/contact-us/'>Contact form</a>
 				<a class='footer__link' href='/register/'>Register</a>
-				<a class='footer__link' href='/request-a-catalogue/'>Request a catalogue</a>
+				<a class='footer__link' href='/request-a-catalogue/'>Get a catalogue</a>
 			</section>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>social</h3>
