@@ -17,12 +17,7 @@
 		width: 100vw;
 
 		@include transition(
-			background .5s ease-out, 
-			height .5s ease-out,
-			left .5s ease-out,
-			margin .5s ease-out,
-			top .5s ease-out,
-			width .5s ease-out
+			background .5s ease-out,
 		);
 
 		.show-lightbox & {
