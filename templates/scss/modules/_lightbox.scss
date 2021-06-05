@@ -1,6 +1,12 @@
+%lightbox-item {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 400px;
+	min-width: 320px;
+}
 .card-viewer {
 
-	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+	@media only screen and (min-width: map_get($breakpoints, 'small')) {
 		background: rgba(80,80,80,0);
 		height: 100vh;
 		left: 0;
@@ -24,12 +30,21 @@
 			pointer-events: auto;
 		}
 	}
+	@media only screen and (min-width: map_get($breakpoints, 'small')) {
+
+		/* Becomes flexbox container to center lightbox vertically */
+		overflow: scroll;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		align-content: center;
+	}
 }
 .lightbox {
 	background-color: #fff;
 	height: 100vh;
 	left: 0;
-	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 1;
@@ -38,14 +53,15 @@
 	position: absolute;
 	visibility: hidden;
 	opacity: 0;
+	overflow: scroll;
 
-	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+	@media only screen and (min-width: map_get($breakpoints, 'small')) {
 		height: auto;
 		position: absolute;
 		width: 40rem;
 		left: 50%;
 		margin-left: -20rem;
-		top: 11%;
+		top: auto;
 	}
 
 	&.lightbox--expanded {
@@ -57,11 +73,8 @@
 			0%   {visibility: hidden; opacity: 0; scale: 0; position: absolute;}
 			50%  {scale: 1.05}
 			100% {visibility: visible; opacity: 1; scale: 1; position: fixed;}
-
-			animation: lightbox_open_anim $menu-transition_duration_medium;
 		}
-
-		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		@media only screen and (min-width: map_get($breakpoints, 'small')) {
 
 			position: absolute;
 
@@ -86,7 +99,7 @@
 			100% {visibility: hidden; opacity: 0; scale: 0; position: absolute;}
 		}
 
-		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		@media only screen and (min-width: map_get($breakpoints, 'small')) {
 
 			@keyframes lightbox_close_anim {
 				0%   {visibility: visible; opacity: 1; scale: 1;}
@@ -117,6 +130,10 @@
 	}
 	.products__title {
 		margin-bottom: 1rem;
+	}
+	.item__form {
+		@extend %lightbox-item;
+		position: relative;
 	}
 	.form__button--submit {
 		margin-top: 1rem;
@@ -151,12 +168,15 @@
 	font-weight: bold;
 	margin-bottom: 0.4rem;
 }
+.lightbox__extras {
+	@extend %lightbox-item;
+}
 .lightbox__variations {
 	list-style: none;
 	margin: 1rem 15% 0 15%;
 	width: 70%;
 
-	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) {
 		.show-lightbox & {
 			margin-bottom: 5rem;
 		}
@@ -189,8 +209,3 @@
 	@extend %message;
 	margin: 0 auto;
 }
-/*
-.lightbox_message-content--show {
-	display: inline-block;
-}
-*/

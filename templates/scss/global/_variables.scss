@@ -1,5 +1,6 @@
 // Breakpoints
 $breakpoints: (
+  "smallest-i": 400px,
   "small": 480px,
   "small-i": 500px,
   "small-1": 550px,
@@ -14,9 +15,22 @@ $breakpoints: (
 );
 // Apply breakpoints to body:before for js
 body:before {
-  content: "small";
   display: none;
   visibility: hidden;
+  content: "smallest"; /* From width: 0 up to first breakpoint */
+}
+body:before {
+  content: "pre-small";
+}
+@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) {
+  body:before {
+    content: "smallest-i";
+  }
+}
+@media only screen and (min-width: map_get($breakpoints, 'small')) {
+  body:before {
+    content: "small";
+  }
 }
 @media only screen and (min-width: map_get($breakpoints, 'small-i')) {
   body:before {

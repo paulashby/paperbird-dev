@@ -60,6 +60,12 @@ body {
 	max-width: 1200px;
 	position: relative;
 	width: 100%;
+
+	.show-lightbox & {
+
+		/* In front of footer when lightbox active */
+		z-index: 2;
+	}
 }
 .home-link {
 	position: relative;

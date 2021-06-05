@@ -88,6 +88,11 @@ main {
 
   /* Sticky footer */
   flex: 1 0 auto;
+  
+  .show-lightbox & {
+    position: relative;
+    z-index: 3;
+  }
 }
 
 .nowrap {
