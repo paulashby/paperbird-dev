@@ -65,6 +65,10 @@ $menu-tool-z-index: 2;
 	opacity: 1;
 	scale: 1;
 	z-index: $menu-tool-z-index;
+
+	@media only screen and (min-width: map_get($breakpoints, 'small-1i')) and (max-width: map_get($breakpoints, 'medium') - 1){
+		width: calc(100% - 40px);
+	}
 }
 %collapsed-menu-tool {
 
@@ -165,10 +169,6 @@ body.menu__entries--active {
 	}
 	.menu--modal-active.menu--login & .login {
 		@extend %expanded-menu-tool;
-
-		@media only screen and (min-width: map_get($breakpoints, 'small-1i')) and (max-width: map_get($breakpoints, 'medium') - 1){
-			width: calc(100% - 40px);
-		}
 
 		@media only screen and (min-width: map_get($breakpoints, 'medium')){
 			bottom: auto;
