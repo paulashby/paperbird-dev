@@ -166,6 +166,10 @@ body.menu__entries--active {
 	.menu--modal-active.menu--login & .login {
 		@extend %expanded-menu-tool;
 
+		@media only screen and (min-width: map_get($breakpoints, 'small-1i')) and (max-width: map_get($breakpoints, 'medium') - 1){
+			width: calc(100% - 40px);
+		}
+
 		@media only screen and (min-width: map_get($breakpoints, 'medium')){
 			bottom: auto;
 		}
