@@ -17,10 +17,7 @@ $breakpoints: (
 body:before {
   display: none;
   visibility: hidden;
-  content: "smallest"; /* From width: 0 up to first breakpoint */
-}
-body:before {
-  content: "pre-small";
+  content: "pre-small"; /* From width: 0 up to first breakpoint */
 }
 @media only screen and (min-width: map_get($breakpoints, 'smallest-i')) {
   body:before {
