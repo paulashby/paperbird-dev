@@ -29,7 +29,7 @@ $lightbox_class = "lightbox";
 if(count($product_page->variations)){
 
 	$lightbox_class .= " lightbox--has-variations";
-	$lightbox_inner .= "<h2 class='lightbox__variations-title'>Variations</h2>
+	$lightbox_inner .= "<div class='lightbox__extras'><h2 class='lightbox__variations-title'>Variations</h2>
 	<ul class='lightbox__variations'>";
 
 	foreach ($product_page->variations as $product) {
@@ -42,7 +42,8 @@ if(count($product_page->variations)){
 
 		$lightbox_inner .= "<li class='lightbox__variation'><img class='lightbox__variation-img' src='$product_shot_url' alt='$alt_text' data-action='showProduct' data-sku='$p_sku'></li>";
 	}
-	$lightbox_inner .= "</ul>";
+	$lightbox_inner .= "</ul>
+	</div><!-- END lightbox__extras -->";
 }
 
 $lightbox = "<section class='$lightbox_class'>$lightbox_inner</section>";
