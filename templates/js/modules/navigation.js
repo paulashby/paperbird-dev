@@ -23,14 +23,16 @@ function init (settings) {
 
     
     // Need to use event delegation for this else the listener isn't attached to the hidden element
-    $('.' + setup.top_cat).on({
+    // $('.' + setup.top_cat).on({
+    $('.has_children').on({
         mouseenter: onMouseenter,
         mouseleave: onMouseleave
     });
-    $('.' + setup.dropdown).on({
-        mouseenter: onMouseenter,
-        mouseleave: onMouseleave
-    });
+    // $('.' + setup.dropdown).on({
+    // // $('.has_children').on({
+    //     mouseenter: onMouseenter,
+    //     mouseleave: onMouseleave
+    // });
 
     actions.toggleDropdown = function (e) {
 
@@ -93,11 +95,7 @@ function onMouseenter (e) {
     let current_breakpoint = getBreakpoint();
 
     if(current_breakpoint.indexOf('small') < 0) {
-
-        let dropdown_classes = ['show-dropdown'];
-        let cat = $(e.target).data('cat');
-        dropdown_classes.push('show-' + cat);
-
+        let dropdown_classes = getDropdownClasses(e);
         $('body').addClass(dropdown_classes);
     }
 }
@@ -107,12 +105,21 @@ function onMouseleave (e) {
     let current_breakpoint = getBreakpoint();
 
     if(current_breakpoint.indexOf('small') < 0) {
-
-        let dropdown_classes = ['show-dropdown'];
-        dropdown_classes.push('show-' + $(e.target).data('cat'));
-
+        let dropdown_classes = getDropdownClasses(e);
         $('body').removeClass(dropdown_classes);
     }
+}
+
+function getDropdownClasses (e) {
+
+    let dropdown_classes = ['show-dropdown'];
+    
+    if($(e.target).attr('class').indexOf(setup.top_cat) >= 0 || $(e.target).attr('class').indexOf(setup.dropdown) >= 0) {
+        dropdown_classes.push('show-' + $(e.target).data('cat')); 
+    } else {
+        dropdown_classes.push('show-' + $(e.target).children('.' + setup.dropdown).data('cat'));; 
+    }
+    return dropdown_classes;
 }
 
 function toggleDropdown (e) {
