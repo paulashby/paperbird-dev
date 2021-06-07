@@ -83,13 +83,6 @@
 		width: 47.5%;
 		margin-right: 5%;
 	}
-	
-	@media only screen and (min-width: map_get($breakpoints,  'smallest-i')){
-		max-width: 281px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
 	.cart__product-shot {
 		width: 100%;
 		&.lazy{
