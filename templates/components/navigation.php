@@ -1,6 +1,6 @@
 <?php namespace ProcessWire;
 
-// Use defaults if no options provided
+// Use defaults if no options provided - check main.php for our custom values
 if( ! is_array($value)) {
 	$value = array(
 		"tree_options" =>array (
@@ -23,6 +23,7 @@ $tree_options = $value["tree_options"];
 // http://modules.processwire.com/modules/markup-simple-navigation/
 // Used anonymous function so I could pass in $sliding var
 // https://processwire.com/talk/topic/14879-solved-can-i-pass-a-variable-to-a-hook-function/
+
 $tree_menu->addHookAfter('getItemString', function($event) use($sliding) {
 	
      $child = $event->arguments('page'); // current rendered child page
