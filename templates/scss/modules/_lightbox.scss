@@ -58,6 +58,10 @@
 		margin-left: -20rem;
 		top: auto;
 	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+		width: 50rem;
+		margin-left: -25rem;
+	}
 
 	&.lightbox--expanded {
 		position: fixed;
@@ -112,6 +116,11 @@
 	.product-shot {
 		width: 70%;
 		margin: 15% 15% 2rem 15%;
+
+		@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+			width: 75%;
+			margin: 12.5% 12.5% 2rem 12.5%;
+		}
 	}
 	.product-shot--extra {
 		position: absolute;
@@ -129,6 +138,10 @@
 	.item__form {
 		@extend %lightbox-item;
 		position: relative;
+
+		@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+			max-width: 600px;
+		}
 	}
 	.form__button--submit {
 		margin-top: 1rem;
@@ -165,11 +178,17 @@
 }
 .lightbox__extras {
 	@extend %lightbox-item;
+
+	@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+		max-width: 600px;
+	}
 }
 .lightbox__variations {
 	list-style: none;
 	margin: 1rem 15% 0 15%;
-	width: 70%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 
 	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) {
 		.show-lightbox & {
@@ -180,16 +199,22 @@
 .lightbox__variations-title {
 	color: #fff;
 	font-size: 1.5rem;
-	margin: 2rem 15% -1rem 15%;
+	margin: 2rem 15% 1rem 15%;
 	font-weight: bold;
 	text-align: left;
 }
 .lightbox__variation {
-	display: inline-block;
-	padding-top: 1rem;
+	display: block;
+	flex: 31% 0 0;
+	padding-left: 3.5%;
+	padding-top: 1.5%;
+
+	&:nth-child(3n + 1) {
+		padding-left: 0;
+	}
 }
 .lightbox__variation-img {
-	width: 95%;
+	width: 100%;
 }
 .lightbox_message {
 	display: none;
