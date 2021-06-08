@@ -21,7 +21,8 @@ foreach ($products as $product) {
 		"product"=>$product,
 		"field_name"=>"product_shot",
 		"context"=>"listing",
-		"sizes"=>"(max-width: 1000px) 150px, 100px",
+		// See Notes/SrcSet Planning.txt
+		"sizes"=>"(min-width: 1200px) 202px, (min-width: 815px) 16.85vw, (min-width: 550px) 22.8vw, 39vw",
 		"class"=>"products__product-shot"
 	];
 

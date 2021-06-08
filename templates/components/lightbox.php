@@ -33,14 +33,24 @@ if(count($product_page->variations)){
 	<ul class='lightbox__variations'>";
 
 	foreach ($product_page->variations as $product) {
-		$p_sku = $product->sku;
-		$product_shot = $product->product_shot;
-		$size = 80;
-		$product_shot_url = $product_shot->first()->size($size, $size)->url;
-		$dsc = $product_shot->description;
-		$alt_text = $dsc ? $dsc : $product->title;
 
-		$lightbox_inner .= "<li class='lightbox__variation'><img class='lightbox__variation-img' src='$product_shot_url' alt='$alt_text' data-action='showProduct' data-sku='$p_sku'></li>";
+		$product_shot_options = array(
+			"product"=>$product,
+			"field_name"=>"product_shot",
+			"class"	=>"lightbox__variation-img",
+			"alt_str"=>$product->title,
+			"context"=>"lightbox_variation",
+			"image" =>$product->product_shot->first(),
+			"product_data_attributes"=>"data-action='showProduct' data-sku='$product->sku'",
+			"sizes"=>"130px",
+			"lazyImages"=>$modules->get("LazyResponsiveImages"),
+			"lazy_load"=>false,
+			"webp"=>true
+		);
+
+		$product_image = $files->render("components/productImage", array("product_shot_options"=>$product_shot_options));
+
+		$lightbox_inner .= "<li class='lightbox__variation'>$product_image</li>";
 	}
 	$lightbox_inner .= "</ul>
 	</div><!-- END lightbox__extras -->";
