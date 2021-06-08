@@ -170,9 +170,7 @@
 		}
 	}
 	.nav__level-1:not(.nav__level-1--active) {
-		
 		@extend %collapsed-menu-element;
-
 	} 
 }
 .menu--modal-active {

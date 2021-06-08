@@ -1,5 +1,11 @@
 .pcp_forms {
 	margin: 0 3.5%;
+
+	& .form__title{
+		text-align: left;
+		max-width: 35rem;
+		margin: 0 auto 3rem auto;
+	}
 }
 .pcp_pre,
 .pcp_post {

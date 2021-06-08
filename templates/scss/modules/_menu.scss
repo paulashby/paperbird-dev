@@ -43,23 +43,27 @@ $menu-tool-z-index: 2;
 	animation: dropdown_anim $menu-transition_duration_medium;
 }
 %collapsed-menu-element {
-	@keyframes dropdown_anim_rev {
-		0% {transform: scale(0.85); padding-top: 2.5rem}
-		50% {transform: scale(1.01); padding-top: 0}
-		100% {transform: scale(1); padding-top: 0}
+	@media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
+		@keyframes dropdown_anim_rev {
+			0% {transform: scale(0.85); padding-top: 2.5rem}
+			50% {transform: scale(1.01); padding-top: 0}
+			100% {transform: scale(1); padding-top: 0}
+		}
+		animation: dropdown_anim_rev $menu-transition_duration_medium;
 	}
-	animation: dropdown_anim_rev $menu-transition_duration_medium;
 }
 
 /* Menu tools are items such as login, cart and search */
 %expanded-menu-tool {
 
-	@keyframes menu_element_anim {
-		0%   {visibility: hidden; opacity: 0; scale: 0}
-		50%  {scale: 1.05}
-		100% {visibility: visible; opacity: 1; scale: 1}
+	@media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
+		@keyframes menu_element_anim {
+			0%   {visibility: hidden; opacity: 0; scale: 0}
+			50%  {scale: 1.05}
+			100% {visibility: visible; opacity: 1; scale: 1}
+		}
+		animation: menu_element_anim $menu-transition_duration_medium;
 	}
-	animation: menu_element_anim $menu-transition_duration_medium;
 
 	visibility: visible;
 	opacity: 1;

@@ -2,6 +2,7 @@
 
 $now = new \DateTime('now');
 $month = $now->format('M');
+$year = $now->format('Y');
 
 return "<footer class='footer'>
 	<div class='footer__content'>
@@ -14,7 +15,7 @@ return "<footer class='footer'>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>news</h3>
 				<a class='footer__link' href='/sketchbook/'>Sketchbook entry</a>
-				<a class='footer__link' href='/whats-on/'>What&apos;s on $month 2020</a>
+				<a class='footer__link' href='/whats-on/'>What&apos;s on $month $year</a>
 			</section>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>get in touch</h3>

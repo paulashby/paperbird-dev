@@ -26,7 +26,7 @@ foreach ($artists as $entry => $artist) {
 			"field_name"=>"product_shot",
 			"image"=>$product_shot,
 			"product_data_attributes"=>"",
-			"sizes"=>"(max-width: 1000px) 300px, 200px",
+			"sizes"=>"(min-width: 480px) 350px, 73vw",
 			"webp"=>true
 			// if viewport width = 1000 or less use 300px, else use 300px - seems backwards?
 		];
@@ -50,7 +50,7 @@ foreach ($artists as $entry => $artist) {
  }
  $artists_out  .= "</div><!-- END artists -->";
 
-echo "<main data-pw-id='main' class='artists'>
+echo "<main data-pw-id='main' class='artists generic-page'>
 	<h1 class='page-title'>$title</h1>
 	$artists_out
 </main>";

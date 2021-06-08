@@ -6,7 +6,7 @@ $contact_doc = $pages->get("/internal/contact-pages/settings/documents/$doc_name
 $title = $contact_doc->title;
 $doc_body = $contact_doc->ctct_document;
 
-echo "<main data-pw-id='main'>
+echo "<main data-pw-id='main' class='generic-page'>
 	<h1 class='page-title'>$title</h1>
 	<div class='contact-pages-doc'>
 		$doc_body

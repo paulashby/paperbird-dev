@@ -1,3 +1,33 @@
-.generic-page p {
-	margin-bottom: 1.7rem;
+
+.generic-page {
+
+	max-width: 74%;
+	margin: 10rem auto 8rem auto;
+
+	@media only screen and (min-width: map_get($breakpoints, 'small')) {
+		width: 35rem;
+	}
+
+	& .page-title {
+		text-align: left;
+
+		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+			width: 150%;
+		}
+	}
+	& h2 {
+		margin-bottom: 2rem;
+		margin-top: 3rem;
+		text-align: left;
+	}
+	& p {
+		margin-bottom: 1.7rem;
+	}
+	.sketchbook-caption {
+		margin-bottom: 0.25rem;
+	}
+	& .footnote {
+		font-size: 1.1rem;
+		line-height: 1.65rem;
+	}
 }
