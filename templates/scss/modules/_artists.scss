@@ -1,14 +1,18 @@
- .artist__name {
- 	text-align: left;
- 	margin: 0 0 0.8rem 0;
- 	font-size: 1.7rem;
- 	font-weight: bold;
- 	text-transform: none;
- }
- .artist__image {
- 	@extend %text-image;
-    width: 100%;
- }
- .artist__biography {
- 	margin-bottom: 4rem;
- }
+.artists {
+
+   .artist__name {
+      text-align: left;
+      margin: 0 0 0.8rem 0;
+      font-size: 1.7rem;
+      font-weight: bold;
+      text-transform: none;
+    }
+    .artist__image {
+      @extend %text-image;
+       width: 100%;
+    }
+    .artist__biography {
+      margin-bottom: 4rem;
+    }
+
+}
