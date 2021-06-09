@@ -131,7 +131,8 @@ body {
 h2 {
 	@extend %title;
 	font-size: 2rem;
-	line-height: 1.29rem;
+	line-height: 2.29rem;
+	margin-top: -0.6rem;
 }
 .page-title__category {
 	color: $colour-pb-purple-light;

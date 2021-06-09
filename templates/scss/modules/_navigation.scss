@@ -45,7 +45,6 @@
 
 .nav__top-link--aboutus,
 .nav__top-link--theartists,
-.nav__top-cat--welshcards,
 .nav__top-link--madewithlove {
 	font-size: 1.8rem;
 	font-weight: normal;
@@ -126,7 +125,8 @@
 		@extend %hidden; // Want this for small screens
 		
 		body.show-collections &.nav__dropdown--collections,
-	    body.show-occasions &.nav__dropdown--occasions {
+	    body.show-occasions &.nav__dropdown--occasions,
+	    body.show-welshcards &.nav__dropdown--welshcards {
 
 	    	@extend %expanded-menu-element;
 
@@ -145,13 +145,16 @@
 		    padding: 3rem 6rem;
 		    left: -87%;
 			top: 5.5rem;
-			// transform: scale(0);
 
 			visibility: hidden;
 
-	body.show-occasions &.nav__dropdown--occasions {
-		    	left: -120%;
+			body.show-occasions &.nav__dropdown--occasions {
+		    	left: -135%;
 		    }
+	    	body.show-welshcards &.nav__dropdown--welshcards {
+	        	left: -135%;
+	        	z-index: 2;
+	        }
 		}
 	}
 	.nav__level-1.nav__level-1--active {
@@ -181,7 +184,8 @@
 
 @media only screen and (min-width: map_get($breakpoints, 'medium')) {
 	.collections .nav__top-cat--collections,
-	.occasions .nav__top-cat--occasions {
+	.occasions .nav__top-cat--occasions,
+	.welshcards .nav__top-cat--welshcards {
 		color: $colour-pb-blue-dark;
 	}
 	.about-us .nav__top-link--aboutus,
