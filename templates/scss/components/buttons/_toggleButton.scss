@@ -63,7 +63,17 @@
 			@extend %menu-button-cross-bar-3;
 		}
 	}
-	@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) {
+		.menu__entries--active & {
+			right: calc(20px + 20%);
+		}
+	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-1')) {
+		.menu__entries--active & {
+			right: calc(20px + 40%);
+		}
+	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
 		.menu__entries--active & {
 			right: calc(20px + 50%);
 		}
