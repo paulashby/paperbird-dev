@@ -4,7 +4,9 @@ $products = new PageArray();
 $status_message = "";
 
 $q = $input->get('q'); 
-	$out = $files->render("components/search", array("value"=>array("container" => false)));
+	$search_form = $files->render("components/search", array("value"=>array("container" => false)));
+	$search_again = "<div class='search--again'>$search_form</div>";
+	
 	$query_out = $sanitizer->entities($q);
 	$no_results = "No results were found for $query_out";
 

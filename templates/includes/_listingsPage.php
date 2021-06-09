@@ -7,6 +7,9 @@ $title = $page->title;
 if( ! isset($status_message)) {
 	$status_message = "";	
 }
+if( ! isset($search_again)) {
+	$search_again = "";
+}
 
 $product_list = "";
 
@@ -46,6 +49,7 @@ foreach ($products as $product) {
 echo "<main data-pw-id='main'>
 		<h1 class='page-title'>$title</h1>
 		<h2 class='status-message'>$status_message</h2>
+			$search_again
 		<section class='products'>
 			<div class='card-viewer' data-action='closeLightbox'></div>
 			$product_list

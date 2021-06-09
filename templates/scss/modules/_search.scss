@@ -8,6 +8,19 @@
 	min-height: 0;
 	overflow-y: scroll;
 }
+.search--again {
+	max-width: 35rem;
+	margin: 0 3.5% 3rem 3.5%;
+
+	margin: 0 auto 3rem auto;
+
+	.form--search {
+		margin: 0 3.5% 3rem 3.5%;
+	}
+	.form__button--cancel {
+		display: none;
+	}
+}
 .search__title {
 	margin: 2rem 0;
 	text-align: left;
