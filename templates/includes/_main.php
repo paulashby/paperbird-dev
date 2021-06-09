@@ -8,6 +8,43 @@ $body_nav_class = $template_name == "category-sub" ? $page->parent->name : $page
 
 $body_tag = $user->isLoggedin() ? "<body class='$body_nav_class logged-in'>" : "<body class='$body_nav_class'>";
 $title = $page->title === "Home" ? "Welcome to Paper Bird" : $page->title;
+$menu = "";
+$footer = "";
+
+if($template_name != "maintenance") {
+
+    if($pages->get('template=home')->offline) {
+        $session->redirect($pages->get('template=maintenance')->url);
+    }
+
+    $menu_options = array(
+        "components" => array(
+             //  - use associative entries to include options
+            "navigation" => array(
+                "tree_options" => array(
+                    "parent_class" => "parent",
+                    "levels" => true,
+                    "levels_prefix" => "nav__level-",
+                    "max_levels" => 2,
+                    "selector" => "template!=section",
+                    "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
+                    "inner_tpl" => "<ul class='nav__dropdown nav__dropdown--{name}' data-cat='{name}'>||</ul>",
+                ), 
+                "sliding" => false // Sliding dropdowns
+            ),
+            "login",
+            "cart" => array(
+                "counter" => true),
+            "search" => array(
+                "container" => true
+            )
+        ),
+        "animate_menu_button" => true
+    );
+
+    $menu = $files->render("components/menu", $menu_options);
+    $footer = $files->render("components/footer"); 
+}
 
 echo "<!DOCTYPE html>
 <html>
@@ -20,57 +57,24 @@ echo "<!DOCTYPE html>
         $settings = $pages->get("/tools/settings/");
 
         echo "<script>var config = " . json_encode($jsconfig) . ";</script>";
-        ?>
-
-        <?=
-        loadWebpackChunk('css','main');
-        ?>
-        <region data-pw-id='head'></region>
+        echo loadWebpackChunk('css','main');
+        echo "<region data-pw-id='head'></region>
     </head>
-    <?= $body_tag ?>
-        <?php
-             echo   "<div class='content'>
-             <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>";
-             
-            // Menu
-            $menu_options = array(
-                "components" => array(
-                    //  - use associative entries to include options
-                    "navigation" => array(
-                        "tree_options" => array(
-                            "parent_class" => "parent",
-                            "levels" => true,
-                            "levels_prefix" => "nav__level-",
-                            "max_levels" => 2,
-                            "selector" => "template!=section",
-                            "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
-                            "inner_tpl" => "<ul class='nav__dropdown nav__dropdown--{name}' data-cat='{name}'>||</ul>",
-                        ), 
-                        "sliding" => false // Sliding dropdowns
-                    ),
-                    "login",
-                    "cart" => array(
-                        "counter" => true),
-                    "search" => array(
-                        "container" => true
-                    )
-                ),
-                "animate_menu_button" => true
-            );
-           $files->include("components/menu", $menu_options);
-        ?>
-        <main data-pw-id='main'>
-        </main>
-    </div><!-- END content -->
-        <?php
-            echo $files->render("components/footer");
-        ?>
-        <region data-pw-id='scripts'>
-             <?php
-             echo loadWebpackChunks('js', array(
+    $body_tag
+        <div class='content'>
+             <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>
+             $menu";
+
+             $chunks = loadWebpackChunks('js', array(
                 'manifest', 'vendor', 'main'
             ));
-            ?>
-        </region>
-    </body>
-</html>
+
+           echo "<main data-pw-id='main'>
+                </main>
+            </div><!-- END content -->
+            $footer
+            <region data-pw-id='scripts'>
+                $chunks
+            </region>
+                </body>
+            </html>";
