@@ -20,19 +20,32 @@ function init (settings) {
     $('.nav').on('click', function (e) {
         dataAttrClickHandler(e, actions);
     });
-
     
-    // Need to use event delegation for this else the listener isn't attached to the hidden element
-    // $('.' + setup.top_cat).on({
+    $(window).on('resize', function() {
+
+        // Hide active dropdowns when menu becomes landscape
+        let current_breakpoint = getBreakpoint();
+
+        if(current_breakpoint.indexOf('small') < 0){
+            let active_cat = $('.' + setup.level_1_class_active);
+
+            active_cat.removeClass(setup.level_1_class_active);
+
+            // Existing events no longer fire after class list is changed. Removing before re-applying to be on safe side
+            $('.has_children').off({
+                mouseenter: onMouseenter,
+                mouseleave: onMouseleave
+            }).on({
+                mouseenter: onMouseenter,
+                mouseleave: onMouseleave
+            });
+        }
+    });
+
     $('.has_children').on({
         mouseenter: onMouseenter,
         mouseleave: onMouseleave
     });
-    // $('.' + setup.dropdown).on({
-    // // $('.has_children').on({
-    //     mouseenter: onMouseenter,
-    //     mouseleave: onMouseleave
-    // });
 
     actions.toggleDropdown = function (e) {
 
@@ -91,10 +104,11 @@ function init (settings) {
 }
 
 function onMouseenter (e) {
-    
+    console.log('triggered!');
     let current_breakpoint = getBreakpoint();
 
     if(current_breakpoint.indexOf('small') < 0) {
+
         let dropdown_classes = getDropdownClasses(e);
         $('body').addClass(dropdown_classes);
     }
