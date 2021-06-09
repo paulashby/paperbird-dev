@@ -27,6 +27,15 @@
 .form__title {
 	@extend %title;
 }
+/* Processwire password feedback messages on processContentPages custom forms */
+.pass-scores,
+.pass-confirm {
+	&.detail {
+		display: block;
+		margin-bottom: 0.5rem;
+		margin-top: -0.5rem;
+	}
+}
 /* Processwire field in Forgotten Password form */
 .Inputfield, #ProcessForgotPassword {
 	font-family: $font-secondary;
@@ -163,12 +172,11 @@
 
 			& .detail {
 				font-size: 1.1rem;
-				line-hight: 1.3rem;
+				line-height: 1.3rem;
 			}
 		}
 	}
 
 }
-
 
 @import 'components/forms/pcpForms';

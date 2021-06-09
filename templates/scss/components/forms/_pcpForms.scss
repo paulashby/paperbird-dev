@@ -66,6 +66,12 @@
 	.form__button--cancel {
 		display: none;
 	}
+	.form__error--submission.form__error--show {
+		width: 100%;
+		box-sizing: border-box;
+		margin-top: 1rem;
+		line-height: 1.4rem;
+	}
 }
 .form_message {
 	max-width: 35rem;
