@@ -1,18 +1,25 @@
 %menu__entrybutton-base {
 	background-repeat: no-repeat;
-	color: #fff;
+	color: $colour-pb-blue;
 	display:inline-block;
 	font-size: 1.45rem;
 	width: 60px;
 	padding-top: 60px;
 	text-decoration: none;
 	text-transform: lowercase;
+	&:hover {
+		color: #fff;
+	}
+	transition: color $menu-transition_duration;
 
-	@media only screen and (min-width: map_get($breakpoints,  'small')) {
+	@media only screen and (min-width: map_get($breakpoints,  'medium')) {
+
+		color: #fff;
+
 		&:hover {
 			color: $colour-pb-blue;
 		}
-		transition: color $menu-transition_duration;
+		// transition: color $menu-transition_duration;
 	}
 }
 
