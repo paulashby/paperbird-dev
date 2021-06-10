@@ -185,18 +185,14 @@
 @media only screen and (min-width: map_get($breakpoints, 'medium')) {
 	.collections .nav__top-cat--collections,
 	.occasions .nav__top-cat--occasions,
+	.madewithlove .nav__top-cat--madewithlove,
 	.welshcards .nav__top-cat--welshcards {
-		color: $colour-pb-blue-dark;
+		color: $colour-pb-blue-mid;
 	}
 	.about-us .nav__top-link--aboutus,
 	.the-artists .nav__top-link--theartists,
-	.made-with-love .nav__top-link--madewithlove {
-		display: none;
+	.made-with-love .nav__top-link--madewithlove,
+	.welshcards .nav__top-link--welshcards {
+		color: $colour-pb-blue-mid;
 	}
 }
-// .add-listeners .nav__dropdown,
-// .nav .nav__dropdown {
-// 	display: block;
-// 	visibility: visible;
-// 	transform: scale(1);
-// }
