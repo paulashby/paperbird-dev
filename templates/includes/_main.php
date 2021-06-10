@@ -6,7 +6,12 @@ if($config->ajax) return;
 $template_name = $page->template->name;
 $body_nav_class = $template_name == "category-sub" ? $page->parent->name : $page->name;
 
-$body_tag = $user->isLoggedin() ? "<body class='$body_nav_class logged-in'>" : "<body class='$body_nav_class'>";
+/* cart-viewable is checked after a user logs in, allowing us to defer the appearance of the cart menu tool
+ * and avoid a slight visual 'bump' as the other menu tools reposition to accommodate it.
+ * First the logged-in class is added - this allows us to track the correct (closing) animation on the login menu tool.
+ * The cart will only be shown if body element has this class, so it needs to be in place on page load for logged in users.
+ */
+$body_tag = $user->isLoggedin() ? "<body class='$body_nav_class logged-in cart-viewable'>" : "<body class='$body_nav_class'>";
 $title = $page->title === "Home" ? "Welcome to Paper Bird" : $page->title;
 $menu = "";
 $footer = "";

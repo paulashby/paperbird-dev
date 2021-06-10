@@ -29,10 +29,10 @@ if(isset($components)){
 		*/ 
 
 		if(is_int($key)) {
-			$out .= "<li class='menu__entry'>" . $files->render('components/' . $value) . "</li>";
+			$class_sffx = "menu__entry--$value";
+			$out .= "<li class='menu__entry $class_sffx'>" . $files->render('components/' . $value) . "</li>";
 		} else {
-			// We hide cart menu entry when logged out to allow more control over spacing of remaining entries
-			$class_sffx = $key === "cart" ? "menu__entry--cart" : "";
+			$class_sffx = "menu__entry--$key";
 			$out .= "<li class='menu__entry $class_sffx'>" . $files->render('components/' . $key, array("value"=>$value)) . "</li>";
 		}
 	}

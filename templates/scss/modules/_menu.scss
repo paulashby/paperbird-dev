@@ -56,14 +56,12 @@ $menu-tool-z-index: 2;
 /* Menu tools are items such as login, cart and search */
 %expanded-menu-tool {
 
-	@media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
-		@keyframes menu_element_anim {
-			0%   {visibility: hidden; opacity: 0; scale: 0}
-			50%  {scale: 1.05}
-			100% {visibility: visible; opacity: 1; scale: 1}
-		}
-		animation: menu_element_anim $menu-transition_duration_medium;
+	@keyframes menu_element_anim {
+		0%   {visibility: hidden; opacity: 0; scale: 0}
+		50%  {scale: 1.05}
+		100% {visibility: visible; opacity: 1; scale: 1}
 	}
+	animation: menu_element_anim $menu-transition_duration_medium;
 
 	visibility: visible;
 	opacity: 1;
@@ -83,6 +81,10 @@ $menu-tool-z-index: 2;
 	}
 	animation: menu_element_anim_rev $menu-transition_duration;
 	z-index: $menu-tool-z-index;
+
+	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: map_get($breakpoints, 'medium') - 1){
+		width: calc(100% - 40px);
+	}
 }
 %expanded-menu-tool-fs {
 
@@ -230,7 +232,7 @@ body.menu__entries--active {
 			width: 30rem;
 		}
 		.login {
-			left: -230%;
+			left: -260%;
 		}
 		.search {
 			height: 10.5rem;
@@ -244,7 +246,7 @@ body.menu__entries--active {
 			height: auto;
 			left: auto;
 			max-height: calc(100vh - 6rem);
-			right: -6.6rem;
+			right: -5.1rem;
 		}
 	}
 }
@@ -293,15 +295,34 @@ body.menu__entries--active {
 		}
 	}
 }
+.menu__entry--login {
+
+	@media only screen and (min-width: map_get($breakpoints, 'small-2i')) {
+		left: 1.85rem;
+		transition: left $menu-transition_duration_medium ease;
+
+		.cart-viewable & {
+			left: -1.1rem;
+		}
+	}
+
+}
 .menu__entry--cart {
 
-	display: none;
-	
-	body.logged-in & {
-		display: inline-block;
+	display: inline-block;
 
-		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-			left: -0.15rem;
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+
+		position: absolute;
+		right: 6.25%;
+		top: 0.85rem;
+		transform: scale(0); 
+		transition: transform $menu-transition_duration_medium ease;
+		z-index: 1;
+
+		body.logged-in.cart-viewable & {
+
+			transform: scale(1);
 		}
 	}
 }

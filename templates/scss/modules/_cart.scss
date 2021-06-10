@@ -33,12 +33,10 @@
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		.form__button--cancel {
 			position: relative;
-			// top: auto;
 			left: auto;
 		}
 		.cart-items--empty ~ .form__button--cancel {
 			position: relative;
-			// top: auto;
 			bottom: auto;
 			left: 0;
 			right: 3.5rem;

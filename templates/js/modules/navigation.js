@@ -104,7 +104,7 @@ function init (settings) {
 }
 
 function onMouseenter (e) {
-    console.log('triggered!');
+    
     let current_breakpoint = getBreakpoint();
 
     if(current_breakpoint.indexOf('small') < 0) {

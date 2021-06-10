@@ -36,6 +36,15 @@ function init (settings) {
     $('.menu').on('click', function (e) {
         dataAttrClickHandler(e, actions);
     });
+    $(".menu__entries .login").on("animationend", function(e){
+        // Show cart button only after the log in tool has fully closed - else tool repositions when button appears
+        
+        // Check this is not just a field population animation initiated by a password manager
+        if($(e.target).hasClass('login') && $('body').hasClass('logged-in')){
+            console.log('Animation completed');
+            $('body').removeClass('cart-hidden').addClass('cart-viewable');
+        }
+     });
 
     actions.toggleMenu = function (e) {
 
@@ -118,6 +127,7 @@ function init (settings) {
         if($('body').hasClass('logged-in')) {
 
             $(e.target).trigger('logOutEvent', [e]);
+            $('body').removeClass('cart-viewable').addClass('cart-hidden');
 
         } else {
 
