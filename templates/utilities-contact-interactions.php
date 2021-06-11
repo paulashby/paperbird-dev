@@ -131,7 +131,6 @@ function sanitizeSubmission($data, $submission_type, $sanitizer) {
 			"fname"=>"first name", 
 			"lname"=>"last name", 
 			"email"=>"email", 
-			"message"=>"message", 
 			"address"=>"address", 
 			"postcode"=>"postcode", 
 			"consent"=>"consent checkbox"
