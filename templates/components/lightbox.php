@@ -8,8 +8,6 @@ $settings = $this->modules->get("ProcessOrderPages");
 
 $product_details = $product_page->price_category;
 $price = $cart->renderPrice($product_details->price);
-$size = $product_details->size;
-$paper_spec = $product_details->paper->paper_spec;
 $lightbox_extras = array();
 
 if($user->isLoggedin()) {
@@ -18,7 +16,7 @@ if($user->isLoggedin()) {
 
 // Include any fields specific to this project
 $lightbox_extras["size"] = $product_details->size . "mm";
-$lightbox_extras["paperspec"] = $product_details->paper->paper_spec;
+$lightbox_extras["paperspec"] = str_replace("|br-placeholder|", "<br>", $product_details->paper->paper_spec);
 
 $lightbox_inner.= $cart->renderItem($product_page, "lightbox", $lightbox_extras);
 
