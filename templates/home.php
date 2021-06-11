@@ -1,25 +1,29 @@
 <?php namespace ProcessWire;
 
 $random_image = $page->image->getRandom();
-$random_image_url = $random_image->url;
-$webp_url = $random_image->webp->url;
+$image_description = $random_image->description;
+$alt_str = strlen($image_description) ? $image_description : "A visually delightful card";
 
-/*
-See Notes/Webp In Processwire.txt
+$image_options = array(
+	"image_description" => $image_description,
+	"alt_str"=>$alt_str,
+	"class"=>"home-image--mob",
+	"context"=>"home",
+	"field_name"=>"image",
+	"image"=>$random_image,
+	"product_data_attributes"=>"",
+	"sizes"=>"(min-width: 500px) 400px, 80vww",
+	"lazy_load"=>false,
+	"webp"=>true
+);
 
-Uncomment the following to confirm it's working (this will output the 260px version and at that size, the webp is the smaller of the two, so does get output).
-*/
-// $smaller_version = $random_image->size(260);
-// $webp_url = $smaller_version->webp->url;
-// $random_image_url = $smaller_version->url;
+$lazyImages = $modules->get("LazyResponsiveImages");
+$main_image = $lazyImages->renderImage($image_options);
 
 
 echo "<main data-pw-id='main'>
 	<h1 class='page-title page-title--home'>Welcome to paperbird</h1>
-	<picture>
-	  <source srcset='$webp_url' type='image/webp' class='home-image--mob'>
-	  <img src='$random_image_url' class='home-image--mob'>
-	 </picture>
+	$main_image
 </main>";
 
 ?>
