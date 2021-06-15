@@ -14,7 +14,7 @@ return "<footer class='footer'>
 			</section>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>news</h3>
-				<a class='footer__link' href='/sketchbook/'>Sketchbook entry</a>
+				<a class='footer__link' href='/notebook/'>Notebook</a>
 				<a class='footer__link' href='/whats-on/'>What&apos;s on $month $year</a>
 			</section>
 			<section class='footer__entry'>
