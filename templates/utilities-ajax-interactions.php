@@ -74,7 +74,14 @@ switch ($action) {
 				$out = array();
 				$title = $post_page->title;
 				$post_content = $post_page->page_content;
-				$out["markup"] = "<div class='blog-post'><h2>$title</h2>$post_content</div><!-- END blog-post -->";
+
+				$post_image = "";
+				$img = $post_page->image;
+				if($img->count()){
+					$post_image = getPostImage($img->first());
+				}
+
+				$out["markup"] = "<div class='blog-post'>$post_image<h2>$title</h2>$post_content</div><!-- END blog-post -->";
 
 				$next_newest = $post_page->prev();
 				$out["next_newest_id"] = $next_newest ? $next_newest->id : false;
@@ -86,8 +93,25 @@ switch ($action) {
 		default:
 		return json_encode(array("success"=>false, "error"=>"Unknown AJAX action: '$action'"));
 }
+function getPostImage ($image) {
 
-function getPosts ($options) {
+	$image_description = $image->description;
+	$alt_str = strlen($image_description) ? $image_description : "A related image";
 
+	$image_options = array(
+		"image_description" => $image_description,
+		"alt_str"=>$alt_str,
+		"class"=>"blog-image",
+		"context"=>"blog",
+		"field_name"=>"image",
+		"image"=>$image,
+		"product_data_attributes"=>"",
+		"sizes"=>"(min-width: 500px) 350px, 75vww",
+		"lazy_load"=>false,
+		"webp"=>true
+	);
 
+	$lazyImages = wire("modules")->get("LazyResponsiveImages");
+	return $lazyImages->renderImage($image_options);
 }
+
