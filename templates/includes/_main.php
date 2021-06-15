@@ -59,6 +59,15 @@ echo "<!DOCTYPE html>
         <title data-pw-id='title'>$title</title>";
         // Data for javascript
         $jsconfig = include $config->paths->templates . "utilities-urls.php";
+
+        // if this is the Notebook page, get the id of the latest notepad entry
+        if($template_name == "blog") {
+            $newest_post_id = $page->children()->last()->id;
+            
+            if($newest_post_id) {
+                $jsconfig["blog_post"] = $newest_post_id;
+            }
+        }
         $settings = $pages->get("/tools/settings/");
 
         echo "<script>var config = " . json_encode($jsconfig) . ";</script>";
