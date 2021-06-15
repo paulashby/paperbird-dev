@@ -4,6 +4,7 @@ import menu from './modules/menu';
 import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
 import cart from './modules/cart'; 
+import blog from './modules/blog';  
 import LazyLoad from './vendor/lazyload.esm';
 
 let lazyLoad = new LazyLoad({
@@ -49,5 +50,9 @@ function init () {
 	navigation.init(nav_settings);	
 	lightbox.init(lightbox_settings);
 	cart.init();
+
+	if($('body').hasClass('notebook')) {
+		blog.init();	
+	}
 	
 }
