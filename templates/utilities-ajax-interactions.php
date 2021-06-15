@@ -64,7 +64,30 @@ switch ($action) {
 			$out .= $no_results;
 		}
 		return json_encode(array("success"=>true, "data"=>$out));
-	
-	default:
+
+		case "loadPost":
+			$post_id = $input->get("id"); 
+			$post_page = wire("pages")->get($post_id);
+
+			if($post_page->id) {
+
+				$out = array();
+				$title = $post_page->title;
+				$post_content = $post_page->page_content;
+				$out["markup"] = "<div class='blog-post'><h2>$title</h2>$post_content</div><!-- END blog-post -->";
+
+				$next_newest = $post_page->prev();
+				$out["next_newest_id"] = $next_newest ? $next_newest->id : false;
+
+				return json_encode(array("success"=>true, "data"=>$out));
+			}
+			return json_encode(array("success"=>false, "error"=>"Post could not be found"));
+
+		default:
 		return json_encode(array("success"=>false, "error"=>"Unknown AJAX action: '$action'"));
+}
+
+function getPosts ($options) {
+
+
 }
