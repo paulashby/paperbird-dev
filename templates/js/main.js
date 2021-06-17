@@ -5,6 +5,7 @@ import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
 import cart from './modules/cart'; 
 import blog from './modules/blog';  
+import whatson from './modules/whatson';  
 import LazyLoad from './vendor/lazyload.esm';
 
 let lazyLoad = new LazyLoad({
@@ -53,6 +54,10 @@ function init () {
 
 	if($('body').hasClass('notebook')) {
 		blog.init();	
+	} else if ($('body').hasClass('whats-on')){
+		let whatson_settings = {
+			sort_point: 650
+		}
+		whatson.init(whatson_settings);
 	}
-	
 }
