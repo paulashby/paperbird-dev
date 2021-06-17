@@ -18,10 +18,15 @@ $font-lora: 'Lora', serif;
 %title {
 	color: $colour-pb-purple;
 	font-family: $font-title;
-	font-size: 2.48rem;
+	// font-size: 2.48rem;
+	font-size: 3.1rem;
+	
+	line-height: calc-line-height(3.1) * 1rem;
+
+
 	font-weight: bold;
 	letter-spacing: $letter-spacing-title;
-	line-height: calc-line-height(2.48) * 1rem;
+	
 	margin-bottom: 3rem;
 	text-align: center;
 	text-transform: lowercase;
@@ -138,6 +143,7 @@ h2 {
 	line-height: 2.29rem;
 	margin-top: -0.6rem;
 }
+
 .page-title__category {
 	color: $colour-pb-purple-light;
 }
