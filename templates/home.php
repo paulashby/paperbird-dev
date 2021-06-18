@@ -5,7 +5,6 @@ $image_description = $random_image->description;
 $alt_str = strlen($image_description) ? $image_description : "A visually delightful card";
 
 $image_options = array(
-	"image_description" => $image_description,
 	"alt_str"=>$alt_str,
 	"class"=>"home-image--mob",
 	"context"=>"home",
