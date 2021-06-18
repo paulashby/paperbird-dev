@@ -214,8 +214,8 @@ $leading-title: 1.25;
   font-size: 1.1rem;
   line-height: 1rem;
   margin-bottom: 0.75rem;
-  padding: 1rem;
   opacity: 1; 
+  padding: 1rem;
   scale: 1;
   visibility: visible; 
 }
@@ -229,6 +229,96 @@ $leading-title: 1.25;
   width: 100%;
   @include transition(line-height $field-transition-duration ease, padding $field-transition-duration ease);
 }
+
+
+%stories {
+  @media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+    column-count: 2;
+    column-gap: 2rem;
+    margin: -0.55rem 2% 0 2%;
+  }
+}
+
+%story {
+  border: 1px solid #98c5d0;
+  box-sizing: border-box;
+  break-inside: avoid;
+  display: inline-block;
+  margin-bottom: 2rem;
+  padding: 2rem;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  h3 {
+    color: $colour-pb-purple;
+    font-size: 1.3rem;
+    font-weight: bold;
+    letter-spacing: $letter-spacing-title;
+    line-height: 1.6rem;
+    margin-bottom: 2rem;
+    margin-top: -1.5rem;
+    text-align: left;
+    text-transform: lowercase;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .story__details{
+    break-inside: avoid;
+    color: $colour-pb-purple;
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: calc-line-height(1.25) * 1rem;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'small-i')) {
+    padding: 4rem;
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+    padding: 6rem;
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+    padding: 2rem;
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'medium')) {
+    padding: 4rem;
+  }
+}
+%story__image {
+  margin: -2rem -2rem 1rem -2rem;
+  width: calc(100% + 4rem);
+
+  @media only screen and (min-width: map_get($breakpoints, 'small-i')) {
+    margin: -4rem -4rem 2rem -4rem;
+    width: calc(100% + 8rem);
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+    margin: -6rem -6rem 2rem -6rem;
+    width: calc(100% + 12rem);
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+    margin: -2rem -2rem 1rem -2rem;
+    width: calc(100% + 4rem);
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'medium')) {
+    margin: -4rem -4rem 2rem -4rem;
+    width: calc(100% + 8rem);
+  }
+}
+
+
+
+
+
+
+
 /* For lazy loading */
 %lazy-fade {
   opacity: 0;
