@@ -1,14 +1,7 @@
-// generic-page--about-us
-// generic-page--whats-on
 .generic-page {
 
 	max-width: 74%;
 	margin: 10rem auto 8rem auto;
-
-	// @media only screen and (min-width: map_get($breakpoints, 'small')) {
-	// 	width: 35rem;
-	// }
-
 
 	h2 {
 		margin-bottom: 2rem;
@@ -16,77 +9,29 @@
 		text-align: left;
 	}
 
-	&.generic-page--whats-on .gp__content {
+	&.generic-page .gp__content {
 
 		opacity: 0;
 		transition: opacity $field-transition-duration;
 
 		&.gp__content--show {
 			opacity: 1;
-			// transition: opacity $field-transition-duration;
 		}
 
 		h2 {
 			margin-top: 0;
 		}
 
-		.event-entry {
-			break-inside: avoid;
-			margin-bottom: 2rem;
-			padding: 2rem;
+		@extend %stories;
 
-			p:last-child {
-				margin-bottom: 0;
-			}
+		.event-entry {
+			@extend %story;
 
 			.event-entry__image {
-				width: calc(100% + 4rem);
-				margin: -2rem -2rem 1rem -2rem;
+				@extend %story__image
 			}
-
-			@media only screen and (min-width: map_get($breakpoints, 'small-i')) {
-				padding: 4rem;
-
-				.event-entry__image {
-					width: calc(100% + 8rem);
-					margin: -4rem -4rem 2rem -4rem;
-				}
-			}
-			@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
-				padding: 6rem;
-
-				.event-entry__image {
-					width: calc(100% + 12rem);
-					margin: -6rem -6rem 2rem -6rem;
-				}
-			}
-			@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
-				padding: 2rem;
-
-				.event-entry__image {
-					width: calc(100% + 4rem);
-					margin: -2rem -2rem 1rem -2rem;
-				}
-			}
-			@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-				padding: 4rem;
-
-				.event-entry__image {
-					width: calc(100% + 8rem);
-					margin: -4rem -4rem 2rem -4rem;
-				}
-			}
-		}
-		@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
-			column-count: 2;
-			column-gap: 2rem;
-			margin: -0.55rem 2% 0 2%;
 		}
 	}
-
-
-
-
 
 	@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
 		margin: 10rem 10% 8rem 10%;
@@ -102,64 +47,32 @@
 			}
 		}
 
-
-
-
-
-
-
-
-		// &.generic-page--whats-on .gp__content {
-		//     display: flex;
-		//     flex-wrap: wrap;
-		//     justify-content: flex-start;
-		//     align-items: flex-start;
-		//     margin: 0 2%;
-
-		//     .event-entry {
-	 //    		flex: 0 0 30%;	
-	 //    		margin-right: 3%;
-
-	 //    		h2 {
-	 //    			margin-top: 0.05rem;
-	 //    		}
-	 //    	}
-		// }
 	}
 	.page-title {
-		text-align: left;
 
 		@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
 			margin: 1rem 2% 7rem 2%;
 		}
 	}
-	// .page-title {
-	// 	text-align: left;
+	// .event-entry {
+	// 	box-sizing: border-box;
+	// 	border: 1px solid #98c5d0;
+	// 	padding: 2rem;
 
-	// 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-	// 		width: 150%;
+	// 	h3 {
+	// 		// @extend %title;
+	// 		letter-spacing: $letter-spacing-title;
+	// 		text-transform: lowercase;
+	// 		color: $colour-pb-purple;
+	// 		font-size: 1.3rem;
+	// 		font-weight: bold;
+	// 		margin-top: -1.5rem;
+	// 		line-height: 1.6rem;
+	// 		text-align: left;
+	// 		margin-bottom: 2rem;
 	// 	}
+
 	// }
-
-	.event-entry {
-		box-sizing: border-box;
-		border: 1px solid #98c5d0;
-		padding: 2rem;
-
-		h3 {
-			// @extend %title;
-			letter-spacing: $letter-spacing-title;
-			text-transform: lowercase;
-			color: $colour-pb-purple;
-			font-size: 1.3rem;
-			font-weight: bold;
-			margin-top: -1.5rem;
-			line-height: 1.6rem;
-			text-align: left;
-			margin-bottom: 2rem;
-		}
-
-	}
 	
 	p {
 		margin-bottom: 1.7rem;

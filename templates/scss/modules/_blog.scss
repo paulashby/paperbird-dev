@@ -1,6 +1,11 @@
-.blog-post {
-	.blog-image{
-		max-width: 350px;
-		width: 100%;
+.blog-content {
+	@extend %stories;
+
+	.blog-post {
+		@extend %story;
+
+		.blog-image {
+			@extend %story__image;
+		}
 	}
 }
