@@ -73,15 +73,19 @@ switch ($action) {
 
 				$out = array();
 				$title = $post_page->title;
+				$story_details = $post_page->story_details;
+				if($story_details){
+					$story_details = "<div class='story__details'>$story_details</div>";
+				}
 				$post_content = $post_page->page_content;
 
 				$post_image = "";
 				$img = $post_page->image;
 				if($img->count()){
-					$post_image = getPostImage($img->first());
+					$post_image = getPostImage($img->first(), $title);
 				}
 
-				$out["markup"] = "<div class='blog-post'>$post_image<h2>$title</h2>$post_content</div><!-- END blog-post -->";
+				$out["markup"] = "<div class='blog-post'>$post_image<h2>$title</h2>{$post_content}{$story_details}</div><!-- END blog-post -->";
 
 				$next_newest = $post_page->prev();
 				$out["next_newest_id"] = $next_newest ? $next_newest->id : false;
@@ -93,13 +97,12 @@ switch ($action) {
 		default:
 		return json_encode(array("success"=>false, "error"=>"Unknown AJAX action: '$action'"));
 }
-function getPostImage ($image) {
+function getPostImage ($image, $title) {
 
 	$image_description = $image->description;
-	$alt_str = strlen($image_description) ? $image_description : "A related image";
+	$alt_str = strlen($image_description) ? $image_description : $title;
 
 	$image_options = array(
-		"image_description" => $image_description,
 		"alt_str"=>$alt_str,
 		"class"=>"blog-image",
 		"context"=>"blog",
