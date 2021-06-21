@@ -4,7 +4,7 @@ $page_class = $page->name;
 $title = $page->title;
 $content = $page->page_content;
 
-// if($page_class == "whats-on"){
+if($page_class == "whats-on" || $page_class == "notebook"){
 	
 	$content = "";
 	$entries = $page->children();
@@ -17,7 +17,7 @@ $content = $page->page_content;
 		}
 		$content .= "<div class='event-entry'>$entry_image<h2>$entry->title</h2>$entry->page_content</div><!-- END event-entry -->";
 	}
-// }
+}
 echo "<main data-pw-id='main' class='generic-page generic-page--$page_class'>
 	<h1 class='page-title'>$title</h1>
 	<div class='gp__content gp__content--show'>$content</div>
