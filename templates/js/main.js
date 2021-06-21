@@ -5,7 +5,7 @@ import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
 import cart from './modules/cart'; 
 import blog from './modules/blog';  
-import whatson from './modules/whatson';  
+import colSorter from './modules/colSorter';  
 import LazyLoad from './vendor/lazyload.esm';
 
 let lazyLoad = new LazyLoad({
@@ -52,12 +52,16 @@ function init () {
 	lightbox.init(lightbox_settings);
 	cart.init();
 
-	if($('body').hasClass('notebook')) {
-		blog.init();	
+	if($('body').hasClass('notebook')) {	
+
+		blog.init();
+
 	} else if ($('body').hasClass('whats-on')){
-		let whatson_settings = {
-			sort_point: 650
+		let col_sorter_settings = {
+			sort_point: 650,
+			col_item: 'event-entry',
+			container: 'gp__content'
 		}
-		whatson.init(whatson_settings);
+		colSorter.init(col_sorter_settings);
 	}
 }
