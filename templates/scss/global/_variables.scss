@@ -129,6 +129,30 @@ $letter-spacing-title: 0.01rem;
 // Leading as proportion of font size
 $leading-title: 1.25;
 
+%fadein {
+  @keyframes fadein {
+    0%   {opacity: 0}
+    100% {opacity: 1}
+  }
+  animation: fadein $menu-transition_duration;
+}
+
+/* For lazy loading */
+%lazy-fade {
+  opacity: 0;
+  &:not(.initial) {
+    transition: opacity 1s;
+  }
+  &.initial,
+  &.loaded,
+  &.error {
+    opacity: 1;
+  }
+  &:not([src]) {
+    visibility: hidden;
+  }
+}
+
 %margin-padding-free {
   margin: 0;
   padding: 0;
@@ -242,6 +266,7 @@ $leading-title: 1.25;
 }
 
 %story {
+  @extend %fadein;
   border: 1px solid #98c5d0;
   box-sizing: border-box;
   break-inside: avoid;
@@ -312,27 +337,5 @@ $leading-title: 1.25;
   @media only screen and (min-width: map_get($breakpoints, 'medium')) {
     margin: -4rem -4rem 2rem -4rem;
     width: calc(100% + 8rem);
-  }
-}
-
-
-
-
-
-
-
-/* For lazy loading */
-%lazy-fade {
-  opacity: 0;
-  &:not(.initial) {
-    transition: opacity 1s;
-  }
-  &.initial,
-  &.loaded,
-  &.error {
-    opacity: 1;
-  }
-  &:not([src]) {
-    visibility: hidden;
   }
 }
