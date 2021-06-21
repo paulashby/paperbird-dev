@@ -1,11 +1,46 @@
-.blog-content {
+.blog__content {
 	@extend %stories;
+	column-count: 1;
+	margin: -0.55rem 0 0 0;
+
+	@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+		margin: -0.55rem 20% 0 20%;
+	}
 
 	.blog-post {
 		@extend %story;
 
+		@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+
+			padding: 2rem;	
+		
+		}
+
+		@media only screen and (min-width: map_get($breakpoints, 'small-3')) {
+
+			padding: 6rem;	
+		
+		}
+
 		.blog-image {
 			@extend %story__image;
+
+			@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+			  margin: -2rem -2rem 2rem -2rem;
+			  width: calc(100% + 4rem);
+			}
+
+			@media only screen and (min-width: map_get($breakpoints, 'small-3')) {
+			    margin: -6rem -6rem 2rem -6rem;
+			    width: calc(100% + 12rem);
+			}
+		}
+
+		&.blog-post--end-col-1 {
+			break-after: always;
+		}
+		&.blog-post--top-col-2 {
+			break-before: always;
 		}
 	}
 }
