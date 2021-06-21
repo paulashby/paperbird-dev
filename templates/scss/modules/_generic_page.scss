@@ -9,6 +9,14 @@
 		text-align: left;
 	}
 
+	// .documents & {
+	// 	margin: 10rem 0 0 0;
+		
+	// 	@media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+	// 		margin: 10rem 20% 0 20%;
+	// 	}	
+	// }
+
 	&.generic-page .gp__content {
 
 		opacity: 0;
@@ -37,7 +45,8 @@
 		margin: 10rem 10% 8rem 10%;
 		max-width: 1200px;
 
-		&.generic-page--about-us .gp__content {
+		&.generic-page--about-us .gp__content,
+		.contact-pages-doc {
 			column-count: 2;
 			column-gap: 4rem;
 			margin: 0 2%;
@@ -54,25 +63,6 @@
 			margin: 1rem 2% 7rem 2%;
 		}
 	}
-	// .event-entry {
-	// 	box-sizing: border-box;
-	// 	border: 1px solid #98c5d0;
-	// 	padding: 2rem;
-
-	// 	h3 {
-	// 		// @extend %title;
-	// 		letter-spacing: $letter-spacing-title;
-	// 		text-transform: lowercase;
-	// 		color: $colour-pb-purple;
-	// 		font-size: 1.3rem;
-	// 		font-weight: bold;
-	// 		margin-top: -1.5rem;
-	// 		line-height: 1.6rem;
-	// 		text-align: left;
-	// 		margin-bottom: 2rem;
-	// 	}
-
-	// }
 	
 	p {
 		margin-bottom: 1.7rem;
