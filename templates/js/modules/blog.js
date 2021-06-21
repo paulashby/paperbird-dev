@@ -2,35 +2,35 @@ import {doAction} from '../helpers';
 
 let setup = {
 	success_callbacks : {
-	    loadPost: function (data) {
-	    	$('.blog-content').append(data.markup);
+	    loadPosts: function (data) {
+	    	
+	        $('.blog__content').append(data.markup);
 	        config.blog_post = data.next_newest_id;
 	    }
 	}
 };
 
-function init (settings) {
+function init () {
 
- 	let options = {
+	let options = {
  	  root: null,
  	  rootMargin: '0px',
  	  threshold: 1
  	}
 
- 	let observer = new IntersectionObserver(loadPost, options);
+ 	let observer = new IntersectionObserver(loadPosts, options);
  	let target = document.querySelector('#blog-loader');
 	observer.observe(target);
 }
 
-function loadPost () {
-
+function loadPosts () {
 	if(config.blog_post) {
 		let settings = {
 		    ajaxdata: {
 		        action: 'loadPost',
 		        id: config.blog_post
 		    },
-		    callback: setup.success_callbacks.loadPost,
+		    callback: setup.success_callbacks.loadPosts,
 		    action_url: config.ajaxURL
 		};
 
