@@ -96,8 +96,8 @@ function sortWide (entries) {
 }
 
 
-const whatson = {
+const colSorter = {
 	init: init
 }; 
 
-export default whatson;
+export default colSorter;
