@@ -7,9 +7,10 @@ $year = $now->format('Y');
 if($page->name == "notebook"){
 
 }
-$blog_loader = $page->name == "notebook" ? "<div id='blog-loader'></div>" : "";
+$ajax_load_trigger = $page->name == "notebook" ? "<div id='blog-loader'></div>" : "";
 
 return "<footer class='footer'>
+	$ajax_load_trigger
 	<div class='footer__content'>
 		<div class='footer__sections'>
 			<section class='footer__entry'>
@@ -39,6 +40,5 @@ return "<footer class='footer'>
 			<p class='footer__text footer__text--copyright'>&copy; 2020 Paper Bird Publishing.</p>
 			<p class='footer__text'>Site created by <a class='footer__text-link' href='https://www.primitive.co/'>Primitive</a>.</p>
 		</div><!-- END footer__credits -->
-		$blog_loader
 	</div><!-- END footer__content -->
 </footer>";
