@@ -66,36 +66,57 @@ switch ($action) {
 		return json_encode(array("success"=>true, "data"=>$out));
 
 		case "loadPost":
+
 			$post_id = $input->get("id"); 
 			$post_page = wire("pages")->get($post_id);
+			$num_posts = $input->get("num_posts");
+			$out = array(
+				"markup"=>"");
 
-			if($post_page->id) {
+			for ($i=0; $i < $num_posts; $i++) { 
+				
+				$out["markup"] .= getPost($post_page);
+				$out["next_newest_id"] = getNextNewestID($post_page);
+				$post_page = $pages->get($out["next_newest_id"]);
 
-				$out = array();
-				$title = $post_page->title;
-				$story_details = $post_page->story_details;
-				if($story_details){
-					$story_details = "<div class='story__details'>$story_details</div>";
+				if( ! $out["next_newest_id"]) {
+					break;
 				}
-				$post_content = $post_page->page_content;
-
-				$post_image = "";
-				$img = $post_page->image;
-				if($img->count()){
-					$post_image = getPostImage($img->first(), $title);
-				}
-
-				$out["markup"] = "<div class='blog-post'>$post_image<h2>$title</h2>{$post_content}{$story_details}</div><!-- END blog-post -->";
-
-				$next_newest = $post_page->prev();
-				$out["next_newest_id"] = $next_newest ? $next_newest->id : false;
-
-				return json_encode(array("success"=>true, "data"=>$out));
 			}
-			return json_encode(array("success"=>false, "error"=>"Post could not be found"));
+			return json_encode(array("success"=>true, "data"=>$out));
 
 		default:
 		return json_encode(array("success"=>false, "error"=>"Unknown AJAX action: '$action'"));
+}
+function getNextNewestID ($post_page) {
+
+	$next_newest = $post_page->prev();
+	return $next_newest ? $next_newest->id : false;
+}
+function getPost ($post_page) {
+
+	if($post_page->id) {
+
+		$out = array();
+		$title = $post_page->title;
+		$story_details = $post_page->story_details;
+		if($story_details){
+			$story_details = "<div class='story__details'>$story_details</div>";
+		}
+		$post_content = $post_page->page_content;
+
+		$post_image = "";
+		$img = $post_page->image;
+		if($img->count()){
+			$post_image = getPostImage($img->first(), $title);
+		}
+
+		return "<div class='blog-post'>$post_image<h2>$title</h2>{$post_content}{$story_details}</div><!-- END blog-post -->";
+
+	}
+	// return json_encode(array("success"=>false, "error"=>"Post could not be found"));
+	return "<div class='blog-post'><h2>item not found</h2><p>It seems like the requested item is no longer available.</div><!-- END blog-post -->";
+
 }
 function getPostImage ($image, $title) {
 

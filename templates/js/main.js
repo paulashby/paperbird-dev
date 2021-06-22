@@ -53,7 +53,6 @@ function init () {
 	cart.init();
 
 	if($('body').hasClass('notebook')) {	
-
 		blog.init();
 
 	} else if ($('body').hasClass('whats-on')){

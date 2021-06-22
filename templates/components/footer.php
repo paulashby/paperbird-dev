@@ -4,13 +4,7 @@ $now = new \DateTime('now');
 $month = $now->format('M');
 $year = $now->format('Y');
 
-if($page->name == "notebook"){
-
-}
-$ajax_load_trigger = $page->name == "notebook" ? "<div id='blog-loader'></div>" : "";
-
 return "<footer class='footer'>
-	$ajax_load_trigger
 	<div class='footer__content'>
 		<div class='footer__sections'>
 			<section class='footer__entry'>
