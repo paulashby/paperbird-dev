@@ -109,7 +109,7 @@ function getPostImage ($image, $title) {
 		"field_name"=>"image",
 		"image"=>$image,
 		"product_data_attributes"=>"",
-		"sizes"=>"(min-width: 500px) 350px, 75vww",
+		"sizes"=>"(min-width: 615px) 48vw, (min-width: 1070px) 574px, 75vww",
 		"lazy_load"=>false,
 		"webp"=>true
 	);
