@@ -57,11 +57,14 @@ function init () {
 		blog.init();
 
 	} else if ($('body').hasClass('whats-on')){
+
 		let col_sorter_settings = {
-			sort_point: 650,
+			container: 'gp__content',
 			col_item: 'event-entry',
-			container: 'gp__content'
+			sort_point: 650
 		}
+
 		colSorter.init(col_sorter_settings);
-	}
+
+	} 
 }
