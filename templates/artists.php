@@ -2,21 +2,19 @@
 
 $title = $page->title;
 $artists = wire("pages")->find("template=" . $sanitizer->selectorValue("artist"));
-$artists_out  = "<div class='artists'>";
+$artists_out  = "<div class='artist-list'>";
 
 $lazyImages = $modules->get("LazyResponsiveImages");
 $max_eager = (int) $lazyImages->getMaxEager("subcat");
 $eager_count = 0;
+$artist_base_url = $pages->get("template=artists-section")->url;
 
 foreach ($artists as $entry => $artist) {
-	$artist_name = $artist->title;
 
- 	$product = $artist->biography_card;
+	$product = $artist->biography_card;
  	$img = "";
  	if($product) {
- 		// echo $artist->biography_card("<a href='{url}'>{title}</a>");
-		// $artists_out .= <img src="		
-		$product_shot = $product->product_shot->first();
+ 		$product_shot = $product->product_shot->first();
 		$dsc = $product_shot->description;
 		$alt_str = $dsc ? $dsc : $product->title;
 		$product_shot_options = [
@@ -26,9 +24,8 @@ foreach ($artists as $entry => $artist) {
 			"field_name"=>"product_shot",
 			"image"=>$product_shot,
 			"product_data_attributes"=>"",
-			"sizes"=>"(min-width: 480px) 350px, 73vw",
+			"sizes"=>"(min-width: 650px) 37vw, (min-width: 1200px) 450px, 75vww",
 			"webp"=>true
-			// if viewport width = 1000 or less use 300px, else use 300px - seems backwards?
 		];
 		if($eager_count < $max_eager) {
 
@@ -44,9 +41,11 @@ foreach ($artists as $entry => $artist) {
 
 		$eager_count++;
 	}
-	$artists_out .= $img;
- 	$artists_out .= "<h2 class='artist__name'>$artist_name</h2>";
- 	$artists_out .= "<p class='artist__biography'>" . $sanitizer->entities($artist->biography) . "</p>";
+ 	
+ 	$artist_name = $artist->title;
+ 	$artist_url = $artist->url;
+	$biog = $artist->page_content;
+ 	$artists_out .= "<a href='$artist_url'><div class='artist-entry'>$img<h2>$artist_name</h2>$biog</div></a><!-- END artist-entry -->";
  }
  $artists_out  .= "</div><!-- END artists -->";
 

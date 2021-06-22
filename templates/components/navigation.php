@@ -47,7 +47,7 @@ function getLevel1 ($child, $sliding) {
 	$link = $child->url();
 	$button_str = $sliding ? " nav__top-cat--buttoned" : "";
 
-	if($child->hasChildren()) {
+	if($child->hasChildren() && $child->template != "artists") {
 		return "<a href='$link' class='nav__top-cat nav__top-cat--$cat_lc $button_str' data-cat='$cat_lc' data-action='toggleDropdown'>$cat</span></a>";
 	}
 
