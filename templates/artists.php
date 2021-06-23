@@ -2,7 +2,7 @@
 
 $title = $page->title;
 $artists = wire("pages")->find("template=" . $sanitizer->selectorValue("artist"));
-$artists_out  = "<div class='artist-list'>";
+$artists_out  = "<div class='artist__list'>";
 
 $lazyImages = $modules->get("LazyResponsiveImages");
 $max_eager = (int) $lazyImages->getMaxEager("subcat");

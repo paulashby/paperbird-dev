@@ -85,6 +85,43 @@ switch ($action) {
 			}
 			return json_encode(array("success"=>true, "data"=>$out));
 
+		case "loadArtistItems":
+			$num_items = (int) $input->get("num_items");
+			$artist_name = $input->get("artist");
+			$start_after = $input->get("start_after");
+			$selector = "template=product, artist=$artist_name";
+			$selector_options = array("limit" => $input->get("num_items"));
+			if($start_after){
+				$selector_options["startAfterID"] = $start_after;
+			}
+
+			$items = wire("pages")->find($selector, $options = $selector_options);
+
+
+			$out = array(
+				"markup"=>"");
+
+			$item_options = array(
+				"lazyImages"=>$modules->get("LazyResponsiveImages"), 
+				"items_added" => 0
+			);
+			$item_options["max_eager"] = (int) $item_options["lazyImages"]->getMaxEager("artist");
+			
+			foreach ($items as $item) {
+				
+				if($item_options["items_added"] < $num_items){
+
+					$item_options["item"] = $item;
+					$out["markup"] .= getArtistItem($item_options);
+					$out["last_loaded"] = $item->id;
+
+					$item_options["items_added"]++;
+					$current_item = $item->id;
+				}
+				$out["next"] = $item->next();
+			}
+			return json_encode(array("success"=>true, "data"=>$out));
+
 		default:
 		return json_encode(array("success"=>false, "error"=>"Unknown AJAX action: '$action'"));
 }
@@ -92,6 +129,30 @@ function getNextNewestID ($post_page) {
 
 	$next_newest = $post_page->prev();
 	return $next_newest ? $next_newest->id : false;
+}
+function getArtistItem($options) {
+
+		$listing_options = [
+		"lazyImages"=>$options["lazyImages"],
+		"product"=>$options["item"],
+		"field_name"=>"product_shot",
+		"context"=>"listing",
+		// See Notes/SrcSet Planning.txt
+		"sizes"=>"(min-width: 1200px) 202px, (min-width: 815px) 16.85vw, (min-width: 550px) 22.8vw, 39vw",
+		"class"=>"products__product-shot"
+	];
+
+	if($options["items_added"] < $options["max_eager"]) {
+
+		$listing_options["lazy_load"] = false;
+	
+	} else {
+
+		$listing_options["lazy_load"] = true;
+		
+	}
+
+	return wire("files")->render('components/productListingEntry', Array("product_shot_options"=>$listing_options));	
 }
 function getPost ($post_page) {
 
@@ -114,7 +175,7 @@ function getPost ($post_page) {
 		return "<div class='blog-post'>$post_image<h2>$title</h2>{$post_content}{$story_details}</div><!-- END blog-post -->";
 
 	}
-	// return json_encode(array("success"=>false, "error"=>"Post could not be found"));
+	
 	return "<div class='blog-post'><h2>item not found</h2><p>It seems like the requested item is no longer available.</div><!-- END blog-post -->";
 
 }

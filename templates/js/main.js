@@ -5,6 +5,7 @@ import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
 import cart from './modules/cart'; 
 import blog from './modules/blog';  
+import artist from './modules/artist';  
 import colSorter from './modules/colSorter';  
 import LazyLoad from './vendor/lazyload.esm';
 
@@ -54,7 +55,9 @@ function init () {
 
 	if($('body').hasClass('notebook')) {	
 		blog.init();
-
+	} else if($('body').hasClass('artist')){
+		// Pass in lazyLoad instance so we can update after ajax load
+		artist.init(lazyLoad);
 	} else if ($('body').hasClass('whats-on')){
 
 		let col_sorter_settings = {

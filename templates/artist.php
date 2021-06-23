@@ -1,6 +1,13 @@
 <?php namespace ProcessWire;
 
 $artist_name = $page->title;
-$products  = $pages->find("template=product, artist=$artist_name");
+$title = $page->title;
 
-include "includes/_listingsPage.php";
+echo "<main data-pw-id='main'>
+	<h1 class='page-title'>$title</h1>
+	<div class='products'>
+		<div class='card-viewer' data-action='closeLightbox'></div>
+	</div>
+	<div id='blog-loader'></div>
+</main>";
+?>
