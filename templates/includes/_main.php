@@ -2,17 +2,59 @@
 
 if($config->ajax) return;
 
-// Determine current page tag for nav highlighting
-$template_name = $page->template->name;
-$body_nav_class = $template_name == "category-sub" ? $page->parent->name : $page->name;
-
-/* cart-viewable is checked after a user logs in, allowing us to defer the appearance of the cart menu tool
+/* 
+ * cart-viewable is checked after a user logs in, allowing us to defer the appearance of the cart menu tool
  * and avoid a slight visual 'bump' as the other menu tools reposition to accommodate it.
  * First the logged-in class is added - this allows us to track the correct (closing) animation on the login menu tool.
  * The cart will only be shown if body element has this class, so it needs to be in place on page load for logged in users.
  */
-$body_tag = $user->isLoggedin() ? "<body class='$body_nav_class logged-in cart-viewable'>" : "<body class='$body_nav_class'>";
-$title = $page->title === "Home" ? "Welcome to Paper Bird" : $page->title;
+
+
+
+// Data for javascript
+$jsconfig = include $config->paths->templates . "utilities-urls.php";
+
+$settings = $pages->get("/tools/settings/");
+
+$template_name = $page->template->name;
+
+// if this is the Notebook page, get the id of the latest notepad entry
+if($template_name == "blog") {
+    $newest_post_id = $page->children()->last()->id;
+    
+    if($newest_post_id) {
+        $jsconfig["blog_post"] = $newest_post_id;
+    }
+}
+
+if($template_name == "category-sub"){
+    $body_nav_class = $page->parent->name; 
+} else if($template_name == "artist"){
+     $body_nav_class = "artist"; 
+} else {
+    $body_nav_class = $page->name;
+}
+
+if($template_name == "artist"){
+    $artist_attr = $page->name;
+    $first_product_attr = $pages->find("template=product, artist=$artist_name")->first()->id;
+    $body_data_attr = "data-artist='$artist_attr' data-first='$first_product_attr'";   
+} else {
+    $body_data_attr = "";
+}
+
+if($user->isLoggedin()) {
+    $body_tag = "<body class='$body_nav_class logged-in cart-viewable' $body_data_attr>";    
+} else {
+    $body_tag = "<body class='$body_nav_class' $body_data_attr>";
+}
+
+if($page->title == "Home") {
+    $title = "Welcome to Paper Bird";   
+} else {
+    $title = $page->title;
+}
+
 $menu = "";
 $footer = "";
 
@@ -56,22 +98,11 @@ echo "<!DOCTYPE html>
     <head>
         <meta http-equiv='content-type' content='text/html; charset=utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <title data-pw-id='title'>$title</title>";
-        // Data for javascript
-        $jsconfig = include $config->paths->templates . "utilities-urls.php";
+        <title data-pw-id='title'>$title</title>
+        <script>var config = " . json_encode($jsconfig) . ";</script>";
 
-        // if this is the Notebook page, get the id of the latest notepad entry
-        if($template_name == "blog") {
-            $newest_post_id = $page->children()->last()->id;
-            
-            if($newest_post_id) {
-                $jsconfig["blog_post"] = $newest_post_id;
-            }
-        }
-        $settings = $pages->get("/tools/settings/");
-
-        echo "<script>var config = " . json_encode($jsconfig) . ";</script>";
         echo loadWebpackChunk('css','main');
+
         echo "<region data-pw-id='head'></region>
     </head>
     $body_tag
