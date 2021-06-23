@@ -2,16 +2,35 @@
 	@extend %menu-button-base;
 	color: #000;
 	max-height: calc(100vh - 95px);
-
+	
+	.cart-forms {
+		margin-bottom: 1rem;
+	}
 	.form__button--cancel {
 		margin-left: 0;
 		position: relative;
-		top: -0.35rem;
+		top: -1.28rem;
 		left: auto;
 		right: 3.5rem;
+		margin-bottom: 2rem;
+
+		// @media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		// 	margin-bottom: 2rem;
+		// }
+	}
+	.form__eco {
+		position: absolute;
+		font-size: 1rem;
+		bottom: 0;
+		width: calc(100% - 3.5rem);
+		left: 2.2rem;
 
 		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-			margin-bottom: 2rem;
+			
+			width: auto;
+			left: auto;
+			right: 7.2rem;
+			bottom: 1.8rem;
 		}
 	}
 	.cart-items {
