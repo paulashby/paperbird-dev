@@ -12,6 +12,8 @@ $q = $input->get('q');
 
 	if($q) {
 
+		// Make hyphenated terms separate words
+		$q = str_replace("-", " ", $q);
 		$q = explode(" ", $sanitizer->text($q));
 
 		foreach($q as $key => $value){
@@ -19,8 +21,21 @@ $q = $input->get('q');
 			$reqs[$key] = $sanitizer->selectorValue($value);
 		}
 
-		$search_term_string = implode("|", $q);
-		$selector = "template=product, title|tags|artist~=" . $search_term_string . ", limit=30";
+		$selector = "";
+		
+		foreach($q as $key => $part) {
+			if(strlen($part) > 3) continue;
+			// use MySQL LIKE for words under 4 characters in length
+			$selector .= ", title|tags|artist|sku%=" . $sanitizer->selectorValue($part);
+			bd("selector: '$selector'");
+			unset($q[$key]); 
+		}
+		if(count($q)) {
+			// use MySQL fulltext index for words 4 characters and higher
+			$selector .= ", title|tags|artist|sku~=" . $sanitizer->selectorValue(implode(' ', $q)); 
+			bd("selector: '$selector'");
+		}
+		$selector = "template=product, $selector, limit=30";
 		$matches = $pages->find($selector);
 		$result_count = count($matches);
 
