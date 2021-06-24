@@ -11,6 +11,7 @@ return "<footer class='footer'>
 				<h3 class='footer__heading'>legal</h3>
 				<a class='footer__link' href='/documents/terms-conditions'>Terms &amp; Conditions</a>
 				<a class='footer__link' href='/documents/privacy-policy'>Privacy Policy</a>
+				<a class='footer__link' href='/documents/order-product-information'>Order &amp; product info</a>
 			</section>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>news</h3>
