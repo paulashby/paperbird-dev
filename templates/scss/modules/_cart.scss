@@ -13,10 +13,6 @@
 		left: auto;
 		right: 3.5rem;
 		margin-bottom: 2rem;
-
-		// @media only screen and (min-width: map_get($breakpoints, 'medium')) {
-		// 	margin-bottom: 2rem;
-		// }
 	}
 	.form__eco {
 		position: absolute;
@@ -60,6 +56,11 @@
 			left: 0;
 			right: 3.5rem;
 		}
+	}
+	.cart-items--confirm + .form__button--cancel {
+		right: auto;
+		top: auto;
+		margin-bottom: 0;
 	}
 }
 .cart__counter {
