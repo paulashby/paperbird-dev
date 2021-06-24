@@ -124,7 +124,6 @@ function sanitizeSubmission($data, $submission_type, $sanitizer) {
 			"email"=>"email", 
 			"address"=>"address", 
 			"postcode"=>"postcode", 
-			"url"=>"website address", 
 			"consent"=>"consent checkbox"
 		),
 		"catalogue" => array(
