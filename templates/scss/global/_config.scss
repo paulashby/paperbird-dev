@@ -107,6 +107,7 @@ body {
 }
 .page-title {
 	@extend %title;
+
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		margin: 1rem 0 7rem 0;
 	}
@@ -124,6 +125,58 @@ body {
 		background-image: url('/site/templates/img/title_wide.svg');
 		max-width: 500px;
 		width: 80%;	
+	}
+}
+.maintenance-page {
+	background-image: url('/site/templates/img/maintenance_stork_tall.svg');
+	background-repeat: no-repeat;
+	background-position: 1.5rem 25rem;
+	background-color: $colour-pb-blue;
+
+	@media only screen and (min-width: map_get($breakpoints, 'small')) {
+		background-position: center 25rem;
+	}
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		margin: 0;
+
+		.content {
+			margin: 0;
+			max-width: none;
+		}
+		.logo {
+			top: 33px;
+			left: 20px;
+		}
+	}
+
+	.page-title--home-maintenance {
+		background-image: url('/site/templates/img/maintenance_title_w.svg');	
+		height: 18rem;
+		width: auto;
+	}
+	.status-message {
+		color: $colour-pb-blue-dark;
+		margin-bottom: 1.5rem;
+	}
+	.maintenance-messages {
+		width: 100vw;
+		position: absolute;
+		left: 0;
+	}
+	.maintenance-message {
+		margin: 0 auto;
+		width: 40rem;
+		max-width: 75vw;
+		text-align: center;
+		color: $colour-pb-blue-dark;
+	}
+	.messages-secondary {
+		position: relative;
+		z-index: 1;
+		background-color: #fff;
+		color: #4b484d;
+		padding: 3rem;
+		top: 24rem;
 	}
 }
 .home-image--mob {
