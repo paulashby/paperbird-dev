@@ -80,5 +80,14 @@
 		strong{
 			font-weight: bold;
 		}
+		figure img {
+			width: 100%;
+		}
+		figcaption {
+			font-size: 1.25rem;
+		}
+		p + figure img {
+			width: 77%;
+		}
 	}
 }
