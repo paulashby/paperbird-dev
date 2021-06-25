@@ -26,9 +26,9 @@ return "<footer class='footer'>
 			</section>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>social</h3>
-				<a class='footer__link' href='//twitter.com/paperbirdpub'>Twitter</a>
-				<a class='footer__link' href='//www.facebook.com/paperbirdpublishing'>Facebook</a>
-				<a class='footer__link' href='http://www.pinterest.com/paperbirdpub'>Pintrest</a>
+				<a class='footer__link' href='//twitter.com/paperbirdpub/'>Twitter</a>
+				<a class='footer__link' href='//www.facebook.com/paperbirdpublishing/'>Facebook</a>
+				<a class='footer__link' href='https://www.instagram.com/paperbirdpublishing/'>Instagram</a>
 			</section>
 		</div><!-- END footer__sections -->
 		<div class='footer__credits'>
