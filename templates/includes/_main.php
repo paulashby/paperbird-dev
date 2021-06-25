@@ -91,6 +91,9 @@ if($template_name != "maintenance") {
 
     $menu = $files->render("components/menu", $menu_options);
     $footer = $files->render("components/footer"); 
+    $company_logo_url = $pages->get(1)->logo->url;
+} else {
+    $company_logo_url = "/site/templates/img/paperbirdLogo_w.svg";
 }
 
 echo "<!DOCTYPE html>
@@ -107,7 +110,7 @@ echo "<!DOCTYPE html>
     </head>
     $body_tag
         <div class='content'>
-             <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='" . $pages->get(1)->logo->url . "' alt='Paperbird logo'></a>
+             <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='$company_logo_url' alt='Paperbird logo'></a>
              $menu";
 
              $chunks = loadWebpackChunks('js', array(
