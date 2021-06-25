@@ -32,8 +32,8 @@ return "<footer class='footer'>
 			</section>
 		</div><!-- END footer__sections -->
 		<div class='footer__credits'>
-			<p class='footer__text footer__text--copyright'>&copy; 2020 Paper Bird Publishing.</p>
-			<p class='footer__text'>Site created by <a class='footer__text-link' href='https://www.primitive.co/'>Primitive</a>.</p>
+			<p class='footer__text footer__text--copyright'>&copy; $year Paper Bird Publishing</p>
+			<p class='footer__text'>Site created by <a class='footer__text-link' href='https://www.primitive.co/'>Primitive</a></p>
 		</div><!-- END footer__credits -->
 	</div><!-- END footer__content -->
 </footer>";
