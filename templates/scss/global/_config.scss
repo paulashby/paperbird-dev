@@ -53,10 +53,6 @@ $font-lora: 'Lora', serif;
 
 body {
 	color: #000;
-
-	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-		margin-top: 4rem;
-	}
 }
 
 .content {
@@ -71,6 +67,9 @@ body {
 
 		/* In front of footer when lightbox active */
 		z-index: 2;
+	}
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		margin-top: 4rem;
 	}
 }
 .home-link {
