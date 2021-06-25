@@ -8,7 +8,7 @@ return "<footer class='footer'>
 	<div class='footer__content'>
 		<div class='footer__sections'>
 			<section class='footer__entry'>
-				<h3 class='footer__heading'>legal</h3>
+				<h3 class='footer__heading'>legal stuff</h3>
 				<a class='footer__link' href='/documents/terms-conditions'>Terms &amp; Conditions</a>
 				<a class='footer__link' href='/documents/privacy-policy'>Privacy Policy</a>
 				<a class='footer__link' href='/documents/order-product-information'>Order &amp; product info</a>
