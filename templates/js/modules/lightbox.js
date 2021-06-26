@@ -31,6 +31,9 @@ function init (settings) {
         $('body').removeClass('show-lightbox');
         $('.lightbox').removeClass('lightbox--expanded').addClass('lightbox--collapsed');
     };
+    actions.flip = function (e) {
+        $('body').toggleClass('flip-card');
+    }
 
     /*
     'updateCart' event is dispatched by ordercart.js
