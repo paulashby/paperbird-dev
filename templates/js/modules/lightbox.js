@@ -28,7 +28,7 @@ function init (settings) {
         populateLightbox(e.target.dataset.sku);
     };
     actions.closeLightbox = function (e) {
-        $('body').removeClass('show-lightbox');
+        $('body').removeClass('show-lightbox flip-card');
         $('.lightbox').removeClass('lightbox--expanded').addClass('lightbox--collapsed');
     };
     actions.flip = function (e) {
