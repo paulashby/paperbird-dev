@@ -30,6 +30,9 @@
 			.event-entry__image {
 				@extend %story__image
 			}
+			.event-entry__text {
+				@extend %story-text;
+			}
 		}
 	}
 

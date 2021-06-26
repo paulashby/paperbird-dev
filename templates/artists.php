@@ -45,7 +45,7 @@ foreach ($artists as $entry => $artist) {
  	$artist_name = $artist->title;
  	$artist_url = $artist->url;
 	$biog = $artist->page_content;
- 	$artists_out .= "<a href='$artist_url'><div class='artist-entry'>$img<h2>$artist_name</h2>$biog</div></a><!-- END artist-entry -->";
+ 	$artists_out .= "<a href='$artist_url'><div class='artist-entry'>$img<div class='artist-entry__text'><h2>$artist_name</h2>$biog</div></div></a><!-- END artist-entry -->";
  }
  $artists_out  .= "</div><!-- END artists -->";
 

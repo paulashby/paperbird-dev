@@ -15,7 +15,7 @@ if($page_class == "whats-on" || $page_class == "notebook"){
 		if($img->count()){
 			$entry_image = getEventImage($img->first(), $title);
 		}
-		$content .= "<div class='event-entry'>$entry_image<h2>$entry->title</h2>$entry->page_content</div><!-- END event-entry -->";
+		$content .= "<div class='event-entry'>$entry_image<div class='event-entry__text'><h2>$entry->title</h2>$entry->page_content</div></div><!-- END event-entry -->";
 	}
 }
 echo "<main data-pw-id='main' class='generic-page generic-page--$page_class'>

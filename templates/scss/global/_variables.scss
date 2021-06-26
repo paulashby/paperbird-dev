@@ -272,7 +272,6 @@ $leading-title: 1.25;
   break-inside: avoid;
   display: inline-block;
   margin-bottom: 2rem;
-  padding: 2rem;
 
   h2 {
     margin-top: 0;
@@ -305,37 +304,47 @@ $leading-title: 1.25;
       margin-bottom: 0;
     }
   }
-  @media only screen and (min-width: map_get($breakpoints, 'small-i')) {
-    padding: 4rem;
-  }
-  @media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
-    padding: 6rem;
-  }
-  @media only screen and (min-width: map_get($breakpoints, 'small-2')) {
-    padding: 2rem;
-  }
-  @media only screen and (min-width: map_get($breakpoints, 'medium')) {
-    padding: 4rem;
-  }
 }
 %story__image {
-  margin: -2rem -2rem 1rem -2rem;
-  width: calc(100% + 4rem);
+  width: 100%;
+}
+%story-text {
 
+  margin: 2rem;
+
+  picture + & {
+    margin: 1rem 2rem 2rem; 
+  }
   @media only screen and (min-width: map_get($breakpoints, 'small-i')) {
-    margin: -4rem -4rem 2rem -4rem;
-    width: calc(100% + 8rem);
+    
+    margin: 4rem;
+
+    picture + & {
+      margin: 2rem 4rem 4rem; 
+    }
   }
   @media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
-    margin: -6rem -6rem 2rem -6rem;
-    width: calc(100% + 12rem);
+    
+    margin: 6rem;
+
+    picture + & {
+      margin: 3rem 6rem 6rem; 
+    }
   }
   @media only screen and (min-width: map_get($breakpoints, 'small-2')) {
-    margin: -2rem -2rem 1rem -2rem;
-    width: calc(100% + 4rem);
+
+    margin: 2rem;
+
+    picture + & {
+      margin: 1rem 2rem 2rem; 
+    }
   }
   @media only screen and (min-width: map_get($breakpoints, 'medium')) {
-    margin: -4rem -4rem 2rem -4rem;
-    width: calc(100% + 8rem);
+    
+    margin: 4rem;
+
+    picture + & {
+      margin: 2rem 4rem 4rem; 
+    }
   }
 }

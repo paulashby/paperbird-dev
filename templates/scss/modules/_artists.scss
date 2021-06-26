@@ -5,8 +5,12 @@
   .artist-entry {
     @extend %story;
     color: $colour-pb-purple;
-  }
-  .artist__image {
-    @extend %story__image;
+
+    .artist__image {
+      @extend %story__image;
+    }
+    .artist-entry__text {
+      @extend %story-text; 
+    }
   }
 }

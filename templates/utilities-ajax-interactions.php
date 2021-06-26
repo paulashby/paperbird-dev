@@ -172,11 +172,11 @@ function getPost ($post_page) {
 			$post_image = getPostImage($img->first(), $title);
 		}
 
-		return "<div class='blog-post'>$post_image<h2>$title</h2>{$post_content}{$story_details}</div><!-- END blog-post -->";
+		return "<div class='blog-post'>$post_image<div class='blog-post__text'><h2>$title</h2>{$post_content}{$story_details}</div></div><!-- END blog-post -->";
 
 	}
 	
-	return "<div class='blog-post'><h2>item not found</h2><p>It seems like the requested item is no longer available.</div><!-- END blog-post -->";
+	return "<div class='blog-post'><div class='blog-entry__text'><h2>item not found</h2><p>It seems like the requested item is no longer available.</p></div></div><!-- END blog-post -->";
 
 }
 function getPostImage ($image, $title) {
