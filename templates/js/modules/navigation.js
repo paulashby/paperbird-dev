@@ -42,6 +42,11 @@ function init (settings) {
         }
     });
 
+    $('body').on('touchstart', function(e){
+        console.log('touche');
+        $('body').removeClass('no-touch');
+    });
+
     $('.has_children').on({
         mouseenter: onMouseenter,
         mouseleave: onMouseleave
