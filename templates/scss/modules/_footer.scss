@@ -27,7 +27,7 @@
 		font-family: $font-secondary;
 		font-size: 1.2rem;
 		justify-content: space-between;
-		line-height: 1.5;
+		line-height: 1.5rem;
 		margin: 0 10%;
 		max-width: 1200px;
 
@@ -63,7 +63,7 @@
 		@extend %footer-base-text;
 		@extend %footer_item;
 		color: $colour-pb-purple-mid;
-		font-size: 1rem;
+		font-size: 1.1rem;
 		margin-bottom: 1.4rem;
 		white-space: nowrap;
 

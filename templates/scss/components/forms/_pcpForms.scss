@@ -21,7 +21,7 @@
 	}
 	.form__input--textarea {
 		font-family: $font-text;
-		font-size: 1.2rem;
+		font-size: 1.6rem;
 		min-height: 8rem;
 		padding-bottom: 2rem;
 		padding-top: 0.5rem;
@@ -36,11 +36,11 @@
 	}
 	.form__consent-checkbox {
 		margin-right: 0.5rem;
-		margin-top: 0rem;
+		margin-top: 0.3rem;
 	}
 	.form__note, .description {
-		font-size: 1.1rem;
-		line-height: 1.3rem;
+		font-size: 1.4rem;
+		line-height: 2rem;
 		margin-bottom: 1rem;
 
 		&.form__note--consent {

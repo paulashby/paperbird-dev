@@ -9,7 +9,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	font-family: $font-secondary;
-	// justify-content: space-between;
 	justify-content: flex-start;
 }
 .products__product {
@@ -31,13 +30,13 @@
 }
 .products__sku {
 	color: $colour-pb-blue;
-	font-size: 1.5rem;
+	font-size: 1.6rem;
 	font-weight: bold;
 	text-transform: uppercase;
 	line-height: 1rem;
 	margin: 0;
 	line-height: 2.4rem;
-	margin:0.25rem 0 0.3rem 0;
+	margin:0.25rem 0 0.5rem 0;
 }
 .products__title {
 	@extend %product-title;
