@@ -4,10 +4,6 @@
 
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 	  display: none;
-
-	  .show-lightbox .lightbox--expanded & {
-	  	display: block;
-	  }
 	}
 	cursor: pointer;
 	display: inline-block;
