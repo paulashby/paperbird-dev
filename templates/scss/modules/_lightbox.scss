@@ -51,7 +51,7 @@
 	position: absolute;
 	visibility: hidden;
 	opacity: 0;
-	overflow: scroll;
+	overflow: auto;
 
 	@media only screen and (min-width: map_get($breakpoints, 'small')) {
 		height: auto;

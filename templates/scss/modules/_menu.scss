@@ -160,7 +160,7 @@ body.menu__entries--active {
 		width: calc(100vw - 80px);
 		left: 20px;
 		bottom: 20px;
-		overflow: hidden;
+		overflow: auto;
 
 		border: 20px solid white;
 		@include prefix((
@@ -182,7 +182,6 @@ body.menu__entries--active {
 	}
 	.menu--modal-active.menu--cart & .cart {
 		@extend %expanded-menu-tool;
-		overflow: scroll;
 	}
 	.menu--modal-active.menu--search & .search {
 		@extend %expanded-menu-tool;
