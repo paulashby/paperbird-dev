@@ -185,6 +185,7 @@ body.menu__entries--active {
 	}
 	.menu--modal-active.menu--search & .search {
 		@extend %expanded-menu-tool;
+		overflow: auto;
 	}
 	.menu--modal-active.menu--search & .search--results {
 		@extend %expanded-menu-tool;
