@@ -46,7 +46,7 @@ if($template_name == "artist"){
 if($user->isLoggedin()) {
     $body_tag = "<body class='$body_nav_class logged-in cart-viewable no-touch' $body_data_attr>";    
 } else {
-    $body_tag = "<body class='$body_nav_class no-touch' $body_data_attr>";
+    $body_tag = "<body class='$body_nav_class no-touch' $body_data_attr>";   
 }
 
 if($page->title == "Home") {
@@ -60,7 +60,7 @@ $footer = "";
 
 if($template_name != "maintenance") {
 
-    if($pages->get('template=home')->offline) {
+    if($pages->get('template=home')->offline && ! $user->isLoggedin()) {
         $session->redirect($pages->get('template=maintenance')->url);
     }
 
