@@ -49,7 +49,6 @@ $wire->addHookAfter('ProcessPageList::execute', function($event){
 		    $curr_template = $curr_entry->template; 
 
 		    if( ! in_array($curr_template, $showable)){
-		    	bd("unsetting " . $curr_template);
 		    	unset($event_data['children'][$key]);
 		    }
 		}
