@@ -60,8 +60,13 @@ $footer = "";
 
 if($template_name != "maintenance") {
 
-    if($pages->get('template=home')->offline && ! $user->isLoggedin()) {
-        $session->redirect($pages->get('template=maintenance')->url);
+    if($pages->get('template=home')->offline) {
+
+        $permitted = $user->hasRole("superuser") || $user->hasRole("manager");
+
+        if( ! $permitted){
+            $session->redirect($pages->get('template=maintenance')->url);
+        }
     }
 
     $menu_options = array(
