@@ -54,7 +54,8 @@ function init () {
 	  /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
 	if (checkIsIOS()) {
-	  disableIosTextFieldZoom();
+		disableIosTextFieldZoom();
+		$('body').addClass('ios');
 	}
 
 	errorHandler.init(error_handler_settings);

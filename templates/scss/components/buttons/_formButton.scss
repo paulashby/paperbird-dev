@@ -1,4 +1,5 @@
 .form__button {
+	-webkit-appearance: none;
 	background-color: $colour-pb-purple;
 	border-radius: 0.4rem;
 	border: 1px solid $colour-pb-purple;
@@ -6,10 +7,19 @@
 	margin-right: 0.5rem;
 	padding: 0.5rem 1rem;
 }
-.form__button--submit {
-}
 .form__button--cancel {
 	background-color: #fff;
 	border-color: $colour-pb-purple-light;
 	color: #6e5f77;
+}
+.ios {
+	.form__button {
+		font-size: 16px;
+	}
+	.form__consent-checkbox {
+		transform: scale(2.0);
+	}
+	.form__note--consent {
+		margin-left: 0.5rem;
+	}
 }
