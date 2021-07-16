@@ -1,5 +1,15 @@
 <?php
 
+// Redirect customers from back end to homepage
+$this->addHookBefore('PageRender::renderPage', function($event) {
+
+	$is_admin_page = $this->page->rootParent->id == 2;
+
+	if($is_admin_page && $this->wire('user')->hasRole("customer")) {
+		$this->wire('session')->redirect("/");
+	}
+});
+
 $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
 	if($event->object->hasField == 'biography_card') {
 		// Populate artist->biography_card Page Reference field
