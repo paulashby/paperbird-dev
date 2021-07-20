@@ -108,6 +108,10 @@ function init (settings) {
 }
 
 function onMouseenter (e) {
+
+    if($('.menu').hasClass('menu--modal-active')) {
+        return;
+    }
     
     let current_breakpoint = getBreakpoint();
 
