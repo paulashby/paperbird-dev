@@ -122,6 +122,9 @@ function init (settings) {
 
         }
     };
+    actions.closeMenuTool = function (e) {
+        $('.menu').removeClass('menu--modal-active');
+    };
     actions.logInOut = function (e) {
 
         if($('body').hasClass('logged-in')) {

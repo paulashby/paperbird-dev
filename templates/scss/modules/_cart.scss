@@ -24,9 +24,8 @@
 		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 			
 			width: auto;
-			left: auto;
-			right: 7.2rem;
-			bottom: 1.8rem;
+			position: static;
+			margin: 2rem auto;
 		}
 	}
 	.cart-items {
@@ -73,6 +72,10 @@
 		position: absolute;
 		top: 1.9rem;
 		right: -2.1rem;
+
+		.menu--modal-active & {
+			display: none;
+		}
 	}
 }
 .cart__counter-count {

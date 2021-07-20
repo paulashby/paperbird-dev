@@ -15,6 +15,12 @@
 		&:hover {
 			color: $colour-pb-blue;
 		}
+		
+		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+			.menu--modal-active & {
+				display: none;
+			}
+		}
 		transition: color $menu-transition_duration;
 	}
 }

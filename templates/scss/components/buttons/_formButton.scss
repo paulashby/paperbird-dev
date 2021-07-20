@@ -11,6 +11,9 @@
 	background-color: #fff;
 	border-color: $colour-pb-purple-light;
 	color: #6e5f77;
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		display: none;
+	}
 }
 .ios {
 	.form__button {

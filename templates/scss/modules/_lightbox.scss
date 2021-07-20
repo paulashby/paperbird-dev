@@ -10,10 +10,16 @@
 .card-viewer {
 
 	@media only screen and (min-width: map_get($breakpoints, 'small')) {
+		align-content: center;
+		align-items: center;
 		background: rgba(80,80,80,0);
+		display: flex;
+		flex-direction: column;
 		height: 100vh;
+		justify-content: center;
 		left: 0;
 		margin: 0;
+		overflow: scroll;
 		pointer-events: none;
 		position: fixed;
 		top: 0;
@@ -27,16 +33,6 @@
 			background: rgba(80,80,80,0.8);
 			pointer-events: auto;
 		}
-	}
-	@media only screen and (min-width: map_get($breakpoints, 'small')) {
-
-		/* Becomes flexbox container to center lightbox vertically */
-		overflow: scroll;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		align-content: center;
 	}
 }
 .lightbox {
