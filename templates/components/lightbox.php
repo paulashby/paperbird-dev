@@ -18,7 +18,17 @@ if($user->isLoggedin()) {
 $lightbox_extras["size"] = $product_details->size . "mm";
 $lightbox_extras["paperspec"] = str_replace("|br-placeholder|", "<br>", $product_details->paper->paper_spec);
 
-$lightbox_inner.= $cart->renderItem($product_page, "lightbox", $lightbox_extras);
+if($product_page->price_category->paper->title == "Plumette Wallet") {
+	$quantity_settings = array(
+		"quantity_str" => "wallet of 6",
+		"min" => 3,
+		"step" => 3
+	);	
+} else {
+	$quantity_settings = null;
+}
+
+$lightbox_inner.= $cart->renderItem($product_page, "lightbox", $lightbox_extras, $quantity_settings);
 
 $lightbox_inner .= "</div><!-- End active-card -->";
 
