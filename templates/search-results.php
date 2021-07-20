@@ -27,13 +27,11 @@ $q = $input->get('q');
 			if(strlen($part) > 3) continue;
 			// use MySQL LIKE for words under 4 characters in length
 			$selector .= ", title|tags|artist|sku%=" . $sanitizer->selectorValue($part);
-			bd("selector: '$selector'");
 			unset($q[$key]); 
 		}
 		if(count($q)) {
 			// use MySQL fulltext index for words 4 characters and higher
 			$selector .= ", title|tags|artist|sku~=" . $sanitizer->selectorValue(implode(' ', $q)); 
-			bd("selector: '$selector'");
 		}
 		$selector = "template=product, $selector, limit=30";
 		$matches = $pages->find($selector);
