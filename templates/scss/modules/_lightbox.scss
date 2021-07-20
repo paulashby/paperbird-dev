@@ -136,6 +136,7 @@
 		left: 0;
 		opacity: 0;
 		transition: opacity $field-transition-duration;
+		border: 1px solid $colour-pb-purple-light;
 
 		.flip-card & {
 			opacity: 1;
@@ -169,7 +170,7 @@
 	}
 }
 .lightbox--has-variations {
-	background-color: $colour-pb-purple-light;
+	background-color: $colour-pb-purple;
 }
 .active-card {
 	background-color: #fff;
