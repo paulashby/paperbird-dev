@@ -42,7 +42,7 @@ $this->addHookBefore('OrderCart::renderCartItem', function($event) {
 
 	if($product_type === 'Plumette Wallet'){
 		$e["item_str"] = "wallet";
-		$e["qty_str"] = "6";
+		unset($e["qty_str"]);
 	}
 	$event->arguments(0, $e);
 });

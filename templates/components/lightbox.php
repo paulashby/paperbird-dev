@@ -20,7 +20,7 @@ $lightbox_extras["paperspec"] = str_replace("|br-placeholder|", "<br>", $product
 
 if($product_page->price_category->paper->title == "Plumette Wallet") {
 	$quantity_settings = array(
-		"quantity_str" => "wallet of 6",
+		"quantity_str" => "wallet",
 		"min" => 3,
 		"step" => 3
 	);	
