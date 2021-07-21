@@ -126,7 +126,6 @@ body.menu__entries--active {
 	@extend %menu-element-full-screen;
 	@extend %menu-element-hidden;
 	z-index:2;
-	overflow: hidden;
 	position: fixed;
 
 	.menu--static-bttn & > li:first-child {
