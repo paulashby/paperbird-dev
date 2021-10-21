@@ -6,8 +6,7 @@ $artists_out  = "<div class='artist__list'>";
 
 $lazyImages = $modules->get("LazyResponsiveImages");
 $max_eager = (int) $lazyImages->getMaxEager("subcat");
-$eager_count = 0;
-$artist_base_url = $pages->get("template=artists-section")->url;
+$eager_count = 0;	
 
 foreach ($artists as $entry => $artist) {
 

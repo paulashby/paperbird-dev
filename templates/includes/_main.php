@@ -37,7 +37,7 @@ if($template_name == "category-sub"){
 
 if($template_name == "artist"){
     $artist_attr = $page->name;
-    $first_product_attr = $pages->find("template=product, artist=$artist_name")->first()->id;
+    $first_product_attr = $pages->find("template=product, artist.title=$artist_name")->first()->id;
     $body_data_attr = "data-artist='$artist_attr' data-first='$first_product_attr'";   
 } else {
     $body_data_attr = "";

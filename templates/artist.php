@@ -10,4 +10,3 @@ echo "<main data-pw-id='main'>
 	</div>
 	<div id='blog-loader'></div>
 </main>";
-?>

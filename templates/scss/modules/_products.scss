@@ -40,4 +40,8 @@
 }
 .products__title {
 	@extend %product-title;
+
+	.artists & {
+		margin-top: 0.3rem;
+	}
 }
