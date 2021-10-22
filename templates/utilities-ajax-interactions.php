@@ -89,14 +89,18 @@ switch ($action) {
 			$num_items = (int) $input->get("num_items");
 			$artist_name = $input->get("artist");
 			$start_after = $input->get("start_after");
-			$selector = "template=product, artist=$artist_name";
+			if($artist_name == "una-joy") {
+				// As Una Joy has loads of cards, we're only loading those in the artist section
+				$selector = "parent=/the-artists/una-joy/";
+			} else {
+				$selector = "template=product, artist=$artist_name";
+			}
 			$selector_options = array("limit" => $input->get("num_items"));
 			if($start_after){
 				$selector_options["startAfterID"] = $start_after;
 			}
 
 			$items = wire("pages")->find($selector, $options = $selector_options);
-
 
 			$out = array(
 				"markup"=>"");
