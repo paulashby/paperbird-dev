@@ -9,6 +9,9 @@ if( ! array_key_exists("product_data_attributes", $product_shot_options)) {
 
 $product = $product_shot_options["product"];
 $img_index = isset($product_shot_options["img_index"]) ? $product_shot_options["img_index"] : 0;
+if($product->price_category->images_require_keylines){
+	$product_shot_options["class"] .= " keyline";
+}
 
 $product_shot = $product->product_shot->eq($img_index);
 $dsc = $product_shot->description;

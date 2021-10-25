@@ -106,6 +106,9 @@
 	}
 	.cart__product-shot {
 		width: 100%;
+		&.keyline {
+			border: 1px solid $colour-pb-purple-light;
+		}
 		&.lazy{
 			@extend %lazy-fade;
 		}

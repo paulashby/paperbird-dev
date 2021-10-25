@@ -120,6 +120,9 @@
 	.product-shot {
 		width: 70%;
 		margin: 15% 15% 2rem 15%;
+		&.keyline {
+			border: 1px solid $colour-pb-purple-light;
+		}
 
 		@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
 			width: 75%;
@@ -132,7 +135,6 @@
 		left: 0;
 		opacity: 0;
 		transition: opacity $field-transition-duration;
-		border: 1px solid $colour-pb-purple-light;
 
 		.flip-card & {
 			opacity: 1;
