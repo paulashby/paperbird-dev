@@ -209,3 +209,9 @@ h2 {
 	max-width: 35rem;
 	margin: 0 auto 3rem auto;
 }
+.products__product-shot.plumette {
+	&.sq {
+		width: 90%;
+		margin-top: 10%;
+	}
+}

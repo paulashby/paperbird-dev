@@ -2,9 +2,15 @@
 	flex-basis: 47.5%;
 	width: 100%;
 	&.keyline{
-		border: 1px solid $colour-pb-keyline;
+		border: 1px solid $colour-pb-keyline;	
 	}
-	&.lazy{
+	&.rect--l {
+		margin-top: 25.3%;
+	}
+	&.rect--p {
+		width: 75.5%;
+	}
+	&.lazy {
 		@extend %lazy-fade;
 	}
 }
