@@ -10,7 +10,7 @@ $product_details = $product_page->price_category;
 $price = $cart->renderPrice($product_details->price);
 $lightbox_extras = array();
 
-if($user->isLoggedin()) {
+if ($user->isLoggedin()) {
 	$lightbox_extras["price"] = $cart->renderPrice($product_details->price);
 }
 
@@ -18,18 +18,22 @@ if($user->isLoggedin()) {
 $lightbox_extras["size"] = $product_details->size . "mm";
 $lightbox_extras["paperspec"] = str_replace("|br-placeholder|", "<br>", $product_details->paper->paper_spec);
 
-if($product_page->price_category->paper->title == "Plumette Wallet") {
+$cart_spec = $product_page->price_category->paper;
+$unit_increment = $cart_spec->unit_increment;
+if ($unit_increment != "") {
+	$unit_increment = intval($unit_increment);
+	$unit_descriptor = $cart_spec->unit_descriptor;
 	$quantity_settings = array(
-		"quantity_str" => "wallet",
-		"min" => 3,
-		"step" => 3
-	);	
+		"quantity_str" => $unit_descriptor,
+		"min" => $unit_increment,
+		"step" => $unit_increment
+	);
 } else {
 	$quantity_settings = null;
 }
 
 $lightbox_inner.= $cart->renderItem($product_page, "lightbox", $lightbox_extras, $quantity_settings);
-
+// By the time it gets to here, min and step are 3
 $lightbox_inner .= "</div><!-- End active-card -->";
 
 $lightbox_class = "lightbox";

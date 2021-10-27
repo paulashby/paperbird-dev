@@ -10,28 +10,6 @@ $this->addHookBefore('PageRender::renderPage', function($event) {
 	}
 });
 
-$this->addHookAfter('OrderCart::renderQuantityField', function($event) {
-
-	$options = $event->arguments(0);
-	$sku = $options["sku"];
-
-	$product = $this->wire('pages')->get("template=product, sku=$sku");
-	$product_type = $product->price_category->paper->title;
-
-	if($product_type === 'Plumette Wallet'){
-
-		$patterns = array(
-			"/min='\d'/",
-			"/step='\d'/"
-		);
-		$replacements = array(
-			'min="3"',
-			'step="3"'
-		);
-		$event->return = preg_replace($patterns, $replacements, $event->return);
-	}
-});
-
 $this->addHookBefore('OrderCart::renderCartItem', function($event) {
 
 	$e = $event->arguments(0);
