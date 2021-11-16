@@ -35,7 +35,7 @@ $alt_str = $dsc ? $dsc : $product->title;
 $product_shot_options["alt_str"] = $alt_str;
 $product_shot_options["image"] = $product_shot;
 $product_shot_options["webp"] = true;
-$product_shot_options["extra_attributes"] = " onload=\"debugger;\nevent.target.classList.add('loaded');\"";
+$product_shot_options["extra_attributes"] = " onload=\"event.target.classList.add('loaded');\"";
 
 $lazyImages = $product_shot_options["lazyImages"];
 
