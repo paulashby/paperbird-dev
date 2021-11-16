@@ -45,11 +45,12 @@ foreach ($products as $product) {
 			"product" => $selected_sample,
 			"field_name" => "product_shot",
 			"sizes"=>"(min-width: 1200px) 202px, (min-width: 815px) 16.85vw, (min-width: 550px) 22.8vw, 39vw",
-			"class"=>"products__product-shot",
+			"class"=>"products__product-shot keyline",
 			"image" => $product_shot,
 			"alt_str" => $alt_str,
 			"lazy_load" => true,
-			"webp" => true
+			"webp" => true,
+			"loaded_callback" => " onload=\"$(this).addClass('loaded');\""
 		);
 		$product_list .= "<div class='products__product'>
 		<a href='$product_url' class='subcat-link'>";
