@@ -4,10 +4,30 @@
 .menu__entrybutton--login {
 	@extend %menu__entrybutton-base;
 	background: url(../img/navbttns.svg) -4px 2px/465%;
-	margin: 0 auto 0 45%;
+	margin: 0 auto 0 15%;
 
 	body.logged-in & {
 		background-position-x: -74px;	
 		margin: 0 auto;
 	}
+	body:not(.logged-in) & .menu__entrybutton-label {
+		display: block;
+		left: -20%;
+		position: relative;
+		width: 140%;
+	}
 }
+
+@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+
+	.menu__entrybutton--login {
+		margin-left: 45%;
+	}
+  
+  body:not(.logged-in) .menu__entrybutton--login .menu__entrybutton-label {
+  	left: 26%;
+    position: absolute;
+  }
+
+}
+

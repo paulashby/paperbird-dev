@@ -4,9 +4,15 @@
 .menu__entrybutton--search {
 	@extend %menu__entrybutton-base;
 	background: url(../img/navbttns.svg) -230px -2px/495%;
-	margin: 0 45% 0 auto;
+	margin: 0 15% 0 auto;
 
 	body.logged-in & {
 		margin: 0 auto;
+	}
+}
+@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+
+	.menu__entrybutton--login {
+		margin-right: 45%;
 	}
 }

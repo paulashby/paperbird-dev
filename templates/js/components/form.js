@@ -23,7 +23,7 @@ let setup = {
                     count: count
                 });
                 $('body').addClass('logged-in');
-                $('.menu__entrybutton--login').html('Log out');
+                $('.menu__entrybutton--login .menu__entrybutton-label').html('Log out');
             }
         },
         'logout': function (e) {
@@ -35,7 +35,7 @@ let setup = {
                 count: 0
             });
             $('body').removeClass('logged-in');
-            $('.menu__entrybutton--login').html('Log in');
+            $('.menu__entrybutton--login .menu__entrybutton-label').html('Trade Login');
         },
         'search': function (data) {
             $('.search').html(data);
