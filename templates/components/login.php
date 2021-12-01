@@ -7,7 +7,6 @@ $urls = include $config->paths->templates . "utilities-urls.php";
 $forgotten_pw_url = $urls["forgotPassword"];
 $role = "login"; // This is used by form.js to select appropriate callback
 $button_text = $user->isLoggedin() ? "Log out" : "Trade Login";
-bd("login.php" . __LINE__);
 
 $login_button = $files->render('components/buttons/menuToolButton', ['button_text'=>$button_text, 'button_class'=>'menu__entrybutton menu__entrybutton--login', 'button_type'=>'login', 'action'=>'logInOut']);
 
