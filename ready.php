@@ -27,8 +27,11 @@ $this->addHookBefore('OrderCart::renderCartItem', function($event) {
 
 $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
 	if($event->object->hasField == 'biography_card') {
+		// Note this field is now also used on genricPpage template for What's On and Notebook
+		$curr_page = $event->arguments('page');
+		$page_template = $curr_page->template->name;
 		// Populate artist->biography_card Page Reference field
-		$selector = 'template=product, artist.title=' . $event->arguments('page')->title;
+		$selector = $page_template == 'artist' ? 'template=product, artist.title=' . $curr_page->title : 'template=product';
 		$event->return = $event->pages->find($selector);
 	} else if($event->object->hasField == 'category_image_page') {
 		// Populate category_sub->category_image_page Page Reference field

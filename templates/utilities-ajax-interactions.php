@@ -168,15 +168,25 @@ function getPost ($post_page) {
 		if($story_details){
 			$story_details = "<div class='story__details'>$story_details</div>";
 		}
+		$class_list = "blog-post";
 		$post_content = $post_page->page_content;
-
 		$post_image = "";
-		$img = $post_page->image;
-		if($img->count()){
-			$post_image = getPostImage($img->first(), $title);
-		}
 
-		return "<div class='blog-post'>$post_image<div class='blog-post__text'><h2>$title</h2>{$post_content}{$story_details}</div></div><!-- END blog-post -->";
+		$product = $post_page->biography_card;
+	 	if($product) {
+	 		// Post uses image from existing product
+	 		// $post_image = $product->product_shot->first();
+	 		$post_image = getPostImage($product->product_shot->first(), $title);
+	 		$class_list .= " product_shot";
+	 	} else {
+	 		// Post has its own image
+	 		$img = $post_page->image;
+	 		if($img->count()){
+	 			$post_image = getPostImage($img->first(), $title);
+	 		}
+	 	}
+
+		return "<div class='$class_list'>$post_image<div class='blog-post__text'><h2>$title</h2>{$post_content}{$story_details}</div></div><!-- END blog-post -->";
 
 	}
 	

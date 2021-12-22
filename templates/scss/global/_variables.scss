@@ -309,7 +309,56 @@ $leading-title: 1.25;
   }
 }
 %story__image {
-  width: 100%;
+  
+  margin: 2rem 2rem 0.5rem 2rem;
+  width: calc(100% - 4rem);
+      
+  @media only screen and (min-width: map_get($breakpoints, 'small-i')) {
+    
+    margin: 4rem 4rem 0.5rem 4rem; 
+    width: calc(100% - 8rem);
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'small-1i')) {
+    
+    margin: 4rem 4rem 0.5rem 4rem;  
+    width: calc(100% - 8rem);
+
+    .whats-on &,
+    .the-artists & {
+
+      margin: 6rem 6rem 0.5rem 6rem;  
+      width: calc(100% - 12rem);
+      
+    }
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+
+    margin: 4rem 4rem 0.5rem 4rem;      
+    width: calc(100% - 8rem);
+
+    .whats-on &,
+    .the-artists & {
+
+      margin: 2rem 2rem 0.5rem 2rem;  
+      width: calc(100% - 4rem);
+      
+    }
+
+  }
+  @media only screen and (min-width: map_get($breakpoints, 'medium')) {
+    
+    margin: 6rem 6rem 0.5rem 6rem; 
+    width: calc(100% - 12rem);
+
+    .whats-on &,
+    .the-artists & {
+
+      margin: 4rem 4rem 0.5rem 4rem;  
+      width: calc(100% - 8rem);
+      
+    }
+  }
+
 }
 %story-text {
 
