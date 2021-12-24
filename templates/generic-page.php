@@ -10,12 +10,27 @@ if($page_class == "whats-on" || $page_class == "notebook"){
 	$entries = $page->children();
 
 	foreach ($entries as $entry) {
-		$entry_image = "";
-		$img = $entry->image;
-		if($img->count()){
-			$entry_image = getEventImage($img->first(), $title);
+
+		$post_content = $entry->page_content;
+		$story_details = $entry->story_details;
+		if($story_details){
+			$story_details = "<div class='story__details'>$story_details</div>";
 		}
-		$content .= "<div class='event-entry'>$entry_image<div class='event-entry__text'><h2>$entry->title</h2>$entry->page_content</div></div><!-- END event-entry -->";
+
+		$product = $entry->biography_card;
+		$post_image = "";
+	 	if($product) {
+	 		// Post uses image from existing product
+	 		$post_image = getEventImage($product->product_shot->first(), $entry->title);
+	 	} else {
+	 		// Post has its own image
+	 		$img = $entry->image;
+			if($img->count()){
+				$post_image = getEventImage($img->first(), $title);
+			}
+	 	}
+
+		$content .= "<div class='event-entry'>$post_image<div class='event-entry__text'><h2>$entry->title</h2>{$post_content}{$story_details}</div></div><!-- END event-entry -->";
 	}
 }
 echo "<main data-pw-id='main' class='generic-page generic-page--$page_class'>
