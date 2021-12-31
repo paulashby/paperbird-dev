@@ -25,6 +25,7 @@ $out = "<div>{$login_button}</div>
 					{$cancel_button}
 				</div>								
 			</form>
+			<p class='form__register'><a class='form__register-link' href='/register/'>Register</a> to open a trade account.</p>
 			<p class='form__forgotten-password'><a class='form__forgotten-password-link' href='$forgotten_pw_url'>Forgot password?</a></p>
 			<p class='form__error form__error--submission'>No Error</p>
 		</div>";

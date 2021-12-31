@@ -93,15 +93,22 @@
 	@include transition(color $menu-transition_duration ease);
 }
 .form__forgotten-password,
+.form__register,
 .form__error {
 	font-size: 1.1rem;
 	text-align: left;
 	font-weight: bold;
 }
+.form__register {
+	color: #958b87;
+	line-height: 1rem;
+	margin-top: 2rem;
+}
 .form__forgotten-password {
 	margin-top: 0.5rem;
 }
-.form__forgotten-password-link {
+.form__forgotten-password-link,
+.form__register-link {
 	color: $colour-pb-blue;
 }
 .form--fullscreen {
