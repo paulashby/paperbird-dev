@@ -252,6 +252,7 @@ body.menu__entries--active {
 	align-self: flex-start;
 	flex: 1 1 100%;
 	margin-bottom: 20px;
+	width: 100%;
 
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		flex: 0 1 80%;
