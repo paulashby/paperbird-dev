@@ -5,7 +5,9 @@ $artists = wire("pages")->find("template=" . $sanitizer->selectorValue("artist")
 $artists_out  = "<div class='artist__list'>";
 
 $lazyImages = $modules->get("LazyResponsiveImages");
-$max_eager = (int) $lazyImages->getMaxEager("subcat");
+// $max_eager = (int) $lazyImages->getMaxEager("subcat");
+// Disabling lazy loading for now as Chrome is making repeated ajax calls then cancelling the requests, causing the loads to stall
+$max_eager = 1000;
 $eager_count = 0;	
 
 foreach ($artists as $entry => $artist) {
