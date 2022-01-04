@@ -29,6 +29,7 @@ return "<footer class='footer'>
 				<a class='footer__link' href='//twitter.com/paperbirdpub/'>Twitter</a>
 				<a class='footer__link' href='//www.facebook.com/paperbirdpublishing/'>Facebook</a>
 				<a class='footer__link' href='https://www.instagram.com/paperbirdpublishing/'>Instagram</a>
+				<a class='footer__link' href='https://www.etsy.com/uk/shop/PaperBirdGallery/'>Etsy</a>
 			</section>
 		</div><!-- END footer__sections -->
 		<div class='footer__credits'>
