@@ -67,9 +67,9 @@ switch ($action) {
 
 		case "loadPost":
 
-			$post_id = $input->get("id"); 
+			$post_id = $input->get("id", "int"); 
 			$post_page = wire("pages")->get($post_id);
-			$num_posts = $input->get("num_posts");
+			$num_posts = $input->get("num_posts", "int");
 			$out = array(
 				"markup"=>"");
 
@@ -86,16 +86,16 @@ switch ($action) {
 			return json_encode(array("success"=>true, "data"=>$out));
 
 		case "loadArtistItems":
-			$num_items = (int) $input->get("num_items");
-			$artist_name = $input->get("artist");
-			$start_after = $input->get("start_after");
+			$num_items = (int) $input->get("num_items", "int");
+			$artist_name = $input->get("artist", "text");
+			$start_after = $input->get("start_after", "int");
 			if($artist_name == "una-joy") {
 				// As Una Joy has loads of cards, we're only loading those in the artist section
 				$selector = "parent=/the-artists/una-joy/";
 			} else {
 				$selector = "template=product, artist=$artist_name";
 			}
-			$selector_options = array("limit" => $input->get("num_items"));
+			$selector_options = array("limit" => $input->get("num_items", "int"));
 			if($start_after){
 				$selector_options["startAfterID"] = $start_after;
 			}
