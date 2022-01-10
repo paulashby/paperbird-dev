@@ -116,14 +116,12 @@ function sanitizeSubmission($data, $submission_type, $sanitizer) {
 			"consent"=>"consent checkbox"
 		),
 		"registration" => array(
-			"fname"=>"first name", 
-			"lname"=>"last name", 
+			"fname"=>"shop name", 
+			"lname"=>"contact name", 
 			"username"=>"user name", 
 			"pass"=>"password", 
 			"_pass"=>"password confirmation",
 			"email"=>"email", 
-			"address"=>"address", 
-			"postcode"=>"postcode", 
 			"consent"=>"consent checkbox"
 		),
 		"catalogue" => array(
@@ -154,7 +152,7 @@ function sanitizeSubmission($data, $submission_type, $sanitizer) {
 	    	case 'lname':
 		    	//TODO: $sanitizer->entities on this when outputting - see https://processwire.com/api/ref/sanitizer/text/
 	    		$sanitized[$field] = $sanitizer->text($value, array("stripQuotes"=>true));
-	    		if( ! preg_match("/^[A-Za-z]+$/", $sanitized[$field])) $errors[] = "Please enter a name using letters only";
+	    		if( ! preg_match("/^[A-Za-z' ']+$/", $sanitized[$field])) $errors[] = "Please enter a name using letters and spaces only";
 	    		break;
 
 	    	case 'tel':
