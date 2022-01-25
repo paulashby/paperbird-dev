@@ -10,6 +10,10 @@ if($value["counter"]){
 $cart_button = $files->render('components/buttons/menuToolButton', ['button_text'=>'Cart', 'button_class'=>'menu__entrybutton menu__entrybutton--cart', 'button_type'=>'cart']);
 $cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'label'=>'close', 'action'=>'cancel']);
 
+$cart_config = $this->modules->getConfig("OrderCart");
+$shipping_info = $cart_config["f_shipping_info"];
+$cart_class = strlen($shipping_info) ? "cart cart__shipping-info" : "cart";
+
 $cart_out = $cart->renderEmptyCart("<div class='spinner'>
   <div class='cube1'></div>
   <div class='cube2'></div>
@@ -19,7 +23,7 @@ $out = "<div>
 	$counter
 	$cart_button
 </div>
-<div class='cart'>
+<div class='$cart_class'>
 $cart_out
 $cancel_button
 </div>";
