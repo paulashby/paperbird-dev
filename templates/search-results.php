@@ -14,25 +14,19 @@ $q = $input->get('q');
 
 		// Make hyphenated terms separate words
 		$q = str_replace("-", " ", $q);
-		$q = explode(" ", $sanitizer->text($q));
-
-		foreach($q as $key => $value){
-			$input->whitelist('q', $q); 
-			$reqs[$key] = $sanitizer->selectorValue($value);
-		}
-
+		$q = explode(" ", $sanitizer->text_selectorValue($q));
+		$input->whitelist($q); 
 		$selector = "";
-		
+
 		foreach($q as $key => $part) {
-			if(strlen($part) > 3) continue;
-			// use MySQL LIKE for words under 4 characters in length
-			$selector .= ", title|tags.title|artist.title|sku%=" . $sanitizer->selectorValue($part);
-			unset($q[$key]); 
+
+			$part = strtolower($part);
+			$selector_operator = strlen($part) > 3 ? "~=" : "%=";
+
+			// use MySQL LIKE for words under 4 characters in length, use MySQL fulltext index for words 4 characters and higher
+			$selector .= ", title|tags.title|artist.title|sku$selector_operator" . $sanitizer->selectorValue($part);
 		}
-		if(count($q)) {
-			// use MySQL fulltext index for words 4 characters and higher
-			$selector .= ", title|tags.title|artist.title|sku~=" . $sanitizer->selectorValue(implode(' ', $q)); 
-		}
+		
 		$selector = "template=product, $selector, limit=30";
 		$matches = $pages->find($selector);
 		$result_count = count($matches);
