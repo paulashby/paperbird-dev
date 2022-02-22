@@ -16,6 +16,13 @@ $this->addHookBefore('OrderCart::renderCartItem', function($event) {
 	$sku = $e["sku"];
 	$product = $this->wire('pages')->get("template=product, sku=$sku");
 
+	if( ! array_key_exists("step", $e)) {
+		$cart_spec = $product->price_category->paper;
+		$unit_increment = $cart_spec->unit_increment;
+		$e["step"] = $unit_increment;
+		$e["min"] = $unit_increment;
+	}
+
 	$product_type = $product->price_category->paper->title;
 
 	if($product_type === 'Plumette Wallet'){
