@@ -284,7 +284,6 @@ body.menu__entries--active {
 .menu__entry--login {
 
 	@media only screen and (min-width: map_get($breakpoints, 'small-2i')) {
-		left: 1.85rem;
 		transition: left $menu-transition_duration_medium ease;
 
 		.cart-viewable & {
@@ -296,19 +295,19 @@ body.menu__entries--active {
 
 	display: inline-block;
 
+	transform: scale(0); 
+	transition: transform $menu-transition_duration_medium ease;
+	body.logged-in.cart-viewable & {
+
+		transform: scale(1);
+	}
+
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 
 		position: absolute;
 		right: 6%;
 		top: 0.85rem;
-		transform: scale(0); 
-		transition: transform $menu-transition_duration_medium ease;
 		z-index: 1;
-
-		body.logged-in.cart-viewable & {
-
-			transform: scale(1);
-		}
 	}
 }
 

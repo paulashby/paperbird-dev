@@ -2,4 +2,4 @@
 
 $action_attr = isset($action) ? $action : 'toggleTool';
 
-return "<a href='#' class='{$button_class}' data-action='{$action_attr}' data-buttontype='{$button_type}'><span class='menu__entrybutton-label'>{$button_text}</span></a>";
+return "<a href='#' class='{$button_class}' data-action='{$action_attr}' data-buttontype='{$button_type}'><span class='menu__entrybutton-label' data-action='{$action_attr}' data-buttontype='{$button_type}'>{$button_text}</span></a>";

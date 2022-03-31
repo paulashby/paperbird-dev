@@ -11,11 +11,7 @@
 
 	@media only screen and (min-width: map_get($breakpoints,  'medium')) {
 
-		color: #fff;
-
-		&:hover {
-			color: $colour-pb-blue;
-		}
+		color: $colour-pb-blue;
 		
 		@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 			.menu--modal-active & {
