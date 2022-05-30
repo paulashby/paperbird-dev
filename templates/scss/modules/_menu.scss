@@ -301,6 +301,14 @@ body.menu__entries--active {
 		right: 6%;
 		top: 0.85rem;
 		z-index: 1;
+
+		transform: scale(0); 
+		transition: transform $menu-transition_duration_medium ease;
+		
+		body.logged-in.cart-viewable & {
+
+			transform: scale(1);
+		}
 	}
 }
 

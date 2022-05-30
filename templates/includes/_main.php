@@ -28,12 +28,13 @@ if($template_name == "blog") {
 }
 
 if($template_name == "category-sub"){
-    $body_nav_class = $page->parent->name; 
+    $body_nav_class = $page->parent->name . " " . $page->name; 
 } else if($template_name == "artist"){
      $body_nav_class = "artist"; 
 } else {
     $body_nav_class = $page->name;
 }
+
 
 if($template_name == "artist"){
     $artist_attr = $page->name;

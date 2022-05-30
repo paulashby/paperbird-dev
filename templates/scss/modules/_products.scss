@@ -1,6 +1,7 @@
 %product-shot {
 	flex-basis: 47.5%;
 	width: 100%;
+
 	&.loaded.keyline{
 		border: 1px solid $colour-pb-keyline;	
 	}
@@ -33,6 +34,8 @@
 		margin-bottom: 1rem;
 		background: transparent url(../img/egg.gif) no-repeat center center;
 		background-size: 30px 30px;
+		display: flex;
+		justify-content: center;
 	}
 	
 	@media only screen and (min-width: map_get($breakpoints, 'small-1')) {
@@ -47,6 +50,10 @@
 .products__product-shot {
 	@extend %product-shot;
 	position: absolute;
+
+	&.giftwrap {
+		width: 72%;
+	}
 }
 .products__sku {
 	color: $colour-pb-blue;
@@ -57,9 +64,23 @@
 	margin: 0;
 	line-height: 2.4rem;
 	margin:0.25rem 0 0.5rem 0;
+
+	.giftwrap & {
+		margin-left: 2.8rem;
+	}
+	.giftwrap .lightbox & {
+		margin-left: 0;
+	}
 }
 .products__title {
 	@extend %product-title;
+
+	.giftwrap & {
+		margin-left: 2.8rem;
+	}
+	.giftwrap .lightbox & {
+		margin-left: 0;
+	}
 
 	.artists & {
 		margin-top: 0.3rem;
