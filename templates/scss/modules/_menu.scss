@@ -295,13 +295,6 @@ body.menu__entries--active {
 
 	display: inline-block;
 
-	transform: scale(0); 
-	transition: transform $menu-transition_duration_medium ease;
-	body.logged-in.cart-viewable & {
-
-		transform: scale(1);
-	}
-
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 
 		position: absolute;
