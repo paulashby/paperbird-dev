@@ -184,10 +184,6 @@
 	font-size: 1.5rem;
 	font-weight: bold;
 	margin-bottom: 0.4rem;
-
-	.reg_price--label {
-		display: block;
-	}
 }
 .lightbox__extras {
 	@extend %lightbox-item;
