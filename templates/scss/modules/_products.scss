@@ -5,16 +5,21 @@
 	&.loaded.keyline{
 		border: 1px solid $colour-pb-keyline;	
 	}
-	&.rect--l {
-		margin-top: 25.3%;
+	.rect--l & {
+		top: auto;
+		bottom: 0;
 	}
-	&.rect--p {
-		width: 75.5%;
+	.rect--p & {
+		width: auto;
+		margin: 0;
+		height: 100%;
 	}
+
 	&.lazy {
 		@extend %lazy-fade;
 	}
 }
+
 .products {
 	display: flex;
 	flex-wrap: wrap;
@@ -50,10 +55,6 @@
 .products__product-shot {
 	@extend %product-shot;
 	position: absolute;
-
-	&.giftwrap {
-		width: 72%;
-	}
 }
 .products__sku {
 	color: $colour-pb-blue;
@@ -65,21 +66,15 @@
 	line-height: 2.4rem;
 	margin:0.25rem 0 0.5rem 0;
 
-	.giftwrap & {
+	.products__product.rect--p & {
 		margin-left: 2.8rem;
-	}
-	.giftwrap .lightbox & {
-		margin-left: 0;
 	}
 }
 .products__title {
 	@extend %product-title;
 
-	.giftwrap & {
+	.products__product.rect--p & {
 		margin-left: 2.8rem;
-	}
-	.giftwrap .lightbox & {
-		margin-left: 0;
 	}
 
 	.artists & {

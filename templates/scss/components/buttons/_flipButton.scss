@@ -16,4 +16,9 @@
 	@media only screen and (min-width: map_get($breakpoints,  'smallest-i')) {
 		top: 2.7rem;
 	}
+	@media only screen and (min-width: map_get($breakpoints, 'small-2')) {
+		.lightbox .rect--p & {
+			right: 13rem;
+		}
+	}
 }

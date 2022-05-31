@@ -1,9 +1,11 @@
 <?php namespace ProcessWire;
 
-$lightbox_inner = $files->render('components/buttons/toggleButton', ['button_class'=>'toggle__button toggle__button--close toggle__button--lightbg', 'action'=>'closeLightbox']);
-$lightbox_inner .= "<div class='active-card'>";
-
 $product_page = $pages->get("sku=$sku");
+$image_format_class = get_image_format_class($product_page->product_shot->first());
+
+$lightbox_inner = $files->render('components/buttons/toggleButton', ['button_class'=>'toggle__button toggle__button--close toggle__button--lightbg', 'action'=>'closeLightbox']);
+$lightbox_inner .= "<div class='active-card $image_format_class'>";
+
 $settings = $this->modules->get("ProcessOrderPages");
 
 $product_details = $product_page->price_category;
