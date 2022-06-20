@@ -11,8 +11,8 @@ $cart_button = $files->render('components/buttons/menuToolButton', ['button_text
 $cancel_button = $files->render('components/buttons/formButton', ['button_class'=>'form__button form__button--cancel', 'button_type'=>'button', 'label'=>'close', 'action'=>'cancel']);
 
 $cart_config = $this->modules->getConfig("OrderCart");
-$shipping_info = $cart_config["f_shipping_info"];
-$cart_class = strlen($shipping_info) ? "cart cart__shipping-info" : "cart";
+
+$cart_class = array_key_exists("f_shipping_info", $cart_config) && strlen($cart_config["f_shipping_info"]) ? "cart cart__shipping-info" : "cart";
 
 $cart_out = $cart->renderEmptyCart("<div class='spinner'>
   <div class='cube1'></div>

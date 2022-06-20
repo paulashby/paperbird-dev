@@ -59,6 +59,13 @@
 		margin-bottom: 1rem;
 		text-decoration: none;	
 	}
+	.footer__link--catalogue {
+		display: none;
+
+		.logged-in & {
+			display: block;	
+		}
+	}
 	.footer__text {
 		@extend %footer-base-text;
 		@extend %footer_item;

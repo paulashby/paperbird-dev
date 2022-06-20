@@ -34,7 +34,7 @@ switch ($page->name) {
 				"title" => "Get a Catalogue",
 				"form" => "Catalogue Form",
 				"handler" => $urls->templates . "js/processcontactpages.js",
-				"pre" => "<p><a href='$pdf_url'>Download a PDF of our catalogue</a> or use the form below to order a printed copy</p>"
+				"pre" => "<p><a href='$pdf_url'>Download a PDF of our catalogue</a> or use the form below to order a printed copy. Please note, catalogues are for trade customers only.</p>"
 			)
 		);
 
