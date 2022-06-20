@@ -1,0 +1,15 @@
+.o_reg_price--label {
+	display: block;
+	font-size: 1.1rem;
+	font-weight: normal;
+	margin-bottom: 0.65rem;
+}
+.lightbox__price .o_reg_price--label {
+	margin-bottom: 0.33rem;	
+}
+.o_reg_price--value {
+	text-decoration: line-through;
+}
+.cart__price--unit .o_reg_price--label {
+	display: none;
+}

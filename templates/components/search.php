@@ -17,7 +17,7 @@ $cancel_button = $files->render('components/buttons/formButton', ['button_class'
 
 	$out .= "<form class='form form--search' action='$search_url' method='get'>
 		<div class='form__inputs'>
-			<input class='form__input' type='text' name='q' id='search_query' autocomplete='off' placeholder='Search'/>
+			<input class='form__input' type='text' name='q' id='search_query' autocomplete='off' placeholder='Search'>
 			{$submit_button}
 			{$cancel_button}
 		</div>

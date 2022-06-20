@@ -106,7 +106,7 @@ function init (settings) {
             // add class to change state of target element
             $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
 
-            if($(e.target).data('buttontype') === 'cart') {
+            if(tool_toggle === 'cart') {
 
                 let settings = {
                     ajaxdata: {
@@ -162,6 +162,10 @@ function init (settings) {
         } else {
             actions.toggleMenu(source_event);
         }
+    });
+    
+    $('.menu__entry--search').on('animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd', function(settings, source_event) {
+        $('#search_query').focus();
     });
 
     form.init({
