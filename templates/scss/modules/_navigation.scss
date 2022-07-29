@@ -68,6 +68,12 @@
 	font-family: $font-text;
 	font-size: 2.6rem;
 	font-style: italic;
+
+	.nav__level-2-link-extra {
+		display: block;
+		font-size: 1.4rem;
+		line-height: 1.9rem;
+	}
 }
 .nav__level-2:nth-child(even) .nav__level-2-link {
 	color: #fff;

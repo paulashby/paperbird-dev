@@ -58,5 +58,9 @@ function getLevel2 ($child) {
 	$link = $child->url();
 	$cat = $child->title;
 
+	if ($cat === "Plumette") {
+		$cat .= "<span class='nav__level-2-link-extra'>(Notecards)</span>";
+	}
+
 	return "<a href='$link' class='nav__level-2-link'>$cat</a>";
 }
