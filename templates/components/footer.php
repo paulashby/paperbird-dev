@@ -3,6 +3,10 @@
 $now = new \DateTime('now');
 $month = $now->format('M');
 $year = $now->format('Y');
+$settings = $pages->get('home');
+$insta = $pages->get('template=home')->insta;
+
+$insta_link = $insta ? "<a class='footer__link footer__link--instagram' href='https://www.instagram.com/paperbirdpublishing/'>Instagram</a>" : "";
 
 return "<footer class='footer'>
 	<div class='footer__content'>
@@ -28,7 +32,7 @@ return "<footer class='footer'>
 				<h3 class='footer__heading'>social</h3>
 				<a class='footer__link footer__link--twitter' href='//twitter.com/paperbirdpub/'>Twitter</a>
 				<a class='footer__link footer__link--facebook' href='//www.facebook.com/paperbirdpublishing/'>Facebook</a>
-				<a class='footer__link footer__link--instagram' href='https://www.instagram.com/paperbirdpublishing/'>Instagram</a>
+				{$insta_link}
 				<a class='footer__link footer__link--etsy' href='https://www.etsy.com/uk/shop/PaperBirdGallery/'>Etsy</a>
 			</section>
 		</div><!-- END footer__sections -->
