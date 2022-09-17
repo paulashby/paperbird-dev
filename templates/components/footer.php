@@ -4,9 +4,28 @@ $now = new \DateTime('now');
 $month = $now->format('M');
 $year = $now->format('Y');
 $settings = $pages->get('home');
-$insta = $pages->get('template=home')->insta;
+$socials_head = "";
+$twitter_link = "";
+$facebook_link = "";
+$instagram_link = "";
+$etsy_link = "";
 
-$insta_link = $insta ? "<a class='footer__link footer__link--instagram' href='https://www.instagram.com/paperbirdpublishing/'>Instagram</a>" : "";
+if ($settings->socials_twitter) {
+	$socials_head = "<h3 class='footer__heading'>social</h3>";
+	$twitter_link = "<a class='footer__link footer__link--twitter' href='//twitter.com/paperbirdpub/'>Twitter</a>";
+}
+if ($settings->socials_facebook) {
+	$socials_head = "<h3 class='footer__heading'>social</h3>";
+	$facebook_link = "<a class='footer__link footer__link--facebook' href='//www.facebook.com/paperbirdpublishing/'>Facebook</a>";
+}
+if ($settings->socials_insta) {
+	$socials_head = "<h3 class='footer__heading'>social</h3>";
+	$instagram_link = "<a class='footer__link footer__link--instagram' href='https://www.instagram.com/paperbirdpublishing/'>Instagram</a>";
+}
+if ($settings->socials_etsy) {
+	$socials_head = "<h3 class='footer__heading'>social</h3>";
+	$etsy_link = "<a class='footer__link footer__link--etsy' href='https://www.etsy.com/uk/shop/PaperBirdGallery/'>Etsy</a>";
+}
 
 return "<footer class='footer'>
 	<div class='footer__content'>
@@ -29,11 +48,11 @@ return "<footer class='footer'>
 				<a class='footer__link footer__link--catalogue' href='/request-a-catalogue/'>Get a catalogue</a>
 			</section>
 			<section class='footer__entry'>
-				<h3 class='footer__heading'>social</h3>
-				<a class='footer__link footer__link--twitter' href='//twitter.com/paperbirdpub/'>Twitter</a>
-				<a class='footer__link footer__link--facebook' href='//www.facebook.com/paperbirdpublishing/'>Facebook</a>
-				{$insta_link}
-				<a class='footer__link footer__link--etsy' href='https://www.etsy.com/uk/shop/PaperBirdGallery/'>Etsy</a>
+				{$socials_head}
+				{$twitter_link}
+				{$facebook_link}
+				{$instagram_link}
+				{$etsy_link}
 			</section>
 		</div><!-- END footer__sections -->
 		<div class='footer__credits'>
