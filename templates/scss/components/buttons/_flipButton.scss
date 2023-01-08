@@ -13,6 +13,11 @@
 	top: 5vw;
 	z-index: 1;
 
+	.giftwrap & {
+		background: url(../img/magbttn.svg) 0 0;	
+		top: 2.4rem;
+	}
+
 	@media only screen and (min-width: map_get($breakpoints,  'smallest-i')) {
 		top: 2.7rem;
 	}
