@@ -150,7 +150,6 @@ function sanitizeSubmission($data, $submission_type, $sanitizer) {
 		switch ($field) {
 	    	case 'fname':
 	    	case 'lname':
-		    	//TODO: $sanitizer->entities on this when outputting - see https://processwire.com/api/ref/sanitizer/text/
 	    		$sanitized[$field] = $sanitizer->text($value, array("stripQuotes"=>true));
 	    		if( ! preg_match("/^[A-Za-z' ']+$/", $sanitized[$field])) $errors[] = "Please enter a name using letters and spaces only";
 	    		break;
