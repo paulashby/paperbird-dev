@@ -40,7 +40,7 @@
 		background: transparent url(../img/egg.gif) no-repeat center center;
 		background-size: 30px 30px;
 		display: flex;
-		justify-content: center;
+		justify-content: start;
 	}
 	
 	@media only screen and (min-width: map_get($breakpoints, 'small-1')) {
@@ -67,14 +67,14 @@
 	margin:0.25rem 0 0.5rem 0;
 
 	.products__product.rect--p & {
-		margin-left: 2.8rem;
+		// margin-left: 2.8rem;
 	}
 }
 .products__title {
 	@extend %product-title;
 
 	.products__product.rect--p & {
-		margin-left: 2.8rem;
+		// margin-left: 2.8rem;
 	}
 
 	.artists & {
