@@ -1,5 +1,5 @@
-templates/.DS_Store
 **/.DS_Store
-templates/js/vendor/
-templates/scss/fonts/
-templates/img/*
+src/templates/js/vendor/
+src/templates/scss/fonts/
+src/templates/img/*
+dist
