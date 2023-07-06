@@ -1,5 +1,5 @@
 @import
-'components/buttons/menuEntryButton';
+'./menuEntryButton';
 
 .flip__button {
 	@extend %menu__entrybutton-base;

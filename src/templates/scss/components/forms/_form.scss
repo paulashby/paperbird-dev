@@ -1,7 +1,7 @@
 @import
 
-'components/buttons/formButton',
-'components/forms/formField';
+'../buttons/formButton',
+'./formField';
 
 .form__link {
 	background: none!important;
@@ -186,4 +186,4 @@
 
 }
 
-@import 'components/forms/pcpForms';
+@import './pcpForms';

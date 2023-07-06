@@ -1,5 +1,5 @@
 @import
-'components/buttons/menuEntryButton';
+'./menuEntryButton';
 
 .menu__entrybutton--search {
 	@extend %menu__entrybutton-base;

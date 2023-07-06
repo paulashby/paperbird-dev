@@ -1,6 +1,6 @@
 @import
 
-'components/forms/form';
+'./form';
 
 .login {
 	@extend %menu-button-base;

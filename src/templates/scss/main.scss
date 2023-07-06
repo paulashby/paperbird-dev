@@ -1,28 +1,22 @@
 @import
-'global/func',
-'global/fonts',
-'global/reset',
-'global/helpers',
-'global/variables',
-'global/defaults';
+'./global/func',
+'./global/fonts',
+'./global/reset',
+'./global/helpers',
+'./global/variables',
+'./global/defaults';
 
 
 @import
-'modules/menu',
-'modules/navigation',
-'modules/lightbox',
-'modules/generic_page',
-'modules/artists',
-'modules/products',
-'modules/blog',
-'modules/footer',
-'global/config';
-// 'global/discount';
-
-/*
-@import
-'components/component';
-*/
+'./modules/menu',
+'./modules/navigation',
+'./modules/lightbox',
+'./modules/generic_page',
+'./modules/artists',
+'./modules/products',
+'./modules/blog',
+'./modules/footer',
+'./global/config';
 
 h1 {
 	color: $colour-black;
