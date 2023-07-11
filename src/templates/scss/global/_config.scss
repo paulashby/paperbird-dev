@@ -111,7 +111,7 @@ body {
 	}
 }
 .page-title--home {
-	background-image: url('/site/templates/img/title_narrow.svg');
+	background-image: url('../img/title_narrow.svg');
 	background-position-x: 50%;
 	background-repeat: no-repeat;
 	height: 20.5rem;
@@ -120,13 +120,13 @@ body {
 	width: 22rem;
 
 	@media only screen and (min-width: map_get($breakpoints,  'small')) {
-		background-image: url('/site/templates/img/title_wide.svg');
+		background-image: url('../img/title_wide.svg');
 		max-width: 500px;
 		width: 80%;	
 	}
 }
 .maintenance-page {
-	background-image: url('/site/templates/img/maintenance_stork_tall.svg');
+	background-image: url('../img/maintenance_stork_tall.svg');
 	background-repeat: no-repeat;
 	background-position: 1.5rem 25rem;
 	background-color: $colour-pb-blue;
@@ -148,7 +148,7 @@ body {
 	}
 
 	.page-title--home-maintenance {
-		background-image: url('/site/templates/img/maintenance_title_w.svg');	
+		background-image: url('../img/maintenance_title_w.svg');	
 		height: 18rem;
 		width: auto;
 	}
