@@ -73,7 +73,7 @@ module.exports = [
       }),
       // css extraction into dedicated file
       new MiniCssExtractPlugin({
-        filename: 'site/templates/css/[name].min.[fullhash].css',
+        filename: "site/templates/css/[name].min.[fullhash].css",
       }),
       new BrowserSyncPlugin({
         host: "localhost",
@@ -89,7 +89,7 @@ module.exports = [
         `...`,
         // css minification
         new CssMinimizerPlugin(),
-      ]
+      ],
     },
   }
 ];

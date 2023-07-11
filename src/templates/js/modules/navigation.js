@@ -1,20 +1,19 @@
 import {dataAttrClickHandler} from '../helpers';
 import {getBreakpoint} from '../helpers';
 
-let setup = {
-    slide_duration: 300,
-    top_cats: $('.nav__top-cat'),
-    top_cat: 'nav__top-cat',
-    top_cat_active: 'nav__top-cat--active',
-    dropdown: 'nav__dropdown',
-    level_1_class_active: 'nav__level-1--active',
-    hide_scrollbars: 'hide-scrollbars',
-    sliding: $('.nav').hasClass('nav--sliding')
-};
-let actions = {
-};
+let setup = {};
+let actions = {};
 
 function init (settings) {
+
+    setup.slide_duration = 300;
+    setup.top_cats = $('.nav__top-cat');
+    setup.top_cat = 'nav__top-cat';
+    setup.top_cat_active = 'nav__top-cat--active';
+    setup.dropdown = 'nav__dropdown';
+    setup.level_1_class_active = 'nav__level-1--active';
+    setup.hide_scrollbars = 'hide-scrollbars';
+    setup.sliding = $('.nav').hasClass('nav--sliding');
 
     // Use event handlers in actions object
     $('.nav').on('click', function (e) {

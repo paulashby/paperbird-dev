@@ -101,6 +101,9 @@ if($template_name != "maintenance") {
 } else {
     $company_logo_url = "/site/templates/img/paperbirdLogo_w.svg";
 }
+    $template_path = $config->urls->templates;
+    $js_url = $template_path . glob("js/main.min.*.js")[0];
+    $css_url = $template_path . glob("css/main.min.*.css")[0];
 
 echo "<!DOCTYPE html>
 <html>
@@ -110,7 +113,8 @@ echo "<!DOCTYPE html>
         <title data-pw-id='title'>$title</title>
         <script>var config = " . json_encode($jsconfig) . ";</script>";
 
-        echo loadWebpackChunk('css','main');
+        // echo loadWebpackChunk('css','main');
+        echo "<link rel='stylesheet' type='text/css' href='$css_url' />";
 
         echo "<region data-pw-id='head'></region>
     </head>
@@ -119,16 +123,16 @@ echo "<!DOCTYPE html>
              <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='$company_logo_url' alt='Paperbird logo'></a>
              $menu";
 
-             $chunks = loadWebpackChunks('js', array(
-                'manifest', 'vendor', 'main'
-            ));
+            //  $chunks = loadWebpackChunks('js', array(
+            //     'manifest', 'vendor', 'main'
+            // ));
 
            echo "<main data-pw-id='main'>
                 </main>
             </div><!-- END content -->
             $footer
             <region data-pw-id='scripts'>
-                $chunks
+                <script src='$js_url'></script>
             </region>
                 </body>
             </html>";
