@@ -41,11 +41,6 @@ $font-lora: 'Lora', serif;
 	}
 }
 
-.titleBlock {
-	background-image: url('../img/homebg.jpg');
-	background-repeat: no-repeat;
-}
-
 .menu {
 	@include font-smoothing(on);
 }
