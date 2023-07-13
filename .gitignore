@@ -3,3 +3,4 @@ src/templates/js/vendor/
 src/templates/scss/fonts/
 src/templates/img/*
 dist
+node_modules

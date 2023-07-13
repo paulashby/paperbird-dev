@@ -19,7 +19,7 @@ window.jQuery = $;
 window.$ = $;
 
 $( document ).ready(function() {
-	init();
+    init();
 });
 
 function init () {

@@ -1,7 +1,7 @@
 @import
 
-'components/buttons/formButton',
-'components/forms/formField';
+'../buttons/formButton',
+'./formField';
 
 .form__link {
 	background: none!important;
@@ -25,7 +25,7 @@
 	text-align: left;
 }
 .form__title {
-	@extend %title;
+	@extend %title !optional;
 }
 /* Processwire password feedback messages on processContentPages custom forms */
 .pass-scores,
@@ -115,7 +115,7 @@
 
 	@extend %full-screen-bordered;
 
-	@media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
+	@media only screen and (max-width: calc(map_get($breakpoints, 'medium') - 1px)) {
 		// full-screen-bordered() overrides
 		height: 15vh;
 		top: auto;
@@ -186,4 +186,4 @@
 
 }
 
-@import 'components/forms/pcpForms';
+@import './pcpForms';
