@@ -27,7 +27,7 @@
 			
 			width: auto;
 			position: static;
-			margin: 2rem auto;
+			margin: 2rem auto 0;
 
 			& .form__note--eco {
 				margin-top: 0;
@@ -39,9 +39,6 @@
 		.form__button--cancel {
 			top: -4.59rem;
 		}	
-	}
-	.cart-items {
-		margin-bottom: -6rem;
 	}
 	.cart-items--empty ~ .form__button--cancel {
 		margin: 1rem auto auto;
@@ -119,11 +116,6 @@
 		font-weight: bold;
 		line-height: 1.2rem;
 		margin-top: 0.5rem;
-	}
-	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-		.form__shipping {
-			padding-bottom: 2rem;
-		}
 	}
 }
 .cart__counter {
