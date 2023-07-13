@@ -213,10 +213,13 @@
 }
 
 .cart__order-mssg, .cart__empty-mssg {
-	margin-bottom: 3.5rem;
-	padding-bottom: 3.5rem;
 	line-height: 2rem;
 }
+
+.cart__empty-mssg {
+	margin-bottom: -1rem;
+}
+
 /* Spinner from https://tobiasahlin.com/spinkit/ */
 .spinner {
   margin: 100px auto;
