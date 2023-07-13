@@ -119,6 +119,8 @@
 	.form__shipping {
 		color: $colour-pb-blue;
 		font-weight: bold;
+		line-height: 1.2rem;
+		margin-top: 0.5rem;
 	}
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		.form__shipping {
