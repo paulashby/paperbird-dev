@@ -122,12 +122,7 @@ echo "<!DOCTYPE html>
         <div class='content'>
              <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='$company_logo_url' alt='Paperbird logo'></a>
              $menu";
-
-            //  $chunks = loadWebpackChunks('js', array(
-            //     'manifest', 'vendor', 'main'
-            // ));
-
-           echo "<main data-pw-id='main'>
+             echo "<main data-pw-id='main'>
                 </main>
             </div><!-- END content -->
             $footer
