@@ -214,7 +214,6 @@ body.menu__entries--active {
 			width: 30rem;
 		}
 		.login {
-			// left: -260%;
 			left: auto;
 			right: -9rem;
 		}
@@ -224,7 +223,8 @@ body.menu__entries--active {
 			right: 0.5rem;
 		}
 		.menu--modal-active.menu--cart & {
-			min-height: 100vh;
+			// 5rem (menu--entries padding) + 4rem (content top-margin) = 9rem
+			min-height: calc(100vh - 9rem);
 		}
 		& .cart {
 			bottom: auto;
@@ -348,7 +348,7 @@ body.menu__entries--active {
 		position: fixed;
 		top: 0;
 		width: 100vw;
-		z-index: 1;
+		z-index: 2;
 
 		@include transition(
 			background .5s ease-out,
