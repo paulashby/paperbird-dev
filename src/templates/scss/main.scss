@@ -18,7 +18,8 @@
 './modules/footer',
 './global/config';
 
-body.no-scroll {
+body.no-scroll,
+body.show-lightbox {
     overflow: hidden;
 }
 
