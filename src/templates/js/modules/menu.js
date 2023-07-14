@@ -41,7 +41,6 @@ function init (settings) {
         
         // Check this is not just a field population animation initiated by a password manager
         if($(e.target).hasClass('login') && $('body').hasClass('logged-in')){
-            console.log('Animation completed');
             $('body').removeClass('cart-hidden').addClass('cart-viewable');
         }
      });
@@ -104,6 +103,7 @@ function init (settings) {
 
             // add class to change state of target element
             $('.menu').removeClass().addClass(setup.base_menu_class + ' menu--modal-active menu--' + menu_modifier);
+            $('body').addClass('no-scroll');
 
             if(tool_toggle === 'cart') {
 
@@ -123,6 +123,7 @@ function init (settings) {
     };
     actions.closeMenuTool = function (e) {
         $('.menu').removeClass('menu--modal-active');
+        $('body').removeClass('no-scroll');
     };
     actions.logInOut = function (e) {
 
