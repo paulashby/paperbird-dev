@@ -249,6 +249,7 @@ body.menu__entries--active {
 .menu--search:not(.menu--modal-active) .menu__entries .search {
 	@extend %collapsed-menu-tool;
 }
+
 .menu--anim-bttn .menu__entry:first-child {
 	align-self: flex-start;
 	flex: 1 1 100%;
@@ -261,11 +262,13 @@ body.menu__entries--active {
 		position: static;
 	}
 }
+
 .menu--static-bttn .menu__entry:nth-child(2) {
 	align-self: flex-start;
 	flex: 1 1 100%;
 	margin-bottom: 20px;
 }
+
 .menu__entry {
 	align-self: flex-end;
 	color: #fff;
@@ -282,6 +285,35 @@ body.menu__entries--active {
 		}
 	}
 }
+
+.menu__entry--scrim {
+    display: none;
+
+    @media only screen and (min-width: map_get($breakpoints, 'medium')) {
+        display: list-item;
+
+        .menu__scrim {
+			background: rgba(80, 80, 80, 0);
+			height: 100vh;
+			left: 0;
+			margin: 0;
+			pointer-events: none;
+			position: fixed;
+			top: 0;
+			width: 100vw;
+
+			@include transition(
+                background .5s ease-out
+            );
+
+            .menu--modal-active & {
+                background: rgba(80, 80, 80, 0.8);
+                pointer-events: all;
+            }
+        }
+    }
+}
+
 .menu__entry--login {
 
 	@media only screen and (min-width: map_get($breakpoints, 'small-2i')) {
@@ -300,8 +332,8 @@ body.menu__entries--active {
             right: 18rem;
         }
     }
-
 }
+
 .menu__entry--search {
 
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
@@ -337,28 +369,6 @@ body.menu__entries--active {
 
 	.toggle__button--toggle {
 		@include transform(scale(7) scale(0.1) translate(-10px, -10px) );
-	}
-}
-
-.menu__scrim {
-	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-		background: rgba(80, 80, 80, 0);
-		height: 100vh;
-		left: 0;
-		margin: 0;
-		pointer-events: none;
-		position: fixed;
-		top: 0;
-		width: 100vw;
-
-        @include transition(
-			background .5s ease-out,
-        );
-
-		.menu--modal-active & {
-			background: rgba(80, 80, 80, 0.8);
-			pointer-events: all;
-		}
 	}
 }
 
