@@ -31,7 +31,7 @@ $menu-tool-z-index: 2;
 }
 
 %expanded-menu-element {
-	@media only screen and (max-width: map_get($breakpoints, 'medium') - 1){
+	@media only screen and (max-width: calc(map_get($breakpoints, 'medium') - 1px)){
 		border: none;
 		z-index: 2;
 		padding: 2.5rem 1rem;
@@ -44,7 +44,7 @@ $menu-tool-z-index: 2;
 	animation: dropdown_anim $menu-transition_duration_medium;
 }
 %collapsed-menu-element {
-	@media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
+	@media only screen and (max-width: calc(map_get($breakpoints, 'medium') - 1px)) {
 		@keyframes dropdown_anim_rev {
 			0% {transform: scale(0.85); padding-top: 2.5rem}
 			50% {transform: scale(1.01); padding-top: 0}
@@ -69,7 +69,7 @@ $menu-tool-z-index: 2;
 	scale: 1;
 	z-index: $menu-tool-z-index;
 
-	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: map_get($breakpoints, 'medium') - 1){
+	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: calc(map_get($breakpoints, 'medium') - 1px)){
 		width: calc(100% - 40px);
 	}
 }
@@ -83,7 +83,7 @@ $menu-tool-z-index: 2;
 	animation: menu_element_anim_rev $menu-transition_duration;
 	z-index: $menu-tool-z-index;
 
-	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: map_get($breakpoints, 'medium') - 1){
+	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: calc(map_get($breakpoints, 'medium') - 1px)){
 		width: calc(100% - 40px);
 	}
 }
@@ -179,16 +179,16 @@ body.menu__entries--active {
 		left: 0;
 		width: 100%;
 	}
-	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: map_get($breakpoints, 'medium') - 1){
+	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: calc(map_get($breakpoints, 'medium') - 1px)){
 		box-shadow: -15px 0 15px 10px #555;
 	}
-	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: map_get($breakpoints, 'small-1') - 1){
+	@media only screen and (min-width: map_get($breakpoints, 'smallest-i')) and (max-width: calc(map_get($breakpoints, 'small-1') - 1px)){
 		width: 80%;
 	}
-	@media only screen and (min-width: map_get($breakpoints, 'small-1')) and (max-width: map_get($breakpoints, 'small-2') - 1){
+	@media only screen and (min-width: map_get($breakpoints, 'small-1')) and (max-width: calc(map_get($breakpoints, 'small-2') - 1px)){
 		width: 60%;
 	}
-	@media only screen and (min-width: map_get($breakpoints, 'small-2')) and (max-width: map_get($breakpoints, 'medium') - 1){
+	@media only screen and (min-width: map_get($breakpoints, 'small-2')) and (max-width: calc(map_get($breakpoints, 'medium') - 1px)){
 		width: 50%;
 	}
 	@media only screen and (min-width: map_get($breakpoints, 'small-3')){
@@ -285,12 +285,32 @@ body.menu__entries--active {
 
 	@media only screen and (min-width: map_get($breakpoints, 'small-2i')) {
 		transition: left $menu-transition_duration_medium ease;
+        left: 0;
+	}
 
-		.cart-viewable & {
-			left: 0;
-		}
+    @media only screen and (min-width: map_get($breakpoints, 'medium')) {
+		left: auto;
+		position: absolute;
+		right: 13.8rem;
+		top: -2.7rem;
+        transition: right $menu-transition_duration_medium ease;
+
+        .cart-viewable & {
+            right: 18rem;
+        }
+    }
+
+}
+.menu__entry--search {
+
+	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
+        left: auto;
+		position: absolute;
+        right: 0;
+		top: -2.7rem;
 	}
 }
+
 .menu__entry--cart {
 
 	display: inline-block;
@@ -298,8 +318,8 @@ body.menu__entries--active {
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 
 		position: absolute;
-		right: 6%;
-		top: 0.85rem;
+		right: 9rem;
+		top: -2.7rem;
 		z-index: 1;
 
 		transform: scale(0); 

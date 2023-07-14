@@ -65,7 +65,6 @@ function init (settings) {
         if(current_breakpoint.indexOf('small') >= 0) {
             // Now using jquery to position menu as using a class triggers the ccs animation when crossing breakpoints
             let main_menu = $('.' + setup.top_level_class);
-            // let new_position = main_menu.position().left < 0 ? 0 : - $(window).width();
             let new_position = main_menu.position().left < 0 ? 0 : - $(window).width();
 
 

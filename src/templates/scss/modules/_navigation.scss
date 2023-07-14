@@ -24,12 +24,11 @@
 	}
 }
 .nav__top-level {
-	top: 0;
 	width: 100%;
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		display: flex;
 		justify-content: center;
-		margin-left: 10%;
+		margin-left: 5.5rem;
 	}
 }
 .nav__top-cat {

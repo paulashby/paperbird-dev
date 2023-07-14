@@ -196,7 +196,7 @@ $leading-title: 1.25;
   color: $colour-pb-purple-light;
 }
 %full-screen-bordered {
-  @media only screen and (max-width: map_get($breakpoints, 'medium') - 1) {
+  @media only screen and (max-width: calc(map_get($breakpoints, 'medium') - 1px)) {
     background-color: $colour-pb-blue;
     border: 20px solid white;
     height: 100%;
