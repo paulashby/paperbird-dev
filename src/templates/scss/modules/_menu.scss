@@ -339,8 +339,8 @@ body.menu__entries--active {
 		@include transform(scale(7) scale(0.1) translate(-10px, -10px) );
 	}
 }
-.menu__entry-overlay {
-	// Use overlay to catch clicked as scrim on navigation is pseudo element and can't recieve pointer events
+
+.menu__scrim {
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		background: rgba(80, 80, 80, 0);
 		height: 100vh;
