@@ -233,6 +233,7 @@ body.menu__entries--active {
 			max-height: calc(100vh - 12rem);
 			right: -5.4rem;
 		}
+
 	}
 }
 
@@ -339,8 +340,9 @@ body.menu__entries--active {
 	}
 }
 .menu__entry-overlay {
+	// Use overlay to catch clicked as scrim on navigation is pseudo element and can't recieve pointer events
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
-		background: rgba(80,80,80,0);
+		background: rgba(80, 80, 80, 0);
 		height: 100vh;
 		left: 0;
 		margin: 0;
@@ -348,15 +350,14 @@ body.menu__entries--active {
 		position: fixed;
 		top: 0;
 		width: 100vw;
-		z-index: 2;
 
-		@include transition(
+        @include transition(
 			background .5s ease-out,
-		);
+        );
 
 		.menu--modal-active & {
-			background: rgba(80,80,80,0.8);
-			pointer-events: auto;
+			background: rgba(80, 80, 80, 0.8);
+			pointer-events: all;
 		}
 	}
 }

@@ -83,8 +83,9 @@ if($template_name != "maintenance") {
                     "outer_tpl" => "<ul class='nav__top-level'>||</ul>",
                     "inner_tpl" => "<ul class='nav__dropdown nav__dropdown--{name}' data-cat='{name}'>||</ul>",
                 ), 
-                "sliding" => false // Sliding dropdowns
+                "sliding" => false, // Sliding dropdowns
             ),
+            "scrim", // Add overlay while any of following menu items are active
             "login",
             "cart" => array(
                 "counter" => true),
