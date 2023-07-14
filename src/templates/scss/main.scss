@@ -18,6 +18,10 @@
 './modules/footer',
 './global/config';
 
+body.no-scroll {
+    overflow: hidden;
+}
+
 h1 {
 	color: $colour-black;
 }
