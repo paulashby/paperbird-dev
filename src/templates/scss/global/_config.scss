@@ -71,7 +71,8 @@ body {
 	@media only screen and (min-width: map_get($breakpoints, 'medium')) {
 		z-index: 3;
 
-		.show-lightbox & {
+		.show-lightbox &,
+		.no-scroll & {
 			z-index: auto;
 		}
 	}
