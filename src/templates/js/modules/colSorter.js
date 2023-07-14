@@ -1,5 +1,3 @@
-import {doAction} from '../helpers';
-
 let setup = {
 	success_callbacks : {
 	    loadPost: function (data) {
