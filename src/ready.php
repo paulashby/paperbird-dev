@@ -44,11 +44,11 @@ $wire->addHookAfter('InputfieldPage::getSelectablePages', function($event) {
 		// Populate category_sub->category_image_page Page Reference field
 		$selector = 'template=product, parent=' . $event->arguments('page');
 	    $event->return = $event->pages->find($selector);
-	  } else if($event->object->hasField == 'duplicates') {
-		// Populate category_sub->category_image_page Page Reference field
-		$selector = 'template=product, parent!=' . $event->arguments('page');
-	    $event->return = $event->pages->find($selector);
-	  }
+	  } else if($event->object->hasField == 'proxy') {
+        // Populate proxy Page Reference field
+        $selector = 'template=product, parent!=' . $event->arguments('page');
+        $event->return = $event->pages->find($selector);
+      }
 });
 
 // Restrict inclusion of admin page-list entries by role
