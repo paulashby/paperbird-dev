@@ -17,7 +17,8 @@ $lazyImages = $modules->get("LazyResponsiveImages");
 $max_eager = (int) $lazyImages->getMaxEager("subcat");
 $eager_count = 0;
 
-foreach ($products as $product) {
+foreach ($products as $product_page) {
+    $product = $product_page->template->name === "proxy-page" ? $product_page->proxy : $product_page;
 
 	$listing_options = [
 		"lazyImages"=>$lazyImages,
