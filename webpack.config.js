@@ -57,7 +57,8 @@ module.exports = [
       // clear out build directories on each build
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [
-          'site/templates/js/*',
+          'site/templates/js/main.min.*.js',
+          'site/templates/js/main.min.*.js.map',
           'site/templates/css/*',
           'site/templates/components/*',
         ]
