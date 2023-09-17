@@ -4,3 +4,4 @@ src/templates/scss/fonts/
 src/templates/img/*
 dist
 node_modules
+.vscode
