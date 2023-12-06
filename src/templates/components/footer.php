@@ -24,7 +24,7 @@ if ($settings->socials_insta) {
 }
 if ($settings->socials_etsy) {
 	$socials_head = "<h3 class='footer__heading'>social</h3>";
-	$etsy_link = "<a class='footer__link footer__link--etsy' href='https://www.etsy.com/uk/shop/PaperBirdGallery/'>Etsy</a>";
+	$etsy_link = "<p>Etsy</p><p class='footer__link footer__link--etsy'>We have a small selection of cards available in our <a href='https://www.etsy.com/uk/shop/PaperBirdGallery/' style='color: white'>Etsy shop</a>.</p>";
 }
 
 return "<footer class='footer'>
