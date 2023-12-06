@@ -19,18 +19,18 @@ $eager_count = 0;
 $product_list = "";
 
 foreach ($products as $product) {
-    
+
     if($eager_count < $max_eager) {
 
         $listing_options["lazy_load"] = false;
-    
+
     } else {
 
         $listing_options["lazy_load"] = true;
-        
+
     }
     $product_url = $product->url;	
-    
+
     $selected_sample = $product->biography_card;
 
     if($selected_sample) {
