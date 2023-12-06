@@ -115,13 +115,17 @@ switch ($action) {
 				
 				if($item_options["items_added"] < $num_items){
 
-					$item_options["item"] = $item;
-					$out["markup"] .= getArtistItem($item_options);
-					$out["last_loaded"] = $item->id;
+                    if($item->price_category->title === "Plumette 90 x 120") {
+                        bd("Plumette 90 x 120");
+                    } else {
+                        $item_options["item"] = $item;
+                        $out["markup"] .= getArtistItem($item_options);
+                        $out["last_loaded"] = $item->id;
 
-					$item_options["items_added"]++;
-					$current_item = $item->id;
-				}
+                        $item_options["items_added"]++;
+                        $current_item = $item->id;
+                    }
+                }
 				$out["next"] = $item->next();
 			}
 			return json_encode(array("success"=>true, "data"=>$out));
