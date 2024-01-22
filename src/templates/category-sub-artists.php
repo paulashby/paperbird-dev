@@ -19,7 +19,6 @@ $eager_count = 0;
 $product_list = "";
 
 foreach ($products as $product) {
-
     if($eager_count < $max_eager) {
 
         $listing_options["lazy_load"] = false;
@@ -32,9 +31,11 @@ foreach ($products as $product) {
     $product_url = $product->url;	
 
     $selected_sample = $product->biography_card;
+    $modifier_classes = "";
 
     if($selected_sample) {
         $product_shot = $selected_sample->product_shot->first();
+        $modifier_classes = get_image_format_class($product_shot);
         $dsc = $product_shot->description;
         $alt_str = $dsc ? $dsc : $product->title;
         $product_shot_options = array(
@@ -51,7 +52,7 @@ foreach ($products as $product) {
             "webp" => true,
             "loaded_callback" => " onload=\"$(this).addClass('loaded');\""
         );
-        $product_list .= "<div class='products__product'>
+        $product_list .= "<div class='products__product $modifier_classes'>
         <a href='$product_url' class='subcat-link'>";
         $product_list .= $lazyImages->renderImage($product_shot_options);
         $product_list .= "<h2 class='products__title'>" . $product->title . "</h2>
@@ -65,7 +66,7 @@ echo "<main data-pw-id='main'>
 		<h1 class='page-title'>$title</h1>
 		<h2 class='status-message'>$status_message</h2>
 			$search_again
-		<section class='products'>
+		<section class='products $modifier_classes'>
 			<div class='card-viewer' data-action='closeLightbox'></div>
 			$product_list
 		</section>
