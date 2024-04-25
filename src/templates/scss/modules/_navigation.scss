@@ -63,10 +63,13 @@
 }
 .nav__level-2-link {
 	color: $colour-pb-blue-light;
+    display: inline-block;
 	text-decoration: none;
+    text-wrap: balance;
 	font-family: $font-text;
 	font-size: 2.6rem;
 	font-style: italic;
+
 
 	.nav__level-2-link-extra {
 		display: block;
@@ -80,7 +83,6 @@
 	font-style: normal;
 	font-size: 2.2rem;
 	letter-spacing: $letter-spacing-menu;
-	white-space: nowrap;
 }
 
 .nav--sliding {
