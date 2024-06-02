@@ -14,11 +14,11 @@ switch ($action) {
 		if($sku) {
 			$cart = $this->modules->get("OrderCart");
 			// Get lightbox markup
-			$lightbox = $files->render('components/lightbox', ['sku'=>$sku, 'cart'=>$cart, 'action'=>'toggleMenuDisplay']);	
+			$lightbox = $files->render('components/lightbox', ['sku'=>$sku, 'cart'=>$cart, 'action'=>'toggleMenuDisplay']);
 
 			return json_encode(array("success"=>true, "data"=>$lightbox));
 
-		} 
+		}
 		return json_encode(array("success"=>false, "error"=>"Users must be logged in to use the cart"));
 
 	case "populateCart":
@@ -27,7 +27,7 @@ switch ($action) {
 		return json_encode(array("success"=>true, "data"=>$cart_data));
 
 	case "search":
-		$q = $input->get('q'); 
+		$q = $input->get('q');
 		$out = $files->render("components/search", array("value"=>array("container" => false)));
 		$no_results = "<h3 class='search__title search__title--unfound'>Your search returned no results</h3>";
 
@@ -67,14 +67,14 @@ switch ($action) {
 
 		case "loadPost":
 
-			$post_id = $input->get("id", "int"); 
+			$post_id = $input->get("id", "int");
 			$post_page = wire("pages")->get($post_id);
 			$num_posts = $input->get("num_posts", "int");
 			$out = array(
 				"markup"=>"");
 
-			for ($i=0; $i < $num_posts; $i++) { 
-				
+			for ($i=0; $i < $num_posts; $i++) {
+
 				$out["markup"] .= getPost($post_page);
 				$out["next_newest_id"] = getNextNewestID($post_page);
 				$post_page = $pages->get($out["next_newest_id"]);
@@ -89,12 +89,7 @@ switch ($action) {
 			$num_items = (int) $input->get("num_items", "int");
 			$artist_name = $input->get("artist", "text");
 			$start_after = $input->get("start_after", "int");
-			if($artist_name == "una-joy") {
-				// As Una Joy has loads of cards, we're only loading those in the artist section
-				$selector = "parent=/the-artists/una-joy/";
-			} else {
-				$selector = "template=product, artist=$artist_name";
-			}
+            $selector = "parent=/the-artists/$artist_name/";
 			$selector_options = array("limit" => $input->get("num_items", "int"));
 			if($start_after){
 				$selector_options["startAfterID"] = $start_after;
@@ -106,13 +101,13 @@ switch ($action) {
 				"markup"=>"");
 
 			$item_options = array(
-				"lazyImages"=>$modules->get("LazyResponsiveImages"), 
+				"lazyImages"=>$modules->get("LazyResponsiveImages"),
 				"items_added" => 0
 			);
 			$item_options["max_eager"] = (int) $item_options["lazyImages"]->getMaxEager("artist");
-			
+
 			foreach ($items as $item) {
-				
+
 				if($item_options["items_added"] < $num_items){
                     $item_options["item"] = $item;
                     $out["markup"] .= getArtistItem($item_options);
@@ -148,14 +143,14 @@ function getArtistItem($options) {
 	if($options["items_added"] < $options["max_eager"]) {
 
 		$listing_options["lazy_load"] = false;
-	
+
 	} else {
 
 		$listing_options["lazy_load"] = true;
-		
+
 	}
 
-	return wire("files")->render('components/productListingEntry', Array("product_shot_options"=>$listing_options));	
+	return wire("files")->render('components/productListingEntry', Array("product_shot_options"=>$listing_options));
 }
 function getPost ($post_page) {
 
@@ -188,7 +183,7 @@ function getPost ($post_page) {
 		return "<div class='$class_list'>$post_image<div class='blog-post__text'><h2>$title</h2>{$post_content}{$story_details}</div></div><!-- END blog-post -->";
 
 	}
-	
+
 	return "<div class='blog-post'><div class='blog-entry__text'><h2>item not found</h2><p>It seems like the requested item is no longer available.</p></div></div><!-- END blog-post -->";
 
 }
