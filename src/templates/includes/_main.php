@@ -114,7 +114,6 @@ echo "<!DOCTYPE html>
         <title data-pw-id='title'>$title</title>
         <script>var config = " . json_encode($jsconfig) . ";</script>";
 
-        // echo loadWebpackChunk('css','main');
         echo "<link rel='stylesheet' type='text/css' href='$css_url' />";
 
         echo "<region data-pw-id='head'></region>
