@@ -8,6 +8,10 @@ $sku = $product->sku;
 $pg_template = $page->template->name;
 $data_attr_String = $pg_template == "category-main" ? "" : "data-action='openLightbox' data-sku='$sku'";
 
+$product_shot = $product->product_shot;
+
+if (!$product_shot) { return ""; }
+
 $image_format_class = get_image_format_class($product->product_shot->first());
 
 $entry_out = "<div class='products__product $image_format_class' $data_attr_String>";
