@@ -86,10 +86,14 @@ switch ($action) {
 			return json_encode(array("success"=>true, "data"=>$out));
 
 		case "loadArtistItems":
-			$num_items = (int) $input->get("num_items", "int");
 			$artist_name = $input->get("artist", "text");
+            $artist_page = wire("pages")->get("/the-artists/$artist_name/");
+            $artist_page_has_children = $artist_page && $artist_page->hasChildren();
+            $selector = $artist_page_has_children ? "parent=/the-artists/$artist_name/" : "template=product, artist={$artist_page->id}";
+
+			$num_items = (int) $input->get("num_items", "int");
 			$start_after = $input->get("start_after", "int");
-            $selector = "parent=/the-artists/$artist_name/";
+
 			$selector_options = array("limit" => $input->get("num_items", "int"));
 			if($start_after){
 				$selector_options["startAfterID"] = $start_after;
