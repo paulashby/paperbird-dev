@@ -7,7 +7,7 @@ $cart = $this->modules->get("OrderCart");
 $title = $page->title;
 
 if( ! isset($status_message)) {
-	$status_message = "";	
+	$status_message = "";
 }
 if( ! isset($search_again)) {
 	$search_again = "";
@@ -28,7 +28,7 @@ foreach ($products as $product) {
         $listing_options["lazy_load"] = true;
 
     }
-    $product_url = $product->url;	
+    $product_url = $product->url;
 
     $selected_sample = $product->biography_card;
     $modifier_classes = "";
