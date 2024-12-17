@@ -15,8 +15,6 @@ $q = $input->get('q');
 		// Make hyphenated terms separate words
 		$q = str_replace("-", " ", $q);
 		$q = explode(" ", $sanitizer->selectorValue($q));
-
-        bd($q);
 		$input->whitelist($q); 
 		$selector = "";
 
