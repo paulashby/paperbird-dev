@@ -48,6 +48,8 @@ return "<footer class='footer'>
 				<a class='footer__link footer__link--catalogue' href='/request-a-catalogue/'>Get a catalogue</a>
 			</section>
 			<section class='footer__entry'>
+                <h3 class='footer__heading'>Archive</h3>
+                <a class='footer__link footer__link--archive' href='/archive/'>Perennial favourites</a>
 				{$socials_head}
 				{$twitter_link}
 				{$facebook_link}
