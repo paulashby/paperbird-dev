@@ -27,7 +27,7 @@ $q = $input->get('q');
 			$selector .= ", title|tags.title|artist.title|sku$selector_operator" . $sanitizer->selectorValue($part);
 		}
 		
-		$selector = "template=product, $selector, limit=30";
+        $selector = "template=product, $selector";
 		$matches = $pages->find($selector);
 		$result_count = count($matches);
 
