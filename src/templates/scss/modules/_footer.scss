@@ -66,6 +66,9 @@
 			display: block;	
 		}
 	}
+    .footer__link--archive {
+        margin-bottom: 3.5rem;
+    }
 	.footer__text {
 		@extend %footer-base-text;
 		@extend %footer_item;
