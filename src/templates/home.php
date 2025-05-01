@@ -22,6 +22,7 @@ $main_image = $lazyImages->renderImage($image_options);
 echo "<main data-pw-id='main'>
 	<h1 class='page-title page-title--home'>Welcome to paperbird</h1>
 	$main_image
+	<iframe id='faire-widget' scrolling='no'></iframe>
 </main>";
 
 ?>

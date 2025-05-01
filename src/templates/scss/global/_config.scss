@@ -184,6 +184,15 @@ body {
 	}
 }
 
+.home {
+    @media only screen and (min-width: map_get($breakpoints, 'small-i')) {
+        footer {
+            /* Adjust footer to accommodate Faire widget */
+            margin-top: -8rem;
+        }
+    }
+}
+
 h2 {
 	@extend %title;
 	font-size: 2rem;

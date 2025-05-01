@@ -19,8 +19,8 @@ function init (settings) {
     $('.nav').on('click', function (e) {
         dataAttrClickHandler(e, actions);
     });
-    
-    $(window).on('resize', function() {
+
+    $(window).on('debouncedResize', function() {
 
         // Hide active dropdowns when menu becomes landscape
         let current_breakpoint = getBreakpoint();

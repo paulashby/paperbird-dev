@@ -3,14 +3,17 @@ import errorHandler from './utilities/errorHandler';
 import menu from './modules/menu';
 import navigation from './modules/navigation';
 import lightbox from './modules/lightbox';
-import cart from './modules/cart'; 
-import blog from './modules/blog';  
-import artist from './modules/artist';  
-import colSorter from './modules/colSorter';  
+import cart from './modules/cart';
+import blog from './modules/blog';
+import artist from './modules/artist';
+import colSorter from './modules/colSorter';
 import LazyLoad from './vendor/lazyload.esm';
 
+const debouncedResizeEvent = new Event('debouncedResize');
+let debounce;
+
 let lazyLoad = new LazyLoad({
-  elements_selector: ".lazy",
+  elements_selector: '.lazy',
   threshold: 150,
   cancel_on_exit: true
 });
@@ -18,24 +21,24 @@ let lazyLoad = new LazyLoad({
 window.jQuery = $;
 window.$ = $;
 
-$( document ).ready(function() {
+$(function() {
     init();
 });
 
 function init () {
 
-	let sliding = $('.nav').hasClass('nav--sliding');
+    const sliding = $('.nav').hasClass('nav--sliding');
 
-	let error_handler_settings = {
+	const error_handler_settings = {
 		url: config.errorHandlerURL
 	};
 
-	let nav_settings = {
+	const nav_settings = {
 		menu: menu,
 		sliding: sliding
 	}
 
-	let menu_settings = {
+	const menu_settings = {
 		loginClosesMenu: false,
 		cartClosesMenu: false,
 		lazyLoad: lazyLoad,
@@ -43,7 +46,7 @@ function init () {
 		hasNav: true
 	}
 
-	let lightbox_settings = {
+	const lightbox_settings = {
 		cartAddClosesLightbox: true
 	}
 
@@ -58,15 +61,33 @@ function init () {
 		$('body').addClass('ios');
 	}
 
+    window.addEventListener('resize', () => {
+
+        clearTimeout(debounce);
+        $('body').addClass('resizing');
+
+        debounce = setTimeout(() => {
+            $('body').removeClass('resizing');
+
+            if ($('body').hasClass('home')) {
+                setFaireWidgetSrc();
+            }
+
+            window.dispatchEvent(debouncedResizeEvent);
+        }, 250);
+    });
+
 	errorHandler.init(error_handler_settings);
 	menu.init(menu_settings);
-	navigation.init(nav_settings);	
+	navigation.init(nav_settings);
 	lightbox.init(lightbox_settings);
 	cart.init();
 
-	if($('body').hasClass('notebook')) {	
+	if ($('body').hasClass('home')) {
+		setFaireWidgetSrc();
+	} else if ($('body').hasClass('notebook')) {
 		blog.init();
-	} else if($('body').hasClass('artist')){
+	} else if ($('body').hasClass('artist')){
 		// Pass in lazyLoad instance so we can update after ajax load
 		artist.init(lazyLoad);
 	} else if ($('body').hasClass('whats-on')){
@@ -79,8 +100,50 @@ function init () {
 
 		colSorter.init(col_sorter_settings);
 
-	} 
+	}
 }
+
+const setFaireWidgetSrc = () => {
+    const currentWidth = $(document).innerWidth();
+
+    const faireWidgetAttributes = new Map();
+    faireWidgetAttributes.set(900, {
+        urlSegment: 'bw_j3qqrnn2mj',
+        width: '900',
+        height: '600',
+        style: 'margin:0 auto;border:none;display:block;max-width:100%;width:900px;height:600px;'
+    });
+    faireWidgetAttributes.set(500, {
+        urlSegment: 'bw_gyk4ma5de5',
+        width: '500',
+        height: '600',
+        style: 'margin:0 auto;border:none;display:block;max-width:100%;width:500px;height:600px;'
+    });
+    faireWidgetAttributes.set(0, {
+        urlSegment: 'bw_ehcu3ehwp3',
+        width: '360',
+        height: '64',
+        style: 'margin:0 auto;border:none;display:block;max-width:100%;width:360px;height:64px;'
+    });
+
+    for (const [key, value] of faireWidgetAttributes) {
+        if (currentWidth >= key) {
+            const faireWidget = $('#faire-widget');
+
+            if (faireWidget.length === 0) {
+                console.warn('Faire widget not found');
+            } else {
+                const {urlSegment, ...otherAttribs} = faireWidgetAttributes.get(key);
+                faireWidget.attr({
+                    src: `https://www.faire.com/embed/${urlSegment}`,
+                    ...otherAttribs
+                });
+            }
+            break;
+        }
+    }
+};
+
 // https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
 const addMaximumScaleToMetaViewport = () => {
   const el = document.querySelector('meta[name=viewport]');
