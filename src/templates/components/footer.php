@@ -32,6 +32,7 @@ return "<footer class='footer'>
 		<div class='footer__sections'>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>legal stuff</h3>
+                <a class='footer__link footer__link--tc' href='/documents/shipping'>Shipping</a>
 				<a class='footer__link footer__link--tc' href='/documents/terms-conditions'>Terms &amp; Conditions</a>
 				<a class='footer__link footer__link--privacy' href='/documents/privacy-policy'>Privacy Policy</a>
 				<a class='footer__link footer__link--prodinfo' href='/documents/order-product-information'>Order &amp; product info</a>
@@ -58,7 +59,7 @@ return "<footer class='footer'>
 		</div><!-- END footer__sections -->
 		<div class='footer__credits'>
 			<p class='footer__text footer__text--copyright'>&copy; $year Paper Bird Publishing</p>
-			<p class='footer__text footer__text--credit'>Site created by <a class='footer__text-link' href='https://www.primitive.co/'>Primitive</a></p>
+			<p class='footer__text footer__text--credit'>Site created by <a class='footer__text-link' href='https://www.paulashby.co.uk/'>Paul Ashby</a></p>
 		</div><!-- END footer__credits -->
 	</div><!-- END footer__content -->
 </footer>";
