@@ -35,7 +35,7 @@ return "<footer class='footer'>
                 <a class='footer__link footer__link--tc' href='/documents/shipping'>Shipping</a>
 				<a class='footer__link footer__link--tc' href='/documents/terms-conditions'>Terms &amp; Conditions</a>
 				<a class='footer__link footer__link--privacy' href='/documents/privacy-policy'>Privacy Policy</a>
-				<a class='footer__link footer__link--prodinfo' href='/documents/order-product-information'>Order &amp; product info</a>
+				<a class='footer__link footer__link--prodinfo' href='/documents/order-product-information'>Product Info</a>
 			</section>
 			<section class='footer__entry'>
 				<h3 class='footer__heading'>news</h3>
