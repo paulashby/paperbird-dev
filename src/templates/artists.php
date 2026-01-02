@@ -1,7 +1,7 @@
 <?php namespace ProcessWire;
 
 $title = $page->title;
-$artists = wire("pages")->find("template=" . $sanitizer->selectorValue("artist"));
+$artists = wire("pages")->find("template=" . $sanitizer->selectorValue("artist") . ", sort=sort");
 $artists_out  = "<div class='artist__list'>";
 
 $lazyImages = $modules->get("LazyResponsiveImages");
