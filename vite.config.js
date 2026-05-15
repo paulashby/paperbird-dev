@@ -8,8 +8,8 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'src/templates/scss/main.scss',
-                'src/templates/js/main.js'
+                'src/scss/main.scss',
+                'src/js/main.js'
             ],
             refresh: [
                 './**',
@@ -17,7 +17,7 @@ export default defineConfig({
                 '../classes/*.php',
             ],
             publicDirectory: './',
-            buildDirectory: 'dist/site/templates/build',
+            buildDirectory: 'site/templates/build',
         })
     ],
     resolve: {
