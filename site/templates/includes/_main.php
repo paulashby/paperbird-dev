@@ -102,7 +102,6 @@ if($template_name != "maintenance") {
 } else {
     $company_logo_url = "/site/templates/img/paperbirdLogo_w.svg";
 }
-$title = "THIS IS A TEST!";
 ?>
 <!DOCTYPE html>
 <html>
@@ -111,7 +110,7 @@ $title = "THIS IS A TEST!";
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <title data-pw-id='title'><?= $title ?></title>
         <?= "<script>var config = " . json_encode($jsconfig) . ";</script>" ?>
-        <?= vite(['site/templates/build/assets/main.scss']) ?>
+        <?= vite(['src/scss/main.scss']) ?>
         <region data-pw-id='head'></region>
     </head>
     <?= $body_tag ?>
@@ -123,7 +122,7 @@ $title = "THIS IS A TEST!";
         </div><!-- END content -->
         <?= $footer ?>
         <region data-pw-id='scripts'>
-            <?= vite(['site/templates/build/assets/main.js']) ?>
+            <?= vite(['src/js/main.js']) ?>
         </region>
     </body>
 </html>
