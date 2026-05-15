@@ -1,25 +1,14 @@
 {
   "scripts": {
-    "build": "webpack --mode development",
-    "dist": "webpack --mode production",
-    "watch": "webpack --watch --mode development"
+    "build": "vite build",
+    "dev": "vite"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.2",
-    "@babel/preset-env": "^7.21.5",
-    "babel-loader": "^9.1.2",
-    "browser-sync-v3-webpack-plugin": "^0.1.1",
-    "clean-webpack-plugin": "^4.0.0",
-    "copy-webpack-plugin": "^11.0.0",
-    "css-loader": "~6.8.1",
-    "css-minimizer-webpack-plugin": "^5.0.0",
-    "mini-css-extract-plugin": "^2.7.5",
-    "sass": "^1.62.1",
-    "sass-loader": "^13.2.2",
-    "webpack": "^5.82.1",
-    "webpack-cli": "^5.1.1"
+    "laravel-vite-plugin": "^3.1.0",
+    "sass-embedded": "^1.99.0",
+    "vite": "^8.0.13"
   },
   "dependencies": {
-    "jquery": "^3.7.0"
+    "jquery": "^4.0.0"
   }
 }
