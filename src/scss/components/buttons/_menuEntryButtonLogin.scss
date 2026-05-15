@@ -3,7 +3,7 @@
 
 .menu__entrybutton--login {
 	@extend %menu__entrybutton-base;
-	background: url(../img/navbttns.svg) -4px 2px/465%;
+	background: url(../../../../img/navbttns.svg) -4px 2px/465%;
 	margin: 0 auto 0 15%;
 
 	body.logged-in & {
