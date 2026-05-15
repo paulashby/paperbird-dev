@@ -7,8 +7,8 @@ import cart from './modules/cart';
 import blog from './modules/blog';
 import artist from './modules/artist';
 import colSorter from './modules/colSorter';
-import LazyLoad from './vendor/lazyload.esm';
-alert('JS loaded');
+import LazyLoad from '../../site/templates/js/vendor/lazyload.esm';
+
 const debouncedResizeEvent = new Event('debouncedResize');
 let debounce;
 
