@@ -1,6 +1,6 @@
 <?php
 
-include_once("./_func.php");
+include_once(__DIR__ . "/_func.php");
 
 if($page->template->name === 'services-forgotten-password') {
 
