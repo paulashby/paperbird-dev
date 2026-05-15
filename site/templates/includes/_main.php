@@ -115,8 +115,8 @@ if($template_name != "maintenance") {
     </head>
     <?= $body_tag ?>
         <div class='content'>
-             <a href=" . $config->urls->root . " class='home-link'><img class='logo' src='$company_logo_url' alt='Paperbird logo'></a>
-             <?= $menu ?>;
+             <a href=" . <?= $config->urls->root ?> . " class='home-link'><img class='logo' src='<?= $company_logo_url ?>' alt='Paperbird logo'></a>
+             <?= $menu ?>
              <main data-pw-id='main'>
              </main>
         </div><!-- END content -->
